@@ -62,8 +62,8 @@ export default defineComponent({
         mdIcon: mailSharp
       },
       {
-        title: 'Outbox',
-        url: '/folder/Outbox',
+        title: 'ทดสอบ',
+        url: '/folder/ทดสอบ',
         iosIcon: paperPlaneOutline,
         mdIcon: paperPlaneSharp
       },
