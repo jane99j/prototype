@@ -49,7 +49,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>ยอดรวม</ion-label>
+      <ion-label>ยอดรวม :</ion-label>
       <ion-input readonly></ion-input>
     </ion-item>
 

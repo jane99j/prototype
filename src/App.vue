@@ -63,7 +63,7 @@ export default defineComponent({
       },
       {
         title: 'ห้อง',
-        url: '/roomPage',
+        url: '/folder/ห้อง',
         iosIcon: paperPlaneOutline,
         mdIcon: paperPlaneSharp
       },
