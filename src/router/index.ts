@@ -11,12 +11,8 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/FolderPage.vue')
   },
   {
-    path: '/folder/:id',
-    component: () => import ('../views/FolderPage.vue')
-  },
-  {
-    path: '/demoPage',
-    component: () => import ('../views/demoPage.vue')
+    path: '/AgreementPage',
+    component: () => import ('../views/AgreementPage.vue')
   }
 ]
 
