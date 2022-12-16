@@ -62,8 +62,8 @@ export default defineComponent({
         mdIcon: mailSharp
       },
       {
-        title: 'ทดสอบ',
-        url: '/folder/ทดสอบ',
+        title: 'ห้อง',
+        url: '/roomPage',
         iosIcon: paperPlaneOutline,
         mdIcon: paperPlaneSharp
       },
