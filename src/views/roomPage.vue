@@ -28,7 +28,7 @@
 
       </ion-list>
     </ion-card-content>
-    <ion-button expand="block">บันทึก :</ion-button>
+    <ion-button expand="block">บันทึก</ion-button>
   </ion-card>
 
   </template>

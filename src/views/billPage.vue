@@ -1,7 +1,11 @@
 <template>
-    <ion-card>
-    <h1>รอบเดือน 04-2022</h1>
-    <ion-card>
+  
+<ion-card>
+  <ion-card-header>
+    <ion-card-title></ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
     <ion-grid :fixed="false">
       <ion-row>
         <ion-col>ห้อง</ion-col>
@@ -14,61 +18,33 @@
 
     <ion-grid :fixed="false">
       <ion-row>
-        <ion-col>101</ion-col>
-        <ion-col>ไม่ว่าง</ion-col>
-        <ion-col>20 หน่วย</ion-col>
-        <ion-col>50 หน่วย</ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-button>รายละเอียด</ion-button></ion-col>
       </ion-row>
     </ion-grid>
 
-    <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col>102</ion-col>
-        <ion-col>ไม่ว่าง</ion-col>
-        <ion-col>20 หน่วย</ion-col>
-        <ion-col>50 หน่วย</ion-col>
-        <ion-col><ion-button>รายละเอียด</ion-button></ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col>103</ion-col>
-        <ion-col>ไม่ว่าง</ion-col>
-        <ion-col>20 หน่วย</ion-col>
-        <ion-col>50 หน่วย</ion-col>
-        <ion-col><ion-button>รายละเอียด</ion-button></ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col>104</ion-col>
-        <ion-col>ไม่ว่าง</ion-col>
-        <ion-col>20 หน่วย</ion-col>
-        <ion-col>50 หน่วย</ion-col>
-        <ion-col><ion-button>รายละเอียด</ion-button></ion-col>
-      </ion-row>
-    </ion-grid>
+  </ion-card-content>
 </ion-card>
-</ion-card>
+   
   </template>
   
   <script lang="ts">
-    import { IonCol, IonGrid, IonRow } from '@ionic/vue';
+    import { IonButton,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow } from '@ionic/vue';
     import { defineComponent } from 'vue';
   
     export default defineComponent({
-      components: { IonCol, IonGrid, IonRow },
+      components: { IonButton,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow },
     });
   </script>
   
   <style scoped>
     ion-col {
-      background-color: #000000;
-      border: solid 1px #fff;
-      color: #fff;
+      background-color: #ffffff;
+      border: solid 1px rgb(215, 215, 215);
+      color: rgb(0, 0, 0);
       text-align: center;
     }
   </style>

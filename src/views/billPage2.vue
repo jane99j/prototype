@@ -1,43 +1,74 @@
 <template>
     <ion-card>
-      <ion-card-header>
-        <ion-card-title>ห้อง 101</ion-card-title>
-        <ion-card-subtitle></ion-card-subtitle>
-      </ion-card-header>
+    <ion-card-header>
+      <ion-card-title>รายละเอียดบิล</ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list>
+    <ion-item>
+      <ion-label>หมายเลขห้องพัก :</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>วัน/เดือน/ปี :</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ค่าห้อง :</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ค่าน้ำ :</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ค่าไฟฟ้า :</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ค่าอินเตอร์เน็ต :</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ค่าที่จอดรถ :</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ค่าอื่นๆ :</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>ยอดรวม</ion-label>
+      <ion-input readonly></ion-input>
+    </ion-item>
+
+    </ion-list>
+
+    </ion-card-content>
+
+    <ion-button fill="clear">พิมพ์</ion-button>
+    <ion-button fill="clear">ออกบิล</ion-button>
+  </ion-card>
   
-      <ion-card-content>
-        วัน/เดือน/ปี xx-xx-20xx
-      </ion-card-content>
-      <ion-card-content>
-        ค่าห้อง 4000
-      </ion-card-content>
-      <ion-card-content>
-        ค่าน้ำ 200
-      </ion-card-content>
-      <ion-card-content>
-        ค่าไฟ 1000
-      </ion-card-content>
-      <ion-card-content>
-        ค่าอินเตอร์เน็ต 500
-      </ion-card-content>
-      <ion-card-content>
-        ค่าจอดรถ 100
-      </ion-card-content>
-      <ion-card-content>
-        ค่าซ้อมบำรุง xxx
-      </ion-card-content>
-  
-      <ion-button fill="clear">พิมพ์</ion-button>
-      <ion-button fill="clear">ออกบิล</ion-button>
-    </ion-card>
   </template>
   
   <script lang="ts">
-    import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
+    import { IonInput, IonItem, IonLabel, IonList,IonButton, IonCard, IonCardContent, IonCardHeader,IonCardTitle } from '@ionic/vue';
     import { defineComponent } from 'vue';
   
     export default defineComponent({
-      components: { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle },
+      components: { IonInput, IonItem, IonLabel, IonList,IonButton, IonCard, IonCardContent, IonCardHeader,IonCardTitle },
     });
   </script>
   
