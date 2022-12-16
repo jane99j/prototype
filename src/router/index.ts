@@ -41,7 +41,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/AgreementPage',
     component: () => import ('../views/AgreementPage.vue')
-  }
+  },
+  {
+    path: '/managebillPage',
+    component: () => import ('../views/managebillPage.vue')
+  },
 ]
 
 const router = createRouter({
