@@ -17,7 +17,33 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/demoPage',
     component: () => import ('../views/demoPage.vue')
-  }
+  },
+
+  {
+    path: '/roomPage',
+    component: () => import ('../views/roomPage.vue')
+  },
+  {
+    path: '/waterelectricitybillPage',
+    component: () => import ('../views/waterelectricitybillPage.vue')
+  },
+
+  {
+    path: '/manageroomPage1',
+    component: () => import ('../views/manageroomPage1.vue')
+  },
+
+  {
+    path: '/billPage',
+    component: () => import ('../views/billPage.vue')
+  },
+
+  {
+    path: '/billPage2',
+    component: () => import ('../views/billPage2.vue')
+  },
+
+  
 ]
 
 const router = createRouter({
