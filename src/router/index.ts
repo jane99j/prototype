@@ -11,7 +11,6 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/FolderPage.vue')
   },
   {
-<<<<<<< HEAD
     path: '/folder/:id',
     component: () => import ('../views/FolderPage.vue')
   },
@@ -43,13 +42,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/billPage2',
     component: () => import ('../views/billPage2.vue')
   },
-
-  
-=======
+  {
     path: '/AgreementPage',
     component: () => import ('../views/AgreementPage.vue')
   }
->>>>>>> b12c51eaa0d0871c17d8a87f5f27f016e640f4fc
 ]
 
 const router = createRouter({
