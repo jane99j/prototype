@@ -81,13 +81,13 @@ export default defineComponent({
       },
       {
         title: 'จดมิเตอร์',
-        url: '/billPage',
+        url: '/managebillPage',
         iosIcon: trashOutline,
         mdIcon: trashSharp
       },
       {
-        title: 'Spam',
-        url: '/folder/Spam',
+        title: 'บิล',
+        url: '/billPage',
         iosIcon: warningOutline,
         mdIcon: warningSharp
       }
