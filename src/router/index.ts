@@ -19,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/waterelectricitybillPage',
     component: () => import ('../views/waterelectricitybillPage.vue')
   },
+  {
+    path: '/homePage',
+    component: () => import ('../views/homePage.vue')
+  },
+
 
   {
     path: '/manageroomPage1',
