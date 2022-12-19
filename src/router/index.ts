@@ -34,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/billPage',
     component: () => import ('../views/billPage.vue')
   },
-  
+
   {
     path: '/AgreementPage',
     component: () => import ('../views/AgreementPage.vue')
@@ -42,6 +42,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/managebillPage',
     component: () => import ('../views/managebillPage.vue')
+  },
+  {
+    path: '/userdataPage',
+    component: () => import ('../views/userdataPage.vue')
   },
 ]
 
