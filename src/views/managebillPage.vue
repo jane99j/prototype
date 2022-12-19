@@ -44,7 +44,7 @@
       </ion-select>
     </ion-item>
   </ion-list></ion-col>
-        <ion-col></ion-col>
+        <ion-col><ion-searchbar placeholder="ค้นหาห้องพัก"></ion-searchbar></ion-col>
         <ion-col></ion-col>
         <ion-col></ion-col>
         <ion-col><ion-button>ค่าน้ำ</ion-button><ion-button>ค่าไฟ</ion-button></ion-col>
@@ -64,31 +64,21 @@
     </ion-grid>
     <ion-grid :fixed="false">
       <ion-row>
-        <ion-col>101</ion-col>
-        <ion-col>ไม่ว่าง</ion-col>
-        <ion-col>500</ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
         <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
       </ion-row>
     </ion-grid>
-
+    
     <ion-grid :fixed="false">
       <ion-row>
-        <ion-col>102</ion-col>
-        <ion-col>ไม่ว่าง</ion-col>
-        <ion-col>500</ion-col>
-        <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
-        <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col>103</ion-col>
-        <ion-col>ไม่ว่าง</ion-col>
-        <ion-col>500</ion-col>
-        <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
-        <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+        <ion-col><ion-button>บันทึกข้อมูลทั้งหมด</ion-button></ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
       </ion-row>
     </ion-grid>
 
@@ -103,7 +93,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonList, IonSelect, IonSelectOption } from '@ionic/vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonList, IonSelect, IonSelectOption,IonSearchbar } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
@@ -114,7 +104,7 @@ export default defineComponent({
     IonMenuButton,
     IonPage,
     IonTitle,
-    IonToolbar,IonCol, IonGrid, IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonList, IonSelect, IonSelectOption
+    IonToolbar,IonCol, IonGrid, IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonList, IonSelect, IonSelectOption,IonSearchbar
   }
 });
 </script>
