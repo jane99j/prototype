@@ -63,25 +63,25 @@ export default defineComponent({
       },
       {
         title: 'ห้อง',
-        url: '/folder/ห้อง',
+        url: '/homePage',
         iosIcon: paperPlaneOutline,
         mdIcon: paperPlaneSharp
       },
       {
-        title: 'Favorites',
-        url: '/folder/Favorites',
+        title: 'เพิ่มห้อง',
+        url: '/roomPage',
         iosIcon: heartOutline,
         mdIcon: heartSharp
       },
       {
-        title: 'Archived',
-        url: '/folder/Archived',
+        title: 'สัญญา',
+        url: '/AgreementPage',
         iosIcon: archiveOutline,
         mdIcon: archiveSharp
       },
       {
-        title: 'Trash',
-        url: '/folder/Trash',
+        title: 'จดมิเตอร์',
+        url: '/billPage',
         iosIcon: trashOutline,
         mdIcon: trashSharp
       },

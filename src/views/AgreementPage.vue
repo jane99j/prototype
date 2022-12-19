@@ -1,5 +1,25 @@
+
 <template>
-  <ion-card>
+  <ion-page>
+    <ion-header :translucent="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button color="primary"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{ $route.params.id }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">{{ $route.params.id }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    
+      <div id="container">
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        <ion-card>
     <ion-card-header>
       <ion-card-title>ทำสัญญาห้องพัก</ion-card-title>
     </ion-card-header>
@@ -93,15 +113,21 @@
   </ion-card-content>
   <ion-button expand="block">บันทึกสัญญา</ion-button>
   </ion-card>
+      </div>
+    </ion-content>
+  </ion-page>
 </template>
 
 <script lang="ts">
-  import { IonButton,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal,IonList ,IonLabel,IonItem,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle } from '@ionic/vue';
-  import { defineComponent } from 'vue';
+import { defineComponent } from 'vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal,IonList ,IonLabel,IonItem,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle  } from '@ionic/vue';
 
-  export default defineComponent({
-    components: { IonButton,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal,IonList ,IonLabel,IonItem,IonInput,IonCard, IonCardContent, IonCardHeader, IonCardTitle },
-  });
+export default defineComponent({
+  name: 'FolderPage',
+  components: {
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal,IonList ,IonLabel,IonItem,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle 
+  }
+});
 </script>
 
 <style scoped>
