@@ -34,7 +34,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/billPage',
     component: () => import ('../views/billPage.vue')
   },
-  
+
   {
     path: '/AgreementPage',
     component: () => import ('../views/AgreementPage.vue')
@@ -44,9 +44,15 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/managebillPage.vue')
   },
   {
+<<<<<<< HEAD
     path: '/billoverduePage',
     component: () => import ('../views/billoverduePage.vue')
   }
+=======
+    path: '/userdataPage',
+    component: () => import ('../views/userdataPage.vue')
+  },
+>>>>>>> 16924edef1d37eb2aedd964ce2f8c80ae216a332
 ]
 
 const router = createRouter({
