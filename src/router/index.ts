@@ -43,6 +43,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/managebillPage',
     component: () => import ('../views/managebillPage.vue')
   },
+  {
+    path: '/billoverduePage',
+    component: () => import ('../views/billoverduePage.vue')
+  }
 ]
 
 const router = createRouter({
