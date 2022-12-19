@@ -1,3 +1,4 @@
+
 <template>
   <ion-page>
     <ion-header :translucent="true">
@@ -26,9 +27,11 @@
                     <ion-card-title>101</ion-card-title>
                     <ion-card-subtitle></ion-card-subtitle>
                   </ion-card-header>
-
                   <ion-card-content>
-                    ยังไม่ชำระ
+                    <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                    </ion-card-content>
+                    <ion-card-content>
+                    <ion-label>ยังไม่ชำระ</ion-label>
                   </ion-card-content>
                 </ion-card>
 
@@ -39,7 +42,9 @@
                     <ion-card-title>102</ion-card-title>
                     <ion-card-subtitle></ion-card-subtitle>
                   </ion-card-header>
-
+                  <ion-card-content>
+                    <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                    </ion-card-content>
                   <ion-card-content>
                     ชำระแล้ว
                   </ion-card-content>
@@ -51,7 +56,9 @@
                     <ion-card-title>103</ion-card-title>
                     <ion-card-subtitle></ion-card-subtitle>
                   </ion-card-header>
-
+                  <ion-card-content>
+                    <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                    </ion-card-content>
                   <ion-card-content>
                     ชำระแล้ว
                   </ion-card-content>
@@ -66,19 +73,31 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
+import {IonLabel,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
+import {person} from 'ionicons/icons';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle
+    IonLabel,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle
+  },
+  setup() {
+      return {person}
   }
 });
+
+
 </script>
 <style scoped>
   /* iOS places the subtitle above the title */
   ion-card-header.ios {
     display: flex;
     flex-flow: column-reverse;
+  }
+  ion-icon{
+    font-size: 300%;
+    float: right ;
+    margin-top: 7px;
+    
   }
 </style>

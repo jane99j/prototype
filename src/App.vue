@@ -90,6 +90,12 @@ export default defineComponent({
         url: '/billPage',
         iosIcon: warningOutline,
         mdIcon: warningSharp
+      },
+      {
+        title: 'พัสดุ',
+        url: '/suppliesPage',
+        iosIcon: warningOutline,
+        mdIcon: warningSharp
       }
     ];
     const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
