@@ -78,40 +78,7 @@
     </ion-grid>
 
     <ion-card-title>
-        <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col><ion-input readonly>หน่วยมิเตอร์เดิม</ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-      </ion-row>
-    </ion-grid>
 </ion-card-title>
-
-<ion-grid :fixed="false">
-      <ion-row>
-        <ion-col><ion-input readonly>มิเตอร์น้ำ</ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col><ion-input readonly>มิเตอร์ไฟ</ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly><ion-button>แก้ไข</ion-button></ion-input></ion-col>
-      </ion-row>
-    </ion-grid>
-
     <ion-grid :fixed="false">
       <ion-row>
         <ion-col><ion-input readonly></ion-input></ion-col>

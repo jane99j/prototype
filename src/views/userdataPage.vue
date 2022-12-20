@@ -62,7 +62,7 @@
 
       </ion-row>
     </ion-grid>
-    <ion-button href="/userdataPage2">ข้อมูล</ion-button>
+    <ion-button href="/userdataPage2">ข้อมูลเติมเพิ่ม</ion-button>
 
 
 
