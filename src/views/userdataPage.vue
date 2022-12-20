@@ -19,11 +19,12 @@
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
           <ion-card>
-    <ion-card-header><ion-img src="assets/1.png"></ion-img>
-      <ion-card-title>
+    <ion-card-header>
+      <ion-card-title><ion-img src="assets/1.png"></ion-img>
         <ion-grid :fixed="false">
       <ion-row>
-        <ion-col><ion-input readonly>ห้อง A101</ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
@@ -57,10 +58,11 @@
         <ion-col></ion-col>
         <ion-col></ion-col>
         <ion-col></ion-col>
-        <ion-col><ion-button>ข้อมูลเพิ่มเติม</ion-button></ion-col>
+        <ion-col></ion-col>
+
       </ion-row>
     </ion-grid>
-
+    <ion-button href="/userdataPage2">ข้อมูล</ion-button>
 
 
 
