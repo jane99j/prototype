@@ -57,6 +57,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/userdataPage',
     component: () => import ('../views/userdataPage.vue')
   },
+  {
+    path: '/userdataPage2',
+    component: () => import ('../views/userdataPage2.vue')
+  }
 
 ]
 
