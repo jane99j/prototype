@@ -34,7 +34,7 @@
 import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { construct,notifications,pencil,personAdd,cube,document,home,archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'App',
@@ -58,48 +58,46 @@ export default defineComponent({
       {
         title: 'หน้าแรก',
         url: '/folder/หน้าแรก',
-        iosIcon: mailOutline,
-        mdIcon: mailSharp
+        iosIcon: notifications,
+        mdIcon: notifications
       },
       {
         title: 'ห้อง',
         url: '/homePage',
-        iosIcon: paperPlaneOutline,
-        mdIcon: paperPlaneSharp
+        iosIcon: home,
+        mdIcon: home
       },
       {
         title: 'เพิ่มห้อง',
         url: '/roomPage',
-        iosIcon: heartOutline,
-        mdIcon: heartSharp
+        iosIcon: construct,
+        mdIcon: construct
       },
       {
         title: 'สัญญา',
         url: '/AgreementPage',
-        iosIcon: archiveOutline,
-        mdIcon: archiveSharp
+        iosIcon: personAdd,
+        mdIcon: personAdd
       },
       {
         title: 'จดมิเตอร์',
         url: '/managebillPage',
-        iosIcon: trashOutline,
-        mdIcon: trashSharp
+        iosIcon: pencil,
+        mdIcon: pencil
       },
       {
         title: 'บิล',
         url: '/billPage',
-        iosIcon: warningOutline,
-        mdIcon: warningSharp
+        iosIcon: document,
+        mdIcon: document
       },
       {
         title: 'พัสดุ',
         url: '/suppliesPage',
-        iosIcon: warningOutline,
-        mdIcon: warningSharp
+        iosIcon: cube,
+        mdIcon: cube
       }
     ];
-    const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-    
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       selectedIndex.value = appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
@@ -110,7 +108,6 @@ export default defineComponent({
     return { 
       selectedIndex,
       appPages, 
-      labels,
       archiveOutline, 
       archiveSharp, 
       bookmarkOutline, 
@@ -125,6 +122,13 @@ export default defineComponent({
       trashSharp, 
       warningOutline, 
       warningSharp,
+      home,
+      document,
+      cube,
+      pencil,
+      personAdd,
+      notifications,
+      construct,
       isSelected: (url: string) => url === route.path ? 'selected' : ''
     }
   }
