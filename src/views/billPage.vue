@@ -40,7 +40,7 @@
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-button>รายละเอียด</ion-button></ion-col>
+        <ion-col><ion-button href="billPage2">รายละเอียด</ion-button></ion-col>
       </ion-row>
     </ion-grid>
 
