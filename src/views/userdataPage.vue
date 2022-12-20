@@ -18,8 +18,8 @@
       
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
-          <ion-card><ion-img src="assets/1.png"></ion-img>
-    <ion-card-header>
+          <ion-card>
+    <ion-card-header><ion-img src="assets/1.png"></ion-img>
       <ion-card-title>
         <ion-grid :fixed="false">
       <ion-row>
