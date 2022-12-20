@@ -44,21 +44,20 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/managebillPage.vue')
   },
   {
-<<<<<<< HEAD
+
     path: '/suppliesPage',
     component: () => import ('../views/suppliesPage.vue')
   },
-=======
-<<<<<<< HEAD
+  {
+
     path: '/billoverduePage',
     component: () => import ('../views/billoverduePage.vue')
-  }
-=======
+  },
+  {
     path: '/userdataPage',
     component: () => import ('../views/userdataPage.vue')
   },
->>>>>>> 16924edef1d37eb2aedd964ce2f8c80ae216a332
->>>>>>> f2c2de6abf276abca7c796f3cbe454e8453496a0
+
 ]
 
 const router = createRouter({
