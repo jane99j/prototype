@@ -36,7 +36,7 @@
                 </ion-card>
 
             </ion-col>
-            <ion-col>
+            <ion-col routerLink="/manageroomPage1">
               <ion-card color="light">
                   <ion-card-header>
                     <ion-card-title>102</ion-card-title>
@@ -46,7 +46,7 @@
                     <ion-icon slot="icon-only" :icon="person"></ion-icon>
                     </ion-card-content>
                   <ion-card-content>
-                    ชำระแล้ว
+                    ว่าง
                   </ion-card-content>
                 </ion-card>
             </ion-col>

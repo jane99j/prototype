@@ -1,4 +1,24 @@
 <template>
+  <ion-page>
+    <ion-header :translucent="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button color="primary"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{ $route.params.id }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">{{ $route.params.id }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    
+      <div id="container">
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        
   <ion-card>
     <center>
     <ion-card-header>
@@ -12,27 +32,25 @@
     </ion-item>
     </ion-list>
      
-      <ion-button color="success">ทำสัญญา</ion-button>
+      <ion-button color="success" routerLink="/AgreementPage">ทำสัญญา</ion-button>
       <ion-button color="warning">จัดการห้องพัก</ion-button>
 
     </ion-card-content>
   </center>
   </ion-card>
+      </div>
+    </ion-content>
+  </ion-page>
 </template>
 
 <script lang="ts">
-  import { IonList,IonInput, IonItem, IonLabel,IonButton,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
-  import { defineComponent } from 'vue';
+import { defineComponent } from 'vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonList,IonInput, IonItem, IonLabel,IonButton,IonCard, IonCardContent, IonCardHeader, IonCardTitle  } from '@ionic/vue';
 
-  export default defineComponent({
-    components: {IonList,IonInput, IonItem, IonLabel,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle },
-  });
-</script>
-
-<style scoped>
-  /* iOS places the subtitle above the title */
-  ion-card-header.ios {
-    display: flex;
-    flex-flow: column-reverse;
+export default defineComponent({
+  name: 'FolderPage',
+  components: {
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonList,IonInput, IonItem, IonLabel,IonButton,IonCard, IonCardContent, IonCardHeader, IonCardTitle 
   }
-</style>
+});
+</script>
