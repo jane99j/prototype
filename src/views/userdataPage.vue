@@ -62,7 +62,7 @@
 
       </ion-row>
     </ion-grid>
-    <ion-button href="/userdataPage2">ข้อมูลเติมเพิ่ม</ion-button>
+    <ion-button routerLink="/userdataPage2">ข้อมูลเติมเพิ่ม</ion-button>
 
 
 
@@ -79,7 +79,7 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonCol, IonGrid, IonRow,IonImg} from '@ionic/vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonCol, IonGrid, IonRow,IonImg,IonButton} from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
@@ -90,7 +90,7 @@
       IonMenuButton,
       IonPage,
       IonTitle,
-      IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonImg
+      IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonImg,IonButton
     }
   });
   </script>
