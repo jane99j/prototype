@@ -19,9 +19,9 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <ion-grid :fixed="true" routerLink="/userdataPage">
+        <ion-grid :fixed="true" >
           <ion-row>
-            <ion-col>
+            <ion-col routerLink="/userdataPage">
                 <ion-card color="light">
                   <ion-card-header>
                     <ion-card-title>101</ion-card-title>
