@@ -32,13 +32,14 @@
     <ion-grid :fixed="true">
     <ion-row>
       <ion-col size="80px"> <ion-label>ค้นหาพัสดุ</ion-label></ion-col>
-      <ion-col size="auto"><ion-searchbar placeholder="ค้นหา"></ion-searchbar></ion-col>
+      <ion-col size="auto"><ion-searchbar placeholder="ค้นหา ชื่อผู้รับ/ชื่อห้อง/เลขพัสดุ"></ion-searchbar></ion-col>
       <ion-col size="auto"><ion-button>ค้นหาพัสดุ</ion-button></ion-col>
     </ion-row>
     </ion-grid>
     </ion-card-content>
     </div>
-
+    <ion-card>
+    </ion-card>
     </ion-card>
       </ion-content>
     </ion-page>
@@ -84,6 +85,18 @@
   #container a {
     text-decoration: none;
   }
+  ion-card{
+    width: 98.5%;
+    min-height: 92vh;
+    background-color: rgb(250, 250, 250);
+  }
+  ion-card ion-card {
+    min-height: 68vh;
+    width: 88%;
+    margin-left: 6%;
+    border-radius:20px;
+  }
+
   ion-card-content{
     margin-left: auto;
   }
@@ -94,7 +107,7 @@
     float: left;
   }
   ion-searchbar{
-    width: 102%;
+    width: 103%;
     margin-left: 25%px;
     margin-bottom: auto;
   }div ion-card ion-grid ion-row ion-col ion-button{
