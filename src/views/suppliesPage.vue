@@ -24,7 +24,7 @@
     <ion-card-content>
     <ion-button>พัสดุค้างจำหน่าย</ion-button>
     <ion-button fill="outline">พัสดุที่นำหน่ายแล้ว</ion-button>
-    <ion-button>เพิ่มพัสดุ</ion-button>
+    <ion-button routerLink="/suppliesAddPage">เพิ่มพัสดุ</ion-button>
     </ion-card-content>
 
     <div>
