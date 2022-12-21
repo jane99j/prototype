@@ -74,11 +74,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/listPage.vue')
   },
   {
-<<<<<<< HEAD
+
     path: '/suppliesMovePage',
     component: () => import ('../views/suppliesMovePage.vue')
   },
-=======
+  {
     path: '/listhomePage',
     component: () => import ('../views/listhomePage.vue')
   },
@@ -96,7 +96,7 @@ const routes: Array<RouteRecordRaw> = [
 
   },
 
->>>>>>> 298e2075a727bbc7d63b37d1f1798b1fff04e352
+
 ]
 
 const router = createRouter({
