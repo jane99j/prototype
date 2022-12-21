@@ -19,7 +19,7 @@
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong> 
     <ion-card>    
-    <ion-card-header>
+    <ion-card-header><h1>สถานะจอง</h1>
       <ion-card-title><h1>ห้อง 103</h1>
 </ion-card-title>
       <ion-card-subtitle><ion-grid :fixed="false">
@@ -90,6 +90,7 @@
     ion-img{
         width: 15%;
     }
+    
   </style>
 
   
