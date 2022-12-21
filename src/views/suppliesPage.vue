@@ -38,8 +38,17 @@
     </ion-grid>
     </ion-card-content>
     </div>
-    <ion-card>
-    </ion-card>
+
+  <ion-card>
+    <ion-card routerLink="/suppliesMovePage">
+    <ion-card-content>
+    <ion-img src="assets/box.png"></ion-img>
+
+    </ion-card-content>
+  </ion-card>
+
+  </ion-card>
+
     </ion-card>
       </ion-content>
     </ion-page>
@@ -48,14 +57,14 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import {  IonLabel,IonCol, IonGrid, IonRow,IonSearchbar,IonButton,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+  import {IonImg,IonLabel,IonCol, IonGrid, IonRow,IonSearchbar,IonButton,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
       IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,
       IonToolbar,IonCard, IonCardContent,IonButton,IonSearchbar,
-      IonCol, IonGrid, IonRow,IonLabel
+      IonCol, IonGrid, IonRow,IonLabel,IonImg
     }
   });
   </script>
@@ -96,6 +105,13 @@
     margin-left: 6%;
     border-radius:20px;
   }
+  ion-card ion-card ion-card{
+    width: 88%;
+    min-height: auto;
+    margin-top: 3%;
+    margin-right: 7%;
+    border-radius:10px
+  }
 
   ion-card-content{
     margin-left: auto;
@@ -108,11 +124,13 @@
   }
   ion-searchbar{
     width: 103%;
-    margin-left: 25%px;
     margin-bottom: auto;
   }div ion-card ion-grid ion-row ion-col ion-button{
-    margin-top: 11px;
-
+    margin-top: 11%;
+  }
+  ion-img{
+    width:10%;
+    min-height: auto;
   }
   </style>
   

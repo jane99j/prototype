@@ -49,8 +49,8 @@
     </ion-select>
     
 
-  </ion-list>
-
+    </ion-list>
+    <ion-button expand="block" routerLink="/suppliesPage">บันทึกข้อมูล</ion-button>
     </ion-card-content>
     </ion-card>
       </ion-content>
@@ -60,12 +60,12 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonSelect,IonSelectOption,IonInput, IonItem, IonLabel, IonList,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+  import { IonButton,IonSelect,IonSelectOption,IonInput, IonItem, IonLabel, IonList,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonSelectOption,
+      IonButton,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonSelectOption,
       IonToolbar,IonCard, IonCardContent,IonInput, IonItem, IonLabel, IonList,IonSelect
     }
   });
@@ -97,7 +97,7 @@
     text-decoration: none;
   }
   ion-card{
-    width: 98.5%;
+    width: auto;
     min-height: 92vh;
     background-color: rgb(250, 250, 250);
   }

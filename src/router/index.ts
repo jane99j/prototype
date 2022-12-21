@@ -73,7 +73,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/listPage',
     component: () => import ('../views/listPage.vue')
   },
-
+  {
+    path: '/suppliesMovePage',
+    component: () => import ('../views/suppliesMovePage.vue')
+  },
 ]
 
 const router = createRouter({
