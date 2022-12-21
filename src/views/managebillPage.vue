@@ -67,8 +67,8 @@
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
-        <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
+        <ion-col><ion-input placeholder=""></ion-input></ion-col>
+        <ion-col><ion-input placeholder=""></ion-input></ion-col>
       </ion-row>
     </ion-grid>
     
