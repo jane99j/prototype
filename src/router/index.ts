@@ -73,6 +73,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/listPage',
     component: () => import ('../views/listPage.vue')
   },
+  {
+    path: '/editroomPage',
+    component: () => import ('../views/editroomPage.vue')
+  },
 
 ]
 
