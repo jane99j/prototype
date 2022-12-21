@@ -74,8 +74,13 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/listPage.vue')
   },
   {
+<<<<<<< HEAD
+    path: '/listhomePage',
+    component: () => import ('../views/listhomePage.vue')
+=======
     path: '/editroomPage',
     component: () => import ('../views/editroomPage.vue')
+>>>>>>> f30e60ee0ba75a6475c64334eee661d4bee3a648
   },
 
 ]

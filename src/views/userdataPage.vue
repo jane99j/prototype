@@ -18,7 +18,13 @@
       
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
-          <ion-card>
+          <ion-row>
+              <ion-button routerLink="/listPage">ค่าบริการอื่นๆ</ion-button>
+              <ion-button>คำนวนค่าเช่า</ion-button>
+              <ion-button >ประวัติการชำระ</ion-button>
+              <ion-button routerLink="/suppliesAddPage">จัดการห้องพัก</ion-button>
+            </ion-row>  
+    <ion-card>    
     <ion-card-header>
       <ion-card-title><ion-img src="assets/1.png"></ion-img>
         <ion-grid :fixed="false">
