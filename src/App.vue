@@ -62,22 +62,22 @@ export default defineComponent({
         mdIcon: notifications
       },
       {
-        title: 'ห้อง',
-        url: '/homePage',
-        iosIcon: home,
-        mdIcon: home
-      },
-      {
         title: 'เพิ่มห้อง',
         url: '/roomPage',
         iosIcon: construct,
         mdIcon: construct
       },
       {
-        title: 'สัญญา',
-        url: '/AgreementPage',
-        iosIcon: personAdd,
-        mdIcon: personAdd
+        title: 'กำหนดมิเตอร์',
+        url: '/waterelectricitybillPage',
+        iosIcon: construct,
+        mdIcon: construct
+      },
+      {
+        title: 'ห้อง',
+        url: '/homePage',
+        iosIcon: home,
+        mdIcon: home
       },
       {
         title: 'จดมิเตอร์',
@@ -86,8 +86,14 @@ export default defineComponent({
         mdIcon: pencil
       },
       {
-        title: 'บิล',
+        title: 'ออกบิล',
         url: '/billPage',
+        iosIcon: document,
+        mdIcon: document
+      },
+      {
+        title: 'บิลค้าง',
+        url: '/billoverduePage',
         iosIcon: document,
         mdIcon: document
       },

@@ -17,26 +17,10 @@
         </ion-header>
       
         <div id="container">
-          <strong class="capitalize">{{ $route.params.id }}</strong>
-          <ion-row>
-              <ion-button routerLink="/listPage">ค่าบริการอื่นๆ</ion-button>
-              <ion-button>คำนวนค่าเช่า</ion-button>
-              <ion-button >ประวัติการชำระ</ion-button>
-              <ion-button routerLink="/suppliesAddPage">จัดการห้องพัก</ion-button>
-            </ion-row>  
+          <strong class="capitalize">{{ $route.params.id }}</strong> 
     <ion-card>    
-    <ion-card-header>
-      <ion-card-title><ion-img src="assets/1.png"></ion-img>
-        <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-card-header><h1>สถานะจอง</h1>
+      <ion-card-title><h1>ห้อง 103</h1>
 </ion-card-title>
       <ion-card-subtitle><ion-grid :fixed="false">
       <ion-row>
@@ -69,6 +53,8 @@
       </ion-row>
     </ion-grid>
     <ion-button routerLink="/userdataPage2">ข้อมูลเติมเพิ่ม</ion-button>
+    <ion-button>ย้ายเข้า</ion-button>
+    <ion-button>ยกเลิกสัญญา</ion-button>
 
 
 
@@ -85,7 +71,7 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonCol, IonGrid, IonRow,IonImg,IonButton} from '@ionic/vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonCol, IonGrid, IonRow,IonButton} from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
@@ -96,7 +82,7 @@
       IonMenuButton,
       IonPage,
       IonTitle,
-      IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonImg,IonButton
+      IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonButton
     }
   });
   </script>
@@ -104,6 +90,7 @@
     ion-img{
         width: 15%;
     }
+    
   </style>
 
   

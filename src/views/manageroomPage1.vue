@@ -33,7 +33,7 @@
     </ion-list>
      
       <ion-button color="success" routerLink="/AgreementPage">ทำสัญญา</ion-button>
-      <ion-button color="warning">จัดการห้องพัก</ion-button>
+      <ion-button color="warning" routerLink="/editroomPage">จัดการห้องพัก</ion-button>
 
     </ion-card-content>
   </center>

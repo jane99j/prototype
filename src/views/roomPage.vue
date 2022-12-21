@@ -47,7 +47,7 @@
 
       </ion-list>
     </ion-card-content>
-    <ion-button expand="block">บันทึก</ion-button>
+    <ion-button expand="block" routerLink="/listhomePage">บันทึก</ion-button>
   </ion-card>
       </div>
     </ion-content>
@@ -56,18 +56,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonButtons,
-    IonContent,
-    IonHeader,
-    IonMenuButton,
-    IonPage,
-    IonTitle,
-    IonToolbar
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton
   }
 });
 </script>

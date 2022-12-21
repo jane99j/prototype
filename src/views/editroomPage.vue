@@ -18,39 +18,14 @@
       
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
-          <ion-row>
-              <ion-button routerLink="/listPage">ค่าบริการอื่นๆ</ion-button>
-              <ion-button>คำนวนค่าเช่า</ion-button>
-              <ion-button >ประวัติการชำระ</ion-button>
-              <ion-button routerLink="/suppliesAddPage">จัดการห้องพัก</ion-button>
-            </ion-row>  
-    <ion-card>    
-    <ion-card-header>
-      <ion-card-title><ion-img src="assets/1.png"></ion-img>
+          <ion-card>
+            <ion-card-header>
+                <ion-card-title>แก้ไข้ห้องห้อง</ion-card-title>
         <ion-grid :fixed="false">
       <ion-row>
+        <ion-col><ion-input readonly>หมายเลขห้อง</ion-input></ion-col>
+        <ion-col><ion-input readonly>101</ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-      </ion-row>
-    </ion-grid>
-</ion-card-title>
-      <ion-card-subtitle><ion-grid :fixed="false">
-      <ion-row>
-        <ion-col><ion-input readonly>ชื่อ</ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly>สกุล</ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col><ion-input readonly>เบอร์โทร</ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
@@ -60,24 +35,45 @@
 
     <ion-grid :fixed="false">
       <ion-row>
-        <ion-col></ion-col>
-        <ion-col></ion-col>
-        <ion-col></ion-col>
-        <ion-col></ion-col>
-        <ion-col></ion-col>
-
+        <ion-col><ion-input readonly>ชั้นที่</ion-input></ion-col>
+        <ion-col><ion-input readonly>1</ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
       </ion-row>
     </ion-grid>
-    <ion-button routerLink="/userdataPage2">ข้อมูลเติมเพิ่ม</ion-button>
 
+    <ion-grid :fixed="false">
+      <ion-row>
+        <ion-col><ion-input readonly>ตึกที่</ion-input></ion-col>
+        <ion-col><ion-input readonly>A1</ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        
+      </ion-row>
+    </ion-grid>
 
+    <ion-grid :fixed="false">
+      <ion-row>
+        <ion-col><ion-input readonly>ราคาห้อง</ion-input></ion-col>
+        <ion-col><ion-input readonly>4000</ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly></ion-input></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button>แก้ไข</ion-button>
+    <ion-button>ล้าง</ion-button>
 
-</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content>
-    </ion-card-content>
-  </ion-card>
+            </ion-card-header>
+          </ion-card>
         </div>
       </ion-content>
     </ion-page>
@@ -85,25 +81,13 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonCol, IonGrid, IonRow,IonImg,IonButton} from '@ionic/vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonCardHeader, IonCardTitle,IonCol, IonGrid, IonRow,IonButton } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-      IonButtons,
-      IonContent,
-      IonHeader,
-      IonMenuButton,
-      IonPage,
-      IonTitle,
-      IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonImg,IonButton
+      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonCard,IonCardHeader, IonCardTitle,IonCol, IonGrid, IonRow,IonButton
     }
   });
   </script>
-  <style scoped>
-    ion-img{
-        width: 15%;
-    }
-  </style>
-
   
