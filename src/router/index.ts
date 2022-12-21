@@ -82,6 +82,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/editroomPage.vue')
 
   },
+  {
+    path: '/showroomPage',
+    component: () => import ('../views/showroomPage.vue')
+
+  },
 
 ]
 
