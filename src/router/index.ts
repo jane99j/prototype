@@ -80,7 +80,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/editroomPage',
     component: () => import ('../views/editroomPage.vue')
-
+  },
+  {
+    path: '/bookingPage',
+    component: () => import ('../views/bookingPage.vue')
   },
 
 ]
