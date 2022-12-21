@@ -62,16 +62,22 @@ export default defineComponent({
         mdIcon: notifications
       },
       {
-        title: 'ห้อง',
-        url: '/homePage',
-        iosIcon: home,
-        mdIcon: home
-      },
-      {
         title: 'เพิ่มห้อง',
         url: '/roomPage',
         iosIcon: construct,
         mdIcon: construct
+      },
+      {
+        title: 'กำหนดมิเตอร์',
+        url: '/waterelectricitybillPage',
+        iosIcon: construct,
+        mdIcon: construct
+      },
+      {
+        title: 'ห้อง',
+        url: '/homePage',
+        iosIcon: home,
+        mdIcon: home
       },
       {
         title: 'สัญญา',
