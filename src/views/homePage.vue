@@ -59,7 +59,7 @@
                   </ion-card-content>
                 </ion-card>
             </ion-col>
-            <ion-col>
+            <ion-col routerLink="/bookingPage">
               <ion-card color="medium">
                   <ion-card-header>
                     <ion-card-title>103</ion-card-title>
