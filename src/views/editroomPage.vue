@@ -54,6 +54,7 @@
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
+        
       </ion-row>
     </ion-grid>
 
