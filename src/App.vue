@@ -80,20 +80,20 @@ export default defineComponent({
         mdIcon: home
       },
       {
-        title: 'สัญญา',
-        url: '/AgreementPage',
-        iosIcon: personAdd,
-        mdIcon: personAdd
-      },
-      {
         title: 'จดมิเตอร์',
         url: '/managebillPage',
         iosIcon: pencil,
         mdIcon: pencil
       },
       {
-        title: 'บิล',
+        title: 'ออกบิล',
         url: '/billPage',
+        iosIcon: document,
+        mdIcon: document
+      },
+      {
+        title: 'บิลค้าง',
+        url: '/billoverduePage',
         iosIcon: document,
         mdIcon: document
       },
