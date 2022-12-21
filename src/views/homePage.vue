@@ -22,7 +22,7 @@
         <ion-card>
           <ion-row>
         <ion-button routerLink="#" >ห้องทั้งหมด</ion-button>
-              <ion-button routerLink="/showroomPage">ห้องว่าง</ion-button>
+              <ion-button >ห้องว่าง</ion-button>
               <ion-button >ห้องจอง</ion-button>
               <ion-button routerLink="#">ห้องค้าง</ion-button>
         </ion-row>
