@@ -20,7 +20,7 @@
           <strong class="capitalize">{{ $route.params.id }}</strong>
           <ion-card>
             <ion-card-header>
-                <ion-item><ion-card-title>ห้อง 102</ion-card-title></ion-item>
+                <ion-item><ion-card-title>หมายเลขห้อง</ion-card-title></ion-item>
                 <ion-item>
                 <ion-card-title>รายการค่าบริการต่างๆ</ion-card-title>
                 <ion-card-subtitle>ค่าบริการเพิ่มเติมที่เรียกเก็บ เช่น ค่าอินเตอร์เน็ต,ค่าที่จอดรถ</ion-card-subtitle>
