@@ -101,12 +101,14 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
+    path: '/suppliesDelPage',
+    component: () => import ('../views/suppliesDelPage.vue')
+  },
+  {
     path: '/paychckPage',
     component: () => import ('../views/paychckPage.vue')
 
   },
-
-
 
 ]
 

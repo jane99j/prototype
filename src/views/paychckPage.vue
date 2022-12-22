@@ -19,11 +19,56 @@
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
           <ion-card>
-            <ion-item>
-                <ion-label>ยอดชำระ</ion-label>
-                <ion-input></ion-input>
-            </ion-item>
+          <h1>การจัดการชำระเงิน</h1>
+          <h1>ห้อง 104</h1>
+      <ion-item>
+    <ion-label>ยอดชำระ</ion-label>
+    <ion-input placeholder="กรอกเงินที่ชำระ"></ion-input>
+  </ion-item>
+  <ion-button>บันทึก</ion-button>
+          <ion-card>
+          <center><h1>ประวัติการชำระเงิน</h1></center>
+        <ion-grid :fixed="false">
+      <ion-row>
+        <ion-col>เดือน</ion-col>
+        <ion-col>ค่าเช่า</ion-col>
+        <ion-col>ค่าน้ำ</ion-col>
+        <ion-col>ค่าไฟ</ion-col>
+        <ion-col>บิลปัจจุบัน</ion-col>
+        <ion-col>ค่าปรับเลยกำหนด</ion-col>
+        <ion-col>บิล+ยอดค้าง+ค่าปรับ</ion-col>
+        <ion-col>ยอดที่ชำระ</ion-col>
+        <ion-col>ยอดค้าง</ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid :fixed="false">
+      <ion-row>
+        <ion-col>มกราคม</ion-col>
+        <ion-col>4000</ion-col>
+        <ion-col>100</ion-col>
+        <ion-col>900</ion-col>
+        <ion-col>5000</ion-col>
+        <ion-col>0</ion-col>
+        <ion-col>0</ion-col>
+        <ion-col>5000</ion-col>
+        <ion-col>0</ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid :fixed="false">
+      <ion-row>
+        <ion-col>กุมภาพันธ์</ion-col>
+        <ion-col>4000</ion-col>
+        <ion-col>200</ion-col>
+        <ion-col>800</ion-col>
+        <ion-col>5000</ion-col>
+        <ion-col>0</ion-col>
+        <ion-col>0</ion-col>
+        <ion-col>2000</ion-col>
+        <ion-col>3000</ion-col>
+      </ion-row>
+    </ion-grid>
           </ion-card>
+        </ion-card>
         </div>
       </ion-content>
     </ion-page>
@@ -31,12 +76,12 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from '@ionic/vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonInput, IonItem, IonLabel,} from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar
+      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonCard,IonInput, IonItem, IonLabel,
     }
   });
   </script>
