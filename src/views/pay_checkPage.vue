@@ -30,7 +30,6 @@
     
         <ion-card>
         <ion-toolbar>
-          <ion-title>Title</ion-title>
           <ion-buttons :collapse="true" slot="end">
             <ion-button>เลือกทั้งหมด</ion-button>
           </ion-buttons>
@@ -47,17 +46,23 @@
           <ion-col><ion-checkbox></ion-checkbox></ion-col>
           <ion-col>101</ion-col>
           <ion-col>5,000</ion-col>
-          <ion-col><ion-button color="warning" routerLink="/editroomPage" size="small">จัดการจ่าย</ion-button></ion-col>
+          <ion-col><ion-button color="warning" routerLink="/paychckPage" size="small">จัดการจ่าย</ion-button></ion-col>
+          </ion-row>
+          <ion-row>
+          <ion-col><ion-checkbox></ion-checkbox></ion-col>
+          <ion-col>102</ion-col>
+          <ion-col>5,000</ion-col>
+          <ion-col><ion-button color="warning" routerLink="/paychckPage" size="small">จัดการจ่าย</ion-button></ion-col>
           </ion-row> 
         </ion-grid>
         </ion-card>
 
       <ion-grid>
         <ion-row class="ion-justify-content-end">
-          <ion-col size="8">
+          <ion-col size="9">
           </ion-col>
-          <ion-col size="4">
-            <ion-button  routerLink="/editroomPage">จ่ายแล้ว</ion-button>
+          <ion-col size="3">
+            <ion-button  routerLink="">จ่ายแล้ว</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>

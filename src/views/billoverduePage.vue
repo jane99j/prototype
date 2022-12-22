@@ -40,11 +40,11 @@
             </ion-grid>
             <ion-grid>
             <ion-row>
-                <ion-col>...</ion-col>
-                <ion-col>...</ion-col>
-                <ion-col>...</ion-col>
-                <ion-col>...</ion-col>
-                <ion-col>...</ion-col>
+                <ion-col>12425</ion-col>
+                <ion-col>ค้างชำระ</ion-col>
+                <ion-col>31/11/2565</ion-col>
+                <ion-col>103</ion-col>
+                <ion-col>5,000</ion-col>
                 <ion-col>
                     <ion-button slot="" size="small">ดูรายละเอียด</ion-button>
                 </ion-col>

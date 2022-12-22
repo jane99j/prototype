@@ -19,17 +19,17 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <ion-card>
-          <ion-row>
-        <ion-button routerLink="#" >ห้องทั้งหมด</ion-button>
-              <ion-button >ห้องว่าง</ion-button>
-              <ion-button >ห้องจอง</ion-button>
-              <ion-button routerLink="#">ห้องค้าง</ion-button>
-        </ion-row>
+          <ion-card>
         <ion-card-header>
-                <ion-item><ion-card-title>ห้องพัก</ion-card-title></ion-item>
+              <ion-card-title>ห้องพัก</ion-card-title>
             </ion-card-header>
-
+        </ion-card>
+        <ion-row>
+        <ion-button routerLink="#" >ห้องทั้งหมด</ion-button>
+            <ion-button >ห้องว่าง</ion-button>
+            <ion-button >ห้องจอง</ion-button>
+            <ion-button routerLink="#">ห้องค้าง</ion-button>
+        </ion-row>
         <ion-grid :fixed="true" >
           <ion-row>
             <ion-col routerLink="/userdataPage">
@@ -74,7 +74,7 @@
                 </ion-card>
             </ion-col>
           </ion-row>
-        </ion-grid></ion-card>
+        </ion-grid>
       </div>
     </ion-content>
   </ion-page>

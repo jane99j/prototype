@@ -92,6 +92,12 @@ export default defineComponent({
         mdIcon: document
       },
       {
+        title: 'จ่ายบิล',
+        url: '/pay_checkPage',
+        iosIcon: document,
+        mdIcon: document
+      },
+      {
         title: 'บิลค้าง',
         url: '/billoverduePage',
         iosIcon: document,
@@ -103,6 +109,7 @@ export default defineComponent({
         iosIcon: cube,
         mdIcon: cube
       }
+
       
     ];
     const path = window.location.pathname.split('folder/')[1];
@@ -168,7 +175,7 @@ ion-menu.md ion-note {
 }
 
 ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+  border-bottom: 1px solid var(--ion-color-step-150, rgb(218, 215, 218));
 }
 
 ion-menu.md ion-list#inbox-list ion-list-header {
