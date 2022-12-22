@@ -100,6 +100,10 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/pay_checkPage.vue')
 
   },
+  {
+    path: '/suppliesDelPage',
+    component: () => import ('../views/suppliesDelPage.vue')
+  },
 
 
 ]
