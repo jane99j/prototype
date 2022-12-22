@@ -103,6 +103,7 @@ export default defineComponent({
         iosIcon: cube,
         mdIcon: cube
       }
+      
     ];
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {

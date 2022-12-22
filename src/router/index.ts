@@ -95,6 +95,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/showroomPage.vue')
 
   },
+  {
+    path: '/pay_checkPage.vue',
+    component: () => import ('../views/pay_checkPage.vue')
+
+  },
 
 
 ]
