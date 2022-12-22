@@ -25,37 +25,51 @@
 
         <ion-card>
         <ion-card-header>
-        <ion-card-title>รายละเอียดพัสดุ</ion-card-title>
+        <ion-card-title>นำจ่ายพัสดุ</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
+
         <ion-grid>
 
         <ion-row>
-        <ion-col><h2>ชื่อห้องพัก</h2></ion-col>
-        <ion-col><ion-input readonly placeholder="ชื่อห้องพัก"></ion-input></ion-col>
-        </ion-row>
-        <ion-row>
-        <ion-col><h2>ชื่อผู้รับ</h2></ion-col>
-        <ion-col><ion-input readonly placeholder="ชื่อผู้รับ"></ion-input></ion-col>
-        </ion-row>
-        <ion-row>
-        <ion-col><h2>หมายเลขพัสดุ</h2></ion-col>
-        <ion-col><ion-input readonly placeholder="หมายเลขพัสดุ"></ion-input></ion-col>
-        </ion-row>
-        <ion-row>
-        <ion-col><h2>บริษัทขนส่ง</h2></ion-col>
-        <ion-col><ion-input readonly placeholder="บริษัทขนส่ง"></ion-input></ion-col>
-        </ion-row>
-        <ion-row>
-        <ion-col>รูปภาพพัสดุ</ion-col>
-        <ion-col><ion-input readonly placeholder="รูปภาพพัสดุ"></ion-input></ion-col>
+        <ion-col size="2"><h2>ผู้รับพัสดุ</h2></ion-col>
+        <ion-col> 
+        <ion-item>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label>เจ้าของพัสดุ</ion-label>
+        </ion-item>
+        </ion-col>
+        <ion-col></ion-col>
         </ion-row>
 
+        <ion-row>
+        <ion-col size="2"></ion-col>
+        <ion-col> 
+        <ion-item>
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label>รับแทน</ion-label>
+        </ion-item>
+        </ion-col>
+        <ion-col></ion-col>
+        </ion-row>
+
+        <ion-row>
+        <ion-col size="2"></ion-col>
+        <ion-col> 
+        <ion-item>
+        <ion-input placeholder="ชื่อ-สกุล"></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-input placeholder="เบอร์โทรศัพท์"></ion-input>
+        </ion-item>
+        </ion-col>
+        <ion-col></ion-col>
+        </ion-row>
         </ion-grid>
 
-        <ion-button color="success" routerLink="/suppliesDelPage">นำจ่ายพัสดุ</ion-button>
-        <ion-button color="danger">ลบพัสดุ</ion-button>
+        <ion-button color="success" routerLink="/suppliesPage">นำจ่ายพัสดุ</ion-button>
+        <ion-button color="danger" routerLink="/suppliesPage">ยกเลิก</ion-button>
         </ion-card-content>
 
         </ion-card>
@@ -69,13 +83,14 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import {  IonButton ,IonInput,IonCol, IonGrid, IonRow,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+  import { IonButton,IonInput,IonCheckbox,IonItem,IonLabel,IonCol, IonGrid, IonRow,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonInput,IonButton ,
-      IonToolbar,IonCard, IonCardContent ,IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow 
+      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,
+      IonToolbar,IonCard, IonCardContent ,IonCardHeader,IonCardTitle,
+      IonCol, IonGrid, IonRow,IonCheckbox,IonItem,IonLabel,IonInput,IonButton
     }
   });
   </script>
@@ -98,7 +113,7 @@
   #container p {
     font-size: 16px;
     line-height: 22px;
-    color: #8c8c8c;
+    color: #ffffff;
     margin: 0;
   }
   
@@ -119,12 +134,20 @@
   }
   ion-col {
     background-color: #ffffff;
-    border: solid 1px rgb(228, 228, 228);
     color: rgb(0, 0, 0);
     text-align: center;
+    align-items: center;
+  }
+  h2{
+    font-size: 18px;
+    padding-top: 9%;
+  }
+  ion-input{
+    display: flex;
   }
   ion-button{
     float: right    ;
   }
+  
   </style>
   
