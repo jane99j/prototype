@@ -96,10 +96,16 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/pay_checkPage.vue',
+    path: '/pay_checkPage',
     component: () => import ('../views/pay_checkPage.vue')
 
   },
+  {
+    path: '/paychckPage',
+    component: () => import ('../views/paychckPage.vue')
+
+  },
+
 
 
 ]

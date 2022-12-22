@@ -38,17 +38,19 @@
         <ion-grid>
           <b><ion-row>
           <ion-col>#</ion-col>
+          <ion-col>หมายเลขห้อง</ion-col>
           <ion-col>ยอดเงิน</ion-col>
-          <ion-col> </ion-col>
+          <ion-col></ion-col>
           </ion-row></b>
 
           <ion-row>
+          <ion-col><ion-checkbox></ion-checkbox></ion-col>
           <ion-col>101</ion-col>
           <ion-col>5,000</ion-col>
           <ion-col><ion-button color="warning" routerLink="/editroomPage" size="small">จัดการจ่าย</ion-button></ion-col>
           </ion-row> 
-      </ion-grid>
-      </ion-card>
+        </ion-grid>
+        </ion-card>
 
       <ion-grid>
         <ion-row class="ion-justify-content-end">
