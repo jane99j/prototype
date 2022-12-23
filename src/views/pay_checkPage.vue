@@ -28,8 +28,7 @@
     
         <ion-card>
           <ion-row>
-              <ion-button routerLink="/billoverduePage">บิลทั่วไป</ion-button>
-              <ion-button routerLink="/pay_checkPage">บิลค้างชำระ</ion-button> 
+              <ion-button routerLink="/billoverduePage">บิลค้างชำระ</ion-button> 
               <ion-searchbar  placeholder="หมายเลขห้องพัก"></ion-searchbar>
               <ion-button>ค้นหาห้องพัก</ion-button>   
           </ion-row> 
