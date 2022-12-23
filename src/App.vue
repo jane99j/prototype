@@ -98,13 +98,13 @@ export default defineComponent({
         mdIcon: document
       },
       {
-        title: 'บิลค้าง',
-        url: '/billoverduePage',
-        iosIcon: document,
-        mdIcon: document
+        title: 'พัสดุ',
+        url: '/suppliesPage',
+        iosIcon: cube,
+        mdIcon: cube
       },
       {
-        title: 'พัสดุ',
+        title: 'รายงาน',
         url: '/suppliesPage',
         iosIcon: cube,
         mdIcon: cube

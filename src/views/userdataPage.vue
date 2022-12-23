@@ -20,23 +20,12 @@
           <strong class="capitalize">{{ $route.params.id }}</strong>
           <ion-row>
               <ion-button routerLink="/listPage">ค่าบริการอื่นๆ</ion-button>
-              <ion-button>คำนวนค่าเช่า</ion-button>
               <ion-button >ประวัติการชำระ</ion-button>
               <ion-button routerLink="/suppliesAddPage">จัดการห้องพัก</ion-button>
             </ion-row>  
     <ion-card>    
     <ion-card-header>
       <ion-card-title><ion-img src="assets/1.png"></ion-img>
-        <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-      </ion-row>
-    </ion-grid>
 </ion-card-title>
       <ion-card-subtitle><ion-grid :fixed="false">
       <ion-row>
@@ -64,11 +53,11 @@
         <ion-col></ion-col>
         <ion-col></ion-col>
         <ion-col></ion-col>
-        <ion-col></ion-col>
+        <ion-col><ion-button routerLink="/userdataPage2">ข้อมูลเติมเพิ่ม</ion-button></ion-col>
 
       </ion-row>
     </ion-grid>
-    <ion-button routerLink="/userdataPage2">ข้อมูลเติมเพิ่ม</ion-button>
+    
 
 
 

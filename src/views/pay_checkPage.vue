@@ -19,16 +19,20 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card-header>
-          <ion-grid>
+          <ion-card>
             <ion-row>
-              <ion-col><b><h3>เช็คการจ่าย</h3></b></ion-col>
-              <ion-col offset="4" ><ion-searchbar placeholder="ค้นหา หมายเลขห้องพัก"></ion-searchbar></ion-col>
-              <ion-col><ion-button>ค้นหาห้องพัก</ion-button></ion-col>
+              <ion-col><b><h4>เช็คการจ่าย</h4></b></ion-col>
             </ion-row>
-          </ion-grid>
+          </ion-card>
         </ion-card-header>
     
         <ion-card>
+          <ion-row>
+              <ion-button routerLink="/billoverduePage">บิลทั่วไป</ion-button>
+              <ion-button routerLink="/pay_checkPage">บิลค้างชำระ</ion-button> 
+              <ion-searchbar  placeholder="หมายเลขห้องพัก"></ion-searchbar>
+              <ion-button>ค้นหาห้องพัก</ion-button>   
+          </ion-row> 
         <ion-toolbar>
           <ion-buttons :collapse="true" slot="end">
             <ion-button>เลือกทั้งหมด</ion-button>
@@ -86,5 +90,10 @@ export default defineComponent({
 <style scoped>
   ion-col {
   text-align: center;
+  }
+  ion-searchbar{
+    width: 20%; 
+    
+
   }
 </style>

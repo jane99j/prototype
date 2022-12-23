@@ -10,7 +10,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/:id',
     component: () => import ('../views/FolderPage.vue')
   },
-
   {
     path: '/roomPage',
     component: () => import ('../views/roomPage.vue')
@@ -107,6 +106,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/paychckPage',
     component: () => import ('../views/paychckPage.vue')
+
+  },
+  {
+    path: '/payment_historyPage',
+    component: () => import ('../views/payment_historyPage.vue')
 
   },
 
