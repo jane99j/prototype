@@ -63,13 +63,7 @@ export default defineComponent({
       },
       {
         title: 'เพิ่มห้อง',
-        url: '/roomPage',
-        iosIcon: construct,
-        mdIcon: construct
-      },
-      {
-        title: 'กำหนดมิเตอร์',
-        url: '/waterelectricitybillPage',
+        url: '/newroomPage',
         iosIcon: construct,
         mdIcon: construct
       },

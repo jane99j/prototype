@@ -11,12 +11,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/FolderPage.vue')
   },
   {
-    path: '/roomPage',
-    component: () => import ('../views/roomPage.vue')
+    path: '/newroomPage',
+    component: () => import ('../views/newroomPage.vue')
   },
   {
-    path: '/waterelectricitybillPage',
-    component: () => import ('../views/waterelectricitybillPage.vue')
+    path: '/newroomeOne',
+    component: () => import ('../views/newroomeOne.vue')
   },
   {
     path: '/homePage',
@@ -113,6 +113,28 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/payment_historyPage.vue')
 
   },
+  {
+    path: '/newroomeOne',
+    component: () => import ('../views/newroometwo.vue')
+
+  },
+  {
+    path: '/newroometwo',
+    component: () => import ('../views/newroometwo.vue')
+
+  },
+  {
+    path: '/newroomthree',
+    component: () => import ('../views/newroomthree.vue')
+
+  },
+  {
+    path: '/newroomfour',
+    component: () => import ('../views/newroomfour.vue')
+
+  },
+
+
 
 ]
 

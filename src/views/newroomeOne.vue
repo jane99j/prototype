@@ -5,14 +5,14 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>{{ $route.params.id }}</ion-title>
+        <ion-title>เพิ่มหอพัก</ion-title>
       </ion-toolbar>
     </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">{{ $route.params.id }}</ion-title>
+          <ion-title size="large">เพิ่มหอพัก</ion-title>
         </ion-toolbar>
       </ion-header>
     
@@ -20,25 +20,30 @@
         <strong class="capitalize">{{ $route.params.id }}</strong>
    <ion-card>
     <ion-card-header>
-      <ion-card-title>ราคาต่อหน่วยค่าน้ำ/ไฟฟ้า</ion-card-title>
+      <ion-card-title>กำหนดน้ำไฟ</ion-card-title>
     </ion-card-header>
-
+    
     <ion-card-content>
+      <ion-label>ราคาต่อหน่วยค่าน้ำ/ไฟฟ้า</ion-label>
       <ion-list>
       <ion-item>
-        <ion-label>ระบุค่าน้ำต่อหน่วย :</ion-label>
+        <ion-label>ค่าน้ำต่อหน่วย :</ion-label>
         <ion-input placeholder=""></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label>ระบุค่าไฟฟ้าต่อหน่วย :</ion-label>
+        <ion-label>ค่าไฟฟ้าต่อหน่วย :</ion-label>
         <ion-input placeholder=""></ion-input>
       </ion-item>
 
     </ion-list>
 
     </ion-card-content>
-    <ion-button expand="block">บันทึก</ion-button>
+    <IonRow>
+    <div className="ion-float-end">
+      <ion-button routerLink="/newroometwo">ต่อไป</ion-button>
+    </div> 
+    </IonRow>
   </ion-card>
 </div>
     </ion-content>
