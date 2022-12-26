@@ -40,7 +40,7 @@
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
         <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-button href="billPage2">รายละเอียด</ion-button></ion-col>
+        <ion-col><ion-button routerLink="billPage2">รายละเอียด</ion-button></ion-col>
       </ion-row>
     </ion-grid>
 
@@ -53,7 +53,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow } from '@ionic/vue';
+import { IonButton,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
@@ -66,7 +66,7 @@ export default defineComponent({
     IonTitle,
     IonToolbar,
     IonInput,
-    IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow
+    IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow,IonButton
   }
 });
 </script>

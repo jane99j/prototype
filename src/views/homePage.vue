@@ -25,10 +25,30 @@
             </ion-card-header>
         </ion-card>
         <ion-row>
-        <ion-button routerLink="#" >ห้องทั้งหมด</ion-button>
-            <ion-button >ห้องว่าง</ion-button>
-            <ion-button >ห้องจอง</ion-button>
-            <ion-button routerLink="#">ห้องค้าง</ion-button>
+          <ion-col size="6">
+          <ion-segment value="menu1">
+    <ion-segment-button value="menu1">
+      <ion-label>ห้องทั้งหมด</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="menu2">
+      <ion-label>ห้องว่าง</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="menu3">
+      <ion-label>ห้องที่จองแล้ว</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="menu4">
+      <ion-label>ห้องที่ค้างชำระ</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  </ion-col>
+
+  <ion-col size="5">
+    <ion-searchbar :search-icon="searchCircle" placeholder="ค้นหา เลขห้องพัก"></ion-searchbar>
+  </ion-col>
+  <ion-col size="1">
+    <ion-button>ค้นหา</ion-button>
+  </ion-col>
+
         </ion-row>
         <ion-grid :fixed="true" >
           <ion-row>
@@ -82,16 +102,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import {IonLabel,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonButton} from '@ionic/vue';
-import {person} from 'ionicons/icons';
+import {IonButton,IonSearchbar ,IonLabel, IonSegment, IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,} from '@ionic/vue';
+import {person,searchCircle } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonLabel,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonButton
+    IonButton,IonSearchbar ,IonLabel, IonSegment,IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,
   },
   setup() {
-      return {person}
+      return {person,searchCircle }
   }
 });
 
@@ -109,6 +129,19 @@ export default defineComponent({
     margin-top: 7px;
     
   }
-  
+  ion-segment-button {
+    --indicator-color: #0098fe;
+    --color: #000;
+    --color-checked: #0098fe;
+    --indicator-height: 4px;
+  }
+  ion-searchbar{
+    width: 100%;
+  }
+  ion-button{
+    margin-top: 10%;
+    
+  }
+
  
 </style>

@@ -1,5 +1,24 @@
 <template>
-    <ion-card>
+  <ion-page>
+    <ion-header :translucent="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button color="primary"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>{{ $route.params.id }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">{{ $route.params.id }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    
+      <div id="container">
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        <ion-card>
     <ion-card-header>
       <ion-card-title>รายละเอียดบิล</ion-card-title>
 
@@ -61,21 +80,20 @@
     <ion-button fill="clear">ออกบิล</ion-button>
   </ion-card>
   
-  </template>
-  
-  <script lang="ts">
-    import { IonInput, IonItem, IonLabel, IonList,IonButton, IonCard, IonCardContent, IonCardHeader,IonCardTitle } from '@ionic/vue';
-    import { defineComponent } from 'vue';
-  
-    export default defineComponent({
-      components: { IonInput, IonItem, IonLabel, IonList,IonButton, IonCard, IonCardContent, IonCardHeader,IonCardTitle },
-    });
-  </script>
-  
-  <style scoped>
-    /* iOS places the subtitle above the title */
-    ion-card-header.ios {
-      display: flex;
-      flex-flow: column-reverse;
-    }
-  </style>
+      </div>
+    </ion-content>
+  </ion-page>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonInput, IonItem, IonLabel, IonList,IonButton, IonCard, IonCardContent, IonCardHeader,IonCardTitle } from '@ionic/vue';
+
+export default defineComponent({
+  name: 'FolderPage',
+  components: {
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonInput, IonItem, IonLabel, IonList,IonButton, IonCard, IonCardContent, IonCardHeader,IonCardTitle
+  }
+});
+</script>
+
