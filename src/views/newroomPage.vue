@@ -43,16 +43,17 @@
         <ion-input text placeholder="ระบุจำนวนเงิน">บาท</ion-input>
       </ion-item>
     </ion-list>
-    <ion-item>
-        <ion-label>ต้องการ</ion-label>
-        <ion-radio slot="start" value="ไม่ต้องการ"></ion-radio>
-      </ion-item>
+    <ion-radio-group  value="turtles">
+                <ion-item>
+                  <ion-label>ต้องการ</ion-label>
+                  <ion-radio slot="start" value="dogs"></ion-radio>
+                </ion-item>
 
-      <ion-item>
-        <ion-label>ไม่ต้องการ</ion-label>
-        <ion-radio slot="start" value="ไม่ต้องการ"></ion-radio>
-    </ion-item>
-      
+                <ion-item>
+                  <ion-label>ไม่ต้องการ</ion-label>
+                  <ion-radio slot="start" value="cats"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
       
 
 
