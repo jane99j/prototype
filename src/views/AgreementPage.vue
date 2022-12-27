@@ -6,7 +6,7 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>{{ $route.params.id }}</ion-title>
+        <ion-title>สัญญา</ion-title>
       </ion-toolbar>
     </ion-header>
     
@@ -20,13 +20,15 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
-    <ion-card-header>
-      <ion-card-title>ทำสัญญาห้องพัก</ion-card-title>
-    </ion-card-header>
+        <ion-item color="light">
+          <ion-card-header>
+            <ion-card-title>สัญญา</ion-card-title>
+          </ion-card-header>
+          <ion-title>101 </ion-title>
+        </ion-item>
 
-  <ion-card-content>
     <ion-item>
-    <h2>วันที่ทำสัญญา : </h2>
+      <ion-label>วันที่ทำสัญญา : </ion-label>
     <ion-datetime-button datetime="datetime1"></ion-datetime-button>
     <ion-modal :keep-contents-mounted="true">
     <ion-datetime id="datetime1"></ion-datetime>
@@ -34,28 +36,26 @@
     </ion-item>
 
     <ion-item>
-    <h2>วันที่ยกเลิกสัญญา : </h2>
-    <ion-datetime-button datetime="datetime2"></ion-datetime-button>
-    <ion-modal :keep-contents-mounted="true">
-    <ion-datetime id="datetime2"></ion-datetime>
-    </ion-modal>
-    </ion-item>
-  
-    <ion-list>
-    <ion-item>
-      <h2>ระยะเวลาสัญญา : </h2>
-      <ion-select placeholder="เลือก">
+      <ion-label>ระยะเวลาสัญญา : </ion-label>
+      <ion-select placeholder="เลือก" slot="end">
         <ion-select-option value="apples">3 เดือน</ion-select-option>
         <ion-select-option value="oranges">6 เดือน</ion-select-option>
         <ion-select-option value="bananas">1 ปี</ion-select-option>
       </ion-select>
     </ion-item>
-  </ion-list>
 
-  </ion-card-content>
+    
+    <ion-item>
+      <ion-text>ราคาห้อง  4,000</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-text>ค่าประกัน  4,000</ion-text>
+    </ion-item>
 
-    <ion-card-content>
-      <ion-list>
+
+    <ion-item-divider color="light">
+      <ion-card-title>ผู้เช่า</ion-card-title>
+    </ion-item-divider>
     <ion-item>
       <ion-label>ชื่อ :</ion-label>
       <ion-input text placeholder="กรอกชื่อ" ></ion-input>
@@ -81,36 +81,8 @@
       <ion-input text placeholder="กรอกที่อยู่ที่สามารถติดต่อได้" ></ion-input>
     </ion-item>
 
-  </ion-list>
-    </ion-card-content>
-  <ion-card-content>
+    
 
-    <ion-item>
-    <ion-label>เลขห้องพัก :</ion-label>
-      <ion-input readonly ></ion-input>
-    </ion-item>
-
-    <ion-item>
-    <ion-label>ชั้นที่ :</ion-label>
-      <ion-input readonly ></ion-input>
-    </ion-item>
-
-    <ion-item>
-    <ion-label>ตึก :</ion-label>
-      <ion-input readonly ></ion-input>
-    </ion-item>
-
-    <ion-item>
-    <ion-label>ราคาห้องพัก :</ion-label>
-      <ion-input readonly ></ion-input>
-    </ion-item>
-
-    <ion-item>
-    <ion-label>เงินประกัน :</ion-label>
-      <ion-input number placeholder="กรอกจำนวนเงิน" ></ion-input>
-    </ion-item>
-
-  </ion-card-content>
   <ion-button expand="block">บันทึกสัญญา</ion-button>
   </ion-card>
       </div>
@@ -120,12 +92,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal,IonList ,IonLabel,IonItem,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle  } from '@ionic/vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal ,IonLabel,IonItem,IonInput,IonCard, IonCardHeader,IonCardTitle,
+IonText  } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal,IonList ,IonLabel,IonItem,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle 
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal ,IonLabel,IonItem,IonInput,IonCard, IonCardHeader,IonCardTitle
+    ,IonText
   }
 });
 </script>
