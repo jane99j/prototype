@@ -130,7 +130,7 @@
     <IonRow>
     <div className="ion-float-end">
       <ion-label>กดเลือกห้องที่ต้องการแก้ไข</ion-label>
-      <ion-button routerLink="/newroomprice" >ระบุค่าห้อง</ion-button>
+      <ion-button routerLink="/newroomprice">ระบุประเภทห้อง</ion-button>
     </div> 
     </IonRow>
   </ion-card>

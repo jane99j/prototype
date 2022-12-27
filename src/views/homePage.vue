@@ -132,7 +132,7 @@ export default defineComponent({
   ion-segment-button {
     --indicator-color: #0098fe;
     --color: #000;
-    --color-checked: #ffffff;
+    --color-checked: #0098fe;
     --indicator-height: 4px;
   }
   ion-searchbar{

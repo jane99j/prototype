@@ -26,10 +26,16 @@
             </ion-item>
 
             <ion-card-content>
-              <ion-item>
-                <ion-label>ราคาห้องพัก:</ion-label>
-                <ion-input text placeholder="ระบุห้องพัก" ></ion-input>
-              </ion-item>
+              <ion-list>
+          <ion-item>
+            <ion-label>เลือกประเภทห้องพัก</ion-label>
+          <ion-select interface="popover" placeholder="ประเภทห้องพัก">
+            <ion-select-option value="apples">ห้องพักประเภท A</ion-select-option>
+            <ion-select-option value="oranges">ห้องพักประเภท B</ion-select-option>
+            <ion-select-option value="bananas">ห้องพักประเภท C</ion-select-option>
+          </ion-select>
+        </ion-item>
+        </ion-list>
             </ion-card-content>
           </ion-card><br>
 
