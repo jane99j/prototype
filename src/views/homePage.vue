@@ -19,39 +19,57 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
+        
           <ion-card>
         <ion-card-header>
               <ion-card-title>ห้องพัก</ion-card-title>
             </ion-card-header>
         </ion-card>
+
+        <ion-card> 
         <ion-row>
           <ion-col size="6">
           <ion-segment value="menu1">
-    <ion-segment-button value="menu1">
-      <ion-label>ห้องทั้งหมด</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="menu2">
-      <ion-label>ห้องว่าง</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="menu3">
-      <ion-label>ห้องที่จองแล้ว</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="menu4">
-      <ion-label>ห้องที่ค้างชำระ</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-  </ion-col>
+            <ion-segment-button value="menu1">
+              <ion-label>ห้องทั้งหมด</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="menu2">
+              <ion-label>ห้องว่าง</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="menu3">
+              <ion-label>ห้องที่จองแล้ว</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="menu4">
+              <ion-label>ห้องที่ค้างชำระ</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+          </ion-col>
 
-  <ion-col size="5">
-    <ion-searchbar :search-icon="searchCircle" placeholder="ค้นหา เลขห้องพัก"></ion-searchbar>
-  </ion-col>
-  <ion-col size="1">
-    <ion-button>ค้นหา</ion-button>
-  </ion-col>
-
+        <ion-col size="5">
+          <ion-searchbar :search-icon="searchCircle" placeholder="ค้นหา เลขห้องพัก"></ion-searchbar>
+        </ion-col>
+        <ion-col size="1">
+          <ion-button>ค้นหา</ion-button>
+        </ion-col>
         </ion-row>
+        
+
         <ion-grid :fixed="true" >
           <ion-row>
+            <ion-col routerLink="/manageroomPage1">
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-title>101</ion-card-title>
+                    <ion-card-subtitle></ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>   
+                    </ion-card-content>
+                    <ion-card-content>
+                    <ion-label>ว่าง</ion-label>
+                  </ion-card-content>
+                </ion-card>
+            </ion-col>
+
             <ion-col routerLink="/userdataPage">
                 <ion-card color="light">
                   <ion-card-header>
@@ -67,18 +85,7 @@
                 </ion-card>
 
             </ion-col>
-            <ion-col routerLink="/manageroomPage1">
-              <ion-card>
-                  <ion-card-header>
-                    <ion-card-title>102</ion-card-title>
-                  </ion-card-header>
-                  <ion-card-content>
-                    </ion-card-content>
-                  <ion-card-content>
-                    ว่าง
-                  </ion-card-content>
-                </ion-card>
-            </ion-col>
+            
             <ion-col routerLink="/bookingPage">
               <ion-card color="medium">
                   <ion-card-header>
@@ -95,6 +102,7 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+      </ion-card> 
       </div>
     </ion-content>
   </ion-page>
@@ -130,7 +138,8 @@ export default defineComponent({
     
   }
   ion-segment-button {
-    --indicator-color: #0098fe;
+    background-color: rgb(137, 213, 243);
+    --indicator-color: #006eff;
     --color: #000;
     --color-checked: #ffffff;
     --indicator-height: 4px;
