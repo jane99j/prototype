@@ -54,7 +54,7 @@
                   <ion-card-header>
                     <ion-card-title>101</ion-card-title>
                   </ion-card-header>
-                  <ion-card-content>ค่าเช่า: 4,000</ion-card-content>
+                  <ion-card-content></ion-card-content>
                 </ion-card>
               </ion-col>
             <ion-col routerLink="/bookingPage">
@@ -62,7 +62,7 @@
                   <ion-card-header>
                     <ion-card-title>102</ion-card-title>
                   </ion-card-header>
-                  <ion-card-content>ค่าเช่า: 4,000</ion-card-content>
+                  <ion-card-content></ion-card-content>
                 </ion-card>
               </ion-col>
               <ion-col routerLink="/bookingPage">
@@ -70,7 +70,7 @@
                   <ion-card-header>
                     <ion-card-title>103</ion-card-title>
                   </ion-card-header>
-                  <ion-card-content>ค่าเช่า: 4,000</ion-card-content>
+                  <ion-card-content></ion-card-content>
                 </ion-card>
               </ion-col>
           </ion-row>
@@ -103,7 +103,7 @@
                   <ion-card-header>
                     <ion-card-title>201</ion-card-title>
                   </ion-card-header>
-                  <ion-card-content>ค่าเช่า: 4,000</ion-card-content>
+                  <ion-card-content></ion-card-content>
                 </ion-card>
               </ion-col>
             <ion-col routerLink="/bookingPage">
@@ -111,7 +111,7 @@
                   <ion-card-header>
                     <ion-card-title>202</ion-card-title>
                   </ion-card-header>
-                  <ion-card-content>ค่าเช่า: 4,000</ion-card-content>
+                  <ion-card-content></ion-card-content>
                 </ion-card>
               </ion-col>
               <ion-col routerLink="/bookingPage">
@@ -119,7 +119,7 @@
                   <ion-card-header>
                     <ion-card-title>203</ion-card-title>
                   </ion-card-header>
-                  <ion-card-content>ค่าเช่า: 4,000</ion-card-content>
+                  <ion-card-content></ion-card-content>
                 </ion-card>
               </ion-col>
           </ion-row>
