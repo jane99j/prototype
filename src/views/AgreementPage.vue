@@ -89,6 +89,11 @@
       </ion-select>
     </ion-item>
 
+    <ion-item>
+      <ion-label>วันที่เข้าพัก</ion-label>
+      <ion-input text placeholder="" ></ion-input>
+    </ion-item>
+
     
 
   <ion-button expand="block">บันทึกสัญญา</ion-button>
