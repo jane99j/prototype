@@ -98,8 +98,8 @@ export default defineComponent({
         mdIcon: cube
       },
       {
-        title: 'รายงาน',
-        url: '/suppliesPage',
+        title: 'กำหนดเราห้องพัก',
+        url: '/roompricePage',
         iosIcon: cube,
         mdIcon: cube
       }
