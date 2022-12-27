@@ -133,6 +133,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/newroomfour.vue')
 
   },
+  {
+    path: '/loginPage',
+    component: () => import ('../views/loginPage.vue')
+
+  },
 
 
 
