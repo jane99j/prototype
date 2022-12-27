@@ -141,7 +141,7 @@ export default defineComponent({
     background-color: rgb(137, 213, 243);
     --indicator-color: #006eff;
     --color: #000;
-    --color-checked: #ffffff;
+    --color-checked: #0098fe;
     --indicator-height: 4px;
   }
   ion-searchbar{
