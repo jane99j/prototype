@@ -19,8 +19,13 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
+          <ion-item color="light">
+                <ion-card-header >
+                    
+                    <ion-card-title>กำหนดการชำระ</ion-card-title>
+                </ion-card-header>
+            </ion-item>
     <ion-card-content>
-      <ion-card-title>กำหนดการชำระ</ion-card-title>
       <ion-list>
         <ion-item>
           <ion-label>วันสุดท้ายของการชำระเงิน</ion-label>
@@ -38,15 +43,17 @@
         <ion-input text placeholder="ระบุจำนวนเงิน">บาท</ion-input>
       </ion-item>
     </ion-list>
-    <ion-item>
-      <ion-checkbox slot="start"></ion-checkbox>
-      <ion-label>ต้องการ</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-checkbox slot="start"></ion-checkbox>
-      <ion-label>ไม่ต้องการ</ion-label>
-    </ion-item>
-      
+    <ion-radio-group  value="turtles">
+                <ion-item>
+                  <ion-label>ต้องการ</ion-label>
+                  <ion-radio slot="start" value="dogs"></ion-radio>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>ไม่ต้องการ</ion-label>
+                  <ion-radio slot="start" value="cats"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
       
 
 

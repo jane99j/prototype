@@ -136,8 +136,18 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/loginPage',
     component: () => import ('../views/loginPage.vue')
+  },
+  {
+    path: '/newroomprice',
+    component: () => import ('../views/newroomprice.vue')
+  },
+  {
+    path: '/newroomfinish',
+    component: () => import ('../views/newroomfinish.vue')
 
   },
+
+
 
 
 

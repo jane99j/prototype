@@ -19,10 +19,12 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
-    <ion-card-header>
-      <ion-card-title>จำนวนชั้น</ion-card-title>
-    </ion-card-header>
-
+          <ion-item color="light">
+              <ion-card-header >
+                  <ion-card-title>จำนวนชั้น</ion-card-title>
+              </ion-card-header>
+          </ion-item>
+          
     <ion-card-content>
       <ion-list>
         <ion-item>
@@ -64,7 +66,7 @@
   <ion-card>
     <IonRow>
     <div className="ion-float-end">
-      <ion-button routerLink="/newroomthree">ต่อไป</ion-button>
+      <ion-button routerLink="/newroomfour">ต่อไป</ion-button>
     </div> 
     </IonRow>
   </ion-card>

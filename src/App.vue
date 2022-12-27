@@ -62,7 +62,7 @@ export default defineComponent({
         mdIcon: notifications
       },
       {
-        title: 'เพิ่มห้อง',
+        title: 'จัดการห้องพัก',
         url: '/newroomPage',
         iosIcon: construct,
         mdIcon: construct

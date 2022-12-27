@@ -19,10 +19,13 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
-
+          <ion-item color="light">
+                <ion-card-header >
+                    <ion-card-title>บัญชีธนาคร</ion-card-title>
+                    <ion-label>บัญชีธนาคร/ไฟฟ้า</ion-label>
+                </ion-card-header>
+            </ion-item>
     <ion-card-content>
-      <ion-card-title>บัญชีธนาคร</ion-card-title>
-      <ion-label>รายชื่อบัญชีธนาคารแสดงในบิล</ion-label>
       <ion-list>
         <ion-item>
           <ion-label>ธนาคร</ion-label>
@@ -47,10 +50,13 @@
   </ion-card>
 
   <ion-card>
+           <ion-item color="light">
+                <ion-card-header >
+                    <ion-card-title>ขั้นตอนการแจ้งการชำระเงิน</ion-card-title>
+                    <ion-label>ข้อความรจะแสดงพร้อมชื่อบัญชีธนาคารในบิล/ไฟฟ้า</ion-label>
+                </ion-card-header>
+            </ion-item>
     <ion-card-content>
-      <ion-card-title>ขั้นตอนการแจ้งการชำระเงิน</ion-card-title>
-      <ion-label>ข้อความรจะแสดงพร้อมชื่อบัญชีธนาคารในบิล</ion-label>
-      
       <ion-item>
         <ion-label>ข้อความ</ion-label>
         <ion-textarea placeholder="กรอกข้อความ"></ion-textarea>

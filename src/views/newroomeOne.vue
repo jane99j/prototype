@@ -19,12 +19,14 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
    <ion-card>
-    <ion-card-header>
-      <ion-card-title>กำหนดน้ำไฟ</ion-card-title>
-    </ion-card-header>
+    <ion-item color="light">
+                <ion-card-header >
+                    <ion-card-title>กำหนดน้ำไฟ</ion-card-title>
+                    <ion-label>ราคาต่อหน่วยค่าน้ำ/ไฟฟ้า</ion-label>
+                </ion-card-header>
+            </ion-item>
     
     <ion-card-content>
-      <ion-label>ราคาต่อหน่วยค่าน้ำ/ไฟฟ้า</ion-label>
       <ion-list>
       <ion-item>
         <ion-label>ค่าน้ำต่อหน่วย :</ion-label>

@@ -19,14 +19,34 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
-      <ion-card-header>
-        <ion-card-title>ค่าห้อง</ion-card-title>
-        <ion-label>เลือกห้องที่ต้องการปรับราคา</ion-label>
-      </ion-card-header>
+          <ion-item color="light">
+              <ion-card-header >
+                  <ion-card-title>ค่าห้อง</ion-card-title>
+                  <ion-label>เลือกห้องที่ต้องการปรับราคา</ion-label>
+              </ion-card-header>
+          </ion-item>
+          
     <ion-card-content> 
-      <ion-item>
-          <ion-label>ชั้นที่2</ion-label>
-        </ion-item>
+          <ion-grid>
+          <ion-row class="ion-justify-content-end">
+            <ion-col size="3">
+              <ion-item-divider color="light">
+                <ion-checkbox slot="start"></ion-checkbox>
+                <ion-label>เลือกทั้งชั้น</ion-label>
+              </ion-item-divider>
+            </ion-col>
+            <ion-col size="3">
+              <ion-item-divider color="light">
+                <ion-checkbox slot="start"></ion-checkbox>
+                <ion-label>เลือกทุกชั้น</ion-label>
+              </ion-item-divider>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-item-divider color="light">
+          <ion-label>ชั้นที่1</ion-label>
+        </ion-item-divider>
       <ion-grid :fixed="true" >
           <ion-row>
             <ion-col routerLink="/manageroomPage1">
@@ -56,9 +76,26 @@
           </ion-row>
         </ion-grid>
 
-        <ion-item>
+        <ion-grid>
+          <ion-row class="ion-justify-content-end">
+            <ion-col size="3">
+              <ion-item-divider color="light">
+                <ion-checkbox slot="start"></ion-checkbox>
+                <ion-label>เลือกทั้งชั้น</ion-label>
+              </ion-item-divider>
+            </ion-col>
+            <ion-col size="3">
+              <ion-item-divider color="light">
+                <ion-checkbox slot="start"></ion-checkbox>
+                <ion-label>เลือกทุกชั้น</ion-label>
+              </ion-item-divider>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-item-divider color="light">
           <ion-label>ชั้นที่2</ion-label>
-        </ion-item>
+        </ion-item-divider>
       <ion-grid :fixed="true" >
           <ion-row>
             <ion-col routerLink="/manageroomPage1">
@@ -92,7 +129,8 @@
   <ion-card>
     <IonRow>
     <div className="ion-float-end">
-      <ion-button routerLink="/newroomthree">ต่อไป</ion-button>
+      <ion-label>กดเลือกห้องที่ต้องการแก้ไข</ion-label>
+      <ion-button routerLink="/newroomprice" >ระบุค่าห้อง</ion-button>
     </div> 
     </IonRow>
   </ion-card>
@@ -116,6 +154,7 @@ export default defineComponent({
 ion-card-content{
   text-align: center;
 }
+
 </style>
 
   
