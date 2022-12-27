@@ -20,7 +20,7 @@
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
   <ion-card-header>
-    <ion-card-title></ion-card-title>
+    <ion-card-title>ออกบิล</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
@@ -36,10 +36,10 @@
 
     <ion-grid :fixed="false">
       <ion-row>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
-        <ion-col><ion-input readonly></ion-input></ion-col>
+        <ion-col><ion-input readonly>101</ion-input></ion-col>
+        <ion-col><ion-input readonly>ไม่ว่าง</ion-input></ion-col>
+        <ion-col><ion-input readonly>20</ion-input></ion-col>
+        <ion-col><ion-input readonly>50</ion-input></ion-col>
         <ion-col><ion-button routerLink="billPage2">รายละเอียด</ion-button></ion-col>
       </ion-row>
     </ion-grid>
