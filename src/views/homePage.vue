@@ -56,7 +56,7 @@
 
         <ion-grid :fixed="true" >
           <ion-row>
-            <ion-col routerLink="/manageroomPage1">
+            <ion-col routerLink="/AgreementPage">
                 <ion-card>
                   <ion-card-header>
                     <ion-card-title>101</ion-card-title>

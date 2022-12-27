@@ -81,6 +81,14 @@
       <ion-input text placeholder="กรอกที่อยู่ที่สามารถติดต่อได้" ></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label>สถานะสัญญา</ion-label>
+      <ion-select placeholder="เลือก" slot="end">
+        <ion-select-option value="apples">จอง</ion-select-option>
+        <ion-select-option value="oranges">ย้ายเข้า</ion-select-option>
+      </ion-select>
+    </ion-item>
+
     
 
   <ion-button expand="block">บันทึกสัญญา</ion-button>
