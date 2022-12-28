@@ -38,7 +38,7 @@
                 </ion-item>
 
                 <ion-item>
-                <ion-label>เบอร์ไทรศัพท์</ion-label>
+                <ion-label>เบอร์โทรศัพท์</ion-label>
                 <ion-input text placeholder="ระบุเบอร์โทรศัพท์"></ion-input>
                 </ion-item>
             </ion-list>     

@@ -87,7 +87,7 @@
       <ion-row>
         <ion-col><ion-input readonly>101</ion-input></ion-col>
         <ion-col><ion-input readonly>ไม่ว่าง</ion-input></ion-col>
-        <ion-col><ion-input readonly>50</ion-input></ion-col>
+        <ion-col><ion-input readonly>0</ion-input></ion-col>
         <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
         <ion-col><ion-input placeholder=""></ion-input></ion-col>
       </ion-row>
@@ -97,7 +97,7 @@
       <ion-row>
         <ion-col><ion-input readonly>101</ion-input></ion-col>
         <ion-col><ion-input readonly>ไม่ว่าง</ion-input></ion-col>
-        <ion-col><ion-input readonly>50</ion-input></ion-col>
+        <ion-col><ion-input readonly>0</ion-input></ion-col>
         <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
         <ion-col><ion-input placeholder=""></ion-input></ion-col>
       </ion-row>

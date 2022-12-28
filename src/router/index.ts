@@ -152,6 +152,12 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
+
+    path: '/managemitorPage',
+    component: () => import ('../views/managemitorPage.vue')
+
+  },
+  {
     path: '/newroomsix',
     component: () => import ('../views/newroomsix.vue')
 
@@ -167,7 +173,7 @@ const routes: Array<RouteRecordRaw> = [
 
   },
  
- 
+
 
 
 
