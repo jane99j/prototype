@@ -30,20 +30,43 @@
           <ion-item>
             <ion-label>เลือกประเภทห้องพัก</ion-label>
           <ion-select interface="popover" placeholder="ประเภทห้องพัก">
-            <ion-select-option value="apples">ห้องพักประเภท A</ion-select-option>
-            <ion-select-option value="oranges">ห้องพักประเภท B</ion-select-option>
-            <ion-select-option value="bananas">ห้องพักประเภท C</ion-select-option>
+            <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
+            <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
+            <ion-select-option value="bananas">ห้อง VIP</ion-select-option>
           </ion-select>
         </ion-item>
         </ion-list>
             </ion-card-content>
-          </ion-card><br>
+          </ion-card>
 
-          <ion-card>
-            <ion-radio-group  value="turtles">
+       
+                <ion-card>
+                <ion-radio-group  value="turtles">
+                    <ion-item color="light">
+                      <ion-card-title>บริการเพิ่มเติม</ion-card-title>
+                    </ion-item>
+                    <ion-item>
+                      <ion-checkbox slot="start"></ion-checkbox>
+                      <ion-label>ค่าจอดรถ</ion-label>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-checkbox slot="start"></ion-checkbox>
+                      <ion-label>ค่าอินเตอร์เน็ต</ion-label>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-checkbox slot="start"></ion-checkbox>
+                      <ion-label>ค่าบริการอื่นๆ</ion-label>
+                    </ion-item>
+                  </ion-radio-group>
+              </ion-card>
+
+              <ion-card>
+              <ion-radio-group>
                 <ion-item color="light">
-                  <ion-card-title>เลือกสถานะห้อง:</ion-card-title>
-                </ion-item>
+                      <ion-card-title>สถานะห้อง</ion-card-title>
+                    </ion-item>
                 <ion-item>
                   <ion-label>ว่าง</ion-label>
                   <ion-radio slot="end" value="dogs"></ion-radio>
@@ -54,7 +77,8 @@
                   <ion-radio slot="end" value="cats"></ion-radio>
                 </ion-item>
               </ion-radio-group>
-          </ion-card>
+              </ion-card>
+
 
           <ion-card>
             <IonRow>

@@ -152,10 +152,28 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
+
     path: '/managemitorPage',
     component: () => import ('../views/managemitorPage.vue')
 
-  }
+  },
+  {
+    path: '/newroomsix',
+    component: () => import ('../views/newroomsix.vue')
+
+  },
+  {
+    path: '/Newlocate',
+    component: () => import ('../views/Newlocate.vue')
+
+  },
+  {
+    path: '/PageNewRoom',
+    component: () => import ('../views/Newlocate.vue')
+
+  },
+ 
+
 
 
 

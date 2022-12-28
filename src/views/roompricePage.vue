@@ -19,42 +19,68 @@
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
           <ion-card>
-            <ion-item color="light">
-                  <ion-card-header >
-                      
-                      <ion-card-title>กำหนดราคาค่าห้องพัก</ion-card-title>
-                  </ion-card-header>
-              </ion-item>
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label>เลือกประเภทห้องพัก</ion-label>
-          <ion-select interface="popover" placeholder="ประเภทห้องพัก">
-            <ion-select-option value="apples">ห้องพักประเภท A</ion-select-option>
-            <ion-select-option value="oranges">ห้องพักประเภท B</ion-select-option>
-            <ion-select-option value="bananas">ห้องพักประเภท C</ion-select-option>
-          </ion-select>
-        </ion-item>
-        </ion-list>
-  
-        <ion-list>
-        <ion-item>
-          <ion-label>กำหนดราคาประเภทห้อง</ion-label>
-          <ion-input text placeholder="ระบุจำนวนเงิน"></ion-input>
-        </ion-item>
-      </ion-list>
-        
-  
-      </ion-card-content>
-    </ion-card>
+                    <ion-item color="light">
+                          <ion-card-header >
+                              
+                              <ion-card-title>กำหนดราคาค่าห้องพัก</ion-card-title>
+                              <ion-label>รายการค่าบริการจะแสดงในขั้นตอนเลือกประเภทห้องพัก</ion-label>
+                          </ion-card-header>
+                      </ion-item>
+              <ion-card-content>
+                  <ion-item>
+                            <ion-label>ประเภทห้อง :</ion-label>
+                            <ion-input text placeholder="ระบุประภทห้องพัก"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>กำหนดราคา :</ion-label>
+                            <ion-input text placeholder="ระบุราคาห้องพัก"></ion-input>
+                        </ion-item>
+
+                        <IonRow>
+                        <div className="ion-float-end">
+                          <ion-button routerLink="/newroomeOne">เพิ่ม</ion-button>
+                        </div> 
+                        </IonRow>
+
+                        
+              </ion-card-content>
+            </ion-card>
+            <ion-card>
+              <ion-card-content>
+                <ion-grid fixed="true">
+                  <ion-item>
+                    <ion-col>ห้องทั่วไป</ion-col>
+                    <ion-col>3,000</ion-col>
+                    <ion-col>
+                      <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
+                    </ion-col>
+                  </ion-item>
+              
+                  <ion-item>
+                    <ion-col>ห้องแอร์</ion-col>
+                    <ion-col>3,500</ion-col>
+                    <ion-col>
+                      <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
+                    </ion-col>
+                  </ion-item>
+                  
+                  <ion-item>
+                    <ion-col>ห้องVIP</ion-col>
+                    <ion-col>4,000</ion-col>
+                    <ion-col>
+                      <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
+                    </ion-col>
+                  </ion-item>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
     <ion-card>
-      <IonRow>
-      <div className="ion-float-end">
-        <ion-button color="warning">แก้ไข</ion-button>
-        <ion-button color="success">บันทึก</ion-button>
-      </div> 
-      </IonRow>
-    </ion-card>
+    <IonRow>
+    <div className="ion-float-end">
+      <ion-button routerLink="/newroomsix">ต่อไป</ion-button>
+    </div> 
+    </IonRow>
+  </ion-card>
         </div>
       </ion-content>
     </ion-page>
@@ -63,12 +89,12 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonInput,IonLabel,IonSelectOption,IonSelect,IonList,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
+  import { IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-        IonInput,IonLabel, IonSelectOption,IonSelect,IonList,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
+        IonInput,IonLabel,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
     }
   });
   </script>
