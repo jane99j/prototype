@@ -56,12 +56,6 @@ export default defineComponent({
     const selectedIndex = ref(0);
     const appPages = [
       {
-        title: 'กำหนดเราห้องพัก',
-        url: '/roompricePage',
-        iosIcon: construct,
-        mdIcon: construct
-      },
-      {
         title: 'จัดการห้องพัก',
         url: '/Newlocate',
         iosIcon: construct,
@@ -96,7 +90,13 @@ export default defineComponent({
         url: '/suppliesPage',
         iosIcon: cube,
         mdIcon: cube
-      }
+      },
+      {
+        title: 'กำหนดเราห้องพัก',
+        url: '/roompricePage',
+        iosIcon: construct,
+        mdIcon: construct
+      },
 
 
       

@@ -17,18 +17,32 @@
         </ion-header>
       
         <div id="container">
-        <center>
-          <ion-card>
-            <ion-card-header >     
-                    <ion-card-title>ตั้งค่าเสร็จเรียบร้อย</ion-card-title>
-                </ion-card-header>
-            <IonRow>
-            <div>
-            <ion-button routerLink="/homePage">เริ่มการติดตั้ง</ion-button>
+            <center>
+            <ion-grid :fixed="true" >
+          <ion-row>
+            <ion-col routerLink="/manageroomPage1">
+              <ion-card>
+                  <ion-card-header>
+                    <ion-card-title> ชื่อ : MT หอพัก</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <IonRow>
+                    <div>
+                    <ion-button routerLink="/roompricePage">เริ่มตั้งค่า</ion-button>
 
-            </div> 
-            </IonRow>
-        </ion-card>
+                    </div> 
+                    </IonRow>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            <ion-col>
+              
+              </ion-col>
+              <ion-col>
+              
+              </ion-col>
+          </ion-row>
+        </ion-grid>
         </center>
         </div>
       </ion-content>
