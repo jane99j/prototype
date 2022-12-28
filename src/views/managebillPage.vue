@@ -47,8 +47,17 @@
     </ion-item>
   </ion-list></ion-col>
 
+        <ion-col><ion-list>
+    <ion-item>
+      <ion-select placeholder="ตึก">
+        <ion-select-option value="apples">ตึก A</ion-select-option>
+        <ion-select-option value="oranges">ตึก B</ion-select-option>
+        <ion-select-option value="bananas">ตึก C</ion-select-option>
+        <ion-select-option value="bananas">ตึก D</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list></ion-col>
         <ion-col><ion-searchbar placeholder="ค้นหาห้องพัก"></ion-searchbar></ion-col>
-        <ion-col></ion-col>
         <ion-col></ion-col>
         <ion-col><ion-segment value="menu1">
     <ion-segment-button value="menu1">
@@ -66,13 +75,24 @@
     <ion-card>
     <ion-grid :fixed="false">
       <ion-row>
-        <ion-col>ห้อง</ion-col>
-        <ion-col>สถานะห้อง</ion-col>
-        <ion-col>จดก่อนหน้า</ion-col>
-        <ion-col>จดล่าสุด</ion-col>
-        <ion-col>หน่วยที่ใช้</ion-col>
+        <ion-col><ion-input readonly>ห้อง</ion-input></ion-col>
+        <ion-col><ion-input readonly>สถานะห้อง</ion-input></ion-col>
+        <ion-col><ion-input readonly>จดก่อนหน้า</ion-input></ion-col>
+        <ion-col><ion-input readonly>จดล่าสุด</ion-input></ion-col>
+        <ion-col><ion-input readonly>หน่วยที่ใช้</ion-input></ion-col>
       </ion-row>
     </ion-grid>
+
+    <ion-grid :fixed="false">
+      <ion-row>
+        <ion-col><ion-input readonly>101</ion-input></ion-col>
+        <ion-col><ion-input readonly>ไม่ว่าง</ion-input></ion-col>
+        <ion-col><ion-input readonly>50</ion-input></ion-col>
+        <ion-col><ion-input placeholder="กรอก"></ion-input></ion-col>
+        <ion-col><ion-input placeholder=""></ion-input></ion-col>
+      </ion-row>
+    </ion-grid>
+
     <ion-grid :fixed="false">
       <ion-row>
         <ion-col><ion-input readonly>101</ion-input></ion-col>
