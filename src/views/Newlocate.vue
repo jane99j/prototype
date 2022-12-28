@@ -25,29 +25,29 @@
                       <ion-card-title>ตั้งค่าหอพัก</ion-card-title>
                   </ion-card-header>
               </ion-item>
-      <ion-card-content>
-        <ion-list>
-        <ion-item>
-          <ion-label>ชื่อหอพัก</ion-label>
-          <ion-input text placeholder="ระบุชื่อหอพัก"></ion-input>
-        </ion-item>
+            <ion-card-content>
+                <ion-list>
+                <ion-item>
+                <ion-label>ชื่อหอพัก</ion-label>
+                <ion-input text placeholder="ระบุชื่อหอพัก"></ion-input>
+                </ion-item>
 
-        <ion-item>
-          <ion-label>ที่อยู่หอพัก</ion-label>
-          <ion-input text placeholder="ระบุที่อยู่"></ion-input>
-        </ion-item>
+                <ion-item>
+                <ion-label>ที่อยู่หอพัก</ion-label>
+                <ion-input text placeholder="ระบุที่อยู่"></ion-input>
+                </ion-item>
 
-        <ion-item>
-          <ion-label>เบอร์ไทรศัพท์</ion-label>
-          <ion-input text placeholder="ระบุเบอร์โทรศัพท์"></ion-input>
-        </ion-item>
-      </ion-list>     
-      </ion-card-content>
-    </ion-card>
+                <ion-item>
+                <ion-label>เบอร์ไทรศัพท์</ion-label>
+                <ion-input text placeholder="ระบุเบอร์โทรศัพท์"></ion-input>
+                </ion-item>
+            </ion-list>     
+            </ion-card-content>
+            </ion-card>
     <ion-card>
       <IonRow>
       <div className="ion-float-end">
-        <ion-button routerLink="/newroomeOne">ต่อไป</ion-button>
+        <ion-button routerLink="/newroomPage">ต่อไป</ion-button>
       </div> 
       </IonRow>
     </ion-card>

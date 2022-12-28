@@ -25,7 +25,7 @@
             <IonRow>
             <div>
             <ion-button routerLink="/homePage">เริ่มการติดตั้ง</ion-button>
-        
+
             </div> 
             </IonRow>
         </ion-card>
