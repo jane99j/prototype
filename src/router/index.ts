@@ -161,6 +161,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/Newlocate.vue')
 
   },
+  {
+    path: '/PageNewRoom',
+    component: () => import ('../views/Newlocate.vue')
+
+  },
+ 
  
 
 
