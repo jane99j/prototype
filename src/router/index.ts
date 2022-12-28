@@ -151,6 +151,17 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/roompricePage.vue')
 
   },
+  {
+    path: '/newroomsix',
+    component: () => import ('../views/newroomsix.vue')
+
+  },
+  {
+    path: '/Newlocate',
+    component: () => import ('../views/Newlocate.vue')
+
+  },
+ 
 
 
 
