@@ -69,7 +69,7 @@ export default defineComponent({
       },
       {
         title: 'จดมิเตอร์',
-        url: '/managemitorPage',
+        url: '/ExamplePage',
         iosIcon: pencil,
         mdIcon: pencil
       },

@@ -25,8 +25,8 @@ const routes: Array<RouteRecordRaw> = [
 
 
   {
-    path: '/manageroomPage1',
-    component: () => import ('../views/manageroomPage1.vue')
+    path: '/manageroomPage',
+    component: () => import ('../views/manageroomPage.vue')
   },
 
   {
@@ -152,12 +152,6 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-
-    path: '/managemitorPage',
-    component: () => import ('../views/managemitorPage.vue')
-
-  },
-  {
     path: '/newroomsix',
     component: () => import ('../views/newroomsix.vue')
 
@@ -172,6 +166,30 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/PageNewRoom.vue')
 
   },
+  {
+    path: '/PageOne',
+    component: () => import ('../views/PageOne.vue')
+
+  },
+  {
+    path: '/PageTwo',
+    component: () => import ('../views/PageTwo.vue')
+
+  },
+  {
+    path: '/ExamplePage',
+    component: () => import ('../views/ExamplePage.vue')
+
+  },
+  {
+    path: '/PageThree',
+    component: () => import ('../views/PageThree.vue')
+
+  },
+ 
+ 
+ 
+ 
  
 
 
