@@ -6,7 +6,7 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>{{ $route.params.id }}</ion-title>
+        <ion-title>ห้องพัก</ion-title>
       </ion-toolbar>
     </ion-header>
     
@@ -22,13 +22,32 @@
         
           <ion-card>
         <ion-card-header>
-              <ion-card-title>ห้องพัก</ion-card-title>
+              <ion-card-title></ion-card-title>
             </ion-card-header>
         </ion-card>
 
         <ion-card> 
-        <ion-row>
-          <ion-col size="6">
+
+        <ion-item>
+          <ion-col size="4">
+          <ion-label>ประเภทห้อง</ion-label>
+        <ion-select interface="popover" placeholder="เลือก">
+          <ion-select-option value="apples">พัดลม</ion-select-option>
+          <ion-select-option value="oranges">แอร์</ion-select-option>
+          <ion-select-option value="bananas">VIP</ion-select-option>
+        </ion-select>
+          </ion-col>
+        <ion-col size="5">
+          <ion-searchbar :search-icon="searchCircle" placeholder="ค้นหา เลขห้องพัก"></ion-searchbar>
+        </ion-col>
+        <ion-col>
+          <ion-button>ค้นหา</ion-button>
+        </ion-col>
+        </ion-item>
+        <ion-item color="light">
+          <ion-label>ห้องทั้งหมด 3 ห้อง </ion-label>
+        </ion-item>
+        <ion-col size="6">
           <ion-segment value="menu1">
             <ion-segment-button value="menu1">
               <ion-label>ห้องทั้งหมด</ion-label>
@@ -44,14 +63,6 @@
             </ion-segment-button>
           </ion-segment>
           </ion-col>
-
-        <ion-col size="5">
-          <ion-searchbar :search-icon="searchCircle" placeholder="ค้นหา เลขห้องพัก"></ion-searchbar>
-        </ion-col>
-        <ion-col size="1">
-          <ion-button>ค้นหา</ion-button>
-        </ion-col>
-        </ion-row>
         
 
         <ion-grid :fixed="true" >
@@ -110,13 +121,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import {IonButton,IonSearchbar ,IonLabel, IonSegment, IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,} from '@ionic/vue';
+import {IonButton,IonSearchbar ,IonLabel, IonSegment, IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption} from '@ionic/vue';
 import {person,searchCircle } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonButton,IonSearchbar ,IonLabel, IonSegment,IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,
+    IonButton,IonSearchbar ,IonLabel, IonSegment,IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption
   },
   setup() {
       return {person,searchCircle }
@@ -151,6 +162,5 @@ export default defineComponent({
     margin-top: 10%;
     
   }
-
  
 </style>
