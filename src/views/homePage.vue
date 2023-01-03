@@ -20,11 +20,6 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         
-          <ion-card>
-        <ion-card-header>
-              <ion-card-title></ion-card-title>
-            </ion-card-header>
-        </ion-card>
 
         <ion-card> 
 
@@ -32,17 +27,11 @@
           <ion-col size="4">
           <ion-label>ประเภทห้อง</ion-label>
         <ion-select interface="popover" placeholder="เลือก">
-          <ion-select-option value="apples">พัดลม</ion-select-option>
-          <ion-select-option value="oranges">แอร์</ion-select-option>
-          <ion-select-option value="bananas">VIP</ion-select-option>
+          <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
+          <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
+          <ion-select-option value="bananas">ห้องVIP</ion-select-option>
         </ion-select>
           </ion-col>
-        <ion-col size="5">
-          <ion-searchbar :search-icon="searchCircle" placeholder="ค้นหา เลขห้องพัก"></ion-searchbar>
-        </ion-col>
-        <ion-col>
-          <ion-button>ค้นหา</ion-button>
-        </ion-col>
         </ion-item>
         <ion-item color="light">
           <ion-label>ห้องทั้งหมด 3 ห้อง </ion-label>
@@ -121,13 +110,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import {IonButton,IonSearchbar ,IonLabel, IonSegment, IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption} from '@ionic/vue';
+import {IonLabel, IonSegment, IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption} from '@ionic/vue';
 import {person,searchCircle } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonButton,IonSearchbar ,IonLabel, IonSegment,IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption
+    IonLabel, IonSegment,IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption
   },
   setup() {
       return {person,searchCircle }

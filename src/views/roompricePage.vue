@@ -35,6 +35,10 @@
                             <ion-label>กำหนดราคา :</ion-label>
                             <ion-input text placeholder="ระบุราคาห้องพัก"></ion-input>
                         </ion-item>
+                        
+                      <ion-item>
+                        <ion-label>ของใช้ภายในห้อง</ion-label>
+                      </ion-item>
 
                         <ion-item>
                         <ion-checkbox slot="start"></ion-checkbox>
