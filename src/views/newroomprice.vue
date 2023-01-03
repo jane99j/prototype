@@ -20,7 +20,6 @@
           <ion-card>
             <ion-item color="light">
                 <ion-card-header >
-                    
                     <ion-card-title>กำหนดราค่าห้อง</ion-card-title>
                 </ion-card-header>
             </ion-item>
@@ -53,26 +52,48 @@
             </ion-card-content>
           </ion-card>
 
-       
+          <ion-card>
+              <IonRow>
+                <div className="ion-float-end">
+                <ion-button routerLink="/newroomfinish">เพิ่มค่าบริการ</ion-button>
+                </div> 
+              </IonRow>
+            </ion-card>
                 <ion-card>
                 <ion-radio-group  value="turtles">
                     <ion-item color="light">
                       <ion-card-title>บริการเพิ่มเติม</ion-card-title>
                     </ion-item>
-                    <ion-item>
-                      <ion-checkbox slot="start"></ion-checkbox>
-                      <ion-label>ค่าจอดรถ</ion-label>
+                    <ion-item color="light">
+                      <div className="ion-float-end">
+                      <ion-button routerLink="/newroomsix">+ เพิ่มค่าบริการ</ion-button>
+                      </div> 
                     </ion-item>
-
-                    <ion-item>
-                      <ion-checkbox slot="start"></ion-checkbox>
-                      <ion-label>ค่าอินเตอร์เน็ต</ion-label>
-                    </ion-item>
-
-                    <ion-item>
-                      <ion-checkbox slot="start"></ion-checkbox>
-                      <ion-label>ค่าบริการอื่นๆ</ion-label>
-                    </ion-item>
+                    <ion-grid fixed="true">
+                <ion-item>
+                  <ion-col>ค่าจอดรถ</ion-col>
+                  <ion-col>300</ion-col>
+                  <ion-col>
+                    <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
+                  </ion-col>
+                </ion-item>
+            
+                <ion-item>
+                  <ion-col>ค่าอินเตอร์เน็ต</ion-col>
+                  <ion-col>500</ion-col>
+                  <ion-col>
+                    <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
+                  </ion-col>
+                </ion-item>
+                
+                <ion-item>
+                  <ion-col>ค่าเฟอร์นิเจอร์</ion-col>
+                  <ion-col>500</ion-col>
+                  <ion-col>
+                    <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
+                  </ion-col>
+                </ion-item>
+              </ion-grid>
                   </ion-radio-group>
               </ion-card>
 

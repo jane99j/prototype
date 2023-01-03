@@ -25,8 +25,8 @@
                   <ion-label>เลือกห้องที่ต้องการปรับราคา</ion-label>
               </ion-card-header>
           </ion-item>
-          
-    <ion-card-content> 
+
+          <ion-card-content> 
           <ion-grid>
           <ion-row class="ion-justify-content-end">
             <ion-col size="3">
