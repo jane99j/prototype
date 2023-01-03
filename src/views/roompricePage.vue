@@ -36,9 +36,35 @@
                             <ion-input text placeholder="ระบุราคาห้องพัก"></ion-input>
                         </ion-item>
 
+                        <ion-item>
+                        <ion-checkbox slot="start"></ion-checkbox>
+                        <ion-label>พัดลม</ion-label>
+                        </ion-item>
+
+                        <ion-item>
+                        <ion-checkbox slot="start"></ion-checkbox>
+                        <ion-label>แอร์</ion-label>
+                        </ion-item>
+
+                        <ion-item>
+                        <ion-checkbox slot="start"></ion-checkbox>
+                        <ion-label>ตู้เสื้อผ้า</ion-label>
+                        </ion-item>
+
+                        <ion-item>
+                        <ion-checkbox slot="start"></ion-checkbox>
+                        <ion-label>โต๊ะเครื่องแป้ง</ion-label>
+                        </ion-item>
+
+                        <ion-item>
+                        <ion-checkbox slot="start"></ion-checkbox>
+                        <ion-label>เครื่องทำน้ำอุ่น</ion-label>
+                        </ion-item>
+
+
                         <IonRow>
                         <div className="ion-float-end">
-                          <ion-button routerLink="/newroomeOne">เพิ่ม</ion-button>
+                          <ion-button routerLink="#">เพิ่ม</ion-button>
                         </div> 
                         </IonRow>
 
@@ -54,6 +80,9 @@
                     <ion-col>
                       <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
                     </ion-col>
+                    <ion-col>
+                      <ion-text color="tertiary" routerLink="">รายละเอียด</ion-text>
+                    </ion-col>
                   </ion-item>
               
                   <ion-item>
@@ -62,6 +91,9 @@
                     <ion-col>
                       <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
                     </ion-col>
+                    <ion-col>
+                      <ion-text color="tertiary" routerLink="">รายละเอียด</ion-text>
+                    </ion-col>
                   </ion-item>
                   
                   <ion-item>
@@ -69,6 +101,9 @@
                     <ion-col>4,000</ion-col>
                     <ion-col>
                       <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
+                    </ion-col>
+                    <ion-col>
+                      <ion-text color="tertiary" routerLink="">รายละเอียด</ion-text>
                     </ion-col>
                   </ion-item>
                 </ion-grid>
@@ -89,12 +124,12 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
+  import { IonCheckbox,IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-        IonInput,IonLabel,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
+      IonCheckbox,IonInput,IonLabel,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
     }
   });
   </script>

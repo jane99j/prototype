@@ -35,30 +35,8 @@
           </ion-select>
         </ion-item>
         </ion-list>
-
-          <ion-item>
-            <ion-checkbox slot="start"></ion-checkbox>
-            <ion-label>พัดลม</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-checkbox slot="start"></ion-checkbox>
-            <ion-label>แอร์</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-checkbox slot="start"></ion-checkbox>
-            <ion-label>VIP</ion-label>
-          </ion-item>
-        
             </ion-card-content>
           </ion-card>
-
-          <ion-card>
-              <IonRow>
-                <div className="ion-float-end">
-                <ion-button routerLink="/newroomfinish">เพิ่มค่าบริการ</ion-button>
-                </div> 
-              </IonRow>
-            </ion-card>
                 <ion-card>
                 <ion-radio-group  value="turtles">
                     <ion-item color="light">
@@ -129,12 +107,12 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonLabel,IonButton } from '@ionic/vue';
+  import { IonRadioGroup,IonItem,IonCol,IonRow,IonCard,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonLabel,IonButton } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonLabel,IonButton
+      IonRadioGroup,IonItem,IonCol,IonRow,IonCard,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonLabel,IonButton
     }
   });
   </script>

@@ -139,6 +139,13 @@
         color: rgb(0, 0, 0);
         text-align: center;
       }
+      ion-segment-button {
+    background-color: rgb(255, 255, 255);
+    --indicator-color: #006eff;
+    --color: #000;
+    --color-checked: #0098fe;
+    --indicator-height: 4px;
+  }
   </style>
   
   
