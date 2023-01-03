@@ -36,6 +36,20 @@
           </ion-select>
         </ion-item>
         </ion-list>
+
+          <ion-item>
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>พัดลม</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>แอร์</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox slot="start"></ion-checkbox>
+            <ion-label>VIP</ion-label>
+          </ion-item>
+        
             </ion-card-content>
           </ion-card>
 

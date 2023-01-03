@@ -28,15 +28,6 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-label>ตึก</ion-label>
-        <ion-select interface="popover" placeholder="เลือกตึก">
-          <ion-select-option value="apples">A</ion-select-option>
-          <ion-select-option value="oranges">B</ion-select-option>
-          <ion-select-option value="bananas">C</ion-select-option>
-          <ion-select-option value="bananas">D</ion-select-option>
-        </ion-select>
-      </ion-item>
-        <ion-item>
           <ion-label>จำนวนชั้น *</ion-label>
         <ion-select interface="popover" placeholder="เลือกจำนวนชั้น">
           <ion-select-option value="apples">1</ion-select-option>

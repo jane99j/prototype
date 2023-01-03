@@ -38,7 +38,7 @@
             <ion-col size="3">
               <ion-item-divider color="light">
                 <ion-checkbox slot="start"></ion-checkbox>
-                <ion-label>เลือกทุกชั้น</ion-label>
+                <ion-label>ไม่เลือก</ion-label>
               </ion-item-divider>
             </ion-col>
           </ion-row>
@@ -87,7 +87,7 @@
             <ion-col size="3">
               <ion-item-divider color="light">
                 <ion-checkbox slot="start"></ion-checkbox>
-                <ion-label>เลือกทุกชั้น</ion-label>
+                <ion-label>ไม่เลือก</ion-label>
               </ion-item-divider>
             </ion-col>
           </ion-row>
@@ -130,7 +130,7 @@
     <IonRow>
     <div className="ion-float-end">
       <ion-label>กดเลือกห้องที่ต้องการแก้ไข</ion-label>
-      <ion-button routerLink="/newroomprice">ระบุประเภทห้อง</ion-button>
+      <ion-button routerLink="/newroomprice">กำหนดค่าห้อง</ion-button>
     </div> 
     </IonRow>
   </ion-card>

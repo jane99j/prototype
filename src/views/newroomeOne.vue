@@ -18,35 +18,76 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-   <ion-card>
+   
+  <ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-card>
     <ion-item color="light">
-                <ion-card-header >
-                    <ion-card-title>กำหนดน้ำไฟ</ion-card-title>
-                    <ion-label>ราคาต่อหน่วยค่าน้ำ/ไฟฟ้า</ion-label>
-                </ion-card-header>
-            </ion-item>
+      <ion-card-header >
+      <ion-card-title>กำหนดน้ำไฟ</ion-card-title>
+      <ion-label>ราคาต่อหน่วยค่าน้ำ</ion-label>
+      </ion-card-header>
+    </ion-item>
     
     <ion-card-content>
       <ion-list>
+        <ion-item>
+            <ion-label>การคิดค่าไฟฟ้า</ion-label>
+          <ion-select interface="popover" placeholder="เลือกการคิดค่าน้ำ">
+            <ion-select-option value="apples">แบบเหมาจ่าย</ion-select-option>
+            <ion-select-option value="oranges">ตามหน่วยจริง</ion-select-option>
+          </ion-select>
+        </ion-item>
       <ion-item>
-        <ion-label>ค่าน้ำต่อหน่วย :</ion-label>
-        <ion-input placeholder=""></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>ค่าไฟฟ้าต่อหน่วย :</ion-label>
+        <ion-label>ราค่าน้ำ :</ion-label>
         <ion-input placeholder=""></ion-input>
       </ion-item>
 
     </ion-list>
 
     </ion-card-content>
-    <IonRow>
-    <div className="ion-float-end">
-      <ion-button routerLink="/newroometwo">ต่อไป</ion-button>
-    </div> 
-    </IonRow>
   </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card>
+    <ion-item color="light">
+                <ion-card-header >
+                    <ion-card-title>กำหนดน้ำไฟ</ion-card-title>
+                    <ion-label>ราคาต่อหน่วยค่าไฟฟ้า</ion-label>
+                </ion-card-header>
+            </ion-item>
+    
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+            <ion-label>การคิดค่าไฟ</ion-label>
+          <ion-select interface="popover" placeholder="เลือกการคิดค่าน้ำ">
+            <ion-select-option value="apples">แบบเหมาจ่าย</ion-select-option>
+            <ion-select-option value="oranges">ตามหน่วยจริง</ion-select-option>
+          </ion-select>
+        </ion-item>
+      <ion-item>
+        <ion-label>ราค่าน้ำ :</ion-label>
+        <ion-input placeholder=""></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+        <ion-card>
+            <IonRow>
+            <div className="ion-float-end">
+            <ion-button routerLink="/newroometwo">ยืนยัน</ion-button>
+            </div> 
+            </IonRow>
+        </ion-card>
+
 </div>
     </ion-content>
   </ion-page>
