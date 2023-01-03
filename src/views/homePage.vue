@@ -138,7 +138,7 @@ export default defineComponent({
     
   }
   ion-segment-button {
-    background-color: rgb(137, 213, 243);
+    background-color: rgb(255, 255, 255);
     --indicator-color: #006eff;
     --color: #000;
     --color-checked: #0098fe;
