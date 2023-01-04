@@ -29,7 +29,7 @@
     </ion-card>
     <ion-toolbar>
           <ion-label slot="end" >ออกบิลเสร็จแล้ว กดดูใบแจ้งหนี้ เพื่อดูรายการใบแจ้งหนี้ของรอบเดือน</ion-label>
-          <ion-button color="secondary" size="small" slot="end" routerLink="/billPage">>> ดูใบแจ้งหนี้</ion-button>
+          <ion-button color="secondary" size="small" slot="end" routerLink="/bill_invoice">>> ดูใบแจ้งหนี้</ion-button>
           <ion-button color="warning" routerLink="/paychckPage" size="small" slot="end">ออกบิลทุกห้อง</ion-button>
         </ion-toolbar>
         <ion-grid>
