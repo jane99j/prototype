@@ -62,7 +62,7 @@
   <ion-card>
     <IonRow>
     <div className="ion-float-end">
-      <ion-button routerLink="/newroomeOne">ต่อไป</ion-button>
+      <ion-button routerLink="/newroometwo">ต่อไป</ion-button>
     </div> 
     </IonRow>
   </ion-card>

@@ -5,7 +5,7 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>{{ $route.params.id }}</ion-title>
+        <ion-title>สร้างใบแจ้งหนี้</ion-title>
       </ion-toolbar>
     </ion-header>
     
@@ -20,29 +20,42 @@
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
   <ion-card-header>
-    <ion-card-title>ออกบิล</ion-card-title>
+    <ion-card-title>สร้างใบแจ้งหนี้</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
-    <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col>ห้อง</ion-col>
-        <ion-col>สถานะห้อง</ion-col>
-        <ion-col>ค่าน้ำ</ion-col>
-        <ion-col>ค่าไฟ</ion-col>
-        <ion-col><ion-button>ออกบิลทั้งหมด</ion-button></ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-card>
+      
+    </ion-card>
+    <ion-toolbar>
+          <ion-label slot="end" >ออกบิลเสร็จแล้ว กดดูใบแจ้งหนี้ เพื่อดูรายการใบแจ้งหนี้ของรอบเดือน</ion-label>
+          <ion-button color="secondary" size="small" slot="end" routerLink="/billPage">>> ดูใบแจ้งหนี้</ion-button>
+          <ion-button color="warning" routerLink="/paychckPage" size="small" slot="end">ออกบิลทุกห้อง</ion-button>
+        </ion-toolbar>
+        <ion-grid>
+          <b><ion-row>
+          <ion-col>หมายเลขห้อง</ion-col>
+          <ion-col>สถานะ</ion-col>
+          <ion-col>ค่าน้ำ/หน่วย</ion-col>
+          <ion-col>ค่าไฟ/หน่วย</ion-col>
+          <ion-col></ion-col>
+          </ion-row></b>
 
-    <ion-grid :fixed="false">
-      <ion-row>
-        <ion-col><ion-input readonly>101</ion-input></ion-col>
-        <ion-col><ion-input readonly>ไม่ว่าง</ion-input></ion-col>
-        <ion-col><ion-input readonly>20</ion-input></ion-col>
-        <ion-col><ion-input readonly>50</ion-input></ion-col>
-        <ion-col><ion-button routerLink="billPage2">รายละเอียด</ion-button></ion-col>
-      </ion-row>
-    </ion-grid>
+          <ion-row>
+          <ion-col>101</ion-col>
+          <ion-col>ไม่ว่าง</ion-col>
+          <ion-col>20</ion-col>
+          <ion-col>50</ion-col>
+          <ion-col><ion-button color="warning" routerLink="/paychckPage" size="small">ออกบิล</ion-button></ion-col>
+          </ion-row>
+          <ion-row>
+          <ion-col>102</ion-col>
+          <ion-col>ไม่ว่าง</ion-col>
+          <ion-col>20</ion-col>
+          <ion-col>50</ion-col>
+          <ion-col><ion-button color="warning" routerLink="/paychckPage" size="small">ออกบิล</ion-button></ion-col>
+          </ion-row> 
+        </ion-grid>
 
   </ion-card-content>
 </ion-card>
@@ -53,7 +66,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButton,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonInput,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow } from '@ionic/vue';
+import { IonButton,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
@@ -65,7 +78,6 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar,
-    IonInput,
     IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow,IonButton
   }
 });
