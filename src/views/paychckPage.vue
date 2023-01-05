@@ -21,7 +21,7 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card color="light">
-          <ion-item color="medium">
+          <ion-item color="primary">
               <h4><ion-text>ห้อง 101</ion-text></h4>
                   
           </ion-item>
