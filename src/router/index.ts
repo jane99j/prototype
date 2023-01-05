@@ -4,7 +4,7 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
-    redirect: '/Inbox'
+    redirect: '/Newlocate'
   },
   {
     path: '/:id',
@@ -92,11 +92,6 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/showroomPage',
     component: () => import ('../views/showroomPage.vue')
-
-  },
-  {
-    path: '/pay_checkPage',
-    component: () => import ('../views/pay_checkPage.vue')
 
   },
   {

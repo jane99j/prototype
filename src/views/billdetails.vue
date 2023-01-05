@@ -7,7 +7,7 @@
           <ion-buttons slot="start">
             <ion-menu-button color="primary"></ion-menu-button>
           </ion-buttons>
-          <ion-title>ใบแจ้งหนี</ion-title>
+          <ion-title>ใบแจ้งหนี้</ion-title>
         </ion-toolbar>
       </ion-header>
       
@@ -21,8 +21,13 @@
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
           <ion-card>
+            <ion-item>
+              <ion-button slot="end" color="medium" size="default">พิมพ์ใบแจ้งนี้</ion-button>
+              <ion-button slot="end" color="success" size="default" routerLink="/paychckPage">รับเงิน</ion-button>
+            </ion-item>
             
-                    
+          </ion-card>
+          <ion-card>         
             <ion-list lines="none">
                 <ion-item>
                     <ion-label>
@@ -83,21 +88,41 @@
                     </ion-item>
                 </ion-grid>
                 <ion-item color="light">
-
+                  <ion-grid> 
+                    <ion-item color="light">                        
+                      <label>ค่าบริการ</label>
+                      <ion-col><p>              
+                        <ion-item>
+                          <ion-input placeholder="บริการ"></ion-input>
+                        </ion-item>
+                      </p>
+                        </ion-col>
+                        <ion-col><p>
+                        
+                        <ion-item>
+                          <ion-input placeholder="จำนวนเงิน"></ion-input>  
+                        </ion-item>
+                       </p>
+                        </ion-col>
+                        <ion-col>
+                          <ion-button >+ เพิ่ม</ion-button>
+                        </ion-col>
+                    </ion-item>
+                </ion-grid>               
                 </ion-item>
             <ion-grid> 
                     <ion-item>
-                        <ion-col size="8"></ion-col>
+                        <ion-col size="5"></ion-col>
                         <ion-col><p>รวม</p></ion-col>
                         <ion-col><p>5,000</p></ion-col>
                     </ion-item>
                     <ion-item>
-                        <ion-col size="8"></ion-col>
+                        <ion-col size="5"></ion-col>
                         <ion-col><p>ยอดชำระ</p></ion-col>
                         <ion-col><p>0</p></ion-col>
                     </ion-item>
                     <ion-item>
-                        <ion-col size="8"></ion-col>
+                        <ion-col size="5"></ion-col>
                         <ion-col><p>ยอดค้างชำระ</p></ion-col>
                         <ion-col><p>5,000</p></ion-col>
                     </ion-item>
@@ -111,7 +136,7 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent,IonCol, IonGrid, IonRow } from '@ionic/vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent,IonCol, IonGrid, IonRow,IonButton} from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
@@ -123,7 +148,7 @@
       IonPage,
       IonTitle,
       IonToolbar,
-      IonCard, IonCardContent,IonCol, IonGrid, IonRow
+      IonCard, IonCardContent,IonCol, IonGrid, IonRow,IonButton
     }
   });
   </script>
