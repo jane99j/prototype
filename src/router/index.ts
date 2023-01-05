@@ -95,11 +95,6 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/pay_checkPage',
-    component: () => import ('../views/pay_checkPage.vue')
-
-  },
-  {
     path: '/suppliesDelPage',
     component: () => import ('../views/suppliesDelPage.vue')
   },
@@ -194,11 +189,6 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/bill_invoice',
     component: () => import ('../views/bill_invoice.vue')
-
-  },
-  {
-    path: '/testpage',
-    component: () => import ('../views/testpage.vue')
 
   },
 

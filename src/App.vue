@@ -80,8 +80,8 @@ export default defineComponent({
         mdIcon: document
       },
       {
-        title: 'จ่ายบิล',
-        url: '/pay_checkPage',
+        title: 'ใบแจ้งหนี้',
+        url: '/bill_invoice',
         iosIcon: document,
         mdIcon: document
       },
