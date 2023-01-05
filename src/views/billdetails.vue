@@ -83,21 +83,41 @@
                     </ion-item>
                 </ion-grid>
                 <ion-item color="light">
-
+                  <ion-grid> 
+                    <ion-item color="light">                        
+                      <label>ค่าบริการ</label>
+                      <ion-col><p>              
+                        <ion-item>
+                          <ion-input placeholder="บริการ"></ion-input>
+                        </ion-item>
+                      </p>
+                        </ion-col>
+                        <ion-col><p>
+                        
+                        <ion-item>
+                          <ion-input placeholder="จำนวนเงิน"></ion-input>  
+                        </ion-item>
+                       </p>
+                        </ion-col>
+                        <ion-col>
+                          <ion-button >+ เพิ่ม</ion-button>
+                        </ion-col>
+                    </ion-item>
+                </ion-grid>               
                 </ion-item>
             <ion-grid> 
                     <ion-item>
-                        <ion-col size="8"></ion-col>
+                        <ion-col size="5"></ion-col>
                         <ion-col><p>รวม</p></ion-col>
                         <ion-col><p>5,000</p></ion-col>
                     </ion-item>
                     <ion-item>
-                        <ion-col size="8"></ion-col>
+                        <ion-col size="5"></ion-col>
                         <ion-col><p>ยอดชำระ</p></ion-col>
                         <ion-col><p>0</p></ion-col>
                     </ion-item>
                     <ion-item>
-                        <ion-col size="8"></ion-col>
+                        <ion-col size="5"></ion-col>
                         <ion-col><p>ยอดค้างชำระ</p></ion-col>
                         <ion-col><p>5,000</p></ion-col>
                     </ion-item>

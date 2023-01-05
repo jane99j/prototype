@@ -4,7 +4,7 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
-    redirect: '/Inbox'
+    redirect: '/Newlocate'
   },
   {
     path: '/:id',
@@ -194,6 +194,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/bill_invoice',
     component: () => import ('../views/bill_invoice.vue')
+
+  },
+  {
+    path: '/testpage',
+    component: () => import ('../views/testpage.vue')
 
   },
 

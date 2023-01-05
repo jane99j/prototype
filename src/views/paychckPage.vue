@@ -21,11 +21,30 @@
           <ion-card>
           <h1>การจัดการชำระเงิน</h1>
           <h1>ห้อง 104</h1>
-      <ion-item>
-    <ion-label>ยอดชำระ</ion-label>
-    <ion-input placeholder="กรอกเงินที่ชำระ"></ion-input>
-  </ion-item>
-  <ion-button>บันทึก</ion-button>
+          <ion-item color="light">
+                <ion-grid> 
+                <ion-item color="light">                        
+                    <label>ค่าบริการ</label>
+                    <ion-col><p>              
+                    <ion-item>
+                        <ion-input placeholder="บริการ"></ion-input>
+                    </ion-item>
+                    </p>
+                    </ion-col>
+                    <ion-col><p>
+                    
+                    <ion-item>
+                        <ion-input placeholder="จำนวนเงิน"></ion-input>  
+                    </ion-item>
+                    </p>
+                    </ion-col>
+                    <ion-col>
+                        <ion-button >+ เพิ่ม</ion-button>
+                    </ion-col>
+                </ion-item>
+                </ion-grid>               
+                </ion-item>
+          <ion-button>บันทึก</ion-button>
           <ion-card>
           <center><h1>ประวัติการชำระเงิน</h1></center>
         <ion-grid :fixed="false">
@@ -76,12 +95,12 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonInput, IonItem, IonLabel,} from '@ionic/vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonInput, IonItem,} from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonCard,IonInput, IonItem, IonLabel,
+      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonCard,IonInput, IonItem, 
     }
   });
   </script>
