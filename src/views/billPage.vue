@@ -30,7 +30,7 @@
     <ion-toolbar>
           <ion-label slot="end" >ออกบิลเสร็จแล้ว กดดูใบแจ้งหนี้ เพื่อดูรายการใบแจ้งหนี้ของรอบเดือน</ion-label>
           <ion-button color="secondary" size="small" slot="end" routerLink="/bill_invoice">>> ดูใบแจ้งหนี้</ion-button>
-          <ion-button color="warning" routerLink="/paychckPage" size="small" slot="end">ออกบิลทุกห้อง</ion-button>
+          <ion-button color="warning" size="small" slot="end" @click="presentAlert">ออกบิลทุกห้อง</ion-button>
         </ion-toolbar>
         <ion-grid>
           <b><ion-row>
@@ -38,7 +38,7 @@
           <ion-col>สถานะ</ion-col>
           <ion-col>ค่าน้ำ/หน่วย</ion-col>
           <ion-col>ค่าไฟ/หน่วย</ion-col>
-          <ion-col></ion-col>
+          
           </ion-row></b>
 
           <ion-row>
@@ -46,14 +46,14 @@
           <ion-col>ไม่ว่าง</ion-col>
           <ion-col>20</ion-col>
           <ion-col>50</ion-col>
-          <ion-col><ion-button color="warning" routerLink="/paychckPage" size="small">ออกบิล</ion-button></ion-col>
+          
           </ion-row>
           <ion-row>
           <ion-col>102</ion-col>
           <ion-col>ไม่ว่าง</ion-col>
           <ion-col>20</ion-col>
           <ion-col>50</ion-col>
-          <ion-col><ion-button color="warning" routerLink="/paychckPage" size="small">ออกบิล</ion-button></ion-col>
+          
           </ion-row> 
         </ion-grid>
 
@@ -65,8 +65,9 @@
 </template>
 
 <script lang="ts">
+import { ref } from 'vue';
 import { defineComponent } from 'vue';
-import { IonButton,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow } from '@ionic/vue';
+import { alertController, IonButton,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
@@ -79,7 +80,44 @@ export default defineComponent({
     IonTitle,
     IonToolbar,
     IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow,IonButton
-  }
+  },
+  setup() {
+      const handlerMessage = ref('');
+      const roleMessage = ref('');
+
+      const presentAlert = async () => {
+        const alert = await alertController.create({
+          header: 'ยืนยันการออกบิล!',
+          buttons: [
+            {
+              text: 'ยกเลิก',
+              role: 'cancel',
+              handler: () => {
+                handlerMessage.value = 'Alert canceled';
+              },
+            },
+            {
+              text: 'ตกลง',
+              role: 'confirm',
+              handler: () => {
+                handlerMessage.value = 'Alert confirmed';
+              },
+            },
+          ],
+        });
+
+        await alert.present();
+
+        const { role } = await alert.onDidDismiss();
+        roleMessage.value = `Dismissed with role: ${role}`;
+      };
+
+      return {
+        handlerMessage,
+        roleMessage,
+        presentAlert,
+      };
+    },
 });
 </script>
 
