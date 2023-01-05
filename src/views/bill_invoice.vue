@@ -5,7 +5,7 @@
           <ion-buttons slot="start">
             <ion-menu-button color="primary"></ion-menu-button>
           </ion-buttons>
-          <ion-title>ใบแจ้งหนี</ion-title>
+          <ion-title>ใบแจ้งหนี้</ion-title>
         </ion-toolbar>
       </ion-header>
       
@@ -18,14 +18,14 @@
       
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
-          <ion-card>
-    <ion-card-header>
-      <ion-card-title>ใบแจ้งหนี้</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-card>
-        
+        <ion-card>
+        <ion-card-header color="primary">
+          <ion-card-title>ใบแจ้งหนี้</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+        <ion-card>
+          
       </ion-card>
       <ion-toolbar>
 

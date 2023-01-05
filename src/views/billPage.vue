@@ -19,18 +19,19 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
-  <ion-card-header>
+  <ion-card-header color="primary">
     <ion-card-title>สร้างใบแจ้งหนี้</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
-    <ion-card>
-      
-    </ion-card>
+    <ion-title>
+      รอบเดือน 12/2565
+    </ion-title>
     <ion-toolbar>
           <ion-label slot="end" >ออกบิลเสร็จแล้ว กดดูใบแจ้งหนี้ เพื่อดูรายการใบแจ้งหนี้ของรอบเดือน</ion-label>
           <ion-button color="secondary" size="small" slot="end" routerLink="/bill_invoice">>> ดูใบแจ้งหนี้</ion-button>
           <ion-button color="warning" size="small" slot="end" @click="presentAlert">ออกบิลทุกห้อง</ion-button>
+          
         </ion-toolbar>
         <ion-grid>
           <b><ion-row>
@@ -38,14 +39,16 @@
           <ion-col>สถานะ</ion-col>
           <ion-col>ค่าน้ำ/หน่วย</ion-col>
           <ion-col>ค่าไฟ/หน่วย</ion-col>
+          <ion-col></ion-col>
           
           </ion-row></b>
 
           <ion-row>
-          <ion-col>101</ion-col>
+          <ion-col>101</ion-col> 
           <ion-col>ไม่ว่าง</ion-col>
           <ion-col>20</ion-col>
           <ion-col>50</ion-col>
+          <ion-col><ion-button size="small">แก้ไข</ion-button></ion-col>
           
           </ion-row>
           <ion-row>
@@ -53,6 +56,7 @@
           <ion-col>ไม่ว่าง</ion-col>
           <ion-col>20</ion-col>
           <ion-col>50</ion-col>
+          <ion-col><ion-button size="small">แก้ไข</ion-button></ion-col>
           
           </ion-row> 
         </ion-grid>
