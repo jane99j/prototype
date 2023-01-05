@@ -39,6 +39,7 @@
           <ion-col>สถานะ</ion-col>
           <ion-col>ค่าน้ำ/หน่วย</ion-col>
           <ion-col>ค่าไฟ/หน่วย</ion-col>
+          <ion-col></ion-col>
           
           </ion-row></b>
 
@@ -47,6 +48,7 @@
           <ion-col>ไม่ว่าง</ion-col>
           <ion-col>20</ion-col>
           <ion-col>50</ion-col>
+          <ion-col><ion-button>แก้ไข</ion-button></ion-col>
           
           </ion-row>
           <ion-row>
@@ -54,6 +56,7 @@
           <ion-col>ไม่ว่าง</ion-col>
           <ion-col>20</ion-col>
           <ion-col>50</ion-col>
+          <ion-col><ion-button>แก้ไข</ion-button></ion-col>
           
           </ion-row> 
         </ion-grid>
