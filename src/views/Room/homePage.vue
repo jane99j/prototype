@@ -19,14 +19,14 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        
 
         <ion-card> 
-
+          <ion-card-header color="light">
+          <ion-card-title>ห้องพัก</ion-card-title>
+        </ion-card-header>
         <ion-item>
           <ion-col size="4">
-          <ion-label>ประเภทห้อง</ion-label>
-        <ion-select interface="popover" placeholder="เลือก">
+        <ion-select interface="popover" placeholder="ประเภทห้อง">
           <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
           <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
           <ion-select-option value="bananas">ห้องVIP</ion-select-option>
@@ -34,7 +34,7 @@
           </ion-col>
         </ion-item>
         <ion-item color="light">
-          <ion-label>ห้องทั้งหมด 3 ห้อง </ion-label>
+          <ion-label>ห้องทั้งหมด 8 ห้อง </ion-label>
         </ion-item>
         <ion-col size="6">
           <ion-segment value="menu1">
