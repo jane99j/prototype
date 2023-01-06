@@ -22,8 +22,9 @@
           <strong class="capitalize">{{ $route.params.id }}</strong>
           <ion-card>
             <ion-item>
+                <ion-text slot="start">10X</ion-text>
+                <ion-badge slot="start" color="success">ชำระแล้ว</ion-badge>
               <ion-button slot="end" color="medium" size="default">พิมพ์ใบแจ้งนี้</ion-button>
-              <ion-button slot="end" color="success" size="default" routerLink="/paychckPage">รับเงิน</ion-button>
             </ion-item>
             
           </ion-card>
@@ -39,7 +40,7 @@
                     <ion-label slot="end">
                         <p>เลขที่/ON: 10XX</p>
                         <p>วันที่ date : 30/12/65</p>
-                        <p>ห้อง : 101</p>  
+                        <p>ห้อง : 10X</p>  
                         <p>ชำระก่อน Due date :5/01/66 </p>  
                     </ion-label>
                 </ion-item>
@@ -87,51 +88,28 @@
                         <ion-col><p>200</p></ion-col>
                     </ion-item>
                 </ion-grid>
-                <ion-item color="light">
-                  <ion-grid> 
-                    <ion-item color="light">                        
-                      <label>ค่าบริการ</label>
-                      <ion-col><p>              
-                        <ion-item>
-                          <ion-input placeholder="บริการ"></ion-input>
-                        </ion-item>
-                      </p>
-                        </ion-col>
-                        <ion-col><p>
-                        
-                        <ion-item>
-                          <ion-input placeholder="จำนวนเงิน"></ion-input>  
-                        </ion-item>
-                       </p>
-                        </ion-col>
-                        <ion-col>
-                          <ion-button >+ เพิ่ม</ion-button>
-                        </ion-col>
-                    </ion-item>
-                </ion-grid>               
-                </ion-item>
+                <ion-item color="light"></ion-item>
             <ion-grid> 
-                   <ion-item>
-                        <ion-col size="5"></ion-col>
+                     <ion-item>
+                        <ion-col></ion-col>
                         <ion-col><p>ยอดค้างเก่า</p></ion-col>
                         <ion-col><p>0</p></ion-col>
                     </ion-item>
-                    
+
                     <ion-item>
-                        <ion-col size="5"></ion-col>
+                        <ion-col></ion-col>
                         <ion-col><p>รวม</p></ion-col>
                         <ion-col><p>5,000</p></ion-col>
                     </ion-item>
-                    
                     <ion-item>
-                        <ion-col size="5"></ion-col>
+                        <ion-col></ion-col>
                         <ion-col><p>ยอดชำระ</p></ion-col>
-                        <ion-col><p>0</p></ion-col>
+                        <ion-col><p>5,000</p></ion-col>
                     </ion-item>
                     <ion-item>
-                        <ion-col size="5"></ion-col>
+                        <ion-col></ion-col>
                         <ion-col><p>ยอดค้างชำระ</p></ion-col>
-                        <ion-col><p>5,000</p></ion-col>
+                        <ion-col><p>0</p></ion-col>
                     </ion-item>
             </ion-grid>
         </ion-card-content>
@@ -143,7 +121,7 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent,IonCol, IonGrid, IonRow,IonButton} from '@ionic/vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent,IonCol, IonGrid, IonRow,IonButton,IonBadge} from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
@@ -155,7 +133,7 @@
       IonPage,
       IonTitle,
       IonToolbar,
-      IonCard, IonCardContent,IonCol, IonGrid, IonRow,IonButton
+      IonCard, IonCardContent,IonCol, IonGrid, IonRow,IonButton,IonBadge
     }
   });
   </script>

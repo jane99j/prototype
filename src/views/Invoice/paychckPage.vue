@@ -55,7 +55,7 @@
                   <p><ion-text>รับเงินทั้งหมด 5,000</ion-text></p>
               </ion-item>
               
-                  <ion-button expand="block" color="success">รับเงิน</ion-button>
+                  <ion-button expand="block" color="success"  routerLink="/bill_invoice">รับเงิน</ion-button>
               </ion-list>
           </ion-list>
               
@@ -68,7 +68,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonList, IonItem, IonSelect, IonSelectOption,IonText  } from '@ionic/vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonList, IonItem, IonSelect, IonSelectOption,IonText,IonButton  } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
@@ -80,7 +80,7 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar,
-    IonCard,IonList, IonItem, IonSelect, IonSelectOption ,IonText
+    IonCard,IonList, IonItem, IonSelect, IonSelectOption ,IonText,IonButton
   }
 });
 </script>
