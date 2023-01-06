@@ -19,14 +19,14 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        
 
         <ion-card> 
-
+          <ion-card-header color="light">
+          <ion-card-title>ห้องพัก</ion-card-title>
+        </ion-card-header>
         <ion-item>
           <ion-col size="4">
-          <ion-label>ประเภทห้อง</ion-label>
-        <ion-select interface="popover" placeholder="เลือก">
+        <ion-select interface="popover" placeholder="ประเภทห้อง">
           <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
           <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
           <ion-select-option value="bananas">ห้องVIP</ion-select-option>
@@ -34,7 +34,7 @@
           </ion-col>
         </ion-item>
         <ion-item color="light">
-          <ion-label>ห้องทั้งหมด 3 ห้อง </ion-label>
+          <ion-label>ห้องทั้งหมด 8 ห้อง </ion-label>
         </ion-item>
         <ion-col size="6">
           <ion-segment value="menu1">
@@ -54,7 +54,7 @@
           </ion-col>
         
 
-        <ion-grid :fixed="true" >
+          <ion-grid :fixed="true" >
           <ion-row>
             <ion-col routerLink="/AgreementPage">
                 <ion-card>
@@ -62,7 +62,7 @@
                     <ion-card-title>101</ion-card-title>
                     <ion-card-subtitle></ion-card-subtitle>
                   </ion-card-header>
-                  <ion-card-content>   
+                  <ion-card-content>  
                     </ion-card-content>
                     <ion-card-content>
                     <ion-label>ว่าง</ion-label>
@@ -73,35 +73,113 @@
             <ion-col routerLink="/userdataPage">
                 <ion-card color="light">
                   <ion-card-header>
-                    <ion-card-title>101</ion-card-title>
+                    <ion-card-title>102</ion-card-title>
                     <ion-card-subtitle></ion-card-subtitle>
                   </ion-card-header>
                   <ion-card-content>
                     <ion-icon slot="icon-only" :icon="person"></ion-icon>
                     </ion-card-content>
                     <ion-card-content>
-                    <ion-label>ยังไม่ชำระ</ion-label>
+                      <ion-badge color="">ยังไม่ได้ชำระ</ion-badge>
                   </ion-card-content>
                 </ion-card>
 
             </ion-col>
             
             <ion-col routerLink="/bookingPage">
-              <ion-card color="medium">
+              <ion-card color="light">
                   <ion-card-header>
                     <ion-card-title>103</ion-card-title>
+                    <ion-card-subtitle></ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>
+                    
+                    </ion-card-content>
+                  <ion-card-content>
+                    <ion-badge color="warning">จองแล้ว</ion-badge>
+                  </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col routerLink="/userdataPage">
+              <ion-card color="light">
+                  <ion-card-header>
+                    <ion-card-title>104</ion-card-title>
                     <ion-card-subtitle></ion-card-subtitle>
                   </ion-card-header>
                   <ion-card-content>
                     <ion-icon slot="icon-only" :icon="person"></ion-icon>
                     </ion-card-content>
                   <ion-card-content>
-                    จองแล้ว
+                    <ion-badge color="danger">ค้างชำระ</ion-badge>
                   </ion-card-content>
                 </ion-card>
             </ion-col>
           </ion-row>
         </ion-grid>
+
+        <ion-grid :fixed="true" >
+          <ion-row>
+            <ion-col routerLink="/userdataPage">
+                <ion-card color="light">
+                  <ion-card-header>
+                    <ion-card-title>105</ion-card-title>
+                    <ion-card-subtitle></ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                    </ion-card-content>
+                    <ion-card-content>
+                      <ion-badge color="success">ชำระแล้ว</ion-badge>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+
+              <ion-col routerLink="/userdataPage">
+              <ion-card color="light">
+                  <ion-card-header>
+                    <ion-card-title>106</ion-card-title>
+                    <ion-card-subtitle></ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                    </ion-card-content>
+                  <ion-card-content>
+                    <ion-badge color="danger">ค้างชำระ</ion-badge>
+                  </ion-card-content>
+                </ion-card>
+            </ion-col>
+              <ion-col routerLink="/AgreementPage">
+                <ion-card>
+                  <ion-card-header>
+                    <ion-card-title>107</ion-card-title>
+                    <ion-card-subtitle></ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>  
+                    </ion-card-content>
+                    <ion-card-content>
+                    <ion-label>ว่าง</ion-label>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+              <ion-col routerLink="/userdataPage">
+                <ion-card color="light">
+                  <ion-card-header>
+                    <ion-card-title>108</ion-card-title>
+                    <ion-card-subtitle></ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                    </ion-card-content>
+                    <ion-card-content>
+                      <ion-badge color="success">ชำระแล้ว</ion-badge>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+          </ion-row>
+        </ion-grid>
+
+          
+
       </ion-card> 
       </div>
     </ion-content>
@@ -144,12 +222,20 @@ export default defineComponent({
     --color-checked: #0098fe;
     --indicator-height: 4px;
   }
-  ion-searchbar{
-    width: 100%;
+  ion-crad{
+
   }
-  ion-button{
-    margin-top: 10%;
-    
+
+  ion-badge {
+      --background: rgb(109, 109, 109);
+      --color: rgb(255, 255, 255);
+      --padding-end: 20px;
+      --padding-start: 20px;
+      --min-width:var(--min-width)
+      
+      }
+ ion-card{
+    display: flexbox;
+
   }
- 
 </style>
