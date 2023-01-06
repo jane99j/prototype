@@ -90,8 +90,11 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>วันที่เข้าพัก</ion-label>
-      <ion-input text placeholder="" ></ion-input>
+      <ion-label>วันที่เข้าพัก : </ion-label>
+    <ion-datetime-button datetime="datetime1" slot="end"></ion-datetime-button>
+    <ion-modal :keep-contents-mounted="true">
+
+    </ion-modal>
     </ion-item>
 
     

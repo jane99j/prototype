@@ -12,15 +12,15 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/newroomPage',
-    component: () => import ('../views/newroomPage.vue')
+    component: () => import ('../views/RoomManagement/newroomPage.vue')
   },
   {
     path: '/newroomeOne',
-    component: () => import ('../views/newroomeOne.vue')
+    component: () => import ('../views/RoomManagement/newroomeOne.vue')
   },
   {
     path: '/homePage',
-    component: () => import ('../views/homePage.vue')
+    component: () => import ('../views/Room/homePage.vue')
   },
 
 
@@ -31,51 +31,42 @@ const routes: Array<RouteRecordRaw> = [
 
   {
     path: '/billPage',
-    component: () => import ('../views/billPage.vue')
+    component: () => import ('../views/Invoice/billPage.vue')
   },
-  {
-    path: '/billPage2',
-    component: () => import ('../views/billPage2.vue')
-  },
-
   {
     path: '/AgreementPage',
-    component: () => import ('../views/AgreementPage.vue')
-  },
-  {
-    path: '/managebillPage',
-    component: () => import ('../views/managebillPage.vue')
+    component: () => import ('../views/Room/AgreementPage.vue')
   },
   {
 
     path: '/suppliesPage',
-    component: () => import ('../views/suppliesPage.vue')
+    component: () => import ('../views/Parcel/suppliesPage.vue')
   },
   {
 
     path: '/billoverduePage',
-    component: () => import ('../views/billoverduePage.vue')
+    component: () => import ('../views/ShowInformation/billoverduePage.vue')
   },
   {
     path: '/userdataPage',
-    component: () => import ('../views/userdataPage.vue')
+    component: () => import ('../views/Room/userdataPage.vue')
   },
   {
     path: '/userdataPage2',
-    component: () => import ('../views/userdataPage2.vue')
+    component: () => import ('../views/Room/userdataPage2.vue')
   },
   {
     path: '/suppliesAddPage',
-    component: () => import ('../views/suppliesAddPage.vue')
+    component: () => import ('../views/Parcel/suppliesAddPage.vue')
   },
   {
     path: '/listPage',
-    component: () => import ('../views/listPage.vue')
+    component: () => import ('../views/Room/listPage.vue')
   },
   {
 
     path: '/suppliesMovePage',
-    component: () => import ('../views/suppliesMovePage.vue')
+    component: () => import ('../views/Parcel/suppliesMovePage.vue')
   },
   {
     path: '/listhomePage',
@@ -87,45 +78,35 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/bookingPage',
-    component: () => import ('../views/bookingPage.vue')
-  },
-  {
-    path: '/showroomPage',
-    component: () => import ('../views/showroomPage.vue')
-
+    component: () => import ('../views/Room/bookingPage.vue')
   },
   {
     path: '/suppliesDelPage',
-    component: () => import ('../views/suppliesDelPage.vue')
+    component: () => import ('../views/Parcel/suppliesDelPage.vue')
   },
   {
     path: '/paychckPage',
-    component: () => import ('../views/paychckPage.vue')
+    component: () => import ('../views/Invoice/paychckPage.vue')
 
   },
   {
     path: '/payment_historyPage',
-    component: () => import ('../views/payment_historyPage.vue')
-
-  },
-  {
-    path: '/newroomeOne',
-    component: () => import ('../views/newroometwo.vue')
+    component: () => import ('../views/Invoice/payment_historyPage.vue')
 
   },
   {
     path: '/newroometwo',
-    component: () => import ('../views/newroometwo.vue')
+    component: () => import ('../views/RoomManagement/newroometwo.vue')
 
   },
   {
     path: '/newroomthree',
-    component: () => import ('../views/newroomthree.vue')
+    component: () => import ('../views/RoomManagement/newroomthree.vue')
 
   },
   {
     path: '/newroomfour',
-    component: () => import ('../views/newroomfour.vue')
+    component: () => import ('../views/RoomManagement/newroomfour.vue')
 
   },
   {
@@ -134,61 +115,61 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/newroomprice',
-    component: () => import ('../views/newroomprice.vue')
+    component: () => import ('../views/RoomManagement/newroomprice.vue')
   },
   {
     path: '/newroomfinish',
-    component: () => import ('../views/newroomfinish.vue')
+    component: () => import ('../views/RoomManagement/newroomfinish.vue')
 
   }, 
   {
     path: '/roompricePage',
-    component: () => import ('../views/roompricePage.vue')
+    component: () => import ('../views/RoomManagement/roompricePage.vue')
 
   },
   {
     path: '/newroomsix',
-    component: () => import ('../views/newroomsix.vue')
+    component: () => import ('../views/RoomManagement/newroomsix.vue')
 
   },
   {
     path: '/Newlocate',
-    component: () => import ('../views/Newlocate.vue')
+    component: () => import ('../views/RoomManagement/Newlocate.vue')
 
   },
   {
     path: '/PageNewRoom',
-    component: () => import ('../views/PageNewRoom.vue')
+    component: () => import ('../views/RoomManagement/PageNewRoom.vue')
 
   },
   {
     path: '/PageOne',
-    component: () => import ('../views/PageOne.vue')
+    component: () => import ('../views/Meter/PageOne.vue')
 
   },
   {
     path: '/PageTwo',
-    component: () => import ('../views/PageTwo.vue')
+    component: () => import ('../views/Meter/PageTwo.vue')
 
   },
   {
     path: '/ExamplePage',
-    component: () => import ('../views/ExamplePage.vue')
+    component: () => import ('../views/Meter/ExamplePage.vue')
 
   },
   {
     path: '/PageThree',
-    component: () => import ('../views/PageThree.vue')
+    component: () => import ('../views/Meter/PageThree.vue')
 
   },
   {
     path: '/billdetails',
-    component: () => import ('../views/billdetails.vue')
+    component: () => import ('../views/Invoice/billdetails.vue')
 
   },
   {
     path: '/bill_invoice',
-    component: () => import ('../views/bill_invoice.vue')
+    component: () => import ('../views/Invoice/bill_invoice.vue')
 
   },
 
