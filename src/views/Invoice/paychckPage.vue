@@ -55,7 +55,11 @@
                   <p><ion-text>รับเงินทั้งหมด 5,000</ion-text></p>
               </ion-item>
               
-                  <ion-button expand="block" color="success"  routerLink="/bill_invoice">รับเงิน</ion-button>
+              <ion-button color="success" expand="block" @click="presentAlert">รับเงิน</ion-button>
+              <p>{{ handlerMessage }}</p>
+              <p>{{ roleMessage }}</p>
+              
+
               </ion-list>
           </ion-list>
               
@@ -67,8 +71,11 @@
 </template>
 
 <script lang="ts">
+import { ref } from 'vue';
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonList, IonItem, IonSelect, IonSelectOption,IonText,IonButton  } from '@ionic/vue';
+import { alertController ,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonList, IonItem, IonSelect, IonSelectOption,IonText,IonButton  } from '@ionic/vue';
+import router from '@/router';
+import { RouterLink } from 'vue-router';
 
 export default defineComponent({
   name: 'FolderPage',
@@ -80,9 +87,48 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar,
-    IonCard,IonList, IonItem, IonSelect, IonSelectOption ,IonText,IonButton
-  }
+    IonCard,IonList, IonItem, IonSelect, IonSelectOption ,IonText,IonButton,}, 
+
+    setup() {
+      const handlerMessage = ref('');
+      const roleMessage = ref('');
+
+      const presentAlert = async () => {
+        const alert = await alertController.create({
+          header: 'ยืนยันการชำระเงินหรือไม่!',
+          buttons: [
+            {
+              text: 'ยกเลิก',
+              role: 'cancel',
+              handler: () => {
+                handlerMessage.value = 'Alert canceled';
+              },
+            },
+            {
+              text: 'ยืนยัน',
+              role: 'confirm',
+              handler: () => {
+                handlerMessage.value = 'Alert confirmed';
+              },
+            },
+          ],
+        });
+
+
+        await alert.present();
+
+        const { role } = await alert.onDidDismiss();
+        roleMessage.value = `Dismissed with role: ${role}`;
+      };
+
+      return {
+        handlerMessage,
+        roleMessage,
+        presentAlert,
+      };
+    },
 });
+
 </script>
 
 
