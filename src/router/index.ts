@@ -182,6 +182,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/Invoice/successfulPaymentTwo.vue')
 
   },
+  {
+    path: '/updatebillPage',
+    component: () => import ('../views/Invoice/updatebillPage.vue')
+
+  },
+
 
 
 
