@@ -25,48 +25,34 @@
 
         <ion-card>
         <ion-card-header>
-        <ion-card-title>นำจ่ายพัสดุ</ion-card-title>
+        <ion-card-title>ผู้รับพัสดุ</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
+        <ion-list>
+        <ion-radio-group>
 
-        <ion-grid>
-
-        <ion-row>
-        <ion-col size="2"><h2>ผู้รับพัสดุ</h2></ion-col>
-        <ion-col> 
-        <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
+      <ion-item>
         <ion-label>เจ้าของพัสดุ</ion-label>
-        </ion-item>
-        </ion-col>
-        <ion-col></ion-col>
-        </ion-row>
+        <ion-radio slot="end" value="owner"></ion-radio>
+      </ion-item>
 
-        <ion-row>
-        <ion-col size="2"></ion-col>
-        <ion-col> 
-        <ion-item>
-        <ion-checkbox slot="start"></ion-checkbox>
+      <ion-item>
         <ion-label>รับแทน</ion-label>
-        </ion-item>
-        </ion-col>
-        <ion-col></ion-col>
-        </ion-row>
+        <ion-radio slot="end" value="agent"></ion-radio>
+      </ion-item>
 
-        <ion-row>
-        <ion-col size="2"></ion-col>
-        <ion-col> 
-        <ion-item>
-        <ion-input placeholder="ชื่อ-สกุล"></ion-input>
-        </ion-item>
-        <ion-item>
-        <ion-input placeholder="เบอร์โทรศัพท์"></ion-input>
-        </ion-item>
-        </ion-col>
-        <ion-col></ion-col>
-        </ion-row>
-        </ion-grid>
+      <ion-item>
+      <ion-input placeholder="ชื่อ-สกุล"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input placeholder="เบอร์โทรศัพท์"></ion-input>
+    </ion-item>
+
+      </ion-radio-group>
+      </ion-list>
+
 
         <ion-button color="success" routerLink="/suppliesPage">นำจ่ายพัสดุ</ion-button>
         <ion-button color="danger" routerLink="/suppliesPage">ยกเลิก</ion-button>
@@ -83,14 +69,14 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButton,IonInput,IonCheckbox,IonItem,IonLabel,IonCol, IonGrid, IonRow,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+  import { IonInput,IonItem,IonList, IonRadio, IonRadioGroup,IonButton,IonLabel,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
       IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,
       IonToolbar,IonCard, IonCardContent ,IonCardHeader,IonCardTitle,
-      IonCol, IonGrid, IonRow,IonCheckbox,IonItem,IonLabel,IonInput,IonButton
+      IonLabel,IonList, IonRadio, IonRadioGroup,IonItem,IonButton,IonInput
     }
   });
   </script>
