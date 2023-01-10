@@ -48,7 +48,7 @@
           <ion-col>ไม่ว่าง</ion-col>
           <ion-col>20</ion-col>
           <ion-col>50</ion-col>
-          <ion-col><ion-button size="small">แก้ไข</ion-button></ion-col>
+          <ion-col><ion-button size="small" routerLink="/updatebillPage">แก้ไข</ion-button></ion-col>
           
           </ion-row>
           <ion-row>
@@ -56,7 +56,7 @@
           <ion-col>ไม่ว่าง</ion-col>
           <ion-col>20</ion-col>
           <ion-col>50</ion-col>
-          <ion-col><ion-button size="small">แก้ไข</ion-button></ion-col>
+          <ion-col><ion-button size="small" routerLink="/updatebillPage">แก้ไข</ion-button></ion-col>
           
           </ion-row> 
         </ion-grid>
