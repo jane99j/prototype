@@ -30,7 +30,7 @@
   </ion-card-header>
   <ion-card-content>
     <ion-list>
-      <ion-badge color="warning">จองแล้ว</ion-badge>
+      <ion-badge color="warning">รอเข้าพัก</ion-badge>
       <ion-item color="light">
         <ion-label>สัญญา ห้อง XXX </ion-label>
       </ion-item>
