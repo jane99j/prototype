@@ -99,7 +99,7 @@ export default defineComponent({
           buttons: [
             {
               text: 'ยกเลิก',
-              role: 'cancel', 
+              role: 'cancel',
               handler: () => {
                 handlerMessage.value = 'Alert canceled';
               },
