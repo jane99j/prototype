@@ -56,7 +56,7 @@
           <div v-if="segment =='menu1'">
               <ion-grid :fixed="false" >
         <ion-row>
-          <ion-col routerLink="/AgreementPage">
+          <ion-col routerLink="/RoomManage">
               <ion-card>
                 <ion-card-header>
                   <ion-card-title>101</ion-card-title>
@@ -148,7 +148,7 @@
                 </ion-card-content>
               </ion-card>
           </ion-col>
-            <ion-col routerLink="/AgreementPage">
+            <ion-col routerLink="/RoomManage">
               <ion-card>
                 <ion-card-header>
                   <ion-card-title>107</ion-card-title>
@@ -186,7 +186,7 @@
               <ion-grid :fixed="false" >
               <ion-grid>
   <ion-row>
-    <ion-col size="3"><ion-col routerLink="/AgreementPage">
+    <ion-col size="3"><ion-col routerLink="/RoomManage">
               <ion-card>
                 <ion-card-header>
                   <ion-card-title>101</ion-card-title>
@@ -201,7 +201,7 @@
           </ion-col></ion-col>
 
     <ion-col size="3">
-      <ion-col routerLink="/AgreementPage">
+      <ion-col routerLink="/RoomManage">
               <ion-card>
                 <ion-card-header>
                   <ion-card-title>107</ion-card-title>

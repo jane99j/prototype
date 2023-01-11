@@ -1,0 +1,60 @@
+<template>
+    <ion-page>
+      <ion-header :translucent="true">
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button color="primary"></ion-menu-button>
+          </ion-buttons>
+          <ion-title>{{ $route.params.id }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content :fullscreen="true">
+        <ion-header collapse="condense">
+          <ion-toolbar>
+            <ion-title size="large">{{ $route.params.id }}</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      
+        <div id="container">
+          <strong class="capitalize">{{ $route.params.id }}</strong>
+    <ion-card>    
+    <ion-card-header>
+        
+        <ion-card-title>
+        </ion-card-title>
+            
+            <ion-card-subtitle><h2>101</h2></ion-card-subtitle>
+            <center>
+                <ion-button routerLink="/AgreementPage">สัญญาเช่า</ion-button>
+                <ion-button>จัดการ</ion-button>
+            </center>
+    </ion-card-header>
+
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+        </div>
+      </ion-content>
+    </ion-page>
+  </template>
+  
+  <script lang="ts">
+  import { defineComponent } from 'vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonButton} from '@ionic/vue';
+  
+  export default defineComponent({
+    name: 'FolderPage',
+    components: {
+      IonButtons,
+      IonContent,
+      IonHeader,
+      IonMenuButton,
+      IonPage,
+      IonTitle,
+      IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonButton
+    }
+  });
+  </script>
+
+  
