@@ -29,18 +29,17 @@
         </ion-card-header>
 
         <ion-card-content>
+
+        <ion-item>
+        <ion-label>เลือกผู้รับพัสดุ</ion-label>
+        <ion-select placeholder="">
+        <ion-select-option value="owner">เจ้าของ</ion-select-option>
+        <ion-select-option value="agent">รับแทน</ion-select-option>
+        </ion-select>
+        </ion-item>
+
+
         <ion-list>
-        <ion-radio-group>
-
-      <ion-item>
-        <ion-label>เจ้าของพัสดุ</ion-label>
-        <ion-radio slot="end" value="owner"></ion-radio>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>รับแทน</ion-label>
-        <ion-radio slot="end" value="agent"></ion-radio>
-      </ion-item>
 
       <ion-item>
       <ion-input placeholder="ชื่อ-สกุล"></ion-input>
@@ -50,7 +49,6 @@
       <ion-input placeholder="เบอร์โทรศัพท์"></ion-input>
     </ion-item>
 
-      </ion-radio-group>
       </ion-list>
 
 
@@ -69,14 +67,15 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonInput,IonItem,IonList, IonRadio, IonRadioGroup,IonButton,IonLabel,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+  import { IonSelectOption,IonSelect,IonInput,IonItem,IonList,IonButton,IonLabel,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
       IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,
       IonToolbar,IonCard, IonCardContent ,IonCardHeader,IonCardTitle,
-      IonLabel,IonList, IonRadio, IonRadioGroup,IonItem,IonButton,IonInput
+      IonLabel,IonList,IonItem,IonButton,IonInput,
+      IonSelectOption,IonSelect,
     }
   });
   </script>
@@ -109,7 +108,6 @@
   ion-card{
     width: auto;
     min-height: 92vh;
-    background-color: rgb(250, 250, 250);
   }
   ion-card ion-card{
     width: 80%;
@@ -118,12 +116,7 @@
     margin-top: 3%;
     border-radius: 10px;
   }
-  ion-col {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    align-items: center;
-  }
+  
   h2{
     font-size: 18px;
     padding-top: 9%;
@@ -134,6 +127,7 @@
   ion-button{
     float: right    ;
   }
+  
   
   </style>
   
