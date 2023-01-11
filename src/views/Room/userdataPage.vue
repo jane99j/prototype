@@ -51,7 +51,11 @@
            <ion-input readonly>4,000</ion-input>
         </ion-row>
         <ion-item color="light">
-          <ion-label>ผู้เช่า</ion-label>
+          <ion-label>ผู้เช่า 
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-button slot="end" routerLink="#" color="dark" fill="outline">+ เพิ่มผู้เช่า</ion-button>
         </ion-item>
         <ion-row>
             <ion-input readonly>ชื่อ :</ion-input>

@@ -90,11 +90,8 @@
             <ion-card color="light">
                 <ion-card-header>
                   <ion-card-title>103</ion-card-title>
-                  <ion-card-subtitle></ion-card-subtitle>
+                  <ion-card-subtitle><ion-label>วันที่เข้าพัก :01/05/22</ion-label></ion-card-subtitle>
                 </ion-card-header>
-                <ion-card-content>
-                  
-                  </ion-card-content>
                 <ion-card-content>
                   <ion-badge color="warning">จองแล้ว</ion-badge>
                 </ion-card-content>
@@ -233,11 +230,10 @@
             <ion-card color="light">
                 <ion-card-header>
                   <ion-card-title>103</ion-card-title>
-                  <ion-card-subtitle></ion-card-subtitle>
+                  <ion-card-subtitle>
+                    <ion-label>วันที่เข้าพัก :01/05/22</ion-label>
+                  </ion-card-subtitle>
                 </ion-card-header>
-                <ion-card-content>
-                  
-                  </ion-card-content>
                 <ion-card-content>
                   <ion-badge color="warning">จองแล้ว</ion-badge>
                 </ion-card-content>
@@ -264,6 +260,7 @@
                   <ion-card-subtitle></ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
+
                   <ion-icon slot="icon-only" :icon="person"></ion-icon>
                   </ion-card-content>
                 <ion-card-content>

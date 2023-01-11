@@ -35,7 +35,7 @@
         <ion-label>สัญญา ห้อง XXX </ion-label>
       </ion-item>
       <ion-row>
-         <ion-input readonly>วันทำสัญญา :</ion-input>
+         <ion-input readonly>วันที่จอง :</ion-input>
           <ion-input readonly>25/05/22</ion-input>
       </ion-row>
       <ion-row>
@@ -43,20 +43,15 @@
          <ion-input readonly>01/06/22</ion-input>
       </ion-row>
       <ion-row>
-          <ion-input readonly>ค่าประกัน :</ion-input>
-          <ion-input readonly> 4,000</ion-input>
+          <ion-input readonly>ราคาจอง :</ion-input>
+          <ion-input readonly> 2,000</ion-input>
       </ion-row>
-      <ion-row>
-         <ion-input readonly>ราคาห้อง</ion-input>
-         <ion-input readonly>4,000</ion-input>
-      </ion-row>
-
       <ion-item color="light">
         <ion-label>ผู้เช่า</ion-label>
       </ion-item>
       <ion-row>
           <ion-input readonly>ชื่อ :</ion-input>
-          <ion-input readonly>ดวงใจ  ใจดี </ion-input> 
+          <ion-input readonly>ใจดี  ดวงใจ </ion-input> 
           <u><ion-label routerLink="#">แก้ไข</ion-label></u> 
       </ion-row>
       <ion-row>
@@ -65,8 +60,8 @@
       </ion-row>
 
       <ion-row>
-        <ion-button routerLink="" >เข้าพัก</ion-button>
-        <ion-button routerLink="" color="danger">ยกเลิกสัญญา</ion-button>
+        <ion-button routerLink="/AgreementPage" >เข้าพัก</ion-button> 
+        <ion-button routerLink="" color="danger">ยกเลิกการจอง</ion-button>
       </ion-row> 
     </ion-list>
 
