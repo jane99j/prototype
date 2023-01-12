@@ -44,12 +44,12 @@
 
                 <ion-item>
                 <ion-label>ค่าประกัน</ion-label>
-                <ion-input text placeholder="."></ion-input>
+                <ion-input text placeholder="ระบุจำนวนเงิน"></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label>วันที่เข้าพัก : </ion-label>
-                    <ion-datetime-button datetime="datetime1"></ion-datetime-button>
+                    <ion-datetime-button datetime="datetime1" ></ion-datetime-button>
                     <ion-modal :keep-contents-mounted="true">
                     <ion-datetime id="datetime1"></ion-datetime>
                     </ion-modal>
