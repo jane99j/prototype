@@ -37,10 +37,14 @@
                 <ion-input text placeholder="สกุลผู้จอง"></ion-input>
                 </ion-item>
 
-
                 <ion-item>
                 <ion-label>เบอร์โทรศัพท์</ion-label>
                 <ion-input text placeholder="092-XXXXXX"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                <ion-label>ค่าประกัน</ion-label>
+                <ion-input text placeholder="."></ion-input>
                 </ion-item>
 
                 <ion-item>

@@ -24,7 +24,23 @@
           <ion-card-header>
             <ion-card-title>สัญญา</ion-card-title>
           </ion-card-header>
-          <ion-title>101 </ion-title>
+          <ion-title></ion-title>
+        </ion-item>
+
+        <ion-item>
+        <ion-label>เลือกประเภทห้องพัก</ion-label>
+        <ion-select placeholder="ประเภทห้องพัก" slot="end">
+          <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
+          <ion-select-option value="apples">ห้องแอร์</ion-select-option>
+          <ion-select-option value="apples">ห้อง VIP</ion-select-option>
+        </ion-select>
+        </ion-item>
+
+        <ion-item>
+        <ion-label>หมายเลขห้อง</ion-label>
+        <ion-select placeholder="เลือก" slot="end">
+          <ion-select-option value="apples">101</ion-select-option>
+        </ion-select>
         </ion-item>
 
     <ion-item>
@@ -49,7 +65,8 @@
       <ion-text>ราคาห้อง  4,000</ion-text>
     </ion-item>
     <ion-item>
-      <ion-text>ค่าประกัน  4,000</ion-text>
+      <ion-text>ค่าเช่าล่วงหน้า :</ion-text>
+      <ion-input text placeholder="ระบุจำนวนเงิน" ></ion-input>
     </ion-item>
 
 
@@ -82,14 +99,6 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>สถานะสัญญา</ion-label>
-      <ion-select placeholder="เลือก" slot="end">
-        <ion-select-option value="apples">จอง</ion-select-option>
-        <ion-select-option value="oranges">ย้ายเข้า</ion-select-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-item>
       <ion-label>วันที่เข้าพัก : </ion-label>
     <ion-datetime-button datetime="datetime1" slot="end"></ion-datetime-button>
     <ion-modal :keep-contents-mounted="true">
@@ -99,7 +108,7 @@
 
     
 
-  <ion-button expand="block">บันทึกสัญญา</ion-button>
+  <ion-button expand="block" routerLink="/homePage">บันทึกสัญญา</ion-button>
   </ion-card>
       </div>
     </ion-content>
@@ -108,13 +117,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal ,IonLabel,IonItem,IonInput,IonCard, IonCardHeader,IonCardTitle,
+import { IonButtons,IonButton,IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal ,IonLabel,IonItem,IonInput,IonCard, IonCardHeader,IonCardTitle,
 IonText  } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
-  components: {
-    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal ,IonLabel,IonItem,IonInput,IonCard, IonCardHeader,IonCardTitle
+  components: {IonButton,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal ,IonLabel,IonItem,IonInput,IonCard, IonCardHeader,IonCardTitle
     ,IonText
   }
 });

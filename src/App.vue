@@ -34,7 +34,7 @@
 import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { construct,notifications,pencil,personAdd,cube,document,home,archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { create,construct,notifications,pencil,personAdd,cube,document,home,archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'App',
@@ -66,6 +66,12 @@ export default defineComponent({
         url: '/homePage',
         iosIcon: home,
         mdIcon: home
+      },
+      {
+        title: 'สัญญาเช่า',
+        url: '/AgreementPage',
+        iosIcon: create,
+        mdIcon: create
       },
       {
         title: 'จดมิเตอร์',
