@@ -197,6 +197,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/Room/RoomManage.vue')
 
   },
+  {
+    path: '/reserveRoom',
+    component: () => import ('../views/Room/reserveRoom.vue')
+
+  },
  
 
 
