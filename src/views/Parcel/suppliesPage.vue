@@ -40,12 +40,29 @@
     </div>
 
   <ion-card>
-    <ion-card routerLink="/suppliesMovePage">
-    <ion-card-content>
-    <ion-img src="assets/box.png"></ion-img>
 
-    </ion-card-content>
-  </ion-card>
+
+    <ion-item routerLink="/suppliesMovePage">
+    <ion-thumbnail slot="start">
+      <ion-img src="assets/box.png"></ion-img>
+    </ion-thumbnail>
+    <ion-list>
+    <ion-input readonly placeholder="นาย มิกกี้ คุง"></ion-input>
+    <ion-input readonly placeholder="ห้อง 101"></ion-input>
+    <ion-input readonly placeholder="SSD123456Z"></ion-input>
+  </ion-list>
+  </ion-item>
+
+  <ion-item routerLink="/suppliesMovePage">
+    <ion-thumbnail slot="start">
+      <ion-img src="assets/box.png"></ion-img>
+    </ion-thumbnail>
+    <ion-list>
+    <ion-input readonly placeholder="นางสาว เจน จุ"></ion-input>
+    <ion-input readonly placeholder="ห้อง 102"></ion-input>
+    <ion-input readonly placeholder="SSD654321Z"></ion-input>
+  </ion-list>
+  </ion-item>
 
   </ion-card>
 
@@ -57,14 +74,14 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import {IonImg,IonLabel,IonCol, IonGrid, IonRow,IonSearchbar,IonButton,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+  import {IonImg ,IonList,IonInput,IonItem,IonThumbnail,IonLabel,IonCol, IonGrid, IonRow,IonSearchbar,IonButton,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
       IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,
-      IonToolbar,IonCard, IonCardContent,IonButton,IonSearchbar,
-      IonCol, IonGrid, IonRow,IonLabel,IonImg
+      IonToolbar,IonCard, IonCardContent,IonButton,IonSearchbar,IonList,
+      IonCol, IonGrid, IonRow,IonLabel,IonItem,IonThumbnail,IonInput,IonImg 
     }
   });
   </script>
@@ -129,8 +146,11 @@
     margin-top: 11%;
   }
   ion-img{
-    width:10%;
+    width:150%;
     min-height: auto;
+  }
+  ion-input{
+   margin-left: 20%;
   }
   </style>
   
