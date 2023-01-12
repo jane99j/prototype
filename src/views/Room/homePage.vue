@@ -116,17 +116,19 @@
 
       <ion-grid :fixed="false" >
         <ion-row>
-          <ion-col routerLink="/userdataPage">
+          <ion-col routerLink="/userdataPage2">
               <ion-card color="light">
                 <ion-card-header>
                   <ion-card-title>105</ion-card-title>
-                  <ion-card-subtitle></ion-card-subtitle>
+                  <ion-card-subtitle>
+                    <ion-label>วันที่ออก :01/05/22</ion-label>
+                  </ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
                   <ion-icon slot="icon-only" :icon="person"></ion-icon>
                   </ion-card-content>
                   <ion-card-content>
-                    <ion-badge color="success">ชำระแล้ว</ion-badge>
+                    <ion-badge color="tertiary">รอย้ายออก</ion-badge>
                 </ion-card-content>
               </ion-card>
             </ion-col>
@@ -303,7 +305,7 @@
 import { ref } from 'vue';
 import { defineComponent } from 'vue';
 import {IonLabel, IonSegment, IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption} from '@ionic/vue';
-import {person,searchCircle } from 'ionicons/icons';
+import {person,searchCircle} from 'ionicons/icons';
 import { Segment } from '@ionic/core/dist/types/components/segment/segment';
 
 export default defineComponent({
@@ -318,7 +320,7 @@ export default defineComponent({
   },
   setup() {
       const segment= ref("menu1");
-      return {person,searchCircle,segment }
+      return {person,searchCircle,segment}
   }
 });
 
@@ -334,7 +336,7 @@ export default defineComponent({
     font-size: 300%;
     float: right ;
     margin-top: 7px;
-    
+    color: rgb(115, 112, 116);
   }
   ion-segment-button {
     background-color: rgb(255, 255, 255);
