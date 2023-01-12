@@ -50,6 +50,9 @@
             <ion-segment-button value="menu4">
               <ion-label>ห้องที่ค้างชำระ</ion-label>
             </ion-segment-button>
+            <ion-segment-button value="menu5">
+              <ion-label>ห้องที่รอการย้ายออก</ion-label>
+            </ion-segment-button>
           </ion-segment>
           </ion-col>
         
@@ -294,6 +297,34 @@
            
           </div>
           
+          <div v-if="segment =='menu5'">
+              <ion-grid :fixed="false" >
+              <ion-grid>
+  <ion-row>
+    <ion-col><ion-col routerLink="/userdataPage2">
+              <ion-card color="light">
+                <ion-card-header>
+                  <ion-card-title>105</ion-card-title>
+                  <ion-card-subtitle>
+                    <ion-label>วันที่ออก :01/05/22</ion-label>
+                  </ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                  </ion-card-content>
+                  <ion-card-content>
+                    <ion-badge color="tertiary">รอย้ายออก</ion-badge>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+</ion-grid>
+</ion-grid>
+          </div>
 
       </ion-card> 
       </div>
