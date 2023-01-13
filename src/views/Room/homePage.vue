@@ -49,10 +49,7 @@
             </ion-segment-button>
             <ion-segment-button value="menu4">
               <ion-label>ห้องที่ค้างชำระ</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="menu5">
-              <ion-label>ห้องที่รอการย้ายออก</ion-label>
-            </ion-segment-button>
+            </ion-segment-button> 
           </ion-segment>
           </ion-col>
         
@@ -181,10 +178,15 @@
       </ion-grid>
           </div>
 
-
-
-
+                   
+      
           <div v-if="segment =='menu2'">
+            <ion-item>
+                <ion-select interface="popover" placeholder="เลือก"  @ionChange="segmentChanged($event)" v-model ="segment">
+                  <ion-select-option value="menu5">รอยายออก</ion-select-option>
+                  <ion-select-option value="menu2">ห้องว่าง</ion-select-option>
+                </ion-select> 
+              </ion-item>
               <ion-grid :fixed="false" >
               <ion-grid>
   <ion-row>
@@ -298,6 +300,12 @@
           </div>
           
           <div v-if="segment =='menu5'">
+              <ion-item>
+                <ion-select  interface="popover" placeholder="เลือก" @ionChange="segmentChanged($event)" v-model ="segment">
+                  <ion-select-option value="menu5">รอยายออก</ion-select-option>
+                  <ion-select-option value="menu2">ห้องว่าง</ion-select-option>
+                </ion-select> 
+              </ion-item>
               <ion-grid :fixed="false" >
               <ion-grid>
   <ion-row>
@@ -335,14 +343,14 @@
 <script lang="ts">
 import { ref } from 'vue';
 import { defineComponent } from 'vue';
-import {IonLabel, IonSegment, IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption} from '@ionic/vue';
+import {IonSelect, IonLabel, IonSegment, IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption} from '@ionic/vue';
 import {person,searchCircle} from 'ionicons/icons';
 import { Segment } from '@ionic/core/dist/types/components/segment/segment';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonLabel, IonSegment,IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption
+    IonSelect,IonLabel, IonSegment,IonSegmentButton,IonIcon,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCol, IonGrid, IonRow,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSelectOption
   },
   methods:{
       SegmentChanged(ev: CustomEvent){
