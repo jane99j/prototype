@@ -15,7 +15,7 @@
             </ion-menu-toggle>
           </ion-list>
   
-          <ion-list id="labels-list">
+          <ion-list id="labels-list" >
             <ion-list-header>Labels</ion-list-header>
   
             <ion-item v-for="(label, index) in labels" lines="none" :key="index">

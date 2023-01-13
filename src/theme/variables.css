@@ -3,6 +3,13 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+  /** ม่วง **/
+  --ion-color-purple: #7163AA;
+	--ion-color-purple-rgb: 113,99,170;
+	--ion-color-purple-contrast: #ffffff;
+	--ion-color-purple-contrast-rgb: 255,255,255;
+	--ion-color-purple-shade: #635796;
+	--ion-color-purple-tint: #7f73b3;
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -83,6 +90,13 @@ http://ionicframework.com/docs/theming/ */
    */
 
   body {
+  --ion-color-purple: #7163AA;
+	--ion-color-purple-rgb: 113,99,170;
+	--ion-color-purple-contrast: #ffffff;
+	--ion-color-purple-contrast-rgb: 255,255,255;
+	--ion-color-purple-shade: #635796;
+	--ion-color-purple-tint: #7f73b3;
+
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;

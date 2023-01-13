@@ -2,7 +2,7 @@
 <template>
   <ion-page>
     <ion-header :translucent="true">
-      <ion-toolbar>
+      <ion-toolbar color="purple">
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
@@ -11,7 +11,7 @@
     </ion-header>
     
     <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
+      <ion-header collapse="condense" >
         <ion-toolbar>
           <ion-title size="large">{{ $route.params.id }}</ion-title>
         </ion-toolbar>
@@ -183,7 +183,7 @@
           <div v-if="segment =='menu2'">
             <ion-item>
                 <ion-select interface="popover" placeholder="เลือก"  @ionChange="segmentChanged($event)" v-model ="segment">
-                  <ion-select-option value="menu5">รอยายออก</ion-select-option>
+                  <ion-select-option value="menu5">รอย้ายออก</ion-select-option>
                   <ion-select-option value="menu2">ห้องว่าง</ion-select-option>
                 </ion-select> 
               </ion-item>
@@ -302,7 +302,7 @@
           <div v-if="segment =='menu5'">
               <ion-item>
                 <ion-select  interface="popover" placeholder="เลือก" @ionChange="segmentChanged($event)" v-model ="segment">
-                  <ion-select-option value="menu5">รอยายออก</ion-select-option>
+                  <ion-select-option value="menu5">รอย้ายออก</ion-select-option>
                   <ion-select-option value="menu2">ห้องว่าง</ion-select-option>
                 </ion-select> 
               </ion-item>
@@ -399,5 +399,17 @@ export default defineComponent({
  ion-card{
     display: flexbox;
 
+  }
+  .ion-color-purple {
+	--ion-color-base: var(--ion-color-purple);
+	--ion-color-base-rgb: var(--ion-color-purple-rgb);
+	--ion-color-contrast: var(--ion-color-purple-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
+	--ion-color-shade: var(--ion-color-purple-shade);
+	--ion-color-tint: var(--ion-color-purple-tint);
+}
+ion-content {
+    --background: #e7e6eb;
+    --color: #fff;
   }
 </style>
