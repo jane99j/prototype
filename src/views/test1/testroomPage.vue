@@ -1,6 +1,5 @@
 <template>
     <ion-page>
-
       <ion-header :translucent="true">
       <ion-toolbar color="purple">
         <ion-buttons slot="start">
@@ -36,7 +35,6 @@
         </ion-select>
         <ion-label slot="end">ห้องทั้งหมด 8 ห้อง </ion-label>
         </ion-item>
-        <span class="status-indicator" :[status]="true" :pulse="pulse"></span>
 
         <ion-segment  value="all">
           <ion-segment-button value="all" @click="allroom()">
@@ -60,8 +58,7 @@
                   </ion-card-content>
                   <ion-card-content>
                   <ion-label>
-                    <ion-badge item-left [attr.color]="light">{{ status }}</ion-badge>
-                    <ion-badge  value="color">{{ i.status }}</ion-badge>
+                    <ion-badge color=" ">{{ i.status }}</ion-badge>
                   </ion-label>
                 </ion-card-content>
               </ion-card>
