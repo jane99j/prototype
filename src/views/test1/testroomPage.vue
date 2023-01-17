@@ -1,41 +1,75 @@
 <template>
     <ion-page>
+
       <ion-header :translucent="true">
+      <ion-toolbar color="purple">
+        <ion-buttons slot="start">
+          <ion-menu-button color="primary"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>ห้องพัก</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content :fullscreen="true">
+      <ion-header collapse="condense" >
         <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-button color="primary"></ion-menu-button>
-          </ion-buttons>
-          <ion-title>สั่งอาหาร</ion-title>
+          <ion-title size="large">{{ $route.params.id }}</ion-title>
         </ion-toolbar>
       </ion-header>
-  
-      <ion-content :fullscreen="true">
-        <ion-header collapse="condense">
+    
+      <div id="container">
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        <ion-card> 
+        <ion-header color="light">
           <ion-toolbar>
-            <ion-title size="large">สั่งอาหาร</ion-title>
+            <ion-title>ห้องพัก</ion-title>
           </ion-toolbar>
         </ion-header>
   
-        <ion-searchbar placeholder="ค้นหาเมนู"></ion-searchbar>
-  
-        <ion-segment :scrollable="true" :value="categorymenu[0].name">
+    
+        <ion-searchbar placeholder="ค้นหาห้องพัก"></ion-searchbar> 
+        <ion-item>
+        <ion-select interface="popover" placeholder="ประเภทห้อง">
+          <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
+          <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
+          <ion-select-option value="bananas">ห้องVIP</ion-select-option>
+        </ion-select>
+        <ion-label slot="end">ห้องทั้งหมด 8 ห้อง </ion-label>
+        </ion-item>
+        <span class="status-indicator" :[status]="true" :pulse="pulse"></span>
+
+        <ion-segment  value="all">
+          <ion-segment-button value="all" @click="allroom()">
+            <ion-label>ห้องทั้งหมด</ion-label>
+          </ion-segment-button>
+
           <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterMenu(i.category)">
             <ion-label>{{ i.name }}</ion-label>
           </ion-segment-button>
         </ion-segment>
         <ion-grid>
           <ion-row>
-            <ion-col :sizeXs="6" :sizeMd="2.4" v-for="i in filteredMenu" :key="i.name" @click="toroute(i.url)">
-              <ion-card>
-                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredMenu" :key="i.name" @click="toroute(i.url)">
+                <ion-card color="light">
                 <ion-card-header>
                   <ion-card-title>{{ i.name }}</ion-card-title>
-                  <ion-card-subtitle>{{ i.price }} THB</ion-card-subtitle>
+                  <ion-card-subtitle></ion-card-subtitle>
                 </ion-card-header>
+                <ion-card-content>
+                  <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                  </ion-card-content>
+                  <ion-card-content>
+                  <ion-label>
+                    <ion-badge item-left [attr.color]="light">{{ status }}</ion-badge>
+                    <ion-badge  value="color">{{ i.status }}</ion-badge>
+                  </ion-label>
+                </ion-card-content>
               </ion-card>
             </ion-col>
           </ion-row>
         </ion-grid>
+      </ion-card>
+        </div>
       </ion-content>
     </ion-page>
   </template>
@@ -44,13 +78,16 @@
   // import { Item } from '@ionic/core/dist/types/components/item/item';
   import { ref, defineComponent } from 'vue';
   import { RouteLocationRaw, useRoute } from 'vue-router';
-  import {
-    IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonSearchbar, onIonViewDidEnter, IonLabel, IonSegment, IonSegmentButton,
+  import {IonBadge,IonIcon,IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow, IonCard,IonCardHeader, IonCardSubtitle, IonCardTitle, IonSearchbar, onIonViewDidEnter, IonLabel, IonSegment, IonSegmentButton,
   } from '@ionic/vue';
+  import {colorFill, person} from 'ionicons/icons';
   import { Select } from '@ionic/core/dist/types/components/select/select';
+import { Color } from 'csstype';
   
   export default defineComponent({
     components: {
+      IonBadge,
+      IonIcon,
       IonButtons,
       IonContent,
       IonHeader,
@@ -65,7 +102,7 @@
       IonCardHeader,
       IonCardSubtitle,
       IonCardTitle,
-      // IonCardContent,
+      IonCardContent,
       IonSearchbar,
       IonLabel,
       IonSegment,
@@ -75,103 +112,67 @@
       return {
         listmenu: [
           {
-            name: 'ข้าวเปล่า',
-            price: '10',
-            url: '/folder/Menu1',
-            category: 1,
-          },
-          {
-            name: 'ราดหน้า',
-            price: '70',
-            url: '/folder/Menu1',
-            category: 1,
-          },
-          {
-            name: 'ข้าวราดผักพริกหยวก',
-            price: '70',
-            url: '/folder/Menu2',
+            name: '101',
+            status: 'ว่าง',
+            url: '/RoomManage',
             category: 2,
           },
           {
-            name: 'ข้าวผัดอเมริกัน',
-            price: '130',
-            url: '/folder/Menu3',
+            name: '102',
+            status: 'ยังไม่ชำระ',
+            url: '/userdataPage',
+            category: 1,
+          },
+          {
+            name: '103',
+            status: 'จองแล้ว',
+            url: '/bookingPage',
+            category: 3,
+          },
+          {
+            name: '104',
+            status: 'ค้างชำระ',
+            url: '/userdataPage',
+            category: 4,
+          },
+          {
+            name: '105',
+            status: 'รอย้ายออก',
+            url: '/userdataPage2',
+            category: 5,
+          },
+          {
+            name: '106',
+            status: 'ค้างชำระ',
+            url: '/userdataPage',
+            category: 4,
+          },
+          {
+            name: '107',
+            status: 'ว่าง',
+            url: '/RoomManage',
             category: 2,
           },
           {
-            name: 'สุกี้',
-            price: '70',
-            url: '/folder/menu4',
-            category: 3,
-          },
-          {
-            name: 'ข้าวราดพะแนง',
-            price: '70',
-            url: '/folder/menu5',
-            category: 3,
-          },
-          {
-            name: 'ข้าวต้ม',
-            price: '60',
-            url: '/folder/menu6',
-            category: 4,
-          },
-          {
-            name: 'ข้าวราดผัดผักรวมมิตร',
-            price: '70',
-            url: '/folder/menu7',
-            category: 4,
-          },
-          {
-            name: 'ข้าวราดผักคะน้าหมูกรอบ',
-            price: '89',
-            url: '/folder/menu8',
-            category: 5,
-          },
-          {
-            name: 'ข้าวราดผักคะน้าปลาเค็ม',
-            price: '75',
-            url: '/folder/menu9',
-            category: 5,
-          },
-          {
-            name: 'ผัดไทยห่อไข่',
-            price: '79',
-            url: '/folder/menu10',
-            category: 6,
-          },
-          {
-            name: 'ข้าวอบสับปะรด',
-            price: '120',
-            url: '/folder/menu11',
-            category: 6,
-          },
+            name: '108',
+            status: 'ชำระแล้ว',
+            url: '/userdataPage',
+            category: 1,
+          }
         ],
         categorymenu: [
           {
-            name: 'อาหารจานเดียว',
-            category: 1,
-          },
-          {
-            name: 'ยำ',
+            name: 'ห้องว่าง',
             category: 2,
           },
           {
-            name: 'กับข้าว',
+            name: 'ห้องที่จองแล้ว',
             category: 3,
           },
           {
-            name: 'ต้ม',
+            name: 'ห้องที่ค้างชำระ',
             category: 4,
-          },
-          {
-            name: 'ทอด',
-            category: 5,
-          },
-          {
-            name: 'เครื่องดื่ม',
-            category: 6,
-          },
+          }
         ],
         filteredMenu: {}
       }
@@ -181,41 +182,100 @@
       toroute(rou: RouteLocationRaw) {
         this.$router.push(rou)
       },
+      allroom() {
+      this.filteredMenu = this.listmenu
+      },
       filterMenu(iddata: number) {
         console.log(iddata)
         this.filteredMenu = this.listmenu.filter(item => item.category === iddata)
       },
     },
-    
     beforeMount(){
-      this.filterMenu(1)
+      this.allroom()
     },
-    // created(){
-    //   this.filterMenu(1)
-    // },
+    //   created(){
+    //  this.filterMenu(1)
+    //  },
+    setup() {
+      return {person}
+    }
+    
+
   });
   </script>
   
   <style scoped>
+  
+  ion-icon{
+    font-size: 300%;
+    float: right ;
+    margin-top: 7px;
+    color: rgb(115, 112, 116);
+  }
   #container {
-    text-align: center;
+    text-align: left;
     position: absolute;
     left: 0;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 10%;
+
   }
-  
-  ion-col {
-    /* background-color: #3c4c4a; */
-    /* border: solid 0.5px #fff; */
-    border-radius: 5px;
+  ion-segment-button::part(indicator-background) {
+    background: #3a169c;
+  }
+
+  /* Material Design styles */
+  ion-segment-button.md::part(native) {
+    color: #000;
+
+  }
+
+  .segment-button-checked.md::part(native) {
+    background-color: #cc98eb;
+    color: #000000;
+  }
+  /* iOS styles */
+  ion-segment-button.ios::part(native) {
+    color: #3a169c;
+  }
+
+  .segment-button-checked.ios::part(native) {
     color: #fff;
-    text-align: center;
   }
-  
+
+  ion-segment-button.ios::part(indicator-background) {
+    border-radius: 20px;
+  }
+
+  ion-segment-button.md::part(indicator-background) {
+    height: 4px;
+  }
   ion-card-header.ios {
     display: flex;
     flex-flow: column-reverse;
+  }
+  ion-badge {
+      --background: rgb(109, 109, 109);
+      --color: rgb(255, 255, 255);
+      --padding-end: 20px;
+      --padding-start: 20px;
+      --min-width:var(--min-width)
+      
+      }
+ ion-card{
+    display: flexbox;
+
+  }
+  .ion-color-purple {
+	--ion-color-base: var(--ion-color-purple);
+	--ion-color-base-rgb: var(--ion-color-purple-rgb);
+	--ion-color-contrast: var(--ion-color-purple-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
+	--ion-color-shade: var(--ion-color-purple-shade);
+	--ion-color-tint: var(--ion-color-purple-tint);
+}
+ion-content {
+    --background: #e7e6eb;
+    --color: #fff;
   }
   </style>
