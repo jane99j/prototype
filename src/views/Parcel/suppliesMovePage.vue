@@ -111,9 +111,9 @@
     background-color: rgb(250, 250, 250);
   }
   ion-card ion-card{
-    width: 80%;
+    width: 90%;
     min-height: auto;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 3%;
     border-radius: 10px;
   }
