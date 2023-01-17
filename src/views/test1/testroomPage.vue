@@ -58,7 +58,7 @@
                   </ion-card-content>
                   <ion-card-content>
                   <ion-label>
-                    <ion-badge color=" ">{{ i.status }}</ion-badge>
+                    <ion-badge color="">{{ i.status }}</ion-badge>
                   </ion-label>
                 </ion-card-content>
               </ion-card>
@@ -228,8 +228,8 @@ import { Color } from 'csstype';
   }
 
   .segment-button-checked.md::part(native) {
-    background-color: #cc98eb;
-    color: #000000;
+    background-color: #a86fc9;
+    color: #ffffff;
   }
   /* iOS styles */
   ion-segment-button.ios::part(native) {
