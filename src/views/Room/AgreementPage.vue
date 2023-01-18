@@ -134,7 +134,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-<style>
   #container {
     text-align: left;
     position: absolute;
