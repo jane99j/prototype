@@ -2,11 +2,11 @@
 <template>
   <ion-page>
     <ion-header :translucent="true">
-      <ion-toolbar>
+      <ion-toolbar color="purple">
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>สัญญา</ion-title>
+        <ion-title>สัญญาเช่า</ion-title>
       </ion-toolbar>
     </ion-header>
     
@@ -19,7 +19,10 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <ion-card>
+        <ion-grid>
+          <ion-row>
+            <ion-col sizeXs="12" sizeMd="10">
+              <ion-card>
         <ion-item color="light">
           <ion-card-header>
             <ion-card-title>สัญญา</ion-card-title>
@@ -106,10 +109,12 @@
     </ion-modal>
     </ion-item>
 
-    
-
   <ion-button expand="block" routerLink="/homePage">บันทึกสัญญา</ion-button>
   </ion-card>
+            </ion-col>
+            
+          </ion-row>
+        </ion-grid>
       </div>
     </ion-content>
   </ion-page>
@@ -129,6 +134,20 @@ export default defineComponent({
 </script>
 
 <style scoped>
+<style>
+  #container {
+    text-align: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+
+  }
+.header-row {
+  background: #7163AA;
+  color: #fff;
+  font-size: 18px;
+}
   /* iOS places the subtitle above the title */
   ion-card-header.ios {
     display: flex;

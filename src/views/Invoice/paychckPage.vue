@@ -3,7 +3,7 @@
 <template>
   <ion-page>
     <ion-header :translucent="true">
-      <ion-toolbar>
+      <ion-toolbar color="purple">
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
@@ -20,20 +20,15 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <ion-card color="light">
-          <ion-item color="primary">
-              <h4><ion-text>ห้อง 101</ion-text></h4>
-                  
-          </ion-item>
-          
-        <ion-card>
-          <ion-item>
-              <h4><ion-text  color="danger">ค้างชำระ</ion-text>
-                  <ion-text color="danger" slot="end"> 5,000 </ion-text></h4>
-          </ion-item>
-          </ion-card>
-        <ion-card>
-              <ion-list>
+        <ion-grid>
+          <ion-item color="light">
+              <h4><ion-text>ห้อง 101</ion-text></h4>    
+            </ion-item>
+          <ion-row>
+          <ion-col :sizeXs="12" :sizeMd="8">
+            
+              <ion-card>
+                <ion-list>
               <ion-item color="light">
                   <h2><ion-label>รับเงิน</ion-label></h2>
               </ion-item>
@@ -58,13 +53,14 @@
               <ion-button color="success" expand="block" @click="presentAlert">รับเงิน</ion-button>
               <p>{{ handlerMessage }}</p>
               <p>{{ roleMessage }}</p>
-              
-
               </ion-list>
-          </ion-list>
-              
-          </ion-card >
-        </ion-card>
+                </ion-list>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+        </ion-grid>
+
+       
       </div>
     </ion-content>
   </ion-page>
@@ -73,7 +69,7 @@
 <script lang="ts">
 import { ref } from 'vue';
 import { defineComponent } from 'vue';
-import { alertController ,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonList, IonItem, IonSelect, IonSelectOption,IonText,IonButton  } from '@ionic/vue';
+import { alertController ,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonList, IonItem, IonSelect, IonSelectOption,IonText,IonButton, IonGrid  } from '@ionic/vue';
 import router from '@/router';
 import { RouterLink } from 'vue-router';
 
@@ -87,7 +83,15 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar,
-    IonCard,IonList, IonItem, IonSelect, IonSelectOption ,IonText,IonButton,}, 
+    IonCard,
+    IonList,
+    IonItem,
+    IonSelect,
+    IonSelectOption,
+    IonText,
+    IonButton,
+    IonGrid
+}, 
 
     setup() {
       const handlerMessage = ref('');
@@ -130,5 +134,20 @@ export default defineComponent({
 });
 
 </script>
+<style>
+.ion-color-purple {
+	--ion-color-base: var(--ion-color-purple);
+	--ion-color-base-rgb: var(--ion-color-purple-rgb);
+	--ion-color-contrast: var(--ion-color-purple-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
+	--ion-color-shade: var(--ion-color-purple-shade);
+	--ion-color-tint: var(--ion-color-purple-tint);
+}
+ion-content {
+    --background: #e7e6eb;
+    --color: #fff;
+  }
+
+</style>
 
 
