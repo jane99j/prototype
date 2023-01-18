@@ -18,71 +18,66 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <ion-card>
+        <ion-card :sizeXs="6" :sizeMd="4">
         <ion-grid class="ion-text-center">
-        <ion-row class="ion-margin">
+          <ion-card-header color="light">
+          <ion-card-title>ใบแจ้งหนี้</ion-card-title>
+        </ion-card-header>
+        <ion-row>
           <ion-col>
-            <ion-title>
-              <ion-text color="default">
-                Your title remove if don't want use
-              </ion-text>
-            </ion-title>
+          <ion-item>
+            <ion-select interface="popover" placeholder="เลือกชั้น">
+                <ion-select-option value="apples">ชั้นที่1</ion-select-option>
+                <ion-select-option value="oranges">ชั้นที่2</ion-select-option>
+                <ion-select-option value="bananas">ชั้นที่3</ion-select-option>
+            </ion-select>
+                <ion-button slot="end" color="success" size="default" routerLink="/successfulPayment">ชำระสำเร็จ</ion-button>
+            </ion-item>
           </ion-col>
         </ion-row>
 
         <ion-row class="header-row">
           <ion-col>
-            <ion-text>Data</ion-text>
+            <ion-text>หมายเลขห้อง</ion-text>
           </ion-col>
 
           <ion-col>
-            <ion-text>Cliente</ion-text>
+            <ion-text>สถานะ</ion-text>
           </ion-col>
 
           <ion-col>
-            <ion-text>Pagamento</ion-text>
+            <ion-text>จำนวนเงิน</ion-text>
+          </ion-col>
+
+          <ion-col>
+            <ion-text></ion-text>
           </ion-col>
         </ion-row>
 
-        <ion-row>
-          <ion-col>
+        <ion-row v-for="i in datatest" :key="i.no">
+          <ion-col  >
             <ion-text>
-                19/10/2020
+              {{ i.no }}
             </ion-text>
           </ion-col>
 
             <ion-col>
               <ion-text>
-                Nome
+                {{ i.status }}
               </ion-text>
             </ion-col>
 
             <ion-col>
               <ion-text>
-                R$ 200
+                {{ i.price }}
               </ion-text>
+            </ion-col>
+
+            <ion-col>
+              <ion-button color="warning" routerLink="/billdetails" size="small">รายระเอียด</ion-button>
             </ion-col>
         </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <ion-text>
-                19/10/2020
-            </ion-text>
-          </ion-col>
-
-            <ion-col>
-              <ion-text>
-                Nome
-              </ion-text>
-            </ion-col>
-
-            <ion-col>
-              <ion-text>
-                R$ 200
-              </ion-text>
-            </ion-col>
-        </ion-row>
 
         </ion-grid>
       </ion-card>
@@ -99,10 +94,32 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,  }
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,  },
+    data() {
+      return {
+        datatest: [
+          { no: '102',
+          status: 'ยังไม่ชำระ',
+          price: '5,000',
+          },
+          { no: '103',
+          status: 'ยังไม่ชำระ',
+          price: '5,200',
+          },
+        ]
+      }
+    }
 });
 </script>
 <style>
+  #container {
+    text-align: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+
+  }
 .header-row {
   background: #7163AA;
   color: #fff;

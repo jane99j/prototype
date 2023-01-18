@@ -3,13 +3,13 @@
 <template>
     <ion-page>
       <ion-header :translucent="true">
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-button color="primary"></ion-menu-button>
-          </ion-buttons>
-          <ion-title>ใบแจ้งหนี้</ion-title>
-        </ion-toolbar>
-      </ion-header>
+      <ion-toolbar color="purple">
+        <ion-buttons slot="start">
+          <ion-menu-button color="primary"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>ใบแจ้งหนี้</ion-title>
+      </ion-toolbar>
+    </ion-header>
       
       <ion-content :fullscreen="true">
         <ion-header collapse="condense">
@@ -20,10 +20,12 @@
       
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
-          <ion-card>
+          <ion-grid>
+            <ion-row>
+              <ion-col :sizeXs="12" :sizeMd="8"> 
+                <ion-card>
             <ion-item>
               <ion-button slot="end" color="medium" size="default">พิมพ์ใบแจ้งนี้</ion-button>
-              <ion-button slot="end" color="success" size="default" routerLink="/paychckPage">รับเงิน</ion-button>
             </ion-item>
             
           </ion-card>
@@ -135,7 +137,43 @@
                     </ion-item>
             </ion-grid>
         </ion-card-content>
-            </ion-card >
+            </ion-card>
+
+              </ion-col>
+              <ion-col :sizeXs="12" :sizeMd="4"> 
+                <ion-card>
+                <ion-list>
+              <ion-item color="light">
+                  <h2><ion-label>รับเงิน</ion-label></h2>
+              </ion-item>
+              <ion-item>
+                  <ion-label>จำนวนเงิน</ion-label>
+                  <ion-input placeholder="ระบุจำนวนเงิน"></ion-input>
+              </ion-item>
+
+              <ion-list>
+                  <ion-item>
+                  <ion-label>ชำระเงิน</ion-label>
+                  <ion-select interface="popover" placeholder="เลือกการชำระ">
+                  <ion-select-option value="apples">เงินสด</ion-select-option>
+                  <ion-select-option value="oranges">โอนจ่าย</ion-select-option>
+                  </ion-select>
+              </ion-item>
+
+              <ion-item  color="light">
+                  <p><ion-text>รับเงินทั้งหมด 5,000</ion-text></p>
+              </ion-item>
+              
+              <ion-button color="success" expand="block" @click="presentAlert">รับเงิน</ion-button>
+              <p>{{ handlerMessage }}</p>
+              <p>{{ roleMessage }}</p>
+              </ion-list>
+                </ion-list>
+              </ion-card>
+
+              </ion-col>
+          </ion-row>
+          </ion-grid>
         </div>
       </ion-content>
     </ion-page>
@@ -143,7 +181,7 @@
   
   <script lang="ts">
   import { defineComponent } from 'vue';
-  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent,IonCol, IonGrid, IonRow,IonButton} from '@ionic/vue';
+  import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonCol, IonGrid, IonRow,IonButton} from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
@@ -155,10 +193,32 @@
       IonPage,
       IonTitle,
       IonToolbar,
-      IonCard, IonCardContent,IonCol, IonGrid, IonRow,IonButton
+      IonCard,IonCol, IonGrid, IonRow,IonButton
     }
   });
   </script>
+<style>
+#container {
+    text-align: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+
+  }
+  .ion-color-purple {
+	--ion-color-base: var(--ion-color-purple);
+	--ion-color-base-rgb: var(--ion-color-purple-rgb);
+	--ion-color-contrast: var(--ion-color-purple-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
+	--ion-color-shade: var(--ion-color-purple-shade);
+	--ion-color-tint: var(--ion-color-purple-tint);
+}
+ion-content {
+    --background: #e7e6eb;
+    --color: #fff;
+  }
+</style>
   
 
   
