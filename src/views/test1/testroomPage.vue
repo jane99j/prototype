@@ -41,13 +41,13 @@
             <ion-label>ห้องทั้งหมด</ion-label>
           </ion-segment-button>
 
-          <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterMenu(i.category)">
+          <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterRoom(i.category)">
             <ion-label>{{ i.name }}</ion-label>
           </ion-segment-button>
         </ion-segment>
         <ion-grid>
           <ion-row>
-            <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredMenu" :key="i.name" @click="toroute(i.url)">
+            <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredroom" :key="i.name" @click="toroute(i.url)">
                 <ion-card color="light">
                 <ion-card-header>
                   <ion-card-title>{{ i.name }}</ion-card-title>
@@ -57,9 +57,31 @@
                   <ion-icon slot="icon-only" :icon="person"></ion-icon>
                   </ion-card-content>
                   <ion-card-content>
-                  <ion-label>
-                    <ion-badge color=" ">{{ i.status }}</ion-badge>
+
+                  <ion-label v-if="i.category === 1">
+                    <ion-badge color="success">{{ i.status }}</ion-badge>
                   </ion-label>
+
+                  <ion-label v-if="i.category === 2">
+                    <ion-badge fill="outline" color="secondary">{{ i.status }}</ion-badge>
+                  </ion-label>
+
+                  <ion-label v-if="i.category === 3">
+                    <ion-badge color="warning">{{ i.status }}</ion-badge>
+                  </ion-label>
+
+                  <ion-label v-if="i.category === 4">
+                    <ion-badge color="danger">{{ i.status }}</ion-badge>
+                  </ion-label>
+
+                  <ion-label v-if="i.category === 5">
+                    <ion-badge color="tertiary">{{ i.status }}</ion-badge>
+                  </ion-label>
+
+                  <ion-label v-if="i.category === 6">
+                    <ion-badge color="medium">{{ i.status }}</ion-badge>
+                  </ion-label>
+
                 </ion-card-content>
               </ion-card>
             </ion-col>
@@ -69,6 +91,8 @@
         </div>
       </ion-content>
     </ion-page>
+
+
   </template>
   
   <script lang="ts">
@@ -118,7 +142,7 @@ import { Color } from 'csstype';
             name: '102',
             status: 'ยังไม่ชำระ',
             url: '/userdataPage',
-            category: 1,
+            category: 6,
           },
           {
             name: '103',
@@ -171,7 +195,7 @@ import { Color } from 'csstype';
             category: 4,
           }
         ],
-        filteredMenu: {}
+        filteredroom: {}
       }
     },
   
@@ -180,11 +204,11 @@ import { Color } from 'csstype';
         this.$router.push(rou)
       },
       allroom() {
-      this.filteredMenu = this.listmenu
+      this.filteredroom = this.listmenu
       },
-      filterMenu(iddata: number) {
+      filterRoom(iddata: number) {
         console.log(iddata)
-        this.filteredMenu = this.listmenu.filter(item => item.category === iddata)
+        this.filteredroom = this.listmenu.filter(item => item.category === iddata)
       },
     },
     beforeMount(){
@@ -202,6 +226,8 @@ import { Color } from 'csstype';
   </script>
   
   <style scoped>
+
+
   
   ion-icon{
     font-size: 300%;
@@ -275,4 +301,6 @@ ion-content {
     --background: #e7e6eb;
     --color: #fff;
   }
-  </style>
+
+
+</style>
