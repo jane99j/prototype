@@ -54,7 +54,7 @@
                   <ion-card-subtitle></ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
-                  <ion-icon slot="icon-only" :icon="person"></ion-icon>
+                  <ion-icon v-if="i.category !== 2" slot="icon-only" :icon="person"></ion-icon>
                   </ion-card-content>
                   <ion-card-content>
 
