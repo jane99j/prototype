@@ -37,19 +37,19 @@
               <ion-item color="light">
               <ion-checkbox slot="start" color="light"></ion-checkbox>
                 <ion-col size="3">ห้อง</ion-col>
-                <ion-col size="3">สถานะ</ion-col> 
-                <ion-col size="6">ราคา</ion-col>
+                <ion-col size="3">สถานะ</ion-col>
+                <ion-col size="6">ประเภทห้อง</ion-col>  
               </ion-item>
               <ion-item  v-for="i in filteredroom" :key="i.no" @click="toroute(i.url)">
               <ion-checkbox slot="start" value="allcheck"></ion-checkbox>
-                <ion-col size="3">{{ i.no }}</ion-col>
+                <ion-col size="3">{{ i.no }}</ion-col>              
                 <ion-col size="3" v-if="i.state === 1">
                   <ion-badge color="success">{{ i.status }}</ion-badge>
                 </ion-col> 
                 <ion-col size="3" v-if="i.state === 0">
                   <ion-badge color="medium">{{ i.status }}</ion-badge>
                 </ion-col>
-                <ion-col size="1">{{ i.price }}</ion-col>                
+                <ion-col size="6">{{ i.type }}</ion-col>              
               </ion-item>
             </ion-grid>          
           </ion-card>
