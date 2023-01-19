@@ -18,12 +18,13 @@
   
     <div id="container">
       <strong class="capitalize">{{ $route.params.id }}</strong>
+      <ion-grid>
       <ion-card> 
-      <ion-header color="light">
-        <ion-toolbar>
-          <ion-title>ห้องพัก</ion-title>
-        </ion-toolbar>
-      </ion-header>
+        <ion-row>
+          <ion-col>
+        <ion-item color="light">
+            <ion-label>รับเงิน</ion-label>
+        </ion-item>
 
   
       <ion-searchbar placeholder="ค้นหาห้องพัก"></ion-searchbar> 
@@ -35,17 +36,22 @@
       </ion-select>
       <ion-label slot="end">ห้องทั้งหมด 8 ห้อง </ion-label>
       </ion-item>
+      
 
       <ion-segment  value="all">
         <ion-segment-button value="all" @click="allroom()">
           <ion-label>ห้องทั้งหมด</ion-label>
         </ion-segment-button>
 
+        
         <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterRoom(i.category)">
           <ion-label>{{ i.name }}</ion-label>
         </ion-segment-button>
-      </ion-segment>
-      <ion-grid>
+      </ion-segment> 
+      </ion-col>
+      </ion-row>
+    </ion-card>
+      
         <ion-row>
           <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredroom" :key="i.name" @click="toroute(i.url)">
               <ion-card color="light">
@@ -87,7 +93,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-    </ion-card>
+   
       </div>
     </ion-content>
   </ion-page>
@@ -187,11 +193,11 @@ export default defineComponent({
           category: 2,
         },
         {
-          name: 'ห้องที่จองแล้ว',
+          name: 'จองแล้ว',
           category: 3,
         },
         {
-          name: 'ห้องที่ค้างชำระ',
+          name: 'ค้างชำระ',
           category: 4,
         }
       ],
@@ -254,7 +260,7 @@ ion-segment-button.md::part(native) {
 }
 
 .segment-button-checked.md::part(native) {
-  background-color: #cc98eb;
+  background-color: #dec4ec;
   color: #000000;
 }
 /* iOS styles */

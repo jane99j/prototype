@@ -55,9 +55,15 @@ export default defineComponent({
   setup() {
     const selectedIndex = ref(0);
     const appPages = [
+    {
+        title: 'ตั้งค่าห้องพัก',
+        url: '/Newlocate',
+        iosIcon: construct,
+        mdIcon: construct
+      },
       {
         title: 'จัดการห้องพัก',
-        url: '/Newlocate',
+        url: '/editroomPage',
         iosIcon: construct,
         mdIcon: construct
       },
