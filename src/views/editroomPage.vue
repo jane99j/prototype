@@ -44,10 +44,10 @@
               <ion-checkbox slot="start" value="allcheck"></ion-checkbox>
                 <ion-col size="3">{{ i.no }}</ion-col>              
                 <ion-col size="3" v-if="i.state === 1">
-                  <ion-badge color="success">{{ i.status }}</ion-badge>
+                  <ion-badge color="medium">{{ i.status }}</ion-badge>
                 </ion-col> 
                 <ion-col size="3" v-if="i.state === 0">
-                  <ion-badge color="medium">{{ i.status }}</ion-badge>
+                  <ion-badge color="secondary">{{ i.status }}</ion-badge>
                 </ion-col>
                 <ion-col size="6">{{ i.type }}</ion-col>              
               </ion-item>
