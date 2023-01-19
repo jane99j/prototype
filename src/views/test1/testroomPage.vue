@@ -23,7 +23,7 @@
         <ion-row>
           <ion-col>
         <ion-item color="light">
-            <ion-label>รับเงิน</ion-label>
+            <ion-label>ห้องพัก</ion-label>
         </ion-item>
 
   

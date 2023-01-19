@@ -28,12 +28,26 @@
               </ion-segment-button>
           </ion-segment> 
             </ion-toolbar>
-          <ion-card>                
             <ion-grid>
+              <ion-item color="light">
+                <ion-col  :sizeMd="8">                  
+                </ion-col>
+                <ion-col :sizeXs="8" :sizeMd="3">
+                  <ion-searchbar></ion-searchbar>
+                </ion-col>
+                <ion-col :sizeXs="3" :sizeMd="1">                 
+                  <ion-button color="purple" expand="block">ค้นหาห้อง</ion-button>
+                </ion-col>
+              </ion-item>
+
+              
+            </ion-grid>
+          <ion-card>                
+            <ion-grid>             
               <ion-item>
-                <label slot="end">เลือกห้องพักที่ต้องการ</label>
-                <ion-button slot="end" color="medium" size="default">จัดการ</ion-button>
-              </ion-item>            
+                <label>เลือกห้องพักที่ต้องการ</label>
+              <ion-button slot="end" color="medium" size="small">จัดการห้อง</ion-button>
+              </ion-item>           
               <ion-item color="light">
               <ion-checkbox slot="start" color="light"></ion-checkbox>
                 <ion-col size="3">ห้อง</ion-col>
@@ -61,12 +75,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { RouteLocationRaw, useRoute } from 'vue-router';
-import { IonCard,IonItem,IonCheckbox,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+import { IonBadge,IonButton,IonSearchbar,IonCard,IonItem,IonCheckbox,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
   IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
-  components: { IonCard,IonItem,IonCheckbox,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+  components: { IonBadge,IonButton,IonSearchbar,IonCard,IonItem,IonCheckbox,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
     IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar
   },
   data() {
@@ -173,6 +187,11 @@ ion-segment{
   size: 10px;
   text-align: left;
 }
+
+ion-searchbar.ios{
+  width: 80%;
+}
+
 .ion-color-purple {
 --ion-color-base: var(--ion-color-purple);
 --ion-color-base-rgb: var(--ion-color-purple-rgb);

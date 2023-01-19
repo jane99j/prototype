@@ -74,7 +74,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/editroomPage',
-    component: () => import ('../views/editroomPage.vue')
+    component: () => import ('../views/updateRoom/editroomPage.vue')
   },
   {
     path: '/bookingPage',
