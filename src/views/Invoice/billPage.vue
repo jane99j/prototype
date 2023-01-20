@@ -60,17 +60,15 @@
                 <ion-button slot="end" color="medium" >ออกบิลทั้งหมด</ion-button>
               </ion-item>           
               <ion-item color="light">
-                <ion-col size="2">ห้อง</ion-col>
-                <ion-col size="2">หน่วยน้ำ</ion-col> 
-                <ion-col size="2">หน่วยไฟ</ion-col> 
-                <ion-col size="3">ประเภท</ion-col> 
+                <ion-col size="3">ห้อง</ion-col>
+                <ion-col size="3">หน่วยน้ำ</ion-col> 
+                <ion-col size="3">หน่วยไฟ</ion-col> 
                 <ion-col size="3"></ion-col>    
               </ion-item>
               <ion-item  v-for="i in filteredroom" :key="i.no" @click="toroute(i.url)">
-                <ion-col size="2">{{ i.no }}</ion-col>               
-                <ion-col size="2">{{ i.water }}</ion-col>  
-                <ion-col size="2">{{ i.power }}</ion-col>
-                <ion-col size="3">{{ i.type }}</ion-col> 
+                <ion-col size="3">{{ i.no }}</ion-col>               
+                <ion-col size="3">{{ i.water }}</ion-col>  
+                <ion-col size="3">{{ i.power }}</ion-col>
                 <ion-col size="3"><ion-button color="medium" size="small">แก้ไข</ion-button></ion-col>                 
               </ion-item>
             </ion-grid>          

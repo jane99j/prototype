@@ -60,19 +60,17 @@
                 <ion-button slot="end" color="success"  routerLink="/successfulPayment">ชำระแล้ว</ion-button>
               </ion-item>           
               <ion-item color="light">
-                <ion-col size="2">ห้อง</ion-col>
+                <ion-col size="3">ห้อง</ion-col>
                 <ion-col size="3">สถานะ</ion-col> 
-                <ion-col size="3">จำนวนเงิน</ion-col> 
-                <ion-col size="2">ประภท</ion-col>
+                <ion-col size="2">จำนวนเงิน</ion-col> 
                 <ion-col size="2"></ion-col>    
               </ion-item>
               <ion-item  v-for="i in filteredroom" :key="i.no" @click="toroute(i.url)">
-                <ion-col size="2">{{ i.no }}</ion-col>               
+                <ion-col size="3">{{ i.no }}</ion-col>               
                 <ion-col size="3" v-if="i.state === 1">
                   <ion-badge color="medium">{{ i.status }}</ion-badge>
                 </ion-col>   
-                <ion-col size="3">{{ i.price }}</ion-col>
-                <ion-col size="2">{{ i.type }}</ion-col>  
+                <ion-col size="2">{{ i.price }}</ion-col>
                 <ion-col size="2"><ion-button color="warning" size="small"  routerLink="/billdetails">รายระเอียด</ion-button></ion-col>                
               </ion-item>
             </ion-grid>          
