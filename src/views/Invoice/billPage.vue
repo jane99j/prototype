@@ -32,9 +32,17 @@
             </ion-toolbar>
             </ion-row>
           </ion-item>
-            <ion-grid>
+          <ion-grid>
               <ion-item color="light">
-                <ion-col  :sizeMd="8">                  
+                <ion-col  :sizeMd="6"></ion-col>
+                <ion-col  :sizeMd="2"> 
+                  <ion-item>
+                    <ion-select interface="popover" placeholder="เลือกชั้น">
+                      <ion-select-option value="apples">1</ion-select-option>
+                      <ion-select-option value="oranges">2</ion-select-option>
+                      <ion-select-option value="bananas">3</ion-select-option>
+                    </ion-select>                  
+                  </ion-item>                 
                 </ion-col>
                 <ion-col :sizeXs="8" :sizeMd="3">
                   <ion-searchbar></ion-searchbar>
