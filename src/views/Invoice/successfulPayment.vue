@@ -48,7 +48,6 @@
             <ion-grid>             
               <ion-item>
                 <label>ใบแจ้งหนี้</label>
-                <ion-button slot="end" color="success"  routerLink="/successfulPayment">ชำระแล้ว</ion-button>
               </ion-item>           
               <ion-item color="light">
                 <ion-col size="2">ห้อง</ion-col>
