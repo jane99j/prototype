@@ -1,7 +1,16 @@
+
 <template>
   <ion-page>
-    <ion-content :fullscreen="true">
+    <ion-content>
+    <ion-header :translucent="true">
       <ion-header collapse="condense">
+        <ion-toolbar>
+          <ion-title size="large">{{ $route.params.id }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </ion-header>
+    
+    <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">{{ $route.params.id }}</ion-title>
         </ion-toolbar>
@@ -13,22 +22,25 @@
       </div>
     </ion-content>
   </ion-page>
-  </template>
-  
-  <script lang="ts">
-    import { IonNav } from '@ionic/vue';
-    import PageOne from './PageOne.vue';
-    import {  IonContent, IonHeader,  IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+</template>
 
-  
-    export default {
-      name: 'FolderPage',
-      components: { IonNav, IonContent, IonHeader,  IonPage, IonTitle, IonToolbar },
-      data() {
+<script lang="ts">
+import { IonNav } from '@ionic/vue';
+import PageOne from './PageOne.vue';
+import { defineComponent } from 'vue';
+import { IonButtons, IonContent, IonHeader,  IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+
+
+export default defineComponent({
+  name: 'FolderPage',
+  components: {IonNav,IonContent,IonHeader,IonPage,IonTitle,IonToolbar},
+    data() {
         return {
           component: PageOne,
-        };
+        } ;
       },
-    };
-  </script>
+});
+</script>
+
+
   
