@@ -52,7 +52,7 @@
                       <ion-label>ของใช้ภายในห้อง</ion-label>
                     </ion-item>
 
-                      <ion-item  v-for="i in filteredroom" :key="i.no" @click="toroute(i.url)">
+                      <ion-item  v-for="i in filteredroom" :key="i.no" >
                       <ion-checkbox slot="start"></ion-checkbox>
                       <ion-label>{{ i.name }}</ion-label>
                       </ion-item>                  
@@ -72,7 +72,7 @@
                   <ion-item color="light">
                     <ion-card-title>ประเภทห้อง</ion-card-title>
                   </ion-item>
-                  <ion-item v-for="i in typeroom" :key="i.name" :value="i.name" @click="filterRoom(i.category)">
+                  <ion-item v-for="i in typeroom" :key="i.name" :value="i.name">
                     <ion-col>{{ i.nameroom }}</ion-col>
                     <ion-col>{{ i.roomprice }}</ion-col>
                     <ion-col>
@@ -144,10 +144,7 @@ export default defineComponent({
     allroom() {
     this.filteredroom = this.datatest
     },
-    filterRoom(iddata: number) {
-      console.log(iddata)
-      this.filteredroom = this.datatest.filter(item => item.category === iddata)
-    }
+   
   },
   beforeMount(){
     this.allroom()
