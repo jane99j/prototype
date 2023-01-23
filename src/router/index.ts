@@ -153,11 +153,6 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/PageThree',
-    component: () => import ('../views/Meter/PageThree.vue')
-
-  },
-  {
     path: '/billdetails',
     component: () => import ('../views/Invoice/billdetails.vue')
 
