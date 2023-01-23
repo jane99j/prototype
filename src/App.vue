@@ -81,7 +81,7 @@ export default defineComponent({
       },
       {
         title: 'จดมิเตอร์',
-        url: '/ExamplePage',
+        url: '/PageOne',
         iosIcon: pencil,
         mdIcon: pencil
       },

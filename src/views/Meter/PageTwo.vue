@@ -43,6 +43,8 @@
     </ion-col>
     <ion-col></ion-col>
     <ion-col>
+      <ion-nav-link routerLink="PageOne">
+          <ion-button>จดมิเตอร์น้ำ</ion-button></ion-nav-link>
     </ion-col>
   </ion-row>
 </ion-grid>
@@ -87,11 +89,11 @@
 </template>
 
 <script lang="ts">
-  import {IonBackButton,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
+  import {IonButtons,IonNavLink,IonBackButton,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
   import PageTwo from './PageTwo.vue';
 
   export default {
-    components: {IonBackButton,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
+    components: {IonButtons,IonNavLink,IonBackButton,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
   };
 </script>
 
