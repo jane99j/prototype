@@ -40,7 +40,7 @@
         </ion-col>
         <ion-col></ion-col>
         <ion-col>
-          <ion-nav-link router-direction="forward" :component="component">
+          <ion-nav-link routerLink="PageTwo">
           <ion-button>จดมิเตอร์ไฟฟ้า</ion-button></ion-nav-link>
         </ion-col>
       </ion-row>
