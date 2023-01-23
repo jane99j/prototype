@@ -19,37 +19,47 @@
     <div id="container">
       <strong class="capitalize">{{ $route.params.id }}</strong>
       <ion-grid>
+              <ion-item color="light">
+                <ion-col  :sizeMd="6"></ion-col>
+                <ion-col  :sizeMd="2"> 
+                  <ion-item>
+                    <ion-select interface="popover" placeholder="ประเภทห้อง">
+                      <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
+                      <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
+                      <ion-select-option value="bananas">ห้องVIP</ion-select-option>
+                    </ion-select>                  
+                  </ion-item>                 
+                </ion-col>
+                <ion-col :sizeXs="8" :sizeMd="3">
+                  <ion-searchbar></ion-searchbar>
+                </ion-col>
+                <ion-col :sizeXs="3" :sizeMd="1">                 
+                  <ion-button color="purple" expand="block">ค้นหาห้อง</ion-button>
+                </ion-col>
+              </ion-item>
+            </ion-grid>
+      <ion-grid>
       <ion-card> 
-        <ion-row>
-          <ion-col>
-        <ion-item color="light">
-            <ion-label>ห้องพัก</ion-label>
-        </ion-item>
 
-  
-      <ion-searchbar placeholder="ค้นหาห้องพัก"></ion-searchbar> 
       <ion-item>
-      <ion-select interface="popover" placeholder="ประเภทห้อง">
-        <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
-        <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
-        <ion-select-option value="bananas">ห้องVIP</ion-select-option>
-      </ion-select>
-      <ion-label slot="end">ห้องทั้งหมด 8 ห้อง </ion-label>
-      </ion-item>
       
-
+      <ion-col>
       <ion-segment  value="all">
         <ion-segment-button value="all" @click="allroom()">
           <ion-label>ห้องทั้งหมด</ion-label>
         </ion-segment-button>
-
-        
+               
         <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterRoom(i.category)">
           <ion-label>{{ i.name }}</ion-label>
         </ion-segment-button>
       </ion-segment> 
       </ion-col>
-      </ion-row>
+     
+      </ion-item>
+            
+      <ion-item color="light">
+            <ion-label slot="end">ห้องทั้งหมด 8 ห้อง </ion-label>
+        </ion-item> 
     </ion-card>
       
         <ion-row>
@@ -246,7 +256,7 @@ ion-icon{
   position: absolute;
   left: 0;
   right: 0;
-  top: 10%;
+
 
 }
 ion-segment-button::part(indicator-background) {
@@ -260,8 +270,8 @@ ion-segment-button.md::part(native) {
 }
 
 .segment-button-checked.md::part(native) {
-  background-color: #dec4ec;
-  color: #000000;
+  background-color: #ffffff;
+  color: #3a169c;
 }
 /* iOS styles */
 ion-segment-button.ios::part(native) {
@@ -269,7 +279,7 @@ ion-segment-button.ios::part(native) {
 }
 
 .segment-button-checked.ios::part(native) {
-  color: #fff;
+  color: rgb(112, 20, 20);
 }
 
 ion-segment-button.ios::part(indicator-background) {

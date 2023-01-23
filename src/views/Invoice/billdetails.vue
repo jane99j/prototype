@@ -164,7 +164,7 @@
                   <p><ion-text>รับเงินทั้งหมด 5,000</ion-text></p>
               </ion-item>
               
-              <ion-button color="success" expand="block" @click="presentAlert">รับเงิน</ion-button>
+              <ion-button color="success" expand="block" @click="presentAlert" routerLink="/successfulPayment">รับเงิน</ion-button>
               <p>{{ handlerMessage }}</p>
               <p>{{ roleMessage }}</p>
               </ion-list>
@@ -203,7 +203,6 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 10%;
 
   }
   .ion-color-purple {

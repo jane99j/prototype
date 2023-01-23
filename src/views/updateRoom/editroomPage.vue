@@ -18,6 +18,8 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
+        <ion-item>
+          <ion-row>
         <ion-toolbar>
           <ion-segment  value="all">
               <ion-segment-button value="all" @click="allroom()">
@@ -28,6 +30,8 @@
               </ion-segment-button>
           </ion-segment> 
             </ion-toolbar>
+          </ion-row>
+          </ion-item>
             <ion-grid>
               <ion-item color="light">
                 <ion-col  :sizeMd="8">                  
@@ -39,8 +43,6 @@
                   <ion-button color="purple" expand="block">ค้นหาห้อง</ion-button>
                 </ion-col>
               </ion-item>
-
-              
             </ion-grid>
           <ion-card>                
             <ion-grid>             
@@ -163,11 +165,12 @@ export default defineComponent({
     filterRoom(iddata: number) {
       console.log(iddata)
       this.filteredroom = this.datatest.filter(item => item.category === iddata)
-    },
+    }
   },
   beforeMount(){
     this.allroom()
   },
+  
 });
 </script>
 

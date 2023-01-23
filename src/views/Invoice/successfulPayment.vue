@@ -1,13 +1,13 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar color="purple">
-        <ion-buttons slot="start">
-          <ion-menu-button color="primary"></ion-menu-button>
-        </ion-buttons>
-        <ion-title>รายการชำระเงิน</ion-title>
-      </ion-toolbar>
-    </ion-header>
+      <ion-header :translucent="true">
+    <ion-toolbar color="purple">
+      <ion-buttons slot="start">
+        <ion-menu-button color="primary"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>สร้างใบแจ้งหนี้</ion-title>
+    </ion-toolbar>
+  </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
@@ -18,138 +18,171 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <ion-card>
-        <ion-grid class="ion-text-center">
-          <ion-card-header color="light">
-          <ion-card-title>ชำระเงินสำเร็จ</ion-card-title>
-        </ion-card-header>
-        <ion-row>
-          <ion-col>
-            <ion-select interface="popover" placeholder="เดือน">
-                <ion-select-option value="apples">ชั้นที่1</ion-select-option>
-                <ion-select-option value="oranges">ชั้นที่2</ion-select-option>
-                <ion-select-option value="bananas">ชั้นที่3</ion-select-option>
-            </ion-select>
-          </ion-col>
-          <ion-col>
-            <ion-select interface="popover" placeholder="เลือกชั้น">
-                <ion-select-option value="apples">ชั้นที่1</ion-select-option>
-                <ion-select-option value="oranges">ชั้นที่2</ion-select-option>
-                <ion-select-option value="bananas">ชั้นที่3</ion-select-option>
-            </ion-select>
-                <ion-button slot="end" color="success" size="default" routerLink="/successfulPayment">ชำระสำเร็จ</ion-button>
-          </ion-col>
-        </ion-row>
-
-        <ion-row class="header-row">
-          <ion-col>
-            <ion-text>หมายเลขห้อง</ion-text>
-          </ion-col>
-
-          <ion-col>
-            <ion-text>สถานะ</ion-text>
-          </ion-col>
-
-          <ion-col>
-            <ion-text>จำนวนเงิน</ion-text>
-          </ion-col>
-
-          <ion-col>
-            <ion-text></ion-text>
-          </ion-col>
-        </ion-row>
-
-        <ion-row v-for="i in datatest" :key="i.no">
-          <ion-col  >
-            <ion-text>
-              {{ i.no }}
-            </ion-text>
-          </ion-col>
-
-            <ion-col>
-              <ion-text>
-                {{ i.status }}
-              </ion-text>
-            </ion-col>
-
-            <ion-col>
-              <ion-text>
-                {{ i.price }}
-              </ion-text>
-            </ion-col>
-
-            <ion-col>
-              <ion-button color="warning" routerLink="/billdetails" size="small">รายระเอียด</ion-button>
-            </ion-col>
-        </ion-row>
-
-
-        </ion-grid>
-      </ion-card>
+        <ion-item>
+          <ion-row>
+        <ion-toolbar>
+          <ion-segment  value="all">
+              <ion-segment-button value="all" @click="allroom()">
+                <ion-label>ห้องทั้งหมด</ion-label>
+                </ion-segment-button>
+                <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterRoom(i.category)">
+                <ion-label>{{ i.name }}</ion-label>
+              </ion-segment-button>
+          </ion-segment> 
+            </ion-toolbar>
+            </ion-row>
+          </ion-item>
+          <ion-grid>
+              <ion-item color="light">
+                <ion-col  :sizeMd="2">
+                  <ion-item>
+                    <ion-select interface="popover" placeholder="รอบเดือน">
+                      <ion-select-option value="apples">ก.พ</ion-select-option>
+                      <ion-select-option value="oranges">พ.ย</ion-select-option>
+                      <ion-select-option value="bananas">ธ.ค</ion-select-option>
+                    </ion-select>                  
+                  </ion-item> 
+                </ion-col>
+                <ion-col  :sizeMd="4"></ion-col>
+                <ion-col  :sizeMd="2"> 
+                  <ion-item>
+                    <ion-select interface="popover" placeholder="เลือกชั้น">
+                      <ion-select-option value="apples">1</ion-select-option>
+                      <ion-select-option value="oranges">2</ion-select-option>
+                      <ion-select-option value="bananas">3</ion-select-option>
+                    </ion-select>                  
+                  </ion-item>                 
+                </ion-col>
+                <ion-col :sizeXs="8" :sizeMd="3">
+                  <ion-searchbar></ion-searchbar>
+                </ion-col>
+                <ion-col :sizeXs="3" :sizeMd="1">                 
+                  <ion-button color="purple" expand="block">ค้นหาห้อง</ion-button>
+                </ion-col>
+              </ion-item>
+            </ion-grid>
+          <ion-card>                
+            <ion-grid>             
+              <ion-item>
+                <label>ใบแจ้งหนี้</label>
+              </ion-item>           
+              <ion-item color="light">
+                <ion-col size="3">ห้อง</ion-col>
+                <ion-col size="3">สถานะ</ion-col> 
+                <ion-col size="2">จำนวนเงิน</ion-col> 
+                <ion-col size="2"></ion-col>    
+              </ion-item>
+              <ion-item  v-for="i in filteredroom" :key="i.no" @click="toroute(i.url)">
+                <ion-col size="3">{{ i.no }}</ion-col>               
+                <ion-col size="3" v-if="i.state === 1">
+                  <ion-badge color="success">{{ i.status }}</ion-badge>
+                </ion-col>   
+                <ion-col size="2">{{ i.price }}</ion-col> 
+                <ion-col size="2"><ion-button color="warning" size="small"  routerLink="/billdetails">รายระเอียด</ion-button></ion-col>                
+              </ion-item>
+            </ion-grid>          
+          </ion-card>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
-
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButton,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,
-         IonCol,IonRow,IonText,IonSelect,IonSelectOption,IonCard,IonGrid,IonCardHeader } from '@ionic/vue';
+import { RouteLocationRaw, useRoute } from 'vue-router';
+import { IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+  IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
-  components: {
-    IonButton,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,
-    IonCol,IonRow,IonText,IonSelect,IonSelectOption,IonCard,IonGrid,IonCardHeader  },
-    data() {
+  components: {IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar
+  },
+  data() {
       return {
         datatest: [
-          { no: '102',
+          {no: '107',
           status: 'ชำระแล้ว',
-          price: '5,000',
+          state :1,
+          price :5000,
+          type :'ห้องทั่วไป',
+          category: 1,
           },
-          { no: '103',
+          {no: '108',
           status: 'ชำระแล้ว',
-          price: '5,200',
+          state :1,
+          price :5500,
+          type :'ห้องแอร์',
+          category: 2,
           },
-        ]
-      }
+        ],
+        categorymenu: [
+        {
+          name: 'ห้องทั่วไป',
+          category: 1,
+        },
+        {
+          name: 'ห้องแอร์',
+          category: 2,
+        },
+        {
+          name: 'ห้องVIP',
+          category: 3,
+        }
+      ],
+      filteredroom: {}
     }
+  },
+  methods: {
+    toroute(rou: RouteLocationRaw) {
+      this.$router.push(rou)
+    },
+    allroom() {
+    this.filteredroom = this.datatest
+    },
+    filterRoom(iddata: number) {
+      console.log(iddata)
+      this.filteredroom = this.datatest.filter(item => item.category === iddata)
+    }
+  },
+  beforeMount(){
+    this.allroom()
+  },
+  
 });
 </script>
-<style>
-  #container {
-    text-align: left;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 10%;
 
-  }
-.header-row {
-  background: #7163AA;
-  color: #fff;
-  font-size: 18px;
+<style scoped>
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+ 
+}
+#container a {
+  text-decoration: none;
+}
+ion-segment{
+  size: 10px;
+  text-align: left;
 }
 
-ion-col {
-  border: 1px solid #ECEEEF;
-
+ion-searchbar.ios{
+  width: 80%;
 }
 
 .ion-color-purple {
-	--ion-color-base: var(--ion-color-purple);
-	--ion-color-base-rgb: var(--ion-color-purple-rgb);
-	--ion-color-contrast: var(--ion-color-purple-contrast);
-	--ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
-	--ion-color-shade: var(--ion-color-purple-shade);
-	--ion-color-tint: var(--ion-color-purple-tint);
+--ion-color-base: var(--ion-color-purple);
+--ion-color-base-rgb: var(--ion-color-purple-rgb);
+--ion-color-contrast: var(--ion-color-purple-contrast);
+--ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
+--ion-color-shade: var(--ion-color-purple-shade);
+--ion-color-tint: var(--ion-color-purple-tint);
 }
 ion-content {
-    --background: #e7e6eb;
-    --color: #fff;
-  }
+  --background: #e7e6eb;
+  --color: #fff;
+}
 
 </style>
-  

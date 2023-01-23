@@ -1,13 +1,13 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="primary"></ion-menu-button>
-        </ion-buttons>
-        <ion-title>สร้างใบแจ้งหนี้</ion-title>
-      </ion-toolbar>
-    </ion-header>
+      <ion-header :translucent="true">
+    <ion-toolbar color="purple">
+      <ion-buttons slot="start">
+        <ion-menu-button color="primary"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>สร้างใบแจ้งหนี้</ion-title>
+    </ion-toolbar>
+  </ion-header>
     
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
@@ -18,118 +18,182 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <ion-card>
-  <ion-card-header color="primary">
-    <ion-card-title>สร้างใบแจ้งหนี้</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <ion-title>
-      รอบเดือน 12/2565
-    </ion-title>
-    <ion-toolbar>
-          <ion-label slot="end" >ออกบิลเสร็จแล้ว กดดูใบแจ้งหนี้ เพื่อดูรายการใบแจ้งหนี้ของรอบเดือน</ion-label>
-          <ion-button color="secondary" size="small" slot="end" routerLink="/bill_invoice">>> ดูใบแจ้งหนี้</ion-button>
-          <ion-button color="warning" size="small" slot="end" @click="presentAlert">ออกบิลทุกห้อง</ion-button>
-          
-        </ion-toolbar>
-        <ion-grid>
-          <b><ion-row>
-          <ion-col>หมายเลขห้อง</ion-col>
-          <ion-col>สถานะ</ion-col>
-          <ion-col>ค่าน้ำ/หน่วย</ion-col>
-          <ion-col>ค่าไฟ/หน่วย</ion-col>
-          <ion-col></ion-col>
-          
-          </ion-row></b>
-
+        <ion-item>
           <ion-row>
-          <ion-col>101</ion-col> 
-          <ion-col>ไม่ว่าง</ion-col>
-          <ion-col>20</ion-col>
-          <ion-col>50</ion-col>
-          <ion-col><ion-button size="small" routerLink="/updatebillPage">แก้ไข</ion-button></ion-col>
-          
-          </ion-row>
-          <ion-row>
-          <ion-col>102</ion-col>
-          <ion-col>ไม่ว่าง</ion-col>
-          <ion-col>20</ion-col>
-          <ion-col>50</ion-col>
-          <ion-col><ion-button size="small" routerLink="/updatebillPage">แก้ไข</ion-button></ion-col>
-          
-          </ion-row> 
-        </ion-grid>
-
-  </ion-card-content>
-</ion-card>
+        <ion-toolbar>
+          <ion-segment  value="all">
+              <ion-segment-button value="all" @click="allroom()">
+                <ion-label>ห้องทั้งหมด</ion-label>
+                </ion-segment-button>
+                <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterRoom(i.category)">
+                <ion-label>{{ i.name }}</ion-label>
+              </ion-segment-button>
+          </ion-segment> 
+            </ion-toolbar>
+            </ion-row>
+          </ion-item>
+          <ion-grid>
+              <ion-item color="light">
+                <ion-col  :sizeMd="6"></ion-col>
+                <ion-col  :sizeMd="2"> 
+                  <ion-item>
+                    <ion-select interface="popover" placeholder="เลือกชั้น">
+                      <ion-select-option value="apples">1</ion-select-option>
+                      <ion-select-option value="oranges">2</ion-select-option>
+                      <ion-select-option value="bananas">3</ion-select-option>
+                    </ion-select>                  
+                  </ion-item>                 
+                </ion-col>
+                <ion-col :sizeXs="8" :sizeMd="3">
+                  <ion-searchbar></ion-searchbar>
+                </ion-col>
+                <ion-col :sizeXs="3" :sizeMd="1">                 
+                  <ion-button color="purple" expand="block">ค้นหาห้อง</ion-button>
+                </ion-col>
+              </ion-item>
+            </ion-grid>
+          <ion-card>                
+            <ion-grid>             
+              <ion-item>
+                <label>สร้างใบแจ้งหนี้</label>
+                <ion-button slot="end" color="primary" routerLink="/bill_invoice">>>ดูใบแจ้งหนี้</ion-button>
+                <ion-button slot="end" color="medium" >ออกบิลทั้งหมด</ion-button>
+              </ion-item>           
+              <ion-item color="light">
+                <ion-col size="3">ห้อง</ion-col>
+                <ion-col size="3">หน่วยน้ำ</ion-col> 
+                <ion-col size="3">หน่วยไฟ</ion-col> 
+                <ion-col size="3"></ion-col>    
+              </ion-item>
+              <ion-item  v-for="i in filteredroom" :key="i.no" @click="toroute(i.url)">
+                <ion-col size="3">{{ i.no }}</ion-col>               
+                <ion-col size="3">{{ i.water }}</ion-col>  
+                <ion-col size="3">{{ i.power }}</ion-col>
+                <ion-col size="3"><ion-button color="medium" size="small">แก้ไข</ion-button></ion-col>                 
+              </ion-item>
+            </ion-grid>          
+          </ion-card>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
 import { defineComponent } from 'vue';
-import { alertController, IonButton,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow } from '@ionic/vue';
+import { RouteLocationRaw, useRoute } from 'vue-router';
+import { IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+  IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
-  components: {
-    IonButtons,
-    IonContent,
-    IonHeader,
-    IonMenuButton,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-    IonCard, IonCardContent, IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow,IonButton
+  components: {IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar
   },
-  setup() {
-      const handlerMessage = ref('');
-      const roleMessage = ref('');
-
-      const presentAlert = async () => {
-        const alert = await alertController.create({
-          header: 'ยืนยันการออกบิล!',
-          buttons: [
-            {
-              text: 'ยกเลิก',
-              role: 'cancel',
-              handler: () => {
-                handlerMessage.value = 'Alert canceled';
-              },
-            },
-            {
-              text: 'ตกลง',
-              role: 'confirm',
-              handler: () => {
-                handlerMessage.value = 'Alert confirmed';
-              },
-            },
-          ],
-        });
-
-        await alert.present();
-
-        const { role } = await alert.onDidDismiss();
-        roleMessage.value = `Dismissed with role: ${role}`;
-      };
-
+  data() {
       return {
-        handlerMessage,
-        roleMessage,
-        presentAlert,
-      };
+        datatest: [
+          {no: '101',
+          status: 'ไม่ว่าง',
+          state :1,
+          water :20,
+          power :52,
+          type :'ห้องทั่วไป',
+          category: 1,
+          },
+          {no: '102',
+          status: 'ไม่ว่าง',
+          state :1,
+          water :30,
+          power :50,
+          type :'ห้องแอร์',
+          category: 2,
+          },
+          {no: '103',
+          status: 'ไม่ว่าง',
+          state :1,
+          water :26,
+          power :51,
+          type :'ห้องVIP',
+          category: 3,
+          },
+          {no: '104',
+          status: 'ไม่ว่าง',
+          state :1,
+          water :10,
+          power :30,
+          type :'ห้องแอร์',
+          category: 2,
+          },
+          
+        ],
+        categorymenu: [
+        {
+          name: 'ห้องทั่วไป',
+          category: 1,
+        },
+        {
+          name: 'ห้องแอร์',
+          category: 2,
+        },
+        {
+          name: 'ห้องVIP',
+          category: 3,
+        }
+      ],
+      filteredroom: {}
+    }
+  },
+  methods: {
+    toroute(rou: RouteLocationRaw) {
+      this.$router.push(rou)
     },
+    allroom() {
+    this.filteredroom = this.datatest
+    },
+    filterRoom(iddata: number) {
+      console.log(iddata)
+      this.filteredroom = this.datatest.filter(item => item.category === iddata)
+    }
+  },
+  beforeMount(){
+    this.allroom()
+  },
+  
 });
 </script>
 
 <style scoped>
-ion-col {
-      background-color: #ffffff;
-      border: solid 1px rgb(215, 215, 215);
-      color: rgb(0, 0, 0);
-      text-align: center;
-    }
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+ 
+
+}
+#container a {
+  text-decoration: none;
+}
+ion-segment{
+  size: 10px;
+  text-align: left;
+}
+
+ion-searchbar.ios{
+  width: 80%;
+}
+
+.ion-color-purple {
+--ion-color-base: var(--ion-color-purple);
+--ion-color-base-rgb: var(--ion-color-purple-rgb);
+--ion-color-contrast: var(--ion-color-purple-contrast);
+--ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
+--ion-color-shade: var(--ion-color-purple-shade);
+--ion-color-tint: var(--ion-color-purple-tint);
+}
+ion-content {
+  --background: #e7e6eb;
+  --color: #fff;
+}
+
 </style>
