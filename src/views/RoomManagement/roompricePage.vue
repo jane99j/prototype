@@ -27,10 +27,14 @@
                           </ion-card-header>
                       </ion-item>
               <ion-card-content>
-                  <ion-item>
-                            <ion-label>ประเภทห้อง :</ion-label>
-                            <ion-input text placeholder="ระบุประภทห้องพัก"></ion-input>
-                        </ion-item>
+                      <ion-item>
+                        <ion-label>ประเภทห้อง :</ion-label>
+                        <ion-select interface="popover" placeholder="ประเภทห้อง" slot="end">
+                          <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
+                          <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
+                          <ion-select-option value="bananas">ห้องVIP</ion-select-option>
+                        </ion-select>                  
+                      </ion-item>
                         <ion-item>
                             <ion-label>กำหนดราคา :</ion-label>
                             <ion-input text placeholder="ระบุราคาห้องพัก"></ion-input>
@@ -39,8 +43,9 @@
                       <ion-item>
                         <ion-label>ของใช้ภายในห้อง</ion-label>
                       </ion-item>
-
-                        <ion-item>
+                      <ion-button @click="presentAlert" หส>เพิ่มรายการข้องใช้</ion-button>
+  
+                      <ion-item>
                         <ion-checkbox slot="start"></ion-checkbox>
                         <ion-label>พัดลม</ion-label>
                         </ion-item>
@@ -127,14 +132,41 @@
   
   
   <script lang="ts">
-  import { defineComponent } from 'vue';
-  import { IonCheckbox,IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
+  import { ref,defineComponent } from 'vue';
+  import { alertController,IonCheckbox,IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
       IonCheckbox,IonInput,IonLabel,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
-    }
+    },
+    setup() {
+      const handlerMessage = ref('');
+        const roleMessage = ref('');
+      const presentAlert = async () => {
+        const alert = await alertController.create({
+          header: 'เพิ่มรายการที่ต้องการ',
+          buttons: ['OK'],
+          inputs: [
+          {
+              placeholder: 'รายการ',
+            },
+            {
+              placeholder: 'ราคา',              
+            },                     
+          ],
+        });
+
+        await alert.present();
+        const { role } = await alert.onDidDismiss();
+        roleMessage.value = `Dismissed with role: ${role}`;
+      };
+
+      return { 
+        presentAlert 
+      };
+        
+    },
   });
   </script>
   <style>
