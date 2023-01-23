@@ -1,13 +1,27 @@
 <template>
-        <ion-header>
-    <ion-toolbar>
-      <ion-title>จดมิเตอร์น้ำ</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <ion-card>
-
-    <ion-grid>
+  <ion-page>
+      <ion-header :translucent="true">
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button color="primary"></ion-menu-button>
+          </ion-buttons>
+          <ion-title>{{ $route.params.id }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content :fullscreen="true">
+        <ion-header collapse="condense">
+          <ion-toolbar>
+            <ion-title size="large">{{ $route.params.id }}</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      
+        <div id="container">
+          <strong class="capitalize">{{ $route.params.id }}</strong>
+        </div>
+        
+        <ion-card>
+        <ion-grid>
     <ion-row>
         <ion-col size="3"> <ion-datetime-button datetime="datetime1"></ion-datetime-button>
     <ion-modal :keep-contents-mounted="true">
@@ -82,19 +96,18 @@
 </ion-card>
 <ion-button expand="block">บันทึก</ion-button>
 </ion-card>
-  </ion-content>
+      </ion-content>
+    </ion-page>
 </template>
 
 
 <script lang="ts">
-  import {IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
-  import PageTwo from './PageTwo.vue';
+  import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
 
   export default {
-    components: { IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
+    components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
     data() {
       return {
-        component: PageTwo,
       };
     },
   };
