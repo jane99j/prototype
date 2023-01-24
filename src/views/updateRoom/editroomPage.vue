@@ -48,7 +48,7 @@
             <ion-grid>             
               <ion-item>
                 <label>เลือกห้องพักที่ต้องการ</label>
-              <ion-button slot="end" color="medium" size="small">จัดการห้อง</ion-button>
+              <ion-button slot="end" color="medium" size="small" routerLink="/testroomPage">จัดการห้อง</ion-button>
               </ion-item>           
               <ion-item color="light">
               <ion-checkbox slot="start" color="light"></ion-checkbox>

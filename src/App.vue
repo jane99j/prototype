@@ -69,7 +69,7 @@ export default defineComponent({
       },
       {
         title: 'ห้อง',
-        url: '/testroomPage',
+        url: '/homePage',
         iosIcon: home,
         mdIcon: home
       },
@@ -81,7 +81,7 @@ export default defineComponent({
       },
       {
         title: 'จดมิเตอร์',
-        url: '/ExamplePage',
+        url: '/PageOne',
         iosIcon: pencil,
         mdIcon: pencil
       },

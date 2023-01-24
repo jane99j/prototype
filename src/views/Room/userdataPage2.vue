@@ -56,7 +56,7 @@
         </ion-label>
       </ion-item>
       <ion-item>
-        <ion-button slot="end" routerLink="/reserveRoom" color="dark" fill="outline">+ เพิ่มผู้เช่า</ion-button>
+        <ion-button slot="end" routerLink="/reserveRoom" fill="outline">+ เพิ่มผู้เช่า</ion-button>
       </ion-item>
       <ion-row>
           <ion-input readonly>ชื่อ :</ion-input>

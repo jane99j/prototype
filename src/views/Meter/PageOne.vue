@@ -1,13 +1,32 @@
 <template>
-        <ion-header>
-    <ion-toolbar>
-      <ion-title>จดมิเตอร์น้ำ</ion-title>
+  <ion-page>
+    <ion-header :translucent="true">
+    <ion-toolbar color="purple">
+      <ion-buttons slot="start">
+        <ion-menu-button color="primary"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>จดมิเตอร์ไฟฟ้า</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
-    <ion-card>
-
-    <ion-grid>
+      
+      <ion-content :fullscreen="true">
+        <ion-header collapse="condense">
+          <ion-toolbar>
+            <ion-title size="large">{{ $route.params.id }}</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      
+        <div id="container">
+          <strong class="capitalize">{{ $route.params.id }}</strong>
+        </div>
+        
+        <ion-card>
+          <ion-item color="light">
+          <ion-card-header>
+            <ion-card-title>จดรอบมิเตอร์</ion-card-title>
+          </ion-card-header>          
+        </ion-item>
+        <ion-grid>
     <ion-row>
         <ion-col size="3"> <ion-datetime-button datetime="datetime1"></ion-datetime-button>
     <ion-modal :keep-contents-mounted="true">
@@ -40,7 +59,7 @@
         </ion-col>
         <ion-col></ion-col>
         <ion-col>
-          <ion-nav-link router-direction="forward" :component="component">
+          <ion-nav-link routerLink="PageTwo">
           <ion-button>จดมิเตอร์ไฟฟ้า</ion-button></ion-nav-link>
         </ion-col>
       </ion-row>
@@ -82,19 +101,18 @@
 </ion-card>
 <ion-button expand="block">บันทึก</ion-button>
 </ion-card>
-  </ion-content>
+      </ion-content>
+    </ion-page>
 </template>
 
 
 <script lang="ts">
-  import {IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
-  import PageTwo from './PageTwo.vue';
+  import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
 
   export default {
-    components: { IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
+    components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
     data() {
       return {
-        component: PageTwo,
       };
     },
   };
@@ -112,5 +130,16 @@ ion-select{
 ion-col{
   text-align: center;
 }
-
+.ion-color-purple {
+--ion-color-base: var(--ion-color-purple);
+--ion-color-base-rgb: var(--ion-color-purple-rgb);
+--ion-color-contrast: var(--ion-color-purple-contrast);
+--ion-color-contrast-rgb: var(--ion-color-purple-contrast-rgb);
+--ion-color-shade: var(--ion-color-purple-shade);
+--ion-color-tint: var(--ion-color-purple-tint);
+}
+ion-content {
+  --background: #e7e6eb;
+  --color: #fff;
+}
 </style>
