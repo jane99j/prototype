@@ -25,19 +25,12 @@
             <th>lastname</th>
             <th>user</th>
           </tr>
-          <tr v-for=" alluser" v-bind:key="alluser.id">
-            <th>{{ alluser.namedormitory }}</th>
-            <th>{{ alluser.addressdormitory }}</th>
-            <th>{{ alluser.phonedormitory }}</th>
+          
 
-          </tr>
 
 
         </table>
 
-        <div id="app">
-          {{ info }}
-        </div>
 
       </div>
 
@@ -61,18 +54,5 @@ export default defineComponent({
 
 });
 
-new Vue({
-  el: '#app',
-  data() {
-    return {
-      info: null
-    }
-  },
-  mounted() {
-    axios
-      .get('http://localhost/api_select.php')
-      .then(response => (this.info = response))
-  }
-})
 
 </script>
