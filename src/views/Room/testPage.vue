@@ -16,29 +16,24 @@
         </ion-toolbar>
       </ion-header>
 
-      <div id="container">
+      <div id="app">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <h1>TEST DATABASE</h1>
         <table class="table- table-bordered ">
           <tr>
-            <th>fistname</th>
-            <th>lastname</th>
-            <th>user</th>
+            <th>ประเภทห้อง</th>
+            <th>ราคาห้อง</th>
+            <th>เพิ่มเติ่ม</th>
           </tr>
-          <tr v-for=" alluser" v-bind:key="alluser.id">
-            <th>{{ alluser.namedormitory }}</th>
-            <th>{{ alluser.addressdormitory }}</th>
-            <th>{{ alluser.phonedormitory }}</th>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
 
           </tr>
 
 
         </table>
-
-        <div id="app">
-          {{ info }}
-        </div>
-
       </div>
 
 
@@ -48,7 +43,6 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
 import { defineComponent } from 'vue';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, } from '@ionic/vue';
 
@@ -57,22 +51,11 @@ export default defineComponent({
   components: {
     IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,
   },
+  new Vue({
+    el: "#app"
+  })
 
 
 });
-
-new Vue({
-  el: '#app',
-  data() {
-    return {
-      info: null
-    }
-  },
-  mounted() {
-    axios
-      .get('http://localhost/api_select.php')
-      .then(response => (this.info = response))
-  }
-})
 
 </script>
