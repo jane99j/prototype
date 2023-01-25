@@ -16,22 +16,20 @@
         </ion-toolbar>
       </ion-header>
 
-      <div id="container">
+      <div id="app">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <h1>TEST DATABASE</h1>
         <table class="table- table-bordered ">
           <tr>
-            <th>fistname</th>
-            <th>lastname</th>
-            <th>user</th>
+            <th>ประเภทห้อง</th>
+            <th>ราคาห้อง</th>
+            <th>เพิ่มเติ่ม</th>
           </tr>
-          
+
 
 
 
         </table>
-
-
       </div>
 
 
@@ -41,7 +39,6 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
 import { defineComponent } from 'vue';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, } from '@ionic/vue';
 
@@ -53,6 +50,5 @@ export default defineComponent({
 
 
 });
-
 
 </script>
