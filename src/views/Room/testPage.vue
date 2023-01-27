@@ -19,17 +19,12 @@
       <div id="app">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <h1>TEST DATABASE</h1>
-        <table class="table- table-bordered ">
+        <table class="table- table-bordered " v-for="i in roomtype" :key="i.id">
           <tr>
-            <th>ประเภทห้อง</th>
-            <th>ราคาห้อง</th>
-            <th>เพิ่มเติ่ม</th>
+            <th>สถานะ</th>
           </tr>
           <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-
+            <th>{{ i.state_name }}</th>
           </tr>
 
 
@@ -43,6 +38,7 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent } from 'vue';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, } from '@ionic/vue';
 
@@ -51,10 +47,28 @@ export default defineComponent({
   components: {
     IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,
   },
-  new Vue({
-    el: "#app"
-  })
-
+  data() {
+    return {
+      roomtype: {},
+    }
+  },
+  methods: {
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/status.json`);
+        this.roomtype = response.data;
+        console.log(JSON.stringify(this.roomtype))
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+  created() {
+    this.getDataFromDatabase();
+  },
+  /*beforeMount() {
+    
+  }*/
 
 });
 
