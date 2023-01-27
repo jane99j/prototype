@@ -29,21 +29,21 @@
       <ion-list>
         <ion-item>
           <ion-label>ธนาคร</ion-label>
-        <ion-select interface="popover" placeholder="เลือกธนาคาร">
-          <ion-select-option value="apples">กรุงเทพ</ion-select-option>
-          <ion-select-option value="oranges">กสิกรไทย</ion-select-option>
-          <ion-select-option value="bananas">กรุงไทย</ion-select-option>
+        <ion-select  placeholder="เลือกธนาคาร" v-model="dormitory.bank_name">
+          <ion-select-option value="กรุงเทพ">กรุงเทพ</ion-select-option>
+          <ion-select-option value="กสิกรไทย">กสิกรไทย</ion-select-option>
+          <ion-select-option value="กรุงไทย">กรุงไทย</ion-select-option>
         </ion-select>
       </ion-item>
   
       <ion-item>
         <ion-label>ชื่อบัญชี</ion-label>
-        <ion-input text placeholder=""></ion-input>
+        <ion-input text placeholder="" v-model="dormitory.name_b"></ion-input>
       </ion-item>
   
       <ion-item>
         <ion-label>เลขบัญชี</ion-label>
-        <ion-input text placeholder="" ></ion-input>
+        <ion-input text placeholder="" v-model="dormitory.nuber_b"></ion-input>
       </ion-item>
       </ion-list>
     </ion-card-content>  
@@ -59,7 +59,7 @@
     <ion-card-content>
       <ion-item>
         <ion-label>ข้อความ</ion-label>
-        <ion-textarea placeholder="กรอกข้อความ"></ion-textarea>
+        <ion-textarea placeholder="กรอกข้อความ" v-model="dormitory.ms"></ion-textarea>
       </ion-item>
     </ion-card-content>  
 
@@ -68,7 +68,7 @@
   <ion-card>
     <IonRow>
     <div className="ion-float-end">
-      <ion-button routerLink="/newroomthree">ต่อไป</ion-button>
+      <ion-button @click="sendData" routerLink="/newroomthree">ต่อไป</ion-button>
     </div> 
     </IonRow>
   </ion-card>
@@ -78,13 +78,51 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
+import { IonTextarea,IonInput,IonItem,IonSelect,IonSelectOption,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton
+    IonTextarea,IonInput,IonItem,IonSelect,IonSelectOption,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton
+  },
+  data() {
+    return {
+      dormitory: {
+        bank_name: "",
+        name_b: "",
+        nuber_b: "",
+        ms : "",
+      }
+    }
+  },
+  methods: {
+    sendData() {
+      console.log("sendData active");
+
+      axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_message.json", {
+        bank_name: this.dormitory.bank_name,
+        name_b: this.dormitory.name_b,
+        nuber_b: this.dormitory.nuber_b,
+        ms: this.dormitory.ms
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      this.clearData();
+    },
+    clearData() {
+      this.dormitory.bank_name = "";
+      this.dormitory.name_b = "";
+      this.dormitory.nuber_b = "";
+      this.dormitory.ms = "";
+    }
+    
   }
 });
 </script>
