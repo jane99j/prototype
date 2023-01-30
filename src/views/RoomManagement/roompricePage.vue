@@ -41,9 +41,14 @@
             </ion-item>
             <ion-button @click="presentAlert">เพิ่มรายการข้องใช้</ion-button>
 
-            <ion-item v-for="i in instFurniture" :key="i.id">
-              <ion-checkbox  slot="start" v-checkbox="instroom.fniture_name"> </ion-checkbox>
-              <ion-label>{{ i.fniture_name }}</ion-label>
+            <ion-item>
+              <ion-checkbox  slot="start" value="1"> </ion-checkbox>
+              <ion-label>พัดลม</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-checkbox  slot="start" value="1"> </ion-checkbox>
+              <ion-label>แอร์</ion-label>
             </ion-item>
 
 
@@ -59,9 +64,9 @@
         <ion-card>
           <ion-card-content>
             <ion-grid fixed="true">
-              <ion-item>
-                <ion-col>ห้องทั่วไป</ion-col>
-                <ion-col>3,000</ion-col>
+              <ion-item v-for="i in instFurniture" :key="i.id">
+                <ion-col>{{ i.room_type}}</ion-col>
+                <ion-col>{{ i.room_price }}</ion-col>
                 <ion-col>
                   <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
                 </ion-col>
@@ -70,27 +75,6 @@
                 </ion-col>
               </ion-item>
 
-              <ion-item>
-                <ion-col>ห้องแอร์</ion-col>
-                <ion-col>3,500</ion-col>
-                <ion-col>
-                  <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
-                </ion-col>
-                <ion-col>
-                  <ion-text color="tertiary" routerLink="">รายละเอียด</ion-text>
-                </ion-col>
-              </ion-item>
-
-              <ion-item>
-                <ion-col>ห้องVIP</ion-col>
-                <ion-col>4,000</ion-col>
-                <ion-col>
-                  <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
-                </ion-col>
-                <ion-col>
-                  <ion-text color="tertiary" routerLink="">รายละเอียด</ion-text>
-                </ion-col>
-              </ion-item>
             </ion-grid>
           </ion-card-content>
         </ion-card>
@@ -110,12 +94,12 @@
 <script lang="ts">
 import axios from 'axios';
 import { ref, defineComponent } from 'vue';
-import { alertController, IonCheckbox, IonInput, IonLabel, IonItem, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+import { IonCol,alertController, IonCheckbox, IonInput, IonLabel, IonItem, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonCheckbox, IonInput, IonLabel, IonItem, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle
+    IonCol,IonCheckbox, IonInput, IonLabel, IonItem, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle
   },
   setup() {
     const handlerMessage = ref('');
@@ -144,8 +128,7 @@ export default defineComponent({
   },
   data() {
     return {
-      instFurniture: {
-      },
+      instFurniture: {},
 
       instroom: {
         room_type: "",
@@ -158,7 +141,7 @@ export default defineComponent({
     ////GETdata////
     async getDataFromDatabase() {
       try {
-        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_furniture.json`);
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_roomtype.json`);
         this.instFurniture = response.data;
         console.log(JSON.stringify(this.instFurniture))
       } catch (error) {
@@ -191,8 +174,7 @@ export default defineComponent({
   },
   created() {
       this.getDataFromDatabase();
-    },
-
+    }
 });
 </script>
 <style>
@@ -210,3 +192,4 @@ ion-content {
   --color: #fff;
 }
 </style>
+
