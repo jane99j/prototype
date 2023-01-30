@@ -79,6 +79,7 @@
 import axios from 'axios';
 import { defineComponent } from 'vue';
 import { IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+import { add } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'FolderPage',
@@ -88,14 +89,17 @@ export default defineComponent({
   data() {
     return {
       count: 0,
-      room_id:'',
-      room: [ ]
+
+      room: [ 
+      {room_id:''},
+      ]
       }
 
     },
 
   methods: {
     increment() {
+      this.room;
       this.count++;
     },
     decrement() {
