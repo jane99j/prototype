@@ -58,7 +58,7 @@
           <ion-card-content>
             <ion-item>
               <ion-label>ห้อง :</ion-label>
-              <ion-input v-model="room.room_id"></ion-input>
+              <ion-input v-model="room">{{ room1 }}</ion-input>
             </ion-item>
           </ion-card-content>
         </ion-card>
@@ -89,20 +89,20 @@ export default defineComponent({
   data() {
     return {
       count: 0,
-
-      room: [ 
-      {room_id:''},
-      ]
+      room1:100,
+      room:[ ]
       }
 
     },
 
   methods: {
     increment() {
-      this.room;
       this.count++;
+      this.room1++;
+      this.room;
     },
     decrement() {
+      this.room1--;
       this.count--;
     },
   },
