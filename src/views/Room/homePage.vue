@@ -49,8 +49,8 @@
           <ion-label>ห้องทั้งหมด</ion-label>
         </ion-segment-button>
                
-        <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterRoom(i.category)">
-          <ion-label>{{ i.name }}</ion-label>
+        <ion-segment-button v-for="i in status" :key="i.state_name" :value="i.state_name" @click="filterRoom(i.category)">
+          <ion-label>{{ i.state_name }}</ion-label>
         </ion-segment-button>
       </ion-segment> 
       </ion-col>
@@ -63,22 +63,22 @@
     </ion-card>
       
         <ion-row>
-          <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredroom" :key="i.name" @click="toroute(i.url)">
+          <ion-col :sizeXs="6" :sizeMd="4" v-for="i in roomtype" :key="i.id" >
               <ion-card color="light">
               <ion-card-header>
-                <ion-card-title>{{ i.name }}</ion-card-title>
+                <ion-card-title>{{ i.room_id }}</ion-card-title>
                 <ion-card-subtitle></ion-card-subtitle>
               </ion-card-header>
               <ion-card-content>
-                <ion-icon v-if="i.category !== 2" slot="icon-only" :icon="person"></ion-icon>
+                <ion-icon slot="icon-only" :icon="person"></ion-icon>
                 </ion-card-content>
                 <ion-card-content>
 
-                <ion-label v-if="i.category === 1">
-                  <ion-badge color="success">{{ i.status }}</ion-badge>
+                <ion-label  v-for="i in status" :key="i">
+                  <ion-badge color="success" v-if="i.state_id ===4">{{ i.state_name }}</ion-badge>
                 </ion-label>
 
-                <ion-label v-if="i.category === 2">
+                <ion-label v-if="i.state_id === 2">
                   <ion-badge fill="outline" color="secondary">{{ i.status }}</ion-badge>
                 </ion-label>
 
@@ -112,14 +112,13 @@
 </template>
 
 <script lang="ts">
-// import { Item } from '@ionic/core/dist/types/components/item/item';
+import axios from 'axios';
 import { ref, defineComponent } from 'vue';
 import { RouteLocationRaw, useRoute } from 'vue-router';
 import {IonBadge,IonIcon,IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow, IonCard,IonCardHeader, IonCardSubtitle, IonCardTitle, IonSearchbar, onIonViewDidEnter, IonLabel, IonSegment, IonSegmentButton,
 } from '@ionic/vue';
 import {colorFill, person} from 'ionicons/icons';
-import { Select } from '@ionic/core/dist/types/components/select/select';
-import { Color } from 'csstype';
+
 
 export default defineComponent({
   components: {
@@ -147,88 +146,31 @@ export default defineComponent({
   },
   data() {
     return {
-      listmenu: [
-        {
-          name: '101',
-          status: 'ว่าง',
-          url: '/RoomManage',
-          category: 2,
-        },
-        {
-          name: '102',
-          status: 'ยังไม่ชำระ',
-          url: '/userdataPage',
-          category: 6,
-        },
-        {
-          name: '103',
-          status: 'จองแล้ว',
-          url: '/bookingPage',
-          category: 3,
-        },
-        {
-          name: '104',
-          status: 'ค้างชำระ',
-          url: '/userdataPage',
-          category: 4,
-        },
-        {
-          name: '105',
-          status: 'รอย้ายออก',
-          url: '/userdataPage2',
-          category: 5,
-        },
-        {
-          name: '106',
-          status: 'ค้างชำระ',
-          url: '/userdataPage',
-          category: 4,
-        },
-        {
-          name: '107',
-          status: 'ว่าง',
-          url: '/RoomManage',
-          category: 2,
-        },
-        {
-          name: '108',
-          status: 'ชำระแล้ว',
-          url: '/userdataPage',
-          category: 1,
-        }
-      ],
-      categorymenu: [
-        {
-          name: 'ห้องว่าง',
-          category: 2,
-        },
-        {
-          name: 'จองแล้ว',
-          category: 3,
-        },
-        {
-          name: 'ค้างชำระ',
-          category: 4,
-        }
-      ],
-      filteredroom: {}
+      roomtype: {},
+      status: {},
     }
   },
 
   methods: {
-    toroute(rou: RouteLocationRaw) {
-      this.$router.push(rou)
-    },
-    allroom() {
-    this.filteredroom = this.listmenu
-    },
-    filterRoom(iddata: number) {
-      console.log(iddata)
-      this.filteredroom = this.listmenu.filter(item => item.category === iddata)
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+        this.roomtype = response.data;
+        console.log(JSON.stringify(this.roomtype))
+      } catch (error) {
+        console.error(error);
+      }
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/status.json`);
+        this.status = response.data;
+        console.log(JSON.stringify(this.status))
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
-  beforeMount(){
-    this.allroom()
+  created() {
+    this.getDataFromDatabase();
   },
   //   created(){
   //  this.filterMenu(1)
