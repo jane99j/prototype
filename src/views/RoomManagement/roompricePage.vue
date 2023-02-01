@@ -29,7 +29,11 @@
           <ion-card-content>
             <ion-item>
               <ion-label>ประเภทห้อง :</ion-label>
+
               <ion-input text placeholder="ระบุประเภทห้อง" v-model="instroom.room_type" required></ion-input>
+
+              <ion-input text placeholder="ระบุประเภทห้อง" v-model="instroom.fniture_name"></ion-input>
+
             </ion-item>
             <ion-item>
               <ion-label>กำหนดราคา :</ion-label>
@@ -42,12 +46,12 @@
             </ion-item>
             <ion-button @click="presentAlert">เพิ่มรายการข้องใช้</ion-button>
 
-            <ion-item>
+            <ion-item v-model="instroom.room_type">
               <ion-checkbox  slot="start" value="1"> </ion-checkbox>
               <ion-label>พัดลม</ion-label>
             </ion-item>
 
-            <ion-item>
+            <ion-item v-model="instroom.room_type">
               <ion-checkbox  slot="start" value="1"> </ion-checkbox>
               <ion-label>แอร์</ion-label>
             </ion-item>
@@ -67,7 +71,7 @@
           <ion-card-content>
             <ion-grid fixed="true">
               <ion-item v-for="i in instFurniture" :key="i.id">
-                <ion-col>{{ i.room_type}}</ion-col>
+                <ion-col>{{ i.fniture_name}}</ion-col>
                 <ion-col>{{ i.room_price }}</ion-col>
                 <ion-col>
                   <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
