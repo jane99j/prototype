@@ -29,11 +29,16 @@
           <ion-card-content>
             <ion-item>
               <ion-label>ประเภทห้อง :</ion-label>
+
+              <ion-input text placeholder="ระบุประเภทห้อง" v-model="instroom.room_type" required></ion-input>
+
               <ion-input text placeholder="ระบุประเภทห้อง" v-model="instroom.fniture_name"></ion-input>
+
             </ion-item>
             <ion-item>
               <ion-label>กำหนดราคา :</ion-label>
-              <ion-input text placeholder="ระบุราคาห้องพัก" v-model="instroom.room_price"></ion-input>
+              <ion-input text placeholder="ระบุราคาห้องพัก" v-model="instroom.room_price" required></ion-input>
+              
             </ion-item>
 
             <ion-item>
@@ -55,6 +60,7 @@
             <IonRow>
               <div className="ion-float-end">
                 <ion-button @click="sendData" routerLink="#">เพิ่ม</ion-button>
+                
               </div>
             </IonRow>
 

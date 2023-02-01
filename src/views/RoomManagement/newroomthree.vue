@@ -27,42 +27,43 @@
 
           <ion-card-content>
             <ion-list>
+              <ion-item>
+                <ion-row>
+              <div class="counter__section">
+                <ion-button id="decrement" @click="decrement()">-</ion-button>
+                <label>{{ count }}</label>
+                <ion-button id="increment" @click="increment()">+</ion-button>
+              </div>
+            </ion-row>
+            </ion-item>
 
               <ion-item>
-                <ion-label>เลือกประเภทห้องพัก</ion-label>
-                <ion-select interface="popover" placeholder="ประเภทห้องพัก">
-                  <ion-select-option value="1">ห้องทั่วไป</ion-select-option>
-                  <ion-select-option value="2">ห้องแอร์</ion-select-option>
-                  <ion-select-option value="3">ห้อง VIP</ion-select-option>
+                <ion-label>จำนวนชั้น *</ion-label>
+                <ion-select interface="popover" placeholder="เลือกจำนวนชั้น">
+                  <ion-select-option value="apples">1</ion-select-option>
+                  <ion-select-option value="oranges">2</ion-select-option>
+                  <ion-select-option value="bananas">3</ion-select-option>
                 </ion-select>
               </ion-item>
 
               <ion-item>
-                <ion-row>
-                  <div class="counter__section">
-                    <ion-button id="decrement" @click="decrement()">-</ion-button>
-                    <label>{{ count }}</label>
-                    <ion-button id="increment" @click="increment()">+</ion-button>
-                  </div>
-                </ion-row>
+                <ion-label>จำนวนห้องชั้นที่1 :</ion-label>
+                <ion-input text placeholder=""></ion-input>
               </ion-item>
 
-              <div className="ion-float-end">
-                <ion-button  routerLink="">เพิ่ม</ion-button>
-              </div>
+              <ion-item>
+                <ion-label>จำนวนห้องชั้นที่2 :</ion-label>
+                <ion-input text placeholder=""></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>จำนวนห้องชั้นที่3 :</ion-label>
+                <ion-input number placeholder=""></ion-input>
+              </ion-item>
 
             </ion-list>
           </ion-card-content>
         </ion-card>
-        <ion-card v-for="i in count" :key="i">
-          <ion-card-content>
-            <ion-item>
-              <ion-label>ห้อง :</ion-label>
-              <ion-input v-model="room">{{ room1 }}</ion-input>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-
         <ion-card>
           <IonRow>
             <div className="ion-float-end">
@@ -76,33 +77,24 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
 import { defineComponent } from 'vue';
-import { IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
-import { add } from 'ionicons/icons';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton
+    IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton
   },
   data() {
     return {
       count: 0,
-      room1:100,
-      room:[ ]
-      }
-
-    },
-
+    };
+  },
   methods: {
     increment() {
       this.count++;
-      this.room1++;
-      this.room;
     },
     decrement() {
-      this.room1--;
       this.count--;
     },
   },
@@ -110,8 +102,8 @@ export default defineComponent({
 </script>
 <style>
 .counter__section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 </style>

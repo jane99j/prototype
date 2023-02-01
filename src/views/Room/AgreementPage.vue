@@ -69,7 +69,7 @@
     </ion-item>
     <ion-item>
       <ion-text>ค่าเช่าล่วงหน้า :</ion-text>
-      <ion-input text placeholder="ระบุจำนวนเงิน" ></ion-input>
+      <ion-input text placeholder="ระบุจำนวนเงิน" v-model="instagr.agr_period"></ion-input>
     </ion-item>
 
 
@@ -78,27 +78,27 @@
     </ion-item-divider>
     <ion-item>
       <ion-label>ชื่อ :</ion-label>
-      <ion-input text placeholder="กรอกชื่อ" ></ion-input>
+      <ion-input text placeholder="กรอกชื่อ" v-model="instagr.agr_fname"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>สกุล :</ion-label>
-      <ion-input text placeholder="กรอกนามสกุล"></ion-input>
+      <ion-input text placeholder="กรอกนามสกุล" v-model="instagr.agr_lname"></ion-input>
     </ion-item>
     
     <ion-item>
       <ion-label>หมายเลขบัตรประชาชน :</ion-label>
-      <ion-input number placeholder="กรอกหมายเลขบัตรประชาชน" ></ion-input>
+      <ion-input number placeholder="กรอกหมายเลขบัตรประชาชน" v-model="instagr.agr_idcard"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>เบอร์โทรติดต่อ :</ion-label>
-      <ion-input number placeholder="กรอกเบอร์โทรศัพท์" ></ion-input>
+      <ion-input number placeholder="กรอกเบอร์โทรศัพท์" v-model="instagr.agr_phone" ></ion-input>
     </ion-item>
 
     <ion-item>
     <ion-label>ที่อยู่ :</ion-label>
-      <ion-input text placeholder="กรอกที่อยู่ที่สามารถติดต่อได้" ></ion-input>
+      <ion-input text placeholder="กรอกที่อยู่ที่สามารถติดต่อได้" v-model="instagr.agr_address"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -109,7 +109,7 @@
     </ion-modal>
     </ion-item>
 
-  <ion-button expand="block" routerLink="/homePage">บันทึกสัญญา</ion-button>
+    <ion-button @click="sendData" routerLink="#">บันทึก</ion-button>
   </ion-card>
             </ion-col>
             
@@ -121,6 +121,7 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent } from 'vue';
 import { IonButtons,IonButton,IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal ,IonLabel,IonItem,IonInput,IonCard, IonCardHeader,IonCardTitle,
 IonText  } from '@ionic/vue';
@@ -129,8 +130,71 @@ export default defineComponent({
   name: 'FolderPage',
   components: {IonButton,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonSelect, IonSelectOption,IonDatetime, IonDatetimeButton, IonModal ,IonLabel,IonItem,IonInput,IonCard, IonCardHeader,IonCardTitle
     ,IonText
-  }
+  },
+  data() {
+    return {
+      intsagreement: {},
+
+      instagr: {
+        room_type: "",
+        room_number: "",
+        agr_dateagr: "",
+        agr_period: "",
+        agr_rental: "",
+        agr_fname: "",
+        agr_lname: "",
+        agr_idcard: "",
+        agr_phone: "",
+        agr_address: "",
+        agr_date: "",
+      }
+    }
+  },
+  methods: {
+    
+    /////instdata///////
+    sendData() {
+      console.log("sendData active");
+
+      axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_agreement.json", {
+        room_type: this.instagr.room_type,
+        room_number: this.instagr.room_number,
+        agr_dateagr: this.instagr.agr_dateagr,
+        agr_period: this.instagr.agr_period,
+        agr_rental: this.instagr.agr_rental,
+        agr_fname: this.instagr.agr_fname,
+        agr_lname: this.instagr.agr_lname,
+        agr_idcard: this.instagr.agr_idcard,
+        agr_phone: this.instagr.agr_phone,
+        agr_address: this.instagr.agr_address,
+        agr_date: this.instagr.agr_date,
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      this.clearData();
+    },
+    clearData() {
+      this.instagr.room_type = "";
+      this.instagr.room_number = "";
+      this.instagr.agr_dateagr = "";
+      this.instagr.agr_period = "";
+      this.instagr.agr_rental = "";
+      this.instagr.agr_fname = "";
+      this.instagr.agr_lname = "";
+      this.instagr.agr_idcard = "";
+      this.instagr.agr_phone = "";
+      this.instagr.agr_address = "";
+      this.instagr.agr_date = "";
+    }
+  },
+
 });
+
 </script>
 
 <style scoped>
