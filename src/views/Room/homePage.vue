@@ -146,6 +146,7 @@ export default defineComponent({
   },
   data() {
     return {
+      test:{},
       roomtype: {},
       status: {},
     }
