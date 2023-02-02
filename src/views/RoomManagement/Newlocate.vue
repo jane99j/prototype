@@ -50,8 +50,9 @@
         <ion-card>
           <IonRow>
             <div className="ion-float-end">
-              <ion-button type="submit" @click="sendData" routerLink="/PageNewRoom">ต่อไป</ion-button>
+              <ion-button type="submit" @click="sendData">เพิ่ม</ion-button>
             </div>
+            <ion-button  routerLink="/PageNewRoom">ต่อไป</ion-button>
           </IonRow>
 
         </ion-card>
