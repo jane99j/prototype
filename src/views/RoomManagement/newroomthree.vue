@@ -18,53 +18,95 @@
 
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <ion-card>
-          <ion-item color="light">
-            <ion-card-header>
-              <ion-card-title>จำนวนชั้น</ion-card-title>
-            </ion-card-header>
-          </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col :sizeXs="12" :sizeMd="6">
+              <ion-card>
+                <ion-item>
+                  <ion-card-header>
+                    <ion-card-title>จำนวนชั้น</ion-card-title>
+                  </ion-card-header>
+                </ion-item>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <ion-label>ชั้น</ion-label>
+                      <ion-select interface="popover" placeholder="เลือกชั้น" v-model="row.roomclas">
+                        <ion-select-option value="1">1</ion-select-option>
+                        <ion-select-option value="2">2</ion-select-option>
+                        <ion-select-option value="3">3</ion-select-option>
+                        <ion-select-option value="4">4</ion-select-option>
+                        <ion-select-option value="5">5</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>เลือกประเภทห้องพัก</ion-label>
+                      <ion-select interface="popover" placeholder="ประเภทห้องพัก" v-model="row.room_type">
+                        <ion-select-option value="ห้องทั่วไป">ห้องทั่วไป</ion-select-option>
+                        <ion-select-option value="ห้องแอร์">ห้องแอร์</ion-select-option>
+                        <ion-select-option value="ห้องพัดลม">ห้องพัดลม+แอร์</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                    <ion-item>
+                    </ion-item>
 
-          <ion-card-content>
-            <ion-list>
+                    <ion-item>
+                      <ion-row>
+                        <div class="counter__section">
+                          <ion-button id="decrement" @click="removeRow()">-</ion-button>
+                          <label>{{ count }}</label>
+                          <ion-button id="increment" @click="addRow()">+</ion-button>
+                        </div>
+                      </ion-row>
+                    </ion-item>
 
-              <ion-item>
-                <ion-label>เลือกประเภทห้องพัก</ion-label>
-                <ion-select interface="popover" placeholder="ประเภทห้องพัก">
-                  <ion-select-option value="1">ห้องทั่วไป</ion-select-option>
-                  <ion-select-option value="2">ห้องแอร์</ion-select-option>
-                  <ion-select-option value="3">ห้อง VIP</ion-select-option>
-                </ion-select>
-              </ion-item>
+                    <ion-item>
+                      <ion-label>ห้อง :</ion-label>
+                      <ion-input v-model="row.room_id"></ion-input>
+                    </ion-item>
 
-              <ion-item>
-                <ion-row>
-                  <div class="counter__section">
-                    <ion-button id="decrement" @click="removeRow()">-</ion-button>
-                    <label>{{ count }}</label>
-                    <ion-button id="increment" @click="addRow()">+</ion-button>
-                  </div>
-                </ion-row>
-              </ion-item>
+                    <ion-button expand="block" @click="sendData" routerLink="">เพิ่มห้อง</ion-button>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
 
-              <div className="ion-float-end">
-                <ion-button  @click="sendData" routerLink="">เพิ่ม</ion-button>
-              </div>
+            <ion-col :sizeXs="12" :sizeMd="6">
+              <ion-card>
+                <ion-grid>
+                  <ion-item>
+                    <label>ห้องพัก</label>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>ชั้น</ion-label>
+                    <ion-select interface="popover" placeholder="เลือกชั้น">
+                      <ion-select-option value="1">1</ion-select-option>
+                      <ion-select-option value="2">2</ion-select-option>
+                      <ion-select-option value="3">3</ion-select-option>
+                      <ion-select-option value="4">4</ion-select-option>
+                      <ion-select-option value="5">5</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item color="light">
+                    <ion-label slot="start">ห้อง</ion-label>
+                    <ion-label slot="start">ประเภทห้อง</ion-label>
+                  </ion-item>
+                  <ion-item v-for="i in roomtype" :key="i.room_id">
+                    <ion-button slot="end">
+                      <ion-icon slot="icon-only" :icon="create"></ion-icon>
+                    </ion-button>
+                    <ion-label>{{ i.room_id }}</ion-label>
+                    <ion-label>{{ i.room_type }}</ion-label>
+                    <ion-button slot="end">
+                      <ion-icon slot="icon-only" :icon="close"></ion-icon>
+                    </ion-button>
+                  </ion-item>
 
-            </ion-list>
-
-            <ion-item v-for="i in count" :key="i">
-              <ion-label >ห้อง :</ion-label>
-              <ion-input v-model="row.room_id"></ion-input>
-            </ion-item>
-
-            <ion-item>
-              <ion-label >ห้อง :</ion-label>
-              <ion-input v-model="row.room_id"></ion-input>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-
+                </ion-grid>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
         <ion-card>
           <IonRow>
             <div className="ion-float-end">
@@ -79,32 +121,53 @@
 
 <script lang="ts">
 import axios from 'axios';
+import { home, navigate, star, close, create } from 'ionicons/icons';
 import { defineComponent } from 'vue';
-import { IonItem,IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+import { IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonItem,IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton
+    IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton
+  },
+  setup() {
+    return { home, navigate, star, close, create }
   },
   data() {
     return {
       count: 0,
+      roomtype: {},
+
       row: {
         room_id: "",
-      }
+        room_type: "",
+        roomclas: '',
+      },
+      clas: {},
 
     }
   },
 
   methods: {
 
+
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+        this.roomtype = response.data;
+        console.log(JSON.stringify(this.roomtype))
+      } catch (error) {
+        console.error(error);
+      }
+    },
     sendData() {
       console.log("sendData active");
-
       axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json", {
         room_id: this.row.room_id,
+        room_type: this.row.room_type,
+        roomclas: this.row.roomclas,
+
       })
         .then(function (response) {
           console.log(response);
@@ -112,21 +175,32 @@ export default defineComponent({
         .catch(function (error) {
           console.log(error);
         });
-
+      /// window.location.reload();
       this.clearData();
+      this.re();
+
     },
     clearData() {
       this.row.room_id = "";
+      this.row.room_type = "";
+      this.row.roomclas = "";
+
     },
-    addRow () {
+    re() {
+      window.location.reload();
+    },
+    addRow() {
       this.count++;
     },
     removeRow() {
       this.count--;
     },
-
+  },
+  created() {
+    this.getDataFromDatabase();
 
   },
+
 });
 </script>
 <style>
