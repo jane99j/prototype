@@ -26,17 +26,17 @@
     <ion-list>
     <ion-item>
       <ion-label>ชื่อห้อง</ion-label>
-      <ion-input placeholder="กรอกรายชื่อห้องบนพัสดุ"></ion-input>
+      <ion-input placeholder="กรอกรายชื่อห้องบนพัสดุ" v-model="instsupplies.room_number" required ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>ชื่อผู้รับ</ion-label>
-      <ion-input placeholder="กรอกรายชื่อผู้รับ"></ion-input>
+      <ion-input placeholder="กรอกรายชื่อผู้รับ" v-model="instsupplies.own_name" required></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>หมายเลขพัสดุ</ion-label>
-      <ion-input placeholder="กรอกหมายเลขพัสดุ"></ion-input>
+      <ion-input placeholder="กรอกหมายเลขพัสดุ" v-model="instsupplies.supplies_number" required></ion-input>
     </ion-item>
 
     <ion-select placeholder="เลือกบริษัทขนส่ง">
@@ -50,7 +50,7 @@
     
 
     </ion-list>
-    <ion-button expand="block" routerLink="/suppliesPage">บันทึกข้อมูล</ion-button>
+    <ion-button expand="block" @click="sendData" routerLink="/suppliesPage">บันทึกข้อมูล</ion-button>
     </ion-card-content>
     </ion-card>
       </ion-content>
@@ -59,6 +59,7 @@
     </template>
   
   <script lang="ts">
+  import axios from 'axios';
   import { defineComponent } from 'vue';
   import { IonButton,IonSelect,IonSelectOption,IonInput, IonItem, IonLabel, IonList,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
@@ -67,7 +68,47 @@
     components: {
       IonButton,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonSelectOption,
       IonToolbar,IonCard, IonCardContent,IonInput, IonItem, IonLabel, IonList,IonSelect
+    },
+
+  data() {
+    return {
+      
+      supplies: {},
+
+      instsupplies: {
+        room_number: "",
+        own_name: "",
+        supplies_number: "",
+      }
     }
+  },
+
+    methods: {
+          /////instdata///////
+    sendData() {
+      console.log("sendData active");
+
+      axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json", {
+        room_number: this.instsupplies.room_number,
+        own_name: this.instsupplies.own_name,
+        supplies_number: this.instsupplies.supplies_number,
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      this.clearData();
+    },
+    clearData() {
+      this.instsupplies.room_number = "";
+      this.instsupplies.own_name = "";
+      this.instsupplies.supplies_number = "";
+    }
+  },
+
   });
   </script>
   

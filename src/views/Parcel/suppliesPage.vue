@@ -42,27 +42,17 @@
   <ion-card>
 
 
-    <ion-item routerLink="/suppliesMovePage">
+    <ion-item v-for="i in supplies" :key="i.id">
     <ion-thumbnail slot="start">
       <ion-img src="assets/box.png"></ion-img>
     </ion-thumbnail>
     <ion-list>
-    <ion-input readonly placeholder="นาย มิกกี้ คุง"></ion-input>
-    <ion-input readonly placeholder="ห้อง 101"></ion-input>
-    <ion-input readonly placeholder="SSD123456Z"></ion-input>
+    <ion-input readonly>{{i.room_number}}</ion-input>
+    <ion-input readonly>{{i.own_name}}</ion-input>
+    <ion-input readonly>{{i.supplies_number}}</ion-input>
   </ion-list>
   </ion-item>
 
-  <ion-item routerLink="/suppliesMovePage">
-    <ion-thumbnail slot="start">
-      <ion-img src="assets/box.png"></ion-img>
-    </ion-thumbnail>
-    <ion-list>
-    <ion-input readonly placeholder="นางสาว เจน จุ"></ion-input>
-    <ion-input readonly placeholder="ห้อง 102"></ion-input>
-    <ion-input readonly placeholder="SSD654321Z"></ion-input>
-  </ion-list>
-  </ion-item>
 
   </ion-card>
 
@@ -73,6 +63,7 @@
     </template>
   
   <script lang="ts">
+  import axios from 'axios';
   import { defineComponent } from 'vue';
   import {IonImg ,IonList,IonInput,IonItem,IonThumbnail,IonLabel,IonCol, IonGrid, IonRow,IonSearchbar,IonButton,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
@@ -82,8 +73,36 @@
       IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,
       IonToolbar,IonCard, IonCardContent,IonButton,IonSearchbar,IonList,
       IonCol, IonGrid, IonRow,IonLabel,IonItem,IonThumbnail,IonInput,IonImg 
+    },
+    data() {
+    return {
+      supplies: {},
+
+      instsupplies: {
+        room_number: "",
+        own_name: "",
+        supplies_number: "",
+      }
     }
+  },
+  methods: {
+    ////GETdata////
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
+        this.supplies = response.data;
+        console.log(JSON.stringify(this.supplies))
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
+  created() {
+      this.getDataFromDatabase();
+    }
+
   });
+
   </script>
   
   <style scoped>
