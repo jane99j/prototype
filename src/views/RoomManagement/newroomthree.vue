@@ -92,7 +92,7 @@
                     <ion-label slot="start">ประเภทห้อง</ion-label>
                   </ion-item>
                   <ion-item v-for="i in roomtype" :key="i.room_id">
-                    <ion-button slot="end">
+                    <ion-button slot="end" @click="del(i)">
                       <ion-icon slot="icon-only" :icon="create"></ion-icon>
                     </ion-button>
                     <ion-label>{{ i.room_id }}</ion-label>
@@ -120,7 +120,10 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios';
+import * as Vue from 'vue' // in Vue 3
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 import { home, navigate, star, close, create } from 'ionicons/icons';
 import { defineComponent } from 'vue';
 import { IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
@@ -144,7 +147,7 @@ export default defineComponent({
         room_type: "",
         roomclas: '',
       },
-      clas: {},
+      clas:{}
 
     }
   },
