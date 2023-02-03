@@ -42,7 +42,7 @@
   <ion-card>
 
 
-    <ion-item v-for="i in supplies" :key="i.id">
+    <ion-item v-for="i in supplies" :key="i.id" routerLink="suppliesMovePage">
     <ion-thumbnail slot="start">
       <ion-img src="assets/box.png"></ion-img>
     </ion-thumbnail>
@@ -77,12 +77,6 @@
     data() {
     return {
       supplies: {},
-
-      instsupplies: {
-        room_number: "",
-        own_name: "",
-        supplies_number: "",
-      }
     }
   },
   methods: {
