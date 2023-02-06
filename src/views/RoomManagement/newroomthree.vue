@@ -92,14 +92,22 @@
                     <ion-label slot="start">ประเภทห้อง</ion-label>
                   </ion-item>
                   <ion-item v-for="i in roomtype" :key="i.room_id">
-                    <ion-button slot="end" @click="del(i)">
-                      <ion-icon slot="icon-only" :icon="create"></ion-icon>
-                    </ion-button>
+                    
                     <ion-label>{{ i.room_id }}</ion-label>
                     <ion-label>{{ i.room_type }}</ion-label>
+                    <ion-button slot="end" :to="{
+                      name: 'option', params: {
+                        id: i.Key, room_id: i.room_id
+                      }
+                    }">
+                      <ion-icon slot="icon-only" :icon="create"></ion-icon>
+                    </ion-button>
+                  
+
                     <ion-button slot="end">
                       <ion-icon slot="icon-only" :icon="close"></ion-icon>
                     </ion-button>
+
                   </ion-item>
 
                 </ion-grid>
@@ -119,6 +127,7 @@
   </ion-page>
 </template>
 
+
 <script lang="ts">
 import * as Vue from 'vue' // in Vue 3
 import axios from 'axios'
@@ -126,13 +135,13 @@ import VueAxios from 'vue-axios'
 
 import { home, navigate, star, close, create } from 'ionicons/icons';
 import { defineComponent } from 'vue';
-import { IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+import { IonLabel,IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton
+    IonLabel,IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton
   },
   setup() {
     return { home, navigate, star, close, create }
@@ -147,7 +156,7 @@ export default defineComponent({
         room_type: "",
         roomclas: '',
       },
-      clas:{}
+      clas: {}
 
     }
   },
@@ -191,12 +200,6 @@ export default defineComponent({
     },
     re() {
       window.location.reload();
-    },
-    addRow() {
-      this.count++;
-    },
-    removeRow() {
-      this.count--;
     },
   },
   created() {

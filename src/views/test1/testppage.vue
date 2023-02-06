@@ -86,7 +86,8 @@
     },
     data() {
       return {
-        roomtype:null,
+        room_id:'',
+        roomtype:'',
   
       }
     },
@@ -94,19 +95,19 @@
     methods: {  
         async getDataFromDatabase() {
        
-          const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`).then((response)=>{
+          const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`+this.room_id).then((response)=>{
             console.log(JSON.stringify(this.roomtype))
             this.roomtype = response.data;
           });                
         
       },
-      async deleteDataFromDatabase(id) {
+     /*async deleteDataFromDatabase() {
        
-        const response = await axios.delete(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`).then(()=>{
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`+this.room_id).then(()=>{
           this.getDataFromDatabase();
         });
        
-      },
+      },*/
 
       
     },
