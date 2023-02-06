@@ -113,11 +113,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/loginPage',
     component: () => import ('../views/loginPage.vue')
   },
-  {
-    path: '/:id/:name/:newroomprice',
-    component: () => import ('../views/RoomManagement/newroomprice.vue'),
-    name:'option'
-  },
+  // {
+  //   path: '/:id/:name/:newroomprice',
+  //   component: () => import ('../views/RoomManagement/newroomprice.vue'),
+  //   name:'option'
+  // },
   {
     path: '/newroomfinish',
     component: () => import ('../views/RoomManagement/newroomfinish.vue')
@@ -208,6 +208,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/test1/testppage.vue')
 
   },
+  {
+    path: '/:room/:name/:supplies',
+    component: () => import ('../views/Parcel/suppliesMovePage.vue'),
+    name:'supplies'
+  },
+  
  
  
 

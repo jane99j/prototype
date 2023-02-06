@@ -131,7 +131,6 @@
 <script lang="ts">
 import * as Vue from 'vue' // in Vue 3
 import axios from 'axios'
-import VueAxios from 'vue-axios'
 
 import { home, navigate, star, close, create } from 'ionicons/icons';
 import { defineComponent } from 'vue';

@@ -29,21 +29,21 @@
         </ion-card-header>
 
         <ion-card-content>
-        <ion-grid v-for="i in supplies" :key="i.id">
+        <ion-grid>
 
         <ion-row>
         <ion-col><h2>ชื่อห้องพัก</h2></ion-col>
-        <ion-col>{{i.room_number}}</ion-col>
+        <ion-col>{{$route.params.room}}</ion-col>
         </ion-row>
 
         <ion-row>
         <ion-col><h2>ชื่อผู้รับ</h2></ion-col>
-        <ion-col>{{i.own_name}}</ion-col>
+        <ion-col>{{$route.params.name}}</ion-col>
         </ion-row>
 
         <ion-row>
         <ion-col><h2>หมายเลขพัสดุ</h2></ion-col>
-        <ion-col>{{i.supplies_number}}</ion-col>
+        <ion-col>{{$route.params.supplies}}</ion-col>
         </ion-row>
 
         <ion-row>
