@@ -76,22 +76,14 @@
 </ion-grid>
 
 <ion-grid>
-  <ion-row>
-    <ion-col><ion-input placeholder="101" readonly></ion-input></ion-col>
+  <ion-row v-for="i in roomtype" :key="i.id">
+    <ion-col>{{ i.room_id }}</ion-col>
     <ion-col><ion-input placeholder="จดก่อนหน้า" readonly></ion-input></ion-col>
     <ion-col><ion-input placeholder="จดล่าสุด" readonly></ion-input></ion-col>
     <ion-col><ion-input placeholder="หน่วยที่ใช้" readonly></ion-input></ion-col>
   </ion-row>
 </ion-grid>
 
-<ion-grid>
-  <ion-row>
-    <ion-col><ion-input placeholder="102" readonly></ion-input></ion-col>
-    <ion-col><ion-input placeholder="จดก่อนหน้า" readonly></ion-input></ion-col>
-    <ion-col><ion-input placeholder="จดล่าสุด" readonly></ion-input></ion-col>
-    <ion-col><ion-input placeholder="หน่วยที่ใช้" readonly></ion-input></ion-col>
-  </ion-row>
-</ion-grid>
 
     
 
@@ -104,15 +96,32 @@
 
 
 <script lang="ts">
+import axios from 'axios';
+  import { ref, defineComponent } from 'vue';
   import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
 
-  export default {
+  export default defineComponent({
     components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
     data() {
       return {
+        roomtype: {},
       };
     },
-  };
+    methods: {
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+        this.roomtype = response.data;
+        console.log(JSON.stringify(this.roomtype))
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+  created() {
+      this.getDataFromDatabase();
+    }
+  });
 </script>
 <style scoped>
 #container {
