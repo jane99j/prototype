@@ -69,7 +69,7 @@
                 <ion-card-title>{{ i.room_id }}</ion-card-title>
                 <ion-card-subtitle></ion-card-subtitle>
               </ion-card-header>
-              <ion-card-content>
+              <ion-card-content v-if="status===">
                 <ion-icon slot="icon-only" :icon="person"></ion-icon>
                 </ion-card-content>
                 <ion-card-content>
@@ -78,25 +78,7 @@
                   <ion-badge color="success" v-if="i.state_id ===4">{{ i.state_name }}</ion-badge>
                 </ion-label>
 
-                <ion-label v-if="i.state_id === 2">
-                  <ion-badge fill="outline" color="secondary">{{ i.status }}</ion-badge>
-                </ion-label>
-
-                <ion-label v-if="i.category === 3">
-                  <ion-badge color="warning">{{ i.status }}</ion-badge>
-                </ion-label>
-
-                <ion-label v-if="i.category === 4">
-                  <ion-badge color="danger">{{ i.status }}</ion-badge>
-                </ion-label>
-
-                <ion-label v-if="i.category === 5">
-                  <ion-badge color="tertiary">{{ i.status }}</ion-badge>
-                </ion-label>
-
-                <ion-label v-if="i.category === 6">
-                  <ion-badge color="medium">{{ i.status }}</ion-badge>
-                </ion-label>
+                
 
               </ion-card-content>
             </ion-card>
