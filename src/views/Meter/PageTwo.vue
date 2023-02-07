@@ -78,7 +78,7 @@
 <ion-grid>
   <ion-row v-for="i in roomtype" :key="i.id">
     <ion-col>{{ i.room_id }}</ion-col>
-    <ion-col><ion-input placeholder="จดก่อนหน้า" readonly></ion-input></ion-col>
+    <ion-col>{{ i.meter_electri}}</ion-col>
     <ion-col><ion-input placeholder="จดล่าสุด" readonly></ion-input></ion-col>
     <ion-col><ion-input placeholder="หน่วยที่ใช้" readonly></ion-input></ion-col>
   </ion-row>
@@ -105,7 +105,8 @@ import axios from 'axios';
     data() {
       return {
         roomtype: {},
-      };
+        meter_electri:{},
+      }
     },
     methods: {
     async getDataFromDatabase() {
