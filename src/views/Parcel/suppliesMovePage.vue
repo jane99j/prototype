@@ -53,7 +53,11 @@
 
         </ion-grid>
 
-        <ion-button color="success" routerLink="/suppliesDelPage">นำจ่ายพัสดุ</ion-button>
+        <ion-button color="success" :routerLink="{
+        name: 'suppliesdel', params: {
+        room2: $route.params.room , name2: $route.params.name , supplies2: $route.params.supplies ,abc:0
+        }}">นำจ่ายพัสดุ</ion-button>
+
         <ion-button color="danger">ลบพัสดุ</ion-button>
         </ion-card-content>
 

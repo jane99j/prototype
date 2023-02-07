@@ -42,7 +42,6 @@
   <ion-card>
 
     <div v-for="i in supplies" :key="i.id">
-
     <router-link :to="{
       name:'supplies',params:{
         room:i.room_number , name:i.own_name, supplies:i.supplies_number
@@ -53,9 +52,9 @@
       <ion-img src="assets/box.png"></ion-img>
     </ion-thumbnail>
     <ion-list>
-    <ion-input readonly>{{i.room_number}}</ion-input>
-    <ion-input readonly>{{i.own_name}}</ion-input>
-    <ion-input readonly>{{i.supplies_number}}</ion-input>
+    <ion-input readonly>ห้อง {{i.room_number}}</ion-input>
+    <ion-input readonly>ชื่อ {{i.own_name}}</ion-input>
+    <ion-input readonly>หมายเลขพัสดุ {{i.supplies_number}}</ion-input>
   </ion-list>
   </ion-item>
   </router-link>

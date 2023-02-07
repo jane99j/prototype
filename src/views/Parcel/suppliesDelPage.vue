@@ -30,6 +30,22 @@
 
         <ion-card-content>
 
+        <ion-list>
+
+          <ion-item>
+            <ion-input readonly>ห้อง {{ $route.params.room2 }}</ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input readonly>ชื่อ {{ $route.params.name2 }}</ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input readonly>หมายเลขพัสดุ {{ $route.params.supplies2 }}</ion-input>
+          </ion-item>
+
+        </ion-list>
+
         <ion-item>
         <ion-label>เลือกผู้รับพัสดุ</ion-label>
         <ion-select placeholder="">

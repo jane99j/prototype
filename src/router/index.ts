@@ -203,6 +203,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/Parcel/suppliesMovePage.vue'),
     name:'supplies'
   },
+  {
+    path: '/:room2/:name2/:supplies2/:abc',
+    component: () => import ('../views/Parcel/suppliesDelPage.vue'),
+    name:'suppliesdel'
+  },
 
  
  
