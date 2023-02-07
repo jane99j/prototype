@@ -105,17 +105,8 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/newroomfour',
-    component: () => import ('../views/RoomManagement/newroomfour.vue')
-
-  },
-  {
     path: '/loginPage',
     component: () => import ('../views/loginPage.vue')
-  },
-  {
-    path: '/newroomprice',
-    component: () => import ('../views/RoomManagement/newroomprice.vue')
   },
   {
     path: '/newroomfinish',
@@ -196,11 +187,24 @@ const routes: Array<RouteRecordRaw> = [
     path: '/testroomPage',
     component: () => import ('../views/test1/testroomPage.vue')
 
-  },{
+  },
+  {
     path: '/roompriceTest',
     component: () => import ('../views/RoomManagement/roompriceTest.vue')
 
   },
+  {
+    path: '/testppage',
+    component: () => import ('../views/test1/testppage.vue')
+
+  },
+  {
+    path: '/:room/:name/:supplies',
+    component: () => import ('../views/Parcel/suppliesMovePage.vue'),
+    name:'supplies'
+  },
+
+ 
  
 
 

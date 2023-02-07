@@ -41,8 +41,14 @@
 
   <ion-card>
 
+    <div v-for="i in supplies" :key="i.id">
 
-    <ion-item v-for="i in supplies" :key="i.id">
+    <router-link :to="{
+      name:'supplies',params:{
+        room:i.room_number , name:i.own_name, supplies:i.supplies_number
+      }
+    }">
+    <ion-item >
     <ion-thumbnail slot="start">
       <ion-img src="assets/box.png"></ion-img>
     </ion-thumbnail>
@@ -52,6 +58,9 @@
     <ion-input readonly>{{i.supplies_number}}</ion-input>
   </ion-list>
   </ion-item>
+  </router-link>
+  </div>
+
 
 
   </ion-card>
@@ -77,12 +86,6 @@
     data() {
     return {
       supplies: {},
-
-      instsupplies: {
-        room_number: "",
-        own_name: "",
-        supplies_number: "",
-      }
     }
   },
   methods: {

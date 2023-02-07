@@ -33,23 +33,22 @@
 
         <ion-row>
         <ion-col><h2>ชื่อห้องพัก</h2></ion-col>
-        <ion-col><ion-input readonly placeholder="ชื่อห้องพัก"></ion-input></ion-col>
+        <ion-col>{{$route.params.room}}</ion-col>
         </ion-row>
+
         <ion-row>
         <ion-col><h2>ชื่อผู้รับ</h2></ion-col>
-        <ion-col><ion-input readonly placeholder="ชื่อผู้รับ"></ion-input></ion-col>
+        <ion-col>{{$route.params.name}}</ion-col>
         </ion-row>
+
         <ion-row>
         <ion-col><h2>หมายเลขพัสดุ</h2></ion-col>
-        <ion-col><ion-input readonly placeholder="หมายเลขพัสดุ"></ion-input></ion-col>
+        <ion-col>{{$route.params.supplies}}</ion-col>
         </ion-row>
+
         <ion-row>
         <ion-col><h2>บริษัทขนส่ง</h2></ion-col>
         <ion-col><ion-input readonly placeholder="บริษัทขนส่ง"></ion-input></ion-col>
-        </ion-row>
-        <ion-row>
-        <ion-col>รูปภาพพัสดุ</ion-col>
-        <ion-col><ion-input readonly placeholder="รูปภาพพัสดุ"></ion-input></ion-col>
         </ion-row>
 
         </ion-grid>
@@ -68,6 +67,7 @@
     </template>
   
   <script lang="ts">
+  import axios from 'axios';
   import { defineComponent } from 'vue';
   import {  IonButton ,IonInput,IonCol, IonGrid, IonRow,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
@@ -76,6 +76,26 @@
     components: {
       IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonInput,IonButton ,
       IonToolbar,IonCard, IonCardContent ,IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow 
+    },
+    data() {
+    return {
+      supplies: {},
+    }
+  },
+  methods: {
+    ////GETdata////
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
+        this.supplies = response.data;
+        console.log(JSON.stringify(this.supplies))
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  },
+  created() {
+      this.getDataFromDatabase();
     }
   });
   </script>
@@ -123,8 +143,14 @@
     color: rgb(0, 0, 0);
     text-align: center;
   }
+  ion-grid{
+    text-align: center;
+  }
   ion-button{
     float: right    ;
+  }
+  ion-item{
+    text-align: center;
   }
   </style>
   

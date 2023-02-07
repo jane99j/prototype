@@ -68,7 +68,7 @@ export default defineComponent({
   methods: {
     async getDataFromDatabase() {
       try {       
-        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/dormitory.json"`);
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/dormitory.json`);
         this.dormitory = response.data;
         console.log(JSON.stringify(this.dormitory))
       } catch (error) {
