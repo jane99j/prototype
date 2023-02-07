@@ -69,7 +69,7 @@
                 <ion-card-title>{{ i.room_id }}</ion-card-title>
                 <ion-card-subtitle></ion-card-subtitle>
               </ion-card-header>
-              <ion-card-content v-if="status===">
+              <ion-card-content >
                 <ion-icon slot="icon-only" :icon="person"></ion-icon>
                 </ion-card-content>
                 <ion-card-content>
