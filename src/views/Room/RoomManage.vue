@@ -24,7 +24,7 @@
         <ion-card-title>
         </ion-card-title>
             
-            <ion-card-subtitle><h2>101</h2></ion-card-subtitle>
+            <ion-card-subtitle><h2>{{ room_id }}</h2></ion-card-subtitle>           
             <center>
                 <ion-button routerLink="/AgreementPage">สัญญาเช่า</ion-button>
                 <ion-button>จัดการ</ion-button>

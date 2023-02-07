@@ -61,37 +61,34 @@
               <ion-label slot="end">ห้องทั้งหมด 8 ห้อง </ion-label>
             </ion-item>
           </ion-card>
-
-          
-          <ion-item color="light">
-            <ion-label slot="end">ชั้น1</ion-label>
-          </ion-item>
-         
           <ion-row>
             <ion-col :sizeXs="6" :sizeMd="4" v-for="i in roomtype" :key="i.id">
-              <ion-card color="light">
-                <ion-card-header>
-                  <ion-card-title>{{ i.room_id }}</ion-card-title>
-                  <ion-card-subtitle></ion-card-subtitle>
-                </ion-card-header>
-                <ion-card-content>
-                  <ion-icon slot="icon-only" :icon="person"></ion-icon>
-                </ion-card-content>
-                <ion-card-content>
 
-                  <ion-label>
-                    <ion-badge v-if="i.status === 0">ว่าง </ion-badge>
-                    <ion-badge color="tertiary" v-if="i.status === 1">ไม่ว่าง </ion-badge>
-                    <ion-badge color="danger" v-if="i.status === 3">ค้างชำระ </ion-badge>
-                    <ion-badge color="warning" v-if="i.status === 4">จองแล้ว </ion-badge>
-                  </ion-label>
-                </ion-card-content>
-              </ion-card>
+              
+                <ion-card v-on:click="i.roomtype" routerLink="/RoomManage">
+                  <ion-card-header>
+                    <ion-card-title>{{ i.room_id }}</ion-card-title>
+                    <ion-card-subtitle></ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-icon slot="icon-only" :icon="person" v-if="i.status"></ion-icon>
+                  </ion-card-content>
+                  <ion-card-content>
+
+                    <ion-label>
+                      <ion-badge v-if="i.status === 0">ว่าง </ion-badge>
+                      <ion-badge color="tertiary" v-if="i.status === 1">ไม่ว่าง </ion-badge>
+                      <ion-badge color="danger" v-if="i.status === 3">ค้างชำระ </ion-badge>
+                      <ion-badge color="warning" v-if="i.status === 4">จองแล้ว </ion-badge>
+                    </ion-label>
+                  </ion-card-content>
+                </ion-card>
+              
             </ion-col>
           </ion-row>
-        
+
           <ion-item color="light">
-            <ion-label slot="end" >ชั้น2</ion-label>
+            <ion-label slot="end">ชั้น2</ion-label>
           </ion-item>
         </ion-grid>
 
@@ -139,7 +136,7 @@ export default defineComponent({
   data() {
     return {
       roomtype: {},
-      status:{}
+      status: {}
 
     }
   },
@@ -160,7 +157,7 @@ export default defineComponent({
       } catch (error) {
         console.error(error);
       }
-      
+
     },
   },
   created() {
