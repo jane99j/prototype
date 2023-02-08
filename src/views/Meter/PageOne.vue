@@ -82,14 +82,14 @@
   <ion-row v-for="i in roomtype" :key="i.id">
     <ion-col> {{ i.room_id }}</ion-col>
     <ion-col>{{ i.meter_water}}</ion-col>
-    <ion-col><ion-input placeholder="จดล่าสุด" readonly></ion-input></ion-col>
-    <ion-col><ion-input placeholder="หน่วยที่ใช้" readonly></ion-input></ion-col>
+    <ion-col>{{i.meter_electri}}</ion-col>
+    <ion-col>{{i.meter_water+i.meter_electri}}</ion-col>
   </ion-row>
 </ion-grid>
 
 
 </ion-card>
-<ion-button expand="block">บันทึก</ion-button>
+<ion-button expand="block" type="submit" @click="subTotal">บันทึก</ion-button>
 </ion-card>
       </ion-content>
     </ion-page>
@@ -99,15 +99,15 @@
 <script lang="ts">
   import axios from 'axios';
   import { ref, defineComponent } from 'vue';
-  import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
+  import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
 
   export default defineComponent({
-    components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
+    components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
     data() {
      return{
       roomtype: {},
-      meter_water: {},
-      editText:{},
+     
+
      }
     },
 
@@ -122,9 +122,11 @@
       }
     },
   },
+
   created() {
       this.getDataFromDatabase();
-    }
+    },
+    
   });
 </script>
 
