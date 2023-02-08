@@ -25,6 +25,7 @@
 
     <ion-list>
     <ion-item>
+
       <ion-label>ชื่อห้อง</ion-label>
       <ion-input placeholder="กรอกรายชื่อห้องบนพัสดุ" v-model="instsupplies.room_number" required ></ion-input>
     </ion-item>
@@ -38,7 +39,7 @@
       <ion-label>หมายเลขพัสดุ</ion-label>
       <ion-input placeholder="กรอกหมายเลขพัสดุ" v-model="instsupplies.supplies_number" required></ion-input>
     </ion-item>
-
+    
     <ion-select placeholder="เลือกบริษัทขนส่ง">
         <ion-select-option value="ThailandPost">ไปรษณีย์ไทย</ion-select-option>
         <ion-select-option value="KerryExpress">Kerry Express</ion-select-option>
@@ -92,6 +93,7 @@
         room_number: this.instsupplies.room_number,
         own_name: this.instsupplies.own_name,
         supplies_number: this.instsupplies.supplies_number,
+        supplies_status:1,
       })
         .then(function (response) {
           console.log(response);
