@@ -39,16 +39,17 @@
       <ion-label>หมายเลขพัสดุ</ion-label>
       <ion-input placeholder="กรอกหมายเลขพัสดุ" v-model="instsupplies.supplies_number" required></ion-input>
     </ion-item>
-    
-    <ion-select placeholder="เลือกบริษัทขนส่ง">
-        <ion-select-option value="ThailandPost">ไปรษณีย์ไทย</ion-select-option>
-        <ion-select-option value="KerryExpress">Kerry Express</ion-select-option>
-        <ion-select-option value="J&TEXPRESS">J&T EXPRESS</ion-select-option>
-        <ion-select-option value="FLASHEXPRESS">FLASH EXPRESS</ion-select-option>
-        <ion-select-option value="BESTEXPRESS">BEST EXPRESS</ion-select-option>
-        <ion-select-option value="NinjaVan">Ninja Van</ion-select-option>
+
+    <ion-item>
+    <ion-select placeholder="เลือกบริษัทขนส่ง" v-model="instsupplies.company">
+        <ion-select-option :value="1">ไปรษณีย์ไทย</ion-select-option>
+        <ion-select-option :value="2">Kerry Express</ion-select-option>
+        <ion-select-option :value="3">J&T EXPRESS</ion-select-option>
+        <ion-select-option :value="4">FLASH EXPRESS</ion-select-option>
+        <ion-select-option :value="5">BEST EXPRESS</ion-select-option>
+        <ion-select-option :value="6">Ninja Van</ion-select-option>
     </ion-select>
-    
+    </ion-item>
 
     </ion-list>
     <ion-button expand="block" @click="sendData" routerLink="/suppliesPage">บันทึกข้อมูล</ion-button>
@@ -80,6 +81,7 @@
         room_number: "",
         own_name: "",
         supplies_number: "",
+        company:"",
       }
     }
   },
@@ -93,6 +95,7 @@
         room_number: this.instsupplies.room_number,
         own_name: this.instsupplies.own_name,
         supplies_number: this.instsupplies.supplies_number,
+        company:this.instsupplies.company,
         supplies_status:1,
       })
         .then(function (response) {
@@ -108,6 +111,7 @@
       this.instsupplies.room_number = "";
       this.instsupplies.own_name = "";
       this.instsupplies.supplies_number = "";
+      this.instsupplies.company = "";
     }
   },
 
