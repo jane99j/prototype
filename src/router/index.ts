@@ -208,6 +208,20 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/Parcel/suppliesDelPage.vue'),
     name:'suppliesdel'
   },
+  {
+    path: '/:room_id/:status',
+    component: () => import ('../views/Room/RoomManage.vue'),
+    name:'room'
+
+  },
+  {
+    path: '/:room_id/:status',
+    component: () => import ('../views/Room/reserveRoom.vue'),
+    name:'room'
+
+  },
+
+
 
  
  

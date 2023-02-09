@@ -63,9 +63,14 @@
           </ion-card>
           <ion-row>
             <ion-col :sizeXs="6" :sizeMd="4" v-for="i in roomtype" :key="i.id">
-
               
-                <ion-card v-on:click="i.roomtype" routerLink="/RoomManage">
+              <router-link :to="{
+                name: 'room', params: {
+                  room_id: i.room_id,status: i.status
+                }
+              }">
+
+                <ion-card>
                   <ion-card-header>
                     <ion-card-title>{{ i.room_id }}</ion-card-title>
                     <ion-card-subtitle></ion-card-subtitle>
@@ -83,7 +88,7 @@
                     </ion-label>
                   </ion-card-content>
                 </ion-card>
-              
+                </router-link>
             </ion-col>
           </ion-row>
 
