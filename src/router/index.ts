@@ -199,14 +199,14 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/:room/:name/:supplies/:status/',
+    path: '/:room/',
     component: () => import ('../views/Parcel/suppliesMovePage.vue'),
-    name:'supplies'
+    name:'supplies1'
   },
   {
-    path: '/:room/:name/:supplies/:status/:abc',
+    path: '/:room/:name/:supplies/:abc',
     component: () => import ('../views/Parcel/suppliesDelPage.vue'),
-    name:'suppliesdel'
+    name:'supplies2'
   },
   {
     path: '/:room_id/:type',

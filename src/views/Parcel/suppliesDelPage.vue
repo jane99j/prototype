@@ -48,9 +48,9 @@
 
         <ion-item>
         <ion-label>เลือกผู้รับพัสดุ</ion-label>
-        <ion-select placeholder="">
-        <ion-select-option value="owner">เจ้าของ</ion-select-option>
-        <ion-select-option value="agent">รับแทน</ion-select-option>
+        <ion-select>
+        <ion-select-option :value="1">เจ้าของ</ion-select-option>
+        <ion-select-option :value="2">รับแทน</ion-select-option>
         </ion-select>
         </ion-item>
 

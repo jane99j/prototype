@@ -101,10 +101,11 @@ export default defineComponent({
       try {
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
         this.roomtype = Object.values(response.data) ;
+        console.log(this.roomtype)
         this.roomtype = this.roomtype.filter((item:{room_id:string})=>{
           item.room_id === this.$route.params.roomtype
         })
-        console.log(JSON.stringify(this.roomtype))
+        console.log(this.roomtype)
       } catch (error) {
         console.error(error);
       }

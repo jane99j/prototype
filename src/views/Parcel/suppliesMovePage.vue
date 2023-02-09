@@ -38,12 +38,12 @@
 
         <ion-row>
         <ion-col><h2>ชื่อผู้รับ</h2></ion-col>
-        <ion-col>{{$route.params.name}}</ion-col>
+        <ion-col>{{supplies.own_name}}</ion-col>
         </ion-row>
 
         <ion-row>
         <ion-col><h2>หมายเลขพัสดุ</h2></ion-col>
-        <ion-col>{{$route.params.supplies}}</ion-col>
+        <ion-col>{{supplies.supplies_number}}</ion-col>
         </ion-row>
 
         <ion-row>
@@ -59,7 +59,7 @@
         </ion-grid>
 
         <ion-button color="success" :routerLink="{
-        name: 'suppliesdel', params: {
+        name: 'supplies2', params: {
         room: $route.params.room , name: $route.params.name , supplies: $route.params.supplies ,abc:0
         }}">นำจ่ายพัสดุ</ion-button>
 
@@ -88,16 +88,19 @@
     },
     data() {
     return {
-      supplies: {},
+      supplies:[],
     }
   },
   methods: {
-    ////GETdata////
     async getDataFromDatabase() {
       try {
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
-        this.supplies = response.data;
-        console.log(JSON.stringify(this.supplies))
+        this.supplies = Object.values(response.data);
+        console.log(this.supplies)
+        this.supplies = this.supplies.filter((item:{room_number:string})=>{
+          item.room_number === this.$route.params.room
+        })
+        console.log(this.supplies)
       } catch (error) {
         console.error(error);
       }

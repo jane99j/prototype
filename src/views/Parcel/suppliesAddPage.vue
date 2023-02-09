@@ -97,6 +97,11 @@
         supplies_number: this.instsupplies.supplies_number,
         company:this.instsupplies.company,
         supplies_status:1,
+        recipient:0,
+        recipient_name:"",
+        recipient_phone:"",
+
+
       })
         .then(function (response) {
           console.log(response);

@@ -44,8 +44,8 @@
     <div v-for="i in supplies" :key="i.id">
       <div v-if="i.supplies_status === 1">
     <router-link :to="{
-      name:'supplies',params:{
-         room:i.room_number , name:i.own_name, supplies:i.supplies_number , status:i.supplies_status
+      name:'supplies1',params:{
+         room:i.room_number
       }
     }">
     <ion-item >
@@ -92,7 +92,7 @@
     },
     data() {
     return {
-      supplies: {},
+      supplies: [],
     }
   },
   methods: {
