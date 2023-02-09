@@ -51,11 +51,16 @@
         <ion-col><ion-input readonly placeholder="บริษัทขนส่ง"></ion-input></ion-col>
         </ion-row>
 
+        <!-- <ion-row>
+        <ion-col><h2>สถานะพัสดุ</h2></ion-col>
+        <ion-col><ion-input readonly v-if="$route.params.status = 1">พัสดุค้างจำหน่าย</ion-input></ion-col>
+        </ion-row> -->
+
         </ion-grid>
 
         <ion-button color="success" :routerLink="{
         name: 'suppliesdel', params: {
-        room2: $route.params.room , name2: $route.params.name , supplies2: $route.params.supplies ,abc:0
+        room: $route.params.room , name: $route.params.name , supplies: $route.params.supplies ,abc:0
         }}">นำจ่ายพัสดุ</ion-button>
 
         <ion-button color="danger">ลบพัสดุ</ion-button>

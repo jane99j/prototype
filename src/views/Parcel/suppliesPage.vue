@@ -45,7 +45,7 @@
       <div v-if="i.supplies_status === 1">
     <router-link :to="{
       name:'supplies',params:{
-        room:i.room_number , name:i.own_name, supplies:i.supplies_number
+         room:i.room_number , name:i.own_name, supplies:i.supplies_number , status:i.supplies_status
       }
     }">
     <ion-item >
@@ -56,6 +56,12 @@
     <ion-input readonly>ห้อง {{i.room_number}}</ion-input>
     <ion-input readonly>ชื่อ {{i.own_name}}</ion-input>
     <ion-input readonly>หมายเลขพัสดุ {{i.supplies_number}}</ion-input>
+    <ion-input readonly v-if="i.company === 1">ไปรษณีย์ไทย</ion-input>
+    <ion-input readonly v-if="i.company === 2">Kerry Express</ion-input>
+    <ion-input readonly v-if="i.company === 3">J&T EXPRESS</ion-input>
+    <ion-input readonly v-if="i.company === 4">FLASH EXPRESS</ion-input>
+    <ion-input readonly v-if="i.company === 5">BEST EXPRESS</ion-input>
+    <ion-input readonly v-if="i.company === 6">Ninja Van</ion-input>
   </ion-list>
   </ion-item>
   </router-link>

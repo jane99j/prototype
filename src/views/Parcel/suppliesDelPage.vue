@@ -33,15 +33,15 @@
         <ion-list>
 
           <ion-item>
-            <ion-input readonly>ห้อง {{ $route.params.room2 }}</ion-input>
+            <ion-input readonly>ห้อง {{ $route.params.room }}</ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input readonly>ชื่อ {{ $route.params.name2 }}</ion-input>
+            <ion-input readonly>ชื่อ {{ $route.params.name }}</ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input readonly>หมายเลขพัสดุ {{ $route.params.supplies2 }}</ion-input>
+            <ion-input readonly>หมายเลขพัสดุ {{ $route.params.supplies }}</ion-input>
           </ion-item>
 
         </ion-list>
@@ -68,7 +68,7 @@
       </ion-list>
 
 
-        <ion-button color="success" routerLink="/suppliesPage">นำจ่ายพัสดุ</ion-button>
+        <ion-button color="success" routerLink="">นำจ่ายพัสดุ</ion-button>
         <ion-button color="danger" routerLink="/suppliesPage">ยกเลิก</ion-button>
         </ion-card-content>
 
@@ -82,6 +82,7 @@
     </template>
   
   <script lang="ts">
+  import axios from 'axios';
   import { defineComponent } from 'vue';
   import { IonSelectOption,IonSelect,IonInput,IonItem,IonList,IonButton,IonLabel,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
@@ -92,7 +93,8 @@
       IonToolbar,IonCard, IonCardContent ,IonCardHeader,IonCardTitle,
       IonLabel,IonList,IonItem,IonButton,IonInput,
       IonSelectOption,IonSelect,
-    }
+    },
+    
   });
   </script>
   
