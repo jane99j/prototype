@@ -22,11 +22,12 @@
     <ion-card-header>
         
         <ion-card-title>
+          
         </ion-card-title>
             
-            <ion-card-subtitle><h2>{{ room_id }}</h2></ion-card-subtitle>           
+            <ion-card-subtitle><h2>{{ $route.params.room_id }}</h2></ion-card-subtitle>           
             <center>
-                <ion-button routerLink="/AgreementPage">สัญญาเช่า</ion-button>
+                <ion-button routerLink="/reserveRoom">เพิ่มผู้เช่า</ion-button>
                 <ion-button>จัดการ</ion-button>
             </center>
     </ion-card-header>
