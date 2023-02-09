@@ -209,17 +209,19 @@ const routes: Array<RouteRecordRaw> = [
     name:'suppliesdel'
   },
   {
-    path: '/:room_id/:status',
+    path: '/:room_id/:type',
     component: () => import ('../views/Room/RoomManage.vue'),
     name:'room'
 
   },
   {
-    path: '/:room_id/:status',
+    path: '/:room_id/:type/reserveRoom',
     component: () => import ('../views/Room/reserveRoom.vue'),
-    name:'room'
+    name:'rooml'
 
   },
+
+
 
 
 

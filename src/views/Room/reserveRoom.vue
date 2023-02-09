@@ -5,7 +5,7 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>เพิ่มหอพัก</ion-title>
+        <ion-title>เพิ่มผู้เข้าพัก</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -22,7 +22,7 @@
           <ion-item color="light">
             <ion-card-header>
 
-              <ion-card-title>จองห้องพัก</ion-card-title>
+              <ion-card-title>เพิ่มผู้เข้าพัก</ion-card-title>
             </ion-card-header>
           </ion-item>
           <ion-card-content>
@@ -30,25 +30,23 @@
               <ion-item>
                 <ion-label>{{ $route.params.room_id }}</ion-label>
               </ion-item>
+              <ion-item>
+                <ion-label>{{ $route.params.type }}</ion-label>
+              </ion-item>
 
               <ion-item>
                 <ion-label>ชื่อ</ion-label>
-                <ion-input text placeholder="ชื่อผู้จอง"></ion-input>
+                <ion-input text placeholder="ชื่อ" v-model="residents.fname"></ion-input>
               </ion-item>
 
               <ion-item>
                 <ion-label>สกุล</ion-label>
-                <ion-input text placeholder="สกุลผู้จอง"></ion-input>
+                <ion-input text placeholder="สกุล"  v-model="residents.lname"></ion-input>
               </ion-item>
 
               <ion-item>
                 <ion-label>เบอร์โทรศัพท์</ion-label>
-                <ion-input text placeholder="092-XXXXXX"></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label>ค่าประกัน</ion-label>
-                <ion-input text placeholder="ระบุจำนวนเงิน"></ion-input>
+                <ion-input text placeholder="092-XXXXXX" v-model="residents.phone"></ion-input>
               </ion-item>
 
               <ion-item>
@@ -64,7 +62,7 @@
         <ion-card>
           <IonRow>
             <div className="ion-float-end">
-              <ion-button routerLink="/userdataPage">บันทึก</ion-button>
+              <ion-button @click="sendData">บันทึก</ion-button>
             </div>
           </IonRow>
         </ion-card>
@@ -75,14 +73,65 @@
   
   
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent, ref } from 'vue';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonDatetime, IonLabel, IonItem, IonInput, IonDatetimeButton } from '@ionic/vue';
+import { IonModal,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonDatetime, IonLabel, IonItem, IonInput, IonDatetimeButton } from '@ionic/vue';
+import { Item } from '@ionic/core/dist/types/components/item/item';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonDatetime, IonLabel, IonItem, IonInput, IonDatetimeButton
+    IonModal,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonDatetime, IonLabel, IonItem, IonInput, IonDatetimeButton
   },
+  data() {
+    return {
+      roomtype: [],
+      residents :{
+        fname: "",
+        lname: "",
+        phone: "",
+        room_id: "",
+
+      }
+
+    }
+  },
+  methods: {
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+        this.roomtype = Object.values(response.data) ;
+        this.roomtype = this.roomtype.filter((item:{room_id:string})=>{
+          item.room_id === this.$route.params.roomtype
+        })
+        console.log(JSON.stringify(this.roomtype))
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    sendData() {
+      console.log("sendData active");
+
+      axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents.json", {      
+        room_id: this.$route.params.room_id,
+        fname: this.residents.fname,
+        lname: this.residents.lname,
+        phone: this.residents.phone,
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      this.clearData();
+    },
+    clearData() {
+      this.residents.fname = "";
+      this.residents.lname = "";
+      this.residents.phone = "";
+    },
   setup() {
     const datetime = ref();
     const reset = () => datetime.value.$el.reset();
@@ -90,7 +139,7 @@ export default defineComponent({
     const confirm = () => datetime.value.$el.confirm();
     return { datetime, reset, cancel, confirm }
   }
-
+}
 
 });
 </script>
