@@ -136,8 +136,6 @@
     border: solid 1px rgb(228, 228, 228);
     color: rgb(0, 0, 0);
   }
-  ion-grid{
-  }
   ion-button{
     float: right    ;
   }
