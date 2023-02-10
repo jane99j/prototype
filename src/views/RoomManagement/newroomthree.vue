@@ -41,10 +41,8 @@
                     </ion-item>
                     <ion-item>
                       <ion-label>เลือกประเภทห้องพัก</ion-label>
-                      <ion-select interface="popover" placeholder="ประเภทห้องพัก" v-model="row.room_type">
-                        <ion-select-option value="ห้องทั่วไป">ห้องทั่วไป</ion-select-option>
-                        <ion-select-option value="ห้องแอร์">ห้องแอร์</ion-select-option>
-                        <ion-select-option value="ห้องพัดลม">ห้องพัดลม+แอร์</ion-select-option>
+                      <ion-select interface="popover" placeholder="ประเภทห้องพัก" v-model="row.room_type" >
+                        <ion-select-option  v-for="i in type" :key="i.id" :value="i.room_type">{{ i.room_type }}</ion-select-option>
                       </ion-select>
                     </ion-item>
 
@@ -82,7 +80,7 @@
                   </ion-item>
 
 
-                  <ion-item v-for="i in roomtype" :key="i.room_id">
+                  <ion-item v-for="i in roomtype" :key="i.id">
 
                     <ion-label>{{ i.room_id }}</ion-label>
                     <ion-label>{{ i.room_type }}</ion-label>
@@ -140,22 +138,39 @@ export default defineComponent({
   },
   data() {
     return {
-      count: 0,
-      roomtype: {},
+      type:[],
+      roomtype: [],
 
       row: {
         room_id: "",
         room_type: "",
-        roomclas: '',
+        roomclas: "",
+        status: 0,
+
       },
 
     }
   },
 
   methods: {
-
-
-    async getDataFromDatabase() {
+   async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+        this.roomtype = Object.values(response.data) ;
+        this.roomtype = this.roomtype.filter((item:{room_type:string})=>{
+          item.room_type === this.$route.params.roomtype
+        })
+        console.log(JSON.stringify(this.roomtype))
+      } catch (error) {
+        console.error(error);
+      }
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_roomtype.json`);
+        this.type = response.data;
+        console.log(JSON.stringify(this.type))
+      } catch (error) {
+        console.error(error);
+      }
       try {
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
         this.roomtype = response.data;
@@ -164,11 +179,13 @@ export default defineComponent({
         console.error(error);
       }
     },
+
     sendData() {
       console.log("sendData active");
       axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json", {
+        status:this.row.status,
+        room_type:this.row.room_type,
         room_id: this.row.room_id,
-        room_type: this.row.room_type,
         roomclas: this.row.roomclas,
 
       })
@@ -180,13 +197,14 @@ export default defineComponent({
         });
       /// window.location.reload();
       this.clearData();
-      //this.re();
+      
 
     },
     clearData() {
       this.row.room_id = "";
       this.row.room_type = "";
       this.row.roomclas = "";
+      this.re();
     },
     re() {
       window.location.reload();

@@ -91,6 +91,8 @@ export default defineComponent({
         lname: "",
         phone: "",
         room_id: "",
+        state:1,
+        
 
       }
 
@@ -114,6 +116,7 @@ export default defineComponent({
       console.log("sendData active");
 
       axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents.json", {      
+        state: this.residents.state,
         room_id: this.$route.params.room_id,
         fname: this.residents.fname,
         lname: this.residents.lname,

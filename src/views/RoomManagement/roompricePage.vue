@@ -32,7 +32,6 @@
 
               <ion-input text placeholder="ระบุประเภทห้อง" v-model="instroom.room_type" required></ion-input>
 
-              <ion-input text placeholder="ระบุประเภทห้อง" v-model="instroom.fniture_name"></ion-input>
 
             </ion-item>
             <ion-item>
@@ -71,7 +70,7 @@
           <ion-card-content>
             <ion-grid fixed="true">
               <ion-item v-for="i in instFurniture" :key="i.id">
-                <ion-col>{{ i.fniture_name}}</ion-col>
+                <ion-col>{{ i.room_type}}</ion-col>
                 <ion-col>{{ i.room_price }}</ion-col>
                 <ion-col>
                   <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
@@ -113,11 +112,10 @@ export default defineComponent({
     const presentAlert = async () => {
       const alert = await alertController.create({
         header: 'เพิ่มรายการที่ต้องการ',
-        buttons: ['OK'],
+        buttons:['OK'],
         inputs: [
           {
             placeholder: 'รายการ',
-
           },
           {
             placeholder: 'ราคา',
@@ -171,12 +169,16 @@ export default defineComponent({
         });
 
       this.clearData();
+      this.re();
     },
     clearData() {
       this.instroom.fniture_name = "";
       this.instroom.room_price = "";
       this.instroom.room_type = "";
-    }
+    },
+    re() {
+      window.location.reload();
+    },
   },
   created() {
       this.getDataFromDatabase();

@@ -49,7 +49,7 @@
                     <ion-label>ห้องทั้งหมด</ion-label>
                   </ion-segment-button>
 
-                  <ion-segment-button v-for="i in status" :key="i.state_name" :value="i.state_name"
+                  <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name"
                     @click="filterRoom(i.category)">
                     <ion-label>{{ i.state_name }}</ion-label>
                   </ion-segment-button>
@@ -102,7 +102,6 @@
     </ion-content>
   </ion-page>
 
-
 </template>
 
 <script lang="ts">
@@ -142,7 +141,22 @@ export default defineComponent({
   data() {
     return {
       roomtype: {},
-      status: {}
+      status: {},
+      categorymenu: [
+        {
+          name: 'ห้องว่าง',
+          category: 2,
+        },
+        {
+          name: 'จองแล้ว',
+          category: 3,
+        },
+        {
+          name: 'ค้างชำระ',
+          category: 4,
+        }
+      ],
+      filteredroom: {}
 
     }
   },
