@@ -209,17 +209,24 @@ const routes: Array<RouteRecordRaw> = [
     name:'supplies2'
   },
   {
-    path: '/:room_id/:type',
+    path: '/:room_id/:type/:sta',
     component: () => import ('../views/Room/RoomManage.vue'),
-    name:'room'
+    name:'roomid'
 
   },
   {
-    path: '/:room_id/:type/reserveRoom',
+    path: '/:room_id/:type/:sta/reserveRoom',
     component: () => import ('../views/Room/reserveRoom.vue'),
     name:'rooml'
 
   },
+  {
+    path: '/:idroom/:type/:price/testPage',
+    component: () => import ('../views/Room/testPage.vue'),
+    name:'ceroom'
+
+  },
+
 
 
 

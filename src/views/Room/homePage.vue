@@ -67,8 +67,8 @@
               
 
                 <ion-card :routerLink="{
-                name: 'room', params: {
-                  room_id: i.room_id,type: i.room_type
+                name: 'roomid', params: {
+                  room_id: i.room_id,type: i.room_type, sta: i.status
 
                 }
               }">
@@ -170,13 +170,7 @@ export default defineComponent({
       } catch (error) {
         console.error(error);
       }
-      try {
-        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/status.json`);
-        this.status = response.data;
-        console.log(JSON.stringify(this.status))
-      } catch (error) {
-        console.error(error);
-      }
+
 
     },
   },

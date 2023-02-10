@@ -97,9 +97,9 @@
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
         this.supplies = Object.values(response.data);
         console.log(this.supplies)
-        this.supplies = this.supplies.filter((item:{room_number:string})=>{
-          item.room_number === this.$route.params.room
-        })
+        this.supplies = this.supplies.filter((item:{room_number:string})=>
+          item.room_number === this.$route.params.supplies1
+        )
         console.log(this.supplies)
       } catch (error) {
         console.error(error);
