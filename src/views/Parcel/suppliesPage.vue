@@ -45,7 +45,7 @@
       <div v-if="i.supplies_status === 1">
     <router-link :to="{
       name:'supplies1',params:{
-         room:i.room_number
+         room:i.room_number , name:i.own_name , supplies: i.supplies_number , company:i.company
       }
     }">
     <ion-item >
@@ -57,11 +57,11 @@
     <ion-input readonly>ชื่อ {{i.own_name}}</ion-input>
     <ion-input readonly>หมายเลขพัสดุ {{i.supplies_number}}</ion-input>
     <ion-input readonly v-if="i.company === 1">ไปรษณีย์ไทย</ion-input>
-    <ion-input readonly v-if="i.company === 2">Kerry Express</ion-input>
-    <ion-input readonly v-if="i.company === 3">J&T EXPRESS</ion-input>
-    <ion-input readonly v-if="i.company === 4">FLASH EXPRESS</ion-input>
-    <ion-input readonly v-if="i.company === 5">BEST EXPRESS</ion-input>
-    <ion-input readonly v-if="i.company === 6">Ninja Van</ion-input>
+    <ion-input readonly v-if="i.company === 2">KerryExpress</ion-input>
+    <ion-input readonly v-if="i.company === 3">J&TEXPRESS</ion-input>
+    <ion-input readonly v-if="i.company === 4">FLASHEXPRESS</ion-input>
+    <ion-input readonly v-if="i.company === 5">BESTEXPRESS</ion-input>
+    <ion-input readonly v-if="i.company === 6">NinjaVan</ion-input>
   </ion-list>
   </ion-item>
   </router-link>
@@ -92,7 +92,7 @@
     },
     data() {
     return {
-      supplies: [],
+      supplies: {},
     }
   },
   methods: {

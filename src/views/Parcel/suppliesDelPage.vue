@@ -43,6 +43,14 @@
           <ion-item>
             <ion-input readonly>หมายเลขพัสดุ {{ $route.params.supplies }}</ion-input>
           </ion-item>
+          <ion-item>
+            <ion-input readonly v-if ="$route.params.company === '1'">ไปรษณีย์ไทย</ion-input>
+            <ion-input readonly v-if ="$route.params.company === '2'">KerryExpress</ion-input>
+            <ion-input readonly v-if ="$route.params.company === '3'">J&TEXPRESS</ion-input>
+            <ion-input readonly v-if ="$route.params.company === '4'">FLASHEXPRESS</ion-input>
+            <ion-input readonly v-if ="$route.params.company === '5'">BESTEXPRESS</ion-input>
+            <ion-input readonly v-if ="$route.params.company === '6'">NinjaVan</ion-input>
+          </ion-item>
 
         </ion-list>
 
@@ -94,6 +102,27 @@
       IonLabel,IonList,IonItem,IonButton,IonInput,
       IonSelectOption,IonSelect,
     },
+    data() {
+    return {
+      supplies: [],
+
+    }
+  },
+  methods: {
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
+        this.supplies = Object.values(response.data) ;
+        console.log(this.supplies)
+        this.supplies = this.supplies.filter((item:{room_number:string})=>{
+          item.room_number === this.$route.params.room
+        })
+        console.log(this.supplies)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  }
     
   });
   </script>

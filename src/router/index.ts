@@ -199,12 +199,12 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/:room/',
+    path: '/:room/:name/:supplies/:company',
     component: () => import ('../views/Parcel/suppliesMovePage.vue'),
     name:'supplies1'
   },
   {
-    path: '/:room/:name/:supplies/:abc',
+    path: '/:room/:name/:supplies/:company/:abc/',
     component: () => import ('../views/Parcel/suppliesDelPage.vue'),
     name:'supplies2'
   },

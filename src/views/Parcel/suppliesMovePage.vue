@@ -38,17 +38,22 @@
 
         <ion-row>
         <ion-col><h2>ชื่อผู้รับ</h2></ion-col>
-        <ion-col>{{supplies.own_name}}</ion-col>
+        <ion-col>{{$route.params.name}}</ion-col>
         </ion-row>
 
         <ion-row>
         <ion-col><h2>หมายเลขพัสดุ</h2></ion-col>
-        <ion-col>{{supplies.supplies_number}}</ion-col>
+        <ion-col>{{$route.params.supplies}}</ion-col>
         </ion-row>
 
         <ion-row>
         <ion-col><h2>บริษัทขนส่ง</h2></ion-col>
-        <ion-col><ion-input readonly placeholder="บริษัทขนส่ง"></ion-input></ion-col>
+        <ion-col  v-if ="$route.params.company === '1'">ไปรษณีย์ไทย</ion-col>
+        <ion-col  v-if ="$route.params.company === '2'">KerryExpress</ion-col>
+        <ion-col  v-if ="$route.params.company === '3'">J&TEXPRESS</ion-col>
+        <ion-col  v-if ="$route.params.company === '4'">FLASHEXPRESS</ion-col>
+        <ion-col  v-if ="$route.params.company === '5'">BESTEXPRESS</ion-col>
+        <ion-col  v-if ="$route.params.company === '6'">NinjaVan</ion-col>
         </ion-row>
 
         <!-- <ion-row>
@@ -60,7 +65,7 @@
 
         <ion-button color="success" :routerLink="{
         name: 'supplies2', params: {
-        room: $route.params.room , name: $route.params.name , supplies: $route.params.supplies ,abc:0
+        room:$route.params.room , name:$route.params.name , supplies: $route.params.supplies , company:$route.params.company , abc:0
         }}">นำจ่ายพัสดุ</ion-button>
 
         <ion-button color="danger">ลบพัสดุ</ion-button>
@@ -76,39 +81,16 @@
     </template>
   
   <script lang="ts">
-  import axios from 'axios';
   import { defineComponent } from 'vue';
-  import {  IonButton ,IonInput,IonCol, IonGrid, IonRow,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+  import {  IonButton ,IonCol, IonGrid, IonRow,IonCardTitle ,IonCardHeader,IonCard, IonCardContent,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
   
   export default defineComponent({
     name: 'FolderPage',
     components: {
-      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonInput,IonButton ,
+      IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonButton ,
       IonToolbar,IonCard, IonCardContent ,IonCardHeader,IonCardTitle,IonCol, IonGrid, IonRow 
     },
-    data() {
-    return {
-      supplies:[],
-    }
-  },
-  methods: {
-    async getDataFromDatabase() {
-      try {
-        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
-        this.supplies = Object.values(response.data);
-        console.log(this.supplies)
-        this.supplies = this.supplies.filter((item:{room_number:string})=>{
-          item.room_number === this.$route.params.room
-        })
-        console.log(this.supplies)
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  },
-  created() {
-      this.getDataFromDatabase();
-    }
+
   });
   </script>
   
@@ -153,16 +135,16 @@
     background-color: #ffffff;
     border: solid 1px rgb(228, 228, 228);
     color: rgb(0, 0, 0);
-    text-align: center;
   }
   ion-grid{
-    text-align: center;
   }
   ion-button{
     float: right    ;
   }
-  ion-item{
+  ion-row{
     text-align: center;
   }
+
+ 
   </style>
   
