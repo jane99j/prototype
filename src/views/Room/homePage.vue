@@ -154,6 +154,7 @@ export default defineComponent({
         {
           name: 'ค้างชำระ',
           category: 4,
+          kr:'101'
         }
       ],
       filteredroom: {}
