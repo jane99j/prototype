@@ -75,14 +75,14 @@
   </ion-row>
 </ion-grid>
 
-<ion-grid>
+<!-- <ion-grid>
   <ion-row v-for="i in roomtype" :key="i.id">
     <ion-col>{{ i.room_id }}</ion-col>
     <ion-col>{{ i.note_f}}</ion-col>
     <ion-col></ion-col>
     <ion-col></ion-col>
   </ion-row>
-</ion-grid>
+</ion-grid> -->
 
 
     
@@ -118,18 +118,18 @@ import axios from 'axios';
         console.error(error);
       }
     },
-    updateData() {
-      axios.put(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/meter_note/`, {
-        recipient:this.meterUpdate.recipient,
-        recipient_name:"",
-        recipient_phone:"",
+  //   updateData() {
+  //     axios.put(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/meter_note/`, {
+  //       recipient:this.meterUpdate.recipient,
+  //       recipient_name:"",
+  //       recipient_phone:"",
 
 
-      })
-  },
+  //     })
+  // },
   created() {
       this.getDataFromDatabase();
-      this.updateData();
+      // this.updateData();
     }
     },
   });
