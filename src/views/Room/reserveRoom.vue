@@ -35,13 +35,18 @@
               </ion-item>
 
               <ion-item>
+                <ion-label>สถานะ</ion-label>
+                <ion-label>{{ $route.params.sta }}</ion-label>
+              </ion-item>
+
+              <ion-item>
                 <ion-label>ชื่อ</ion-label>
                 <ion-input text placeholder="ชื่อ" v-model="residents.fname"></ion-input>
               </ion-item>
 
               <ion-item>
                 <ion-label>สกุล</ion-label>
-                <ion-input text placeholder="สกุล"  v-model="residents.lname"></ion-input>
+                <ion-input text placeholder="สกุล" v-model="residents.lname"></ion-input>
               </ion-item>
 
               <ion-item>
@@ -75,38 +80,38 @@
 <script lang="ts">
 import axios from 'axios';
 import { defineComponent, ref } from 'vue';
-import { IonModal,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonDatetime, IonLabel, IonItem, IonInput, IonDatetimeButton } from '@ionic/vue';
+import { IonCardHeader, IonCardTitle, IonList, IonCardContent, IonCard, IonRow, IonModal, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonDatetime, IonLabel, IonItem, IonInput, IonDatetimeButton } from '@ionic/vue';
 import { Item } from '@ionic/core/dist/types/components/item/item';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonModal,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonDatetime, IonLabel, IonItem, IonInput, IonDatetimeButton
+    IonCardHeader, IonCardTitle, IonList, IonCardContent, IonCard, IonRow, IonModal, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton, IonDatetime, IonLabel, IonItem, IonInput, IonDatetimeButton
   },
   data() {
     return {
       roomtype: [],
-      residents :{
+      residents: {
         fname: "",
         lname: "",
         phone: "",
         room_id: "",
-        state:1,
-        
 
-      }
 
+
+      },
     }
   },
   methods: {
     async getDataFromDatabase() {
       try {
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
-        this.roomtype = Object.values(response.data) ;
+        this.roomtype = Object.values(response.data);
         console.log(this.roomtype)
-        this.roomtype = this.roomtype.filter((item:{room_id:string})=>{
-          item.room_id === this.$route.params.roomtype
-        })
+        console.log(this.$route.params.roomtype)
+        this.roomtype = this.roomtype.filter((item: { room_id: string }) =>
+          item.room_id === this.$route.params.room_id
+        )
         console.log(this.roomtype)
       } catch (error) {
         console.error(error);
@@ -115,8 +120,7 @@ export default defineComponent({
     sendData() {
       console.log("sendData active");
 
-      axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents.json", {      
-        state: this.residents.state,
+      axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents.json", {
         room_id: this.$route.params.room_id,
         fname: this.residents.fname,
         lname: this.residents.lname,
@@ -136,14 +140,17 @@ export default defineComponent({
       this.residents.lname = "";
       this.residents.phone = "";
     },
-  setup() {
-    const datetime = ref();
-    const reset = () => datetime.value.$el.reset();
-    const cancel = () => datetime.value.$el.cancel();
-    const confirm = () => datetime.value.$el.confirm();
-    return { datetime, reset, cancel, confirm }
-  }
-}
+    setup() {
+      const datetime = ref();
+      const reset = () => datetime.value.$el.reset();
+      const cancel = () => datetime.value.$el.cancel();
+      const confirm = () => datetime.value.$el.confirm();
+      return { datetime, reset, cancel, confirm }
+    }
+  },
+  created() {
+    this.getDataFromDatabase();
+  },
 
 });
 </script>

@@ -31,7 +31,7 @@
             <center>              
               <ion-button :routerLink="{
                 name: 'rooml', params: {
-                  room_id: $route.params.room_id, type: $route.params.type
+                  room_id: $route.params.room_id, type: $route.params.type , sta: $route.params.sta
                 }
               }">เพิ่มผู้เช่า</ion-button>
               <ion-button>จัดการ</ion-button>
@@ -60,7 +60,7 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton
-  }
+  },
 });
 </script>
 

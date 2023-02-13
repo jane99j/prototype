@@ -85,8 +85,8 @@
                     <ion-label>{{ i.room_id }}</ion-label>
                     <ion-label>{{ i.room_type }}</ion-label>
                     <ion-button slot="end" :routerLink="{
-                      name: 'room_id', params: {
-                        room_id: i.room_id, room_type: i.room_type
+                      name: 'ceroom', params: {
+                        idroom: i.room_id, type:room_type, price:i.room_price,
                       }
                     }">
                       <ion-icon slot="icon-only" :icon="create"></ion-icon>
@@ -125,13 +125,13 @@ import axios from 'axios'
 
 import { home, navigate, star, close, create } from 'ionicons/icons';
 import { defineComponent } from 'vue';
-import { IonLabel, IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
+import { IonIcon,IonLabel, IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
 import { add } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonLabel, IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton
+    IonIcon,IonLabel, IonSelect, IonSelectOption, IonItem, IonCard, IonInput, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonButton
   },
   setup() {
     return { home, navigate, star, close, create }
@@ -157,9 +157,9 @@ export default defineComponent({
       try {
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
         this.roomtype = Object.values(response.data) ;
-        this.roomtype = this.roomtype.filter((item:{room_type:string})=>{
-          item.room_type === this.$route.params.roomtype
-        })
+        this.roomtype = this.roomtype.filter((item:{room_id:string})=>
+          item.room_id === this.$route.params.room_id
+        )
         console.log(JSON.stringify(this.roomtype))
       } catch (error) {
         console.error(error);
