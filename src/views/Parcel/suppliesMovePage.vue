@@ -60,7 +60,7 @@
 
         <ion-button color="success" :routerLink="{
         name: 'supplies2', params: {
-        room: $route.params.room , name: $route.params.name , supplies: $route.params.supplies ,abc:0
+        room: $route.params.room , name: $route.params.name , supplies: $route.params.supplies ,abc:1
         }}">นำจ่ายพัสดุ</ion-button>
 
         <ion-button color="danger">ลบพัสดุ</ion-button>
