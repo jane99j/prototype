@@ -5,7 +5,7 @@
       <ion-buttons slot="start">
         <ion-menu-button color="primary"></ion-menu-button>
       </ion-buttons>
-      <ion-title>จดมิเตอร์ไฟฟ้า</ion-title>
+      <ion-title>จดมิเตอร์น้ำ</ion-title>
     </ion-toolbar>
   </ion-header>
       
@@ -18,8 +18,7 @@
       
         <div id="container">
           <strong class="capitalize">{{ $route.params.id }}</strong>
-        </div>
-        
+        </div>        
         <ion-card>
           <ion-item color="light">
           <ion-card-header>
@@ -27,14 +26,14 @@
           </ion-card-header>          
         </ion-item>
         <ion-grid>
-    <ion-row>
+      <ion-row>
         <ion-col size="3"> <ion-datetime-button datetime="datetime1"></ion-datetime-button>
-    <ion-modal :keep-contents-mounted="true">
-    <ion-datetime id="datetime1"></ion-datetime>
-    </ion-modal>
-    <ion-item>
-    <ion-label>เลือกรอบบิลปัจจุบัน</ion-label></ion-item>
-    </ion-col>
+          <ion-modal :keep-contents-mounted="true">
+          <ion-datetime id="datetime1"></ion-datetime>
+          </ion-modal>
+          <ion-item>
+          <ion-label>เลือกรอบบิลปัจจุบัน</ion-label></ion-item>
+        </ion-col>
 
         <ion-col></ion-col>
         <ion-col></ion-col>
@@ -59,13 +58,11 @@
         </ion-col>
         <ion-col></ion-col>
         <ion-col>
-          <ion-nav-link routerLink="PageTwo">
-          <ion-button>จดมิเตอร์ไฟฟ้า</ion-button></ion-nav-link>
+          <ion-nav-link routerLink="PageOne">
+          <ion-button>จดมิเตอร์น้ำ</ion-button></ion-nav-link>
         </ion-col>
       </ion-row>
-    </ion-grid>
-
-     
+    </ion-grid>    
 
 <ion-card>
 
@@ -78,18 +75,20 @@
   </ion-row>
 </ion-grid>
 
-<ion-grid >
+<ion-grid>
   <ion-row v-for="i in roomtype" :key="i.id">
-    <ion-col> {{ i.room_id }}</ion-col>
-    <ion-col>{{ i.meter_water}}</ion-col>
-    <ion-col>{{i.meter_electri}}</ion-col>
-    <ion-col>{{i.meter_water+i.meter_electri}}</ion-col>
+    <ion-col>{{ i.room_id }}</ion-col>
+    <ion-col>{{ i.note_f}}</ion-col>
+    <ion-col></ion-col>
+    <ion-col></ion-col>
   </ion-row>
 </ion-grid>
 
 
+    
+
 </ion-card>
-<ion-button expand="block" type="submit" @click="subTotal">บันทึก</ion-button>
+<ion-button expand="block">บันทึก</ion-button>
 </ion-card>
       </ion-content>
     </ion-page>
@@ -97,20 +96,18 @@
 
 
 <script lang="ts">
-  import axios from 'axios';
+import axios from 'axios';
   import { ref, defineComponent } from 'vue';
   import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
 
   export default defineComponent({
     components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
     data() {
-     return{
-      roomtype: {},
-     
-
-     }
+      return {
+        roomtype: {},
+        meter_electri:{},
+      }
     },
-
     methods: {
     async getDataFromDatabase() {
       try {
@@ -121,17 +118,41 @@
         console.error(error);
       }
     },
-  },
+    updateData() {
+      axios.put(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/meter_note/`, {
+        recipient:this.meterUpdate.recipient,
+        recipient_name:"",
+        recipient_phone:"",
 
+
+      })
+  },
   created() {
       this.getDataFromDatabase();
+      this.updateData();
+    }
     },
-    
   });
 </script>
-
-
 <style scoped>
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0; 
+
+}
+#container a {
+  text-decoration: none;
+}
+ion-segment{
+  size: 10px;
+  text-align: left;
+}
+
+ion-searchbar.ios{
+  width: 80%;
+}
 ion-label{
   text-align: center;
 }
