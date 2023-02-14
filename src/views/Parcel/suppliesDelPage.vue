@@ -76,7 +76,7 @@
               </ion-list>
 
 
-              <ion-button color="success" @click="updateData" routerLink="/suppliesPage">นำจ่ายพัสดุ</ion-button>
+              <ion-button color="success" @click="updateData" routerLink="/suppliesSendPage">นำจ่ายพัสดุ</ion-button>
               <ion-button color="danger" routerLink="/suppliesPage">ยกเลิก</ion-button>
             </ion-card-content>
 
