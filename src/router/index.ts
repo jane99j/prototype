@@ -214,24 +214,23 @@ const routes: Array<RouteRecordRaw> = [
     name:'supplies2'
   },
   {
-    path: '/:room_id/:type/:sta',
-    component: () => import ('../views/Room/RoomManage.vue'),
-    name:'roomid'
-
-  },
-  {
-    path: '/:room_id/:type/:sta/reserveRoom',
-    component: () => import ('../views/Room/reserveRoom.vue'),
-    name:'rooml'
-
-  },
-  {
     path: '/:idroom/:type/:price/testPage',
     component: () => import ('../views/Room/testPage.vue'),
     name:'ceroom'
 
   },
+  {
+    path: '/RoomManage/:room_id',
+    component: () => import ('../views/Room/RoomManage.vue'),
+    name:'idroom1'
 
+  },
+  {
+    path: '/reserveRoom/:room_id',
+    component: () => import ('../views/Room/reserveRoom.vue'),
+    name:'idroom2'
+
+  },
 ]
 
 const router = createRouter({

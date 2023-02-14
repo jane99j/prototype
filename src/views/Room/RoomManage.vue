@@ -19,8 +19,8 @@
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
-          <ion-card-header>
-
+          <ion-card-header >
+            <ion-label>{{  }}</ion-label>
             <ion-card-title>
 
             </ion-card-title>
@@ -31,7 +31,7 @@
             <center>              
               <ion-button :routerLink="{
                 name: 'idroom2', params: {
-                  room_id: $route.params.idroom
+                  idroom: $route.params.idroom
 
                 }
               }">เพิ่มผู้เช่า</ion-button>
@@ -71,13 +71,15 @@ export default defineComponent({
   methods: {
   async getDataFromDatabase() {
     try {
-      const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${this.$route.params.idroom}.json`);
+      const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${this.$route.params.room_id}.json`);
       this.room = (response.data);
-      console.log(JSON.stringify(this.room))
+      console.log(this.room)
+
+      console.log(this.room)
     } catch (error) {
       console.error(error);
     }
-  }
+  },
   
 },
 
