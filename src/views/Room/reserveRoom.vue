@@ -118,12 +118,7 @@ export default defineComponent({
         console.error(error);
       }
     },
-    updateData() {
-      const response = await axios.put('https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/room_id/0',note) {}
-      console.log(response)
-      console.log(response.data)
-
-    },
+    
     sendData() {
       console.log("sendData active");
 
