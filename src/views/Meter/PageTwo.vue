@@ -59,7 +59,7 @@
         <ion-col></ion-col>
         <ion-col>
           <ion-nav-link routerLink="PageOne">
-          <ion-button>จดมิเตอร์น้ำ</ion-button></ion-nav-link>
+          <ion-button>จดมิเตอร์ไฟ</ion-button></ion-nav-link>
         </ion-col>
       </ion-row>
     </ion-grid>    
@@ -105,7 +105,7 @@ import axios from 'axios';
     data() {
       return {
         roomtype: {},
-        meter_electri:{},
+        
       }
     },
     methods: {

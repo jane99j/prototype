@@ -92,7 +92,6 @@
       console.log("sendData active");
 
       axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json", {
-        key:"",
         room_number: this.instsupplies.room_number,
         own_name: this.instsupplies.own_name,
         supplies_number: this.instsupplies.supplies_number,
@@ -106,7 +105,6 @@
       })
         .then(function (response) {
           console.log(response);
-          axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies/${response.data.name}.json`,{key:response.data.name})
         })
         .catch(function (error) {
           console.log(error);

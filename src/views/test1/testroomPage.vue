@@ -33,7 +33,7 @@
             <ion-card-content>
                     <ion-item>
                       <ion-label >เลขห้อง :</ion-label>
-                      <ion-input type="text" value="101"></ion-input>
+                      <ion-input type="text" value="">{{ $route.params.IDroom }}</ion-input>
                       </ion-item>
                       <ion-item>
                         <ion-label>ประเภทห้อง :</ion-label>
@@ -52,9 +52,9 @@
                       <ion-label>ของใช้ภายในห้อง</ion-label>
                     </ion-item>
 
-                      <ion-item  v-for="i in filteredroom" :key="i.no" >
+                      <ion-item>
                       <ion-checkbox slot="start"></ion-checkbox>
-                      <ion-label>{{ i.name }}</ion-label>
+                      <ion-label></ion-label>
                       </ion-item>                  
 
                       <IonRow>
@@ -72,9 +72,9 @@
                   <ion-item color="light">
                     <ion-card-title>ประเภทห้อง</ion-card-title>
                   </ion-item>
-                  <ion-item v-for="i in typeroom" :key="i.name" :value="i.name">
-                    <ion-col>{{ i.nameroom }}</ion-col>
-                    <ion-col>{{ i.roomprice }}</ion-col>
+                  <ion-item>
+                    <ion-col></ion-col>
+                    <ion-col></ion-col>
                     <ion-col>
                       <ion-text color="tertiary" routerLink="">แก้ไข</ion-text>
                     </ion-col>
@@ -92,6 +92,7 @@
 
 
 <script lang="ts">
+import axios from 'axios';
 import { ref,defineComponent } from 'vue';
 import { RouteLocationRaw,} from 'vue-router';
 import { IonCheckbox,IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
@@ -103,52 +104,13 @@ export default defineComponent({
   },
   data() {
       return {
-        datatest: [         
-          {name: 'พัดลม',
-           price: 200,
-          },
-          {name: 'แอร์',
-           price: 200,
-          },
-          {name: 'ตู้เสื้อผ้า',
-           price: 200,
-          },
-          {name: 'โต๊ะเครื่องแป้ง',
-           price: 200,
-          },   
-          {name: 'เครื่องทำน้ำอุ่น',
-           price: 200,
-          },         
-        ],
-        typeroom: [
-        {
-          nameroom: 'ห้องทั่วไป',
-          roomprice: 3000,
-        },
-        {
-          nameroom: 'ห้องแอร์',
-          roomprice: 3500,
-        },
-        {
-          nameroom: 'ห้องVIP',
-          roomprice: 4000,
-        }
-      ],
-      filteredroom: {}
+        roomtype: [],
     }
   },
   methods: {
-    toroute(rou: RouteLocationRaw) {
-      this.$router.push(rou)
-    },
-    allroom() {
-    this.filteredroom = this.datatest
-    },
-   
-  },
-  beforeMount(){
-    this.allroom()
-  },
+  
+  }
+  
   });
 </script>
 <style>

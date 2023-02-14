@@ -199,17 +199,12 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/suppliesSendPage',
-    component: () => import ('../views/Parcel/suppliesSendPage.vue')
-
-  },
-  {
-    path: '/suppliesMovePage/:key',
+    path: '/:room/:name/:supplies/:company',
     component: () => import ('../views/Parcel/suppliesMovePage.vue'),
     name:'supplies1'
   },
   {
-    path: '/suppliesDelPage/:key',
+    path: '/:room/:name/:supplies/:company/:abc/',
     component: () => import ('../views/Parcel/suppliesDelPage.vue'),
     name:'supplies2'
   },
@@ -231,6 +226,29 @@ const routes: Array<RouteRecordRaw> = [
     name:'ceroom'
 
   },
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+ 
+
+ 
+ 
+ 
+ 
+
+
+
+
+
 
 ]
 

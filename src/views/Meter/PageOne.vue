@@ -5,7 +5,7 @@
       <ion-buttons slot="start">
         <ion-menu-button color="primary"></ion-menu-button>
       </ion-buttons>
-      <ion-title>จดมิเตอร์น้ำ</ion-title>
+      <ion-title>จดมิเตอร์ไฟ</ion-title>
     </ion-toolbar>
   </ion-header>
       
@@ -58,7 +58,7 @@
         </ion-col>
         <ion-col></ion-col>
         <ion-col>
-          <ion-nav-link routerLink="PageOne">
+          <ion-nav-link routerLink="PageTwo">
           <ion-button>จดมิเตอร์น้ำ</ion-button></ion-nav-link>
         </ion-col>
       </ion-row>
@@ -75,20 +75,18 @@
   </ion-row>
 </ion-grid>
 
-<!-- <ion-grid>
+
+<ion-grid>
   <ion-row v-for="i in roomtype" :key="i.id">
     <ion-col>{{ i.room_id }}</ion-col>
-    <ion-col>{{ i.note_f}}</ion-col>
-    <ion-col></ion-col>
+    <ion-col>{{i.notewater_f}}</ion-col>
+    <ion-col><ion-input v-model="meterUpdate.notewater_l"></ion-input></ion-col>
     <ion-col></ion-col>
   </ion-row>
-</ion-grid> -->
-
-
-    
+</ion-grid>
 
 </ion-card>
-<ion-button expand="block">บันทึก</ion-button>
+<ion-button expand="block" @click="updateData">บันทึก</ion-button>
 </ion-card>
       </ion-content>
     </ion-page>
@@ -98,14 +96,19 @@
 <script lang="ts">
 import axios from 'axios';
   import { ref, defineComponent } from 'vue';
-  import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
+  import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel,IonInput } from '@ionic/vue';
 
   export default defineComponent({
-    components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
+    components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel,IonInput },
     data() {
       return {
         roomtype: {},
-        meter_electri:{},
+        meter:{},
+        meterUpdate:{
+          notewater_l:"",
+        },
+        
+        
       }
     },
     methods: {
@@ -117,20 +120,33 @@ import axios from 'axios';
       } catch (error) {
         console.error(error);
       }
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+        this.meter = response.data;
+        console.log(JSON.stringify(this.meter))
+      } catch (error) {
+        console.error(error);
+      }
+  },
+  updateData() {
+      axios.put(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/`, {
+        notewater_l:this.meterUpdate.notewater_l,
+        
+
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
     },
-  //   updateData() {
-  //     axios.put(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/meter_note/`, {
-  //       recipient:this.meterUpdate.recipient,
-  //       recipient_name:"",
-  //       recipient_phone:"",
-
-
-  //     })
-  // },
+},
   created() {
       this.getDataFromDatabase();
-      // this.updateData();
-    }
+      this.updateData();
+  
+
     },
   });
 </script>
