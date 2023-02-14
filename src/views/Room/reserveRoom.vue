@@ -117,7 +117,7 @@ export default defineComponent({
       console.log("sendData active");
 
       axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents.json", {
-        id:"",
+        id: this.$route.params.room_id,
         room_id: this.roomtype.room_id,
         fname: this.residents.fname,
         lname: this.residents.lname,

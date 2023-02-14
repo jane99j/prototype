@@ -50,8 +50,8 @@
                   </ion-segment-button>
 
                   <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name"
-                    @click="filterRoom(i.category)">
-                    <ion-label>{{ i.state_name }}</ion-label>
+                  @click="filterRoom(i.status)">
+                    <ion-label>{{ i.name }}</ion-label>
                   </ion-segment-button>
                 </ion-segment>
               </ion-col>
@@ -62,9 +62,7 @@
             </ion-item>
           </ion-card>
           <ion-row>
-            <ion-col :sizeXs="6" :sizeMd="4" v-for="i in roomtype" :key="i.id">
-              
-              
+            <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredroom" :key="i.id">              
 
                 <ion-card :routerLink="{
                 name: 'idroom1', params: {
@@ -82,9 +80,10 @@
 
                     <ion-label>
                       <ion-badge v-if="i.status === 0">ว่าง </ion-badge>
-                      <ion-badge color="tertiary" v-if="i.status === 1">ไม่ว่าง </ion-badge>
-                      <ion-badge color="danger" v-if="i.status === 3">ค้างชำระ </ion-badge>
-                      <ion-badge color="warning" v-if="i.status === 4">จองแล้ว </ion-badge>
+                    <ion-badge color="tertiary" v-if="i.status === 1">ไม่ว่าง </ion-badge>
+                    <ion-badge color="danger" v-if="i.status === 2">ค้างชำระ </ion-badge>
+                    <ion-badge color="warning" v-if="i.status === 3">จองแล้ว </ion-badge>
+                    <ion-badge color="warning" v-if="i.status === 4">รอย้ายออก </ion-badge>
                     </ion-label>
                   </ion-card-content>
                 </ion-card>
@@ -139,29 +138,39 @@ export default defineComponent({
   },
   data() {
     return {
-      roomtype: {},
-      status: {},
+      roomtype: [],
       categorymenu: [
         {
           name: 'ห้องว่าง',
-          category: 2,
+          status: 0,
         },
         {
           name: 'จองแล้ว',
-          category: 3,
+          status: 3,
         },
         {
           name: 'ค้างชำระ',
-          category: 4,
-          kr:'101'
+          status: 2,
         }
       ],
-      filteredroom: {}
-
+      filteredroom: []
     }
   },
 
   methods: {
+    toroute(rou: RouteLocationRaw) {
+      this.$router.push(rou)
+    },
+    allroom() {
+      this.filteredroom = this.roomtype
+    },
+    filterRoom(iddata: number) {
+      // console.log(iddata)
+      // console.log(this.filteredroom)
+      this.filteredroom = this.roomtype.filter((item: { status: number }) => item.status === iddata)
+       console.log(this.filteredroom)
+    },
+  
     async getDataFromDatabase() {
       try {
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
@@ -174,12 +183,13 @@ export default defineComponent({
 
     },
   },
+  beforeMount(){
+    this.allroom()
+  },
   created() {
     this.getDataFromDatabase();
   },
-  //   created(){
-  //  this.filterMenu(1)
-  //  },
+  
   setup() {
     return { person }
   }
