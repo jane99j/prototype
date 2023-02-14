@@ -67,8 +67,8 @@
               
 
                 <ion-card :routerLink="{
-                name: 'roomid', params: {
-                  room_id: i.room_id,type: i.room_type, sta: i.status
+                name: 'idroom1', params: {
+                  room_id: i.idroom
 
                 }
               }">

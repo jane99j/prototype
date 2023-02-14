@@ -28,7 +28,7 @@
           <ion-card-content>
             <ion-list>
               <ion-item>
-                <ion-label>{{ $route.params.room_id }}</ion-label>
+                <ion-label>{{ roomtype.room_id }}</ion-label>
               </ion-item>
               <ion-item>
                 <ion-label>{{ $route.params.type }}</ion-label>
@@ -105,13 +105,13 @@ export default defineComponent({
   methods: {
     async getDataFromDatabase() {
       try {
-        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${this.$route.params.idroom}.json`);
         this.roomtype = Object.values(response.data);
         console.log(this.roomtype)
         console.log(this.$route.params.roomtype)
-        this.roomtype = this.roomtype.filter((item: { room_id: string }) =>
-          item.room_id === this.$route.params.room_id
-        )
+        // this.roomtype = this.roomtype.filter((item: { room_id: string }) =>
+        //   item.room_id === this.$route.params.room_id
+        // )
         console.log(this.roomtype)
       } catch (error) {
         console.error(error);
