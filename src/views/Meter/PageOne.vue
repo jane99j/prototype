@@ -75,7 +75,8 @@
   </ion-row>
 </ion-grid>
 
-<ion-grid >
+
+<ion-grid>
   <ion-row v-for="i in roomtype" :key="i.id">
     <ion-col>{{ i.room_id }}</ion-col>
     <ion-col>{{i.notewater_f}}</ion-col>
@@ -145,7 +146,8 @@ import axios from 'axios';
       this.getDataFromDatabase();
       this.updateData();
   
-    }
+
+    },
   });
 </script>
 <style scoped>
