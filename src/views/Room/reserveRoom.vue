@@ -36,7 +36,7 @@
 
               <ion-item>
                 <ion-label>สถานะ</ion-label>
-                <ion-label>{{ $route.params.sta }}</ion-label>
+                <ion-label v-model="residents.status">{{ $route.params.sta }}</ion-label>
               </ion-item>
 
               <ion-item>
@@ -67,7 +67,7 @@
         <ion-card>
           <IonRow>
             <div className="ion-float-end">
-              <ion-button @click="sendData">บันทึก</ion-button>
+              <ion-button @click="updateData">บันทึก</ion-button>
             </div>
           </IonRow>
         </ion-card>
@@ -96,6 +96,7 @@ export default defineComponent({
         lname: "",
         phone: "",
         room_id: "",
+        status: 0,
 
 
 
@@ -117,6 +118,12 @@ export default defineComponent({
         console.error(error);
       }
     },
+    updateData() {
+      const response = await axios.put('https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/room_id/0',note) {}
+      console.log(response)
+      console.log(response.data)
+
+    },
     sendData() {
       console.log("sendData active");
 
@@ -134,6 +141,7 @@ export default defineComponent({
         });
 
       this.clearData();
+
     },
     clearData() {
       this.residents.fname = "";
