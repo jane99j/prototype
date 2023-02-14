@@ -220,7 +220,7 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
-    path: '/RoomManage/:room_id',
+    path: '/RoomManage/:room_id/',
     component: () => import ('../views/Room/RoomManage.vue'),
     name:'idroom1'
 
