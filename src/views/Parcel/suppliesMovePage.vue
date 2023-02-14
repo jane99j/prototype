@@ -33,27 +33,27 @@
 
       <ion-row>
       <ion-col><h2>ชื่อห้องพัก</h2></ion-col>
-      <ion-col>{{$route.params.room}}</ion-col>
+      <ion-col>{{supplies.room_number}}</ion-col>
       </ion-row>
 
       <ion-row>
       <ion-col><h2>ชื่อผู้รับ</h2></ion-col>
-      <ion-col>{{$route.params.name}}</ion-col>
+      <ion-col>{{supplies.own_name}}</ion-col>
       </ion-row>
 
       <ion-row>
       <ion-col><h2>หมายเลขพัสดุ</h2></ion-col>
-      <ion-col>{{$route.params.supplies}}</ion-col>
+      <ion-col>{{supplies.supplies_number}}</ion-col>
       </ion-row>
 
       <ion-row>
       <ion-col><h2>บริษัทขนส่ง</h2></ion-col>
-      <ion-col v-if="$route.params.company ==='1'">ไปรษณีย์ไทย</ion-col>
-      <ion-col v-if="$route.params.company ==='2'">KerryExpress</ion-col>
-      <ion-col v-if="$route.params.company ==='3'">J&TEXPRESS</ion-col>
-      <ion-col v-if="$route.params.company ==='4'">FLASHEXPRESS</ion-col>
-      <ion-col v-if="$route.params.company ==='5'">BESTEXPRESS</ion-col>
-      <ion-col v-if="$route.params.company ==='6'">NinjaVan</ion-col>
+      <ion-col v-if="supplies.company =='1'">ไปรษณีย์ไทย</ion-col>
+      <ion-col v-if="supplies.company =='2'">Kerry Express</ion-col>
+      <ion-col v-if="supplies.company =='3'">J& TEXPRESS</ion-col>
+      <ion-col v-if="supplies.company =='4'">FLASH EXPRESS</ion-col>
+      <ion-col v-if="supplies.company =='5'">BEST EXPRESS</ion-col>
+      <ion-col v-if="supplies.company =='6'">NinjaVan</ion-col>
       </ion-row>
 
       <!-- <ion-row>
@@ -65,10 +65,10 @@
 
       <ion-button color="success" :routerLink="{
       name: 'supplies2', params: {
-      room: $route.params.room , name: $route.params.name , supplies: $route.params.supplies ,company:$route.params.company ,abc:1
+      key:$route.params.key
       }}">นำจ่ายพัสดุ</ion-button>
 
-      <ion-button color="danger">ลบพัสดุ</ion-button>
+      <!-- <ion-button color="danger">ลบพัสดุ</ion-button> -->
       </ion-card-content>
 
       </ion-card>
@@ -93,27 +93,27 @@ export default defineComponent({
   },
   data() {
   return {
-    supplies:[],
+    supplies:{},
   }
 },
-// methods: {
-//   async getDataFromDatabase() {
-//     try {
-//       const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
-//       this.supplies = Object.values(response.data);
-//       console.log(this.supplies)
-//       this.supplies = this.supplies.filter((item:{room_number:string})=>
-//         item.room_number === this.$route.params.supplies1
-//       )
-//       console.log(this.supplies)
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
-// },
-// created() {
-//     this.getDataFromDatabase();
-//   }
+methods: {
+  async getDataFromDatabase() {
+    try {
+      const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies/${this.$route.params.key}.json`);
+      this.supplies = (response.data);
+      console.log(this.supplies)
+      // this.supplies = this.supplies.filter((item:{room_number:string})=>
+      //   item.room_number === this.$route.params.supplies1
+      // )
+      console.log(this.supplies)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+},
+created() {
+    this.getDataFromDatabase();
+  }
 });
 </script>
 
