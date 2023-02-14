@@ -33,23 +33,23 @@
               <ion-list>
 
                 <ion-item>
-                  <ion-label>ห้อง : {{ $route.params.room }}</ion-label>
+                  <ion-label>ห้อง : {{ supplies.room_number }}</ion-label>
                 </ion-item>
 
                 <ion-item>
-                  <ion-label>ชื่อ : {{ $route.params.name }}</ion-label>
+                  <ion-label>ชื่อ : {{ supplies.own_name }}</ion-label>
                 </ion-item>
 
                 <ion-item>
-                  <ion-label>หมายเลขพัสดุ : {{ $route.params.supplies }}</ion-label>
+                  <ion-label>หมายเลขพัสดุ : {{ supplies.supplies_number }}</ion-label>
                 </ion-item>
                 <ion-item>
-                  <ion-label  v-if="$route.params.company === '1'">บริษัทขนส่ง : ไปรษณีย์ไทย</ion-label>
-                  <ion-label  v-if="$route.params.company === '2'">บริษัทขนส่ง : KerryExpress</ion-label>
-                  <ion-label  v-if="$route.params.company === '3'">บริษัทขนส่ง : J&TEXPRESS</ion-label>
-                  <ion-label  v-if="$route.params.company === '4'">บริษัทขนส่ง : FLASHEXPRESS</ion-label>
-                  <ion-label  v-if="$route.params.company === '5'">บริษัทขนส่ง : BESTEXPRESS</ion-label>
-                  <ion-label  v-if="$route.params.company === '6'">บริษัทขนส่ง : NinjaVan</ion-label>
+                  <ion-label  v-if=" supplies.company == '1'">บริษัทขนส่ง : ไปรษณีย์ไทย</ion-label>
+                  <ion-label  v-if=" supplies.company == '2'">บริษัทขนส่ง : Kerry Express</ion-label>
+                  <ion-label  v-if=" supplies.company == '3'">บริษัทขนส่ง : J&T EXPRESS</ion-label>
+                  <ion-label  v-if=" supplies.company == '4'">บริษัทขนส่ง : FLASH EXPRESS</ion-label>
+                  <ion-label  v-if=" supplies.company == '5'">บริษัทขนส่ง : BEST EXPRESS</ion-label>
+                  <ion-label  v-if=" supplies.company == '6'">บริษัทขนส่ง : NinjaVan</ion-label>
                 </ion-item>
 
               </ion-list>
@@ -57,8 +57,8 @@
               <ion-item>
                 <ion-label>เลือกผู้รับพัสดุ</ion-label>
                 <ion-select v-model="suppliesUpdate.recipient">
-                  <ion-select-option :id="1" :value="1">เจ้าของ</ion-select-option>
-                  <ion-select-option :id="2" :value="2">รับแทน</ion-select-option>
+                  <ion-select-option :value="1">เจ้าของ</ion-select-option>
+                  <ion-select-option :value="2">รับแทน</ion-select-option>
                 </ion-select>
               </ion-item>
 
@@ -104,55 +104,41 @@ export default defineComponent({
   },
   data() {
     return {
-      supplies: [],
-      supplies2: {},
-      supplies3: {},
-      suppliess: [],
+      supplies: {},
+
       suppliesUpdate:{
         recipient:"",
         recipient_name:"",
         recipient_phone:"",
-      }
+      },
 
     }
   },
   methods: {
-    // async getDataFromDatabase() {
-    //   try {
-    //     const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
-    //     this.supplies = Object.values(response.data);
-    //     console.log(this.supplies)
-    //     this.supplies = this.supplies.filter((item: { room_number: string }) =>
-    //       item.room_number === this.$route.params.room);
-    //     console.log(this.supplies)
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // },
+
     async getDataFromDatabase() {
       try {
-        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies.json`);
-        this.supplies = Object.values(response.data);
-        this.supplies2 = Object.keys(response.data);
-        this.supplies3 = Object.entries(response.data);
-        // this.suppliess
-        
-        console.log(this.supplies);
-        console.log(this.supplies2);
-        console.log(this.supplies3);
-        this.supplies = this.supplies.filter((item: { room_number: string }) =>
-          item.room_number === this.$route.params.room);
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies/${this.$route.params.key}.json`);
+        this.supplies = (response.data);
+
+        // this.supplies = this.supplies0.filter((item: { room_number: string }) =>
+        //   item.room_number === this.$route.params.room);
         console.log(this.supplies)
       } catch (error) {
         console.error(error);
       }
     },
+    
     updateData() {
-      axios.put(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies/`, {
-        supplies_status:2,
+      axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/supplies/${this.$route.params.key}.json`,{
+        room_number:this.$route.params.room,
+        own_name:this.$route.params.name,
+        company:this.$route.params.company,
+        supplies_number:this.$route.params.supplies,
         recipient:this.suppliesUpdate.recipient,
-        recipient_name:"",
-        recipient_phone:"",
+        recipient_name:this.suppliesUpdate.recipient_name,
+        recipient_phone:this.suppliesUpdate.recipient_phone,
+        supplies_status:2,
 
 
       })
@@ -166,7 +152,6 @@ export default defineComponent({
   },
   created() {
     this.getDataFromDatabase();
-    this.updateData();
   }
 });
 </script>
