@@ -63,10 +63,10 @@
           </ion-card>
           <ion-row>
             <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredroom" :key="i.id">              
-
+                <ion-col ></ion-col>
                 <ion-card :routerLink="{
                 name: 'idroom1', params: {
-                  room_id: i.idroom 
+                  room_id: i.idroom,userid:i.room_id
                 },
               }">
                   <ion-card-header>
@@ -138,6 +138,7 @@ export default defineComponent({
   },
   data() {
     return {
+      userid:[],
       roomtype: [],
       categorymenu: [
         {
@@ -176,6 +177,13 @@ export default defineComponent({
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
         this.roomtype = response.data;
         console.log(JSON.stringify(this.roomtype))
+      } catch (error) {
+        console.error(error);
+      }
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents.json`);
+        this.userid = response.data;
+        console.log(JSON.stringify(this.userid))
       } catch (error) {
         console.error(error);
       }
