@@ -80,13 +80,13 @@
   <ion-row v-for="i in roomtype" :key="i.id">
     <ion-col>{{ i.room_id }}</ion-col>
     <ion-col>{{i.notewater_f}}</ion-col>
-    <ion-col><ion-input type="text" v-model="roomtype.notewater_l"></ion-input></ion-col>
-    <ion-col>{{filteroption(i.notewater_f, i.notewater_l)}}</ion-col>
+    <ion-col><ion-input v-model="i.notewater_l"></ion-input></ion-col>
+    <ion-col>{{filteroption(i.notewater_f, i.notewater_l,i.idroom)}}</ion-col>
   </ion-row>
 </ion-grid>
 
 </ion-card>
-<ion-button expand="block" @click="sendData">บันทึก</ion-button>
+<ion-button expand="block" @click="filteroption">บันทึก</ion-button>
 </ion-card>
       </ion-content>
     </ion-page>
@@ -134,12 +134,15 @@ import { Item } from '@ionic/core/dist/types/components/item/item';
         console.error(error);
       }
   },
-    filteroption(meterf: number,meterl: number){
+    filteroption(meterf: number,meterl: number,idroom: string){
+      let avg= Number(meterf)+Number(meterl)
+      console.log(idroom,"test")
+      axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${idroom}.json`,{avg:avg,notewater_l:meterl})
       //wait this.getDataFromDatabase();
       //this.avg = this.meter.map((item: {note_l: number,note_f: number})=> {
         //item.note_l + item.note_f;
       //})
-        return meterf+meterl;
+        return avg;
     },
   
   // updateData() {
