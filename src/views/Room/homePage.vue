@@ -50,44 +50,43 @@
                   </ion-segment-button>
 
                   <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name"
-                  @click="filterRoom(i.status)">
+                    @click="filterRoom(i.status)">
                     <ion-label>{{ i.name }}</ion-label>
                   </ion-segment-button>
                 </ion-segment>
               </ion-col>
-            </ion-item>
-
-            <ion-item color="light">
-              <ion-label slot="end">ห้องทั้งหมด 8 ห้อง </ion-label>
-            </ion-item>
+            </ion-item> 
           </ion-card>
           <ion-row>
-            <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredroom" :key="i.id">              
-                <ion-col ></ion-col>
-                <ion-card :routerLink="{
+            <ion-col :sizeXs="12" :size="12">
+              <ion-item color="light">
+              <ion-label slot="end">ห้องทั้งหมด </ion-label>
+            </ion-item>
+            </ion-col>
+            <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredroom" :key="i.id">
+             
+              <ion-card :routerLink="{
                 name: 'idroom1', params: {
-                  room_id: i.idroom,userid:i.room_id
+                  room_id: i.idroom
                 },
               }">
-                  <ion-card-header>
-                    <ion-card-title>{{ i.room_id }}</ion-card-title>
-                    <ion-card-subtitle></ion-card-subtitle>
-                  </ion-card-header>
-                  <ion-card-content>
-                    <ion-icon slot="icon-only" :icon="person" v-if="i.status"></ion-icon>
-                  </ion-card-content>
-                  <ion-card-content>
+                <ion-card-header>
+                  <ion-card-title>{{ i.room_id }}</ion-card-title>
+                  <ion-card-subtitle></ion-card-subtitle>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-icon slot="icon-only" :icon="person" v-if="i.status"></ion-icon>
+                </ion-card-content>
+                <ion-card-content>
 
-                    <ion-label>
-                      <ion-badge v-if="i.status === 0">ว่าง </ion-badge>
+                  <ion-label>
+                    <ion-badge v-if="i.status === 0">ว่าง </ion-badge>
                     <ion-badge color="tertiary" v-if="i.status === 1">ไม่ว่าง </ion-badge>
                     <ion-badge color="danger" v-if="i.status === 2">ค้างชำระ </ion-badge>
                     <ion-badge color="warning" v-if="i.status === 3">จองแล้ว </ion-badge>
-                    <ion-badge color="warning" v-if="i.status === 4">รอย้ายออก </ion-badge>
-                    </ion-label>
-                  </ion-card-content>
-                </ion-card>
-                
+                  </ion-label>
+                </ion-card-content>
+              </ion-card>         
             </ion-col>
           </ion-row>
 
@@ -110,6 +109,7 @@ import {
   IonBadge, IonIcon, IonCardContent, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonSearchbar, onIonViewDidEnter, IonLabel, IonSegment, IonSegmentButton,
 } from '@ionic/vue';
 import { colorFill, person } from 'ionicons/icons';
+import { stringLiteral } from '@babel/types';
 
 
 export default defineComponent({
@@ -138,7 +138,6 @@ export default defineComponent({
   },
   data() {
     return {
-      userid:[],
       roomtype: [],
       categorymenu: [
         {
@@ -152,9 +151,11 @@ export default defineComponent({
         {
           name: 'ค้างชำระ',
           status: 2,
+
         }
       ],
       filteredroom: []
+
     }
   },
 
@@ -169,35 +170,28 @@ export default defineComponent({
       // console.log(iddata)
       // console.log(this.filteredroom)
       this.filteredroom = this.roomtype.filter((item: { status: number }) => item.status === iddata)
-       console.log(this.filteredroom)
+      // console.log(this.filteredroom)
     },
-  
     async getDataFromDatabase() {
       try {
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
-        this.roomtype = response.data;
+        this.roomtype = Object.values(response.data);
+        this.filteredroom = this.roomtype;
         console.log(JSON.stringify(this.roomtype))
       } catch (error) {
         console.error(error);
       }
-      try {
-        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents.json`);
-        this.userid = response.data;
-        console.log(JSON.stringify(this.userid))
-      } catch (error) {
-        console.error(error);
-      }
-
-
+      
     },
-  },
-  beforeMount(){
-    this.allroom()
   },
   created() {
     this.getDataFromDatabase();
   },
-  
+  // beforeMount() {
+  // },
+  //   created(){
+  //  this.filterMenu(1)
+  //  },
   setup() {
     return { person }
   }
