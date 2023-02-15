@@ -231,6 +231,11 @@ const routes: Array<RouteRecordRaw> = [
     name:'ceroom'
 
   },
+  {
+    path: '/testroomPage/:key',
+    component: () => import ('../views/test1/testroomPage.vue'),
+    name:'room'
+  },
 
 ]
 

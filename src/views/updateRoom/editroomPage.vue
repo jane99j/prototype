@@ -49,24 +49,35 @@
               <ion-item>
                 <label>เลือกห้องพักที่ต้องการ</label>
               <ion-button slot="end" color="medium" size="small" routerLink="/testroomPage">จัดการห้อง</ion-button>
-              </ion-item>           
+              </ion-item>     
+   
               <ion-item color="light">
-              <ion-checkbox slot="start" color="light"></ion-checkbox>
                 <ion-col size="3">ห้อง</ion-col>
                 <ion-col size="3">สถานะ</ion-col>
                 <ion-col size="6">ประเภทห้อง</ion-col>  
               </ion-item>
-              <ion-item  v-for="i in filteredroom" :key="i.no" @click="toroute(i.url)">
-              <ion-checkbox slot="start" value="allcheck"></ion-checkbox>
-                <ion-col size="3">{{ i.no }}</ion-col>              
-                <ion-col size="3" v-if="i.state === 1">
-                  <ion-badge color="medium">{{ i.status }}</ion-badge>
-                </ion-col> 
-                <ion-col size="3" v-if="i.state === 0">
-                  <ion-badge color="secondary">{{ i.status }}</ion-badge>
-                </ion-col>
-                <ion-col size="6">{{ i.type }}</ion-col>              
+
+
+              <dev v-for="i in room" :key="i.id"> 
+                <router-link style="text-decoration: none;" :to="{
+                name:'room',params:{
+                key:i.idroom  }}">
+
+                <ion-item>
+                <ion-col size="3">{{ i.room_id }}</ion-col>
+                <ion-col size="3" v-if="i.status === 0"><ion-badge color="medium">ว่าง</ion-badge></ion-col>
+                <ion-col size="3" v-if="i.status === 1"><ion-badge color="primary">ไม่ว่าง</ion-badge></ion-col>
+                <ion-col size="3" v-if="i.status === 3"><ion-badge color="danger">ค้างชำระ</ion-badge></ion-col>
+                <ion-col size="3" v-if="i.status === 4"><ion-badge color="warning">จองแล้ว</ion-badge></ion-col>
+                <ion-col size="6">{{ i.room_type }}</ion-col>
+
               </ion-item>
+
+              </router-link>
+             
+              </dev>
+
+             
             </ion-grid>          
           </ion-card>
       </div>
@@ -75,101 +86,38 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent } from 'vue';
-import { RouteLocationRaw, useRoute } from 'vue-router';
-import { IonBadge,IonButton,IonSearchbar,IonCard,IonItem,IonCheckbox,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
-  IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+// import { RouteLocationRaw, useRoute } from 'vue-router';
+import { IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+  IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonBadge,IonRow } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
-  components: { IonBadge,IonButton,IonSearchbar,IonCard,IonItem,IonCheckbox,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
-    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar
+  components: { IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+    IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonBadge,IonRow
   },
+
   data() {
-      return {
-        datatest: [
-          {no: '101',
-          status: 'ว่าง',
-          state :0,
-          price: '5,000',
-          type :'ห้องทั่วไป',
-          category: 1,
-          },
-          { no: '102',
-          status: 'ไม่ว่าง',
-          state :1,
-          price: '5,200',
-          type :'ห้องแอร์',
-          category: 2,
-          },
-          { no: '103',
-          status: 'ไม่ว่าง',
-          state :1,
-          price: '6,200',
-          type :'ห้อง VIP',
-          category: 3,
-          },
-          {no: '104',
-          status: 'ว่าง',
-          state :0,
-          price: '5,000',
-          type :'ห้องทั่วไป',
-          category: 1,
-          },
-          { no: '105',
-          status: 'ไม่ว่าง',
-          state :1,
-          price: '5,200',
-          type :'ห้องแอร์',
-          category: 2,
-          },
-          { no: '106',
-          status: 'ไม่ว่าง',
-          state :1,
-          price: '6,200',
-          type :'ห้อง VIP',
-          category: 3,
-          },
-          { no: '108',
-          status: 'ไม่ว่าง',
-          state :1,
-          price: '6,200',
-          type :'ห้อง VIP',
-          category: 3,
-          },
-        ],
-        categorymenu: [
-        {
-          name: 'ห้องทั่วไป',
-          category: 1,
-        },
-        {
-          name: 'ห้องแอร์',
-          category: 2,
-        },
-        {
-          name: 'ห้องVIP',
-          category: 3,
-        }
-      ],
-      filteredroom: {}
+  return {
+    room: {},
+  }
+},
+methods: {
+  ////GETdata////
+  async getDataFromDatabase() {
+    try {
+      const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+      this.room = response.data;
+      console.log(JSON.stringify(this.room))
+    } catch (error) {
+      console.error(error);
     }
-  },
-  methods: {
-    toroute(rou: RouteLocationRaw) {
-      this.$router.push(rou)
-    },
-    allroom() {
-    this.filteredroom = this.datatest
-    },
-    filterRoom(iddata: number) {
-      console.log(iddata)
-      this.filteredroom = this.datatest.filter(item => item.category === iddata)
-    }
-  },
-  beforeMount(){
-    this.allroom()
-  },
+  }
+},
+created() {
+    this.getDataFromDatabase();
+  }
   
 });
 </script>

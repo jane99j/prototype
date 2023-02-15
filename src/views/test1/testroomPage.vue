@@ -32,11 +32,11 @@
                     </ion-item>
             <ion-card-content>
                     <ion-item>
-                      <ion-label >เลขห้อง :</ion-label>
+                      <ion-label >เลขห้อง :{{ room.room_id }}</ion-label>
                       <ion-input type="text" value="">{{ $route.params.IDroom }}</ion-input>
                       </ion-item>
                       <ion-item>
-                        <ion-label>ประเภทห้อง :</ion-label>
+                        <ion-label>ประเภทห้อง : {{ room.room_type }}</ion-label>
                         <ion-select interface="popover" placeholder="ประเภทห้อง" slot="end">
                           <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
                           <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
@@ -47,15 +47,10 @@
                           <ion-label>กำหนดราคา :</ion-label>
                           <ion-input value="3,000"></ion-input>
                       </ion-item>
-                      
+<!--                       
                     <ion-item>
                       <ion-label>ของใช้ภายในห้อง</ion-label>
-                    </ion-item>
-
-                      <ion-item>
-                      <ion-checkbox slot="start"></ion-checkbox>
-                      <ion-label></ion-label>
-                      </ion-item>                  
+                    </ion-item> -->
 
                       <IonRow>
                       <div className="ion-float-end">
@@ -95,22 +90,35 @@
 import axios from 'axios';
 import { ref,defineComponent } from 'vue';
 import { RouteLocationRaw,} from 'vue-router';
-import { IonCheckbox,IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
+import { IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonCheckbox,IonInput,IonLabel,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
+    IonInput,IonLabel,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
   },
   data() {
       return {
-        roomtype: [],
+        room: {},
     }
   },
   methods: {
-  
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${this.$route.params.key}.json`);
+        this.room = (response.data);
+
+        // this.supplies = this.supplies0.filter((item: { room_number: string }) =>
+        //   item.room_number === this.$route.params.room);
+        console.log(this.room)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+  created() {
+    this.getDataFromDatabase();
   }
-  
   });
 </script>
 <style>
