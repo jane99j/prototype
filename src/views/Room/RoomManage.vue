@@ -30,7 +30,7 @@
                   <ion-badge color="tertiary" v-if="room.status === 4">รอย้ายออก </ion-badge>
 
                   <ion-item color="light">
-                    <ion-label>หมายเลข{{ room.room_id }}</ion-label>
+                    <ion-label>หมายเลข {{ room.room_id }}</ion-label>
                   </ion-item>
                   <center>
                     <ion-button :routerLink="{
@@ -40,7 +40,7 @@
                       }
                     }">เพิ่มผู้เช่า</ion-button>
                     <ion-button color="danger" v-if="room.status === 1" @click="getout">ย้ายออก</ion-button>
-                    <ion-button color="warning" v-if="room.status !== 1" :routerLink="{
+                    <ion-button color="warning" v-if="room.status !== 1 && room.status !==3" :routerLink="{
                       name: 'idroomre', params: {
                         idroomre: $route.params.idroom
                     

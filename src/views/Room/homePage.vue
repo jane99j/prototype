@@ -64,7 +64,7 @@
             </ion-item>
             </ion-col>
             <ion-col :sizeXs="6" :sizeMd="4" v-for="i in filteredroom" :key="i.id">
-             
+            
               <ion-card :routerLink="{
                 name: 'idroom1', params: {
                   room_id: i.idroom
@@ -87,7 +87,8 @@
                     <ion-badge color="tertiary" v-if="i.status === 4">รอย้ายออก </ion-badge>
                   </ion-label>
                 </ion-card-content>
-              </ion-card>         
+              </ion-card> 
+                   
             </ion-col>
           </ion-row>
 
