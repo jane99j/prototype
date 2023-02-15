@@ -237,15 +237,13 @@ const routes: Array<RouteRecordRaw> = [
     name:'idroomre'
 
   },
-<<<<<<< HEAD
+
   {
     path: '/testroomPage/:key',
     component: () => import ('../views/test1/testroomPage.vue'),
     name:'room'
   },
 
-=======
->>>>>>> 069bd63f5778fdc3a4f35a81f50b5d1267cc61d6
 ]
 
 const router = createRouter({
