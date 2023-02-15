@@ -5,7 +5,7 @@
       <ion-buttons slot="start">
         <ion-menu-button color="primary"></ion-menu-button>
       </ion-buttons>
-      <ion-title>จดมิเตอร์ไฟ</ion-title>
+      <ion-title>จดมิเตอร์น้ำ</ion-title>
     </ion-toolbar>
   </ion-header>
       
@@ -59,7 +59,7 @@
         <ion-col></ion-col>
         <ion-col>
           <ion-nav-link routerLink="PageTwo">
-          <ion-button>จดมิเตอร์น้ำ</ion-button></ion-nav-link>
+          <ion-button>จดมิเตอร์ไฟ</ion-button></ion-nav-link>
         </ion-col>
       </ion-row>
     </ion-grid>    

@@ -58,8 +58,8 @@
         </ion-col>
         <ion-col></ion-col>
         <ion-col>
-          <ion-nav-link routerLink="PageTwo">
-          <ion-button>จดมิเตอร์ไฟฟ้า</ion-button></ion-nav-link>
+          <ion-nav-link routerLink="PageOne">
+          <ion-button>จดมิเตอร์น้ำ</ion-button></ion-nav-link>
         </ion-col>
       </ion-row>
     </ion-grid>    
