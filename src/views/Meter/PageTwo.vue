@@ -5,7 +5,7 @@
       <ion-buttons slot="start">
         <ion-menu-button color="primary"></ion-menu-button>
       </ion-buttons>
-      <ion-title>จดมิเตอร์น้ำ</ion-title>
+      <ion-title>จดมิเตอร์ไฟ</ion-title>
     </ion-toolbar>
   </ion-header>
       
@@ -58,8 +58,8 @@
         </ion-col>
         <ion-col></ion-col>
         <ion-col>
-          <ion-nav-link routerLink="PageOne">
-          <ion-button>จดมิเตอร์ไฟ</ion-button></ion-nav-link>
+          <ion-nav-link routerLink="PageTwo">
+          <ion-button>จดมิเตอร์ไฟฟ้า</ion-button></ion-nav-link>
         </ion-col>
       </ion-row>
     </ion-grid>    
@@ -75,20 +75,18 @@
   </ion-row>
 </ion-grid>
 
+
 <ion-grid>
   <ion-row v-for="i in roomtype" :key="i.id">
     <ion-col>{{ i.room_id }}</ion-col>
-    <ion-col>{{ i.meter_electri}}</ion-col>
-    <ion-col><ion-input placeholder="จดล่าสุด" readonly></ion-input></ion-col>
-    <ion-col><ion-input placeholder="หน่วยที่ใช้" readonly></ion-input></ion-col>
+    <ion-col>{{i.notefire_f}}</ion-col>
+    <ion-col><ion-input v-model="i.notefire_l"></ion-input></ion-col>
+    <ion-col>{{filteroption(i.notefire_f, i.notefire_l,i.idroom)}}</ion-col>
   </ion-row>
 </ion-grid>
 
-
-    
-
 </ion-card>
-<ion-button expand="block">บันทึก</ion-button>
+<ion-button expand="block" @click="filteroption">บันทึก</ion-button>
 </ion-card>
       </ion-content>
     </ion-page>
@@ -98,13 +96,24 @@
 <script lang="ts">
 import axios from 'axios';
   import { ref, defineComponent } from 'vue';
-  import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel } from '@ionic/vue';
+  import {IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent,IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem, IonLabel,IonInput } from '@ionic/vue';
+import { Item } from '@ionic/core/dist/types/components/item/item';
 
   export default defineComponent({
-    components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonInput,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel },
+    components: { IonMenuButton,IonButtons,IonPage,IonNavLink,IonButton ,IonList, IonSelect, IonSelectOption,IonGrid,IonHeader, IonTitle, IonToolbar, IonContent, IonCol,IonRow ,IonCard, IonDatetime, IonDatetimeButton, IonModal, IonItem ,IonLabel,IonInput },
     data() {
       return {
         roomtype: {},
+        meter:[],
+        meterUpdate:{
+          notefire_l:"",
+        },
+        inst_room:{
+          notefire_l:"",
+          notefire_f:"",
+        },
+        avg:[] as any,
+        
         
       }
     },
@@ -117,11 +126,58 @@ import axios from 'axios';
       } catch (error) {
         console.error(error);
       }
-    },
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/meter_note.json`);
+        this.meter = response.data;
+        console.log(JSON.stringify(this.meter))
+      } catch (error) {
+        console.error(error);
+      }
   },
+    filteroption(meterf: number,meterl: number,idroom: string){
+      let avg2= Number(meterf)+Number(meterl)
+      console.log(idroom,"test")
+      axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${idroom}.json`,{avg2:avg2,notefire_l:meterl})
+      //wait this.getDataFromDatabase();
+      //this.avg = this.meter.map((item: {note_l: number,note_f: number})=> {
+        //item.note_l + item.note_f;
+      //})
+        return avg2;
+    },
+  
+  // updateData() {
+  //     axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/`, {
+  //       notewater_l:this.meterUpdate.notewater_l,
+        
+
+  //     })
+  //       .then(function (response) {
+  //         console.log(response);
+  //       })
+  //       .catch(function (error) {
+  //         console.log(error);
+  //       })
+  //   },
+    sendData() {
+      console.log("sendData active");
+
+      axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json", {
+        notefire_l: this.inst_room.notefire_l,
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      },
+},
   created() {
       this.getDataFromDatabase();
-    }
+      //this.updateData();
+  
+
+    },
   });
 </script>
 <style scoped>
