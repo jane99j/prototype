@@ -75,15 +75,16 @@
                   <ion-card-subtitle></ion-card-subtitle>
                 </ion-card-header>
                 <ion-card-content>
-                  <ion-icon slot="icon-only" :icon="person" v-if="i.status"></ion-icon>
+                  <ion-icon slot="icon-only" :icon="person" v-if="i.status "></ion-icon>
                 </ion-card-content>
                 <ion-card-content>
 
                   <ion-label>
                     <ion-badge v-if="i.status === 0">ว่าง </ion-badge>
-                    <ion-badge color="tertiary" v-if="i.status === 1">ไม่ว่าง </ion-badge>
+                    <ion-badge color="secondary" v-if="i.status === 1">ไม่ว่าง </ion-badge>
                     <ion-badge color="danger" v-if="i.status === 2">ค้างชำระ </ion-badge>
                     <ion-badge color="warning" v-if="i.status === 3">จองแล้ว </ion-badge>
+                    <ion-badge color="tertiary" v-if="i.status === 4">รอย้ายออก </ion-badge>
                   </ion-label>
                 </ion-card-content>
               </ion-card>         
