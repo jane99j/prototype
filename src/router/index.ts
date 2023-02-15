@@ -184,6 +184,11 @@ const routes: Array<RouteRecordRaw> = [
 
   },
   {
+    path: '/reserveRoom2',
+    component: () => import ('../views/Room/reserveRoom2.vue')
+
+  },
+  {
     path: '/testroomPage',
     component: () => import ('../views/test1/testroomPage.vue')
 
@@ -213,23 +218,30 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/Parcel/suppliesDelPage.vue'),
     name:'supplies2'
   },
+
   {
-    path: '/:room_id/:type/:sta',
+    path: '/RoomManage/:room_id/',
     component: () => import ('../views/Room/RoomManage.vue'),
-    name:'roomid'
+    name:'idroom1'
 
   },
   {
-    path: '/:room_id/:type/:sta/reserveRoom',
+    path: '/reserveRoom/:room_id',
     component: () => import ('../views/Room/reserveRoom.vue'),
-    name:'rooml'
+    name:'idroom2'
 
   },
   {
-    path: '/:idroom/:type/:price/testPage',
-    component: () => import ('../views/Room/testPage.vue'),
-    name:'ceroom'
+    path: '/reserveRoom2/:room_id/',
+    component: () => import ('../views/Room/reserveRoom2.vue'),
+    name:'idroomre'
 
+  },
+
+  {
+    path: '/testroomPage/:key',
+    component: () => import ('../views/test1/testroomPage.vue'),
+    name:'room'
   },
 
 ]

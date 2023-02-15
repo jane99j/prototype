@@ -85,8 +85,8 @@
                     <ion-label>{{ i.room_id }}</ion-label>
                     <ion-label>{{ i.room_type }}</ion-label>
                     <ion-button slot="end" :routerLink="{
-                      name: 'ceroom', params: {
-                        idroom: i.room_id, type:room_type, price:i.room_price,
+                      name: 'idroom', params: {
+                        idroom: i.room_id
                       }
                     }">
                       <ion-icon slot="icon-only" :icon="create"></ion-icon>
@@ -183,6 +183,7 @@ export default defineComponent({
     sendData() {
       console.log("sendData active");
       axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json", {
+        idroom:"",
         status:this.row.status,
         room_type:this.row.room_type,
         room_id: this.row.room_id,
@@ -190,6 +191,7 @@ export default defineComponent({
 
       })
         .then(function (response) {
+           axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${response.data.name}.json`,{idroom:response.data.name})
           console.log(response);
         })
         .catch(function (error) {

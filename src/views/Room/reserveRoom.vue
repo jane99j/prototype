@@ -28,16 +28,12 @@
           <ion-card-content>
             <ion-list>
               <ion-item>
-                <ion-label>{{ $route.params.room_id }}</ion-label>
+                <ion-label>{{ roomtype.room_id }}</ion-label>
               </ion-item>
               <ion-item>
-                <ion-label>{{ $route.params.type }}</ion-label>
+                <ion-label>{{ roomtype.room_type }}</ion-label>
               </ion-item>
 
-              <ion-item>
-                <ion-label>สถานะ</ion-label>
-                <ion-label>{{ $route.params.sta }}</ion-label>
-              </ion-item>
 
               <ion-item>
                 <ion-label>ชื่อ</ion-label>
@@ -90,7 +86,7 @@ export default defineComponent({
   },
   data() {
     return {
-      roomtype: [],
+      roomtype: [] as any,
       residents: {
         fname: "",
         lname: "",
@@ -105,13 +101,13 @@ export default defineComponent({
   methods: {
     async getDataFromDatabase() {
       try {
-        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
-        this.roomtype = Object.values(response.data);
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${this.$route.params.room_id}.json`);
+        this.roomtype = (response.data);
         console.log(this.roomtype)
         console.log(this.$route.params.roomtype)
-        this.roomtype = this.roomtype.filter((item: { room_id: string }) =>
-          item.room_id === this.$route.params.room_id
-        )
+        // this.roomtype = this.roomtype.filter((item: { room_id: string }) =>
+        //   item.room_id === this.$route.params.room_id
+        // )
         console.log(this.roomtype)
       } catch (error) {
         console.error(error);
@@ -121,12 +117,16 @@ export default defineComponent({
       console.log("sendData active");
 
       axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents.json", {
-        room_id: this.$route.params.room_id,
+        Uid:"",
+        room_id: this.roomtype.room_id,
         fname: this.residents.fname,
         lname: this.residents.lname,
         phone: this.residents.phone,
       })
-        .then(function (response) {
+          
+        .then( (response) => {
+          axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/residents/${response.data.name}.json`,{Uid:response.data.name})
+          axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${this.$route.params.room_id}.json`,{status:1})
           console.log(response);
         })
         .catch(function (error) {

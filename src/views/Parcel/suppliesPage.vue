@@ -43,7 +43,7 @@
 
   <div v-for="i in supplies" :key="i.id">
     <div v-if="i.supplies_status === 1">
-  <router-link :to="{
+  <router-link style="text-decoration: none;" :to="{
     name:'supplies1',params:{
        key:i.key 
     }
@@ -53,15 +53,15 @@
     <ion-img src="assets/box.png"></ion-img>
   </ion-thumbnail>
   <ion-list>
-  <ion-input readonly>ห้อง {{i.room_number}}</ion-input>
-  <ion-input readonly>ชื่อ {{i.own_name}}</ion-input>
-  <ion-input readonly>หมายเลขพัสดุ {{i.supplies_number}}</ion-input>
-  <ion-input readonly v-if="i.company === 1">ไปรษณีย์ไทย</ion-input>
-  <ion-input readonly v-if="i.company === 2">Kerry Express</ion-input>
-  <ion-input readonly v-if="i.company === 3">J&T EXPRESS</ion-input>
-  <ion-input readonly v-if="i.company === 4">FLASH EXPRESS</ion-input>
-  <ion-input readonly v-if="i.company === 5">BEST EXPRESS</ion-input>
-  <ion-input readonly v-if="i.company === 6">NinjaVan</ion-input>
+  <ion-input readonly>ห้อง : {{i.room_number}}</ion-input>
+  <ion-input readonly>ชื่อ : {{i.own_name}}</ion-input>
+  <ion-input readonly>หมายเลขพัสดุ : {{i.supplies_number}}</ion-input>
+  <ion-input readonly v-if="i.company === 1">ขนส่ง : ไปรษณีย์ไทย</ion-input>
+  <ion-input readonly v-if="i.company === 2">ขนส่ง : Kerry Express</ion-input>
+  <ion-input readonly v-if="i.company === 3">ขนส่ง : J&T EXPRESS</ion-input>
+  <ion-input readonly v-if="i.company === 4">ขนส่ง : FLASH EXPRESS</ion-input>
+  <ion-input readonly v-if="i.company === 5">ขนส่ง : BEST EXPRESS</ion-input>
+  <ion-input readonly v-if="i.company === 6">ขนส่ง : NinjaVan</ion-input>
 </ion-list>
 </ion-item>
 </router-link>
