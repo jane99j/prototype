@@ -98,9 +98,6 @@
                     </ion-button>
 
                   </ion-item>
-
-
-
                 </ion-grid>
               </ion-card>
             </ion-col>
@@ -146,6 +143,15 @@ export default defineComponent({
         room_type: "",
         roomclas: "",
         status: 0,
+        avg:0,
+        avg2:0,
+        notefire_f:0,
+        notefire_l:0,
+        notewater_f:0,
+        notewater_l:0,
+        
+        
+
 
       },
 
@@ -184,6 +190,13 @@ export default defineComponent({
       console.log("sendData active");
       axios.post("https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json", {
         idroom:"",
+        avg:this.row.avg,
+        avg2:this.row.avg2,
+        notefire_f:this.row.notefire_f,
+        notefire_l:this.row.notefire_l,
+        notewater_f:this.row.notewater_f,
+        notewater_l:this.row.notewater_l,
+
         status:this.row.status,
         room_type:this.row.room_type,
         room_id: this.row.room_id,
