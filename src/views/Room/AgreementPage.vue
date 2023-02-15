@@ -109,7 +109,7 @@
     </ion-modal>
     </ion-item>
 
-    <ion-button @click="sendData" routerLink="#">บันทึก</ion-button>
+    <ion-button @click="sendData" routerLink="#" expand="block" >บันทึก</ion-button>
   </ion-card>
             </ion-col>
             

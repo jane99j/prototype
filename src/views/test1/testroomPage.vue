@@ -20,7 +20,7 @@
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-grid>
   <ion-row>
-    <ion-col :sizeXs="12" :sizeMd="8"> 
+    <ion-col > 
       <ion-card>  
       </ion-card>
             <ion-card>
@@ -32,36 +32,29 @@
                     </ion-item>
             <ion-card-content>
                     <ion-item>
-                      <ion-label >เลขห้อง :{{ room.room_id }}</ion-label>
-                      <ion-input type="text" value="">{{ $route.params.IDroom }}</ion-input>
+                      <ion-input readonly>เลขห้อง : {{ room.room_id }}</ion-input>
                       </ion-item>
                       <ion-item>
                         <ion-label>ประเภทห้อง : {{ room.room_type }}</ion-label>
-                        <ion-select interface="popover" placeholder="ประเภทห้อง" slot="end">
-                          <ion-select-option value="apples">ห้องทั่วไป</ion-select-option>
-                          <ion-select-option value="oranges">ห้องแอร์</ion-select-option>
-                          <ion-select-option value="bananas">ห้องVIP</ion-select-option>
+
+                        <ion-select interface="popover" placeholder="ประเภทห้อง" slot="end" v-model="room_type">
+                          <ion-select-option  v-for="i in roomtype" :key="i.id" :value="i.room_type">{{ i.room_type }}</ion-select-option>
                         </ion-select>                  
                       </ion-item> 
-                      <ion-item>
+                      <!-- <ion-item>
                           <ion-label>กำหนดราคา :</ion-label>
                           <ion-input value="3,000"></ion-input>
-                      </ion-item>
+                      </ion-item> -->
 <!--                       
                     <ion-item>
                       <ion-label>ของใช้ภายในห้อง</ion-label>
                     </ion-item> -->
-
-                      <IonRow>
-                      <div className="ion-float-end">
-                        <ion-button routerLink="#">บันทึก</ion-button>
-                      </div> 
-                      </IonRow>                      
+                        <ion-button routerLink="/editroomPage" expand="block" @click="updateData">บันทึก</ion-button>               
             </ion-card-content>
             </ion-card>
 
-    </ion-col>
-    <ion-col :sizeXs="12" :sizeMd="4"> 
+            </ion-col>
+    <!-- <ion-col :sizeXs="12" :sizeMd="4"> 
       <ion-card>        
                 <ion-grid fixed="true">
                   <ion-item color="light">
@@ -77,7 +70,7 @@
                 </ion-grid>
     </ion-card>
 
-    </ion-col>
+    </ion-col> -->
 </ion-row>
 </ion-grid>
       </div>
@@ -90,16 +83,19 @@
 import axios from 'axios';
 import { ref,defineComponent } from 'vue';
 import { RouteLocationRaw,} from 'vue-router';
-import { IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
+import { IonSelect, IonSelectOption,IonInput,IonLabel,IonItem,IonCard, IonCardContent, IonCardHeader, IonCardTitle,IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonButton } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
   components: {
-    IonInput,IonLabel,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
+    IonSelect, IonSelectOption,IonInput,IonLabel,IonItem,IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar,IonButton,IonCard, IonCardContent, IonCardHeader,IonCardTitle
   },
   data() {
       return {
         room: {},
+        roomtype:{},
+        room_type:"",
+  
     }
   },
   methods: {
@@ -115,9 +111,30 @@ export default defineComponent({
         console.error(error);
       }
     },
+    async getroomtype() {
+    try {
+      const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_roomtype.json`);
+      this.roomtype = response.data;
+      console.log(JSON.stringify(this.roomtype))
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  updateData() {
+      axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${this.$route.params.key}.json`,{
+        room_type:this.room_type
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },   
   },
   created() {
     this.getDataFromDatabase();
+    this.getroomtype();
   }
   });
 </script>
