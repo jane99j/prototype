@@ -57,7 +57,7 @@ export default defineComponent({
     const appPages = [
     {
         title: 'ตั้งค่าห้องพัก',
-        url: '/Newlocate',
+        url: '/roompricePage',
         iosIcon: construct,
         mdIcon: construct
       },

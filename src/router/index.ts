@@ -4,7 +4,7 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
-    redirect: '/Newlocate'
+    redirect: '/homePage'
   },
   {
     path: '/:id',
