@@ -57,7 +57,7 @@
               <ion-item>
                 <label>สร้างใบแจ้งหนี้</label>
                 <ion-button slot="end" color="primary" routerLink="/bill_invoice">>>ดูใบแจ้งหนี้</ion-button>
-                <ion-button slot="end" color="medium" >ออกบิลทั้งหมด</ion-button>
+                <ion-button slot="end" color="medium" @click="bill">ออกบิลทั้งหมด</ion-button>
               </ion-item>           
               <ion-item color="light">
                 <ion-col size="3">ห้อง</ion-col>
@@ -111,13 +111,13 @@ export default defineComponent({
         console.error(error);
       }
     },
+   
   },
   created() {
       this.getDataFromDatabase();
-      //this.updateData();
-  
-
+      //this.updateData(); 
     },
+    
   
 });
 </script>

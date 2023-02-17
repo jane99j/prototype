@@ -71,10 +71,11 @@
                 },
               }">
                 <ion-card-header>
-                  <ion-card-title>{{ i.room_id }}</ion-card-title>
-                  <ion-card-subtitle></ion-card-subtitle>
+                  <ion-card-title>{{ i.room_id }}
+                    <ion-icon slot="icon-only" :icon="newspaper"></ion-icon>  </ion-card-title>                   
+
                 </ion-card-header>
-                <ion-card-content>
+                <ion-card-content>               
                   <ion-icon slot="icon-only" :icon="person" v-if="i.status "></ion-icon>
                 </ion-card-content>
                 <ion-card-content>
@@ -85,6 +86,7 @@
                     <ion-badge color="danger" v-if="i.status === 2">ค้างชำระ </ion-badge>
                     <ion-badge color="warning" v-if="i.status === 3">จองแล้ว </ion-badge>
                     <ion-badge color="tertiary" v-if="i.status === 4">รอย้ายออก </ion-badge>
+                    <ion-badge v-if="i.status === 5">ยังไม่ชำระ </ion-badge>
                   </ion-label>
                 </ion-card-content>
               </ion-card> 
@@ -108,9 +110,9 @@ import axios from 'axios';
 import { ref, defineComponent } from 'vue';
 import { RouteLocationRaw, useRoute } from 'vue-router';
 import {
-  IonBadge, IonIcon, IonCardContent, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonSearchbar, onIonViewDidEnter, IonLabel, IonSegment, IonSegmentButton,
+  IonBadge, IonIcon, IonCardContent, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow, IonCard, IonCardHeader,  IonCardTitle, IonSearchbar, onIonViewDidEnter, IonLabel, IonSegment, IonSegmentButton,
 } from '@ionic/vue';
-import { colorFill, person } from 'ionicons/icons';
+import { newspaper, person } from 'ionicons/icons';
 import { stringLiteral } from '@babel/types';
 
 
@@ -130,7 +132,7 @@ export default defineComponent({
     IonRow,
     IonCard,
     IonCardHeader,
-    IonCardSubtitle,
+    
     IonCardTitle,
     IonCardContent,
     IonSearchbar,
@@ -195,7 +197,7 @@ export default defineComponent({
   //  this.filterMenu(1)
   //  },
   setup() {
-    return { person }
+    return { person,newspaper}
   }
 
 
