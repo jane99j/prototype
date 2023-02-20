@@ -25,9 +25,10 @@
               <ion-segment-button value="all" @click="allroom()">
                 <ion-label>ห้องทั้งหมด</ion-label>
                 </ion-segment-button>
-                <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name" @click="filterRoom(i.category)">
-                <ion-label>{{ i.name }}</ion-label>
-              </ion-segment-button>
+                <ion-segment-button v-for="i in categorymenu" :key="i.name" :value="i.name"
+                    @click="filterRoom(i.status)">
+                    <ion-label>{{ i.name }}</ion-label>
+                  </ion-segment-button>
           </ion-segment> 
             </ion-toolbar>
             </ion-row>
@@ -66,11 +67,12 @@
                 <ion-col size="2"></ion-col>    
               </ion-item>
               <div v-for="i in roomtype" :key="i.id">
-              <ion-item  v-if="i.status ===5 || i.status ===2">
+              <ion-item  v-if="i.status ===5 || i.status ===2 ">
                 <ion-col size="3">{{ i.room_id }}</ion-col>               
                 <ion-col size="3" >
                   <ion-badge color="medium" v-if="i.status === 5">ยังไม่ชำระ</ion-badge>
                   <ion-badge color="danger" v-if="i.status === 2">ค้างชำระ</ion-badge>
+
                 </ion-col>   
                 <ion-col size="2">{{ i.price }}</ion-col>
                 <ion-col size="2"><ion-button color="warning" size="small"  :routerLink="{
@@ -103,19 +105,28 @@ export default defineComponent({
   data() {
       return {
         
-        roomtype: {},
-        categorymenu: [
-        {
-          name: 'ชำระแล้ว',
-          category: 1,
-        }
+        roomtype: [],
+        // categorymenu: [
+        // {
+        //   name: 'ชำระแล้ว',
+        //   status: 6,
+        // }
 
 
-      ],
-      filteredroom: {}
+      // ],
+      filteredroom: []
     }
   },
   methods: {
+    toroute(rou: RouteLocationRaw) {
+      this.$router.push(rou)
+    },
+    filterRoom(iddata: number) {
+      // console.log(iddata)
+       console.log(this.filteredroom)
+      this.filteredroom = this.roomtype.filter((item: { status: number }) => item.status === iddata)
+      // console.log(this.filteredroom)
+    },
     async getDataFromDatabase() {
       try {
         const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);

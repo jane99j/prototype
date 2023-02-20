@@ -161,7 +161,7 @@
               </ion-item>
 
               <ion-item  color="light">
-                  <p><ion-text>รับเงินทั้งหมด 5,000 {{ $route.params.payroom }}</ion-text></p>
+                  <p><ion-text>รับเงินทั้งหมด 5,000</ion-text></p>
               </ion-item>
               
               <ion-button color="success" expand="block" @click="payroomid">รับเงิน</ion-button>

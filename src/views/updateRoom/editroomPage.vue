@@ -65,11 +65,13 @@
 
                 <ion-item>
                 <ion-col size="3">{{ i.room_id }}</ion-col>
-                <ion-col size="3" v-if="i.status === 0"><ion-badge color="medium">ว่าง</ion-badge></ion-col>
-                <ion-col size="3" v-if="i.status === 1"><ion-badge color="primary">ไม่ว่าง</ion-badge></ion-col>
+                <ion-col size="3" v-if="i.status === 0"><ion-badge>ว่าง</ion-badge></ion-col>
+                <ion-col size="3" v-if="i.status === 1"><ion-badge color="secondary">ไม่ว่าง</ion-badge></ion-col>
                 <ion-col size="3" v-if="i.status === 2"><ion-badge color="danger">ค้างชำระ</ion-badge></ion-col>
                 <ion-col size="3" v-if="i.status === 3"><ion-badge color="warning">จองแล้ว</ion-badge></ion-col>
-                <ion-col size="3" v-if="i.status === 4"><ion-badge color="tertiary">จองแล้ว</ion-badge></ion-col>
+                <ion-col size="3" v-if="i.status === 4"><ion-badge color="tertiary">รอย้ายออก</ion-badge></ion-col>
+                <ion-col size="3" v-if="i.status === 5"><ion-badge>ยังไม่ชำระ</ion-badge></ion-col>
+                <ion-col size="3" v-if="i.status === 6"><ion-badge color="success">ชำระแล้ว</ion-badge></ion-col>
                 <ion-col size="6">{{ i.room_type }}</ion-col>
               
 
