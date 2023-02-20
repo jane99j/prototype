@@ -66,7 +66,7 @@
                 <ion-col size="3"></ion-col>    
               </ion-item>
               <div v-for="i in roomtype" :key="i.id">
-              <ion-item  v-if="i.status !==0 && i.status !==3">
+              <ion-item  v-if="i.status ===1 ">
                 <ion-col size="3">{{ i.room_id  }}</ion-col>               
                 <ion-col size="3">{{ i.avg }}</ion-col>  
                 <ion-col size="3">{{ i.avg2 }}</ion-col>
