@@ -103,12 +103,7 @@ export default defineComponent({
         iosIcon: cube,
         mdIcon: cube
       },
-      {
-        title: 'กำหนดเราห้องพัก',
-        url: '/roompricePage',
-        iosIcon: construct,
-        mdIcon: construct
-      },
+
 
 
       
