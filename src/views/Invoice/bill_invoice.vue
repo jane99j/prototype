@@ -65,14 +65,22 @@
                 <ion-col size="2">จำนวนเงิน</ion-col> 
                 <ion-col size="2"></ion-col>    
               </ion-item>
-              <ion-item  v-for="i in filteredroom" :key="i.no" @click="toroute(i.url)">
-                <ion-col size="3">{{ i.no }}</ion-col>               
-                <ion-col size="3" v-if="i.state === 1">
-                  <ion-badge color="medium">{{ i.status }}</ion-badge>
+              <div v-for="i in roomtype" :key="i.id">
+              <ion-item  v-if="i.status ===5 || i.status ===2">
+                <ion-col size="3">{{ i.room_id }}</ion-col>               
+                <ion-col size="3" >
+                  <ion-badge color="medium" v-if="i.status === 5">ยังไม่ชำระ</ion-badge>
+                  <ion-badge color="danger" v-if="i.status === 2">ค้างชำระ</ion-badge>
                 </ion-col>   
                 <ion-col size="2">{{ i.price }}</ion-col>
-                <ion-col size="2"><ion-button color="warning" size="small"  routerLink="/billdetails">รายระเอียด</ion-button></ion-col>                
+                <ion-col size="2"><ion-button color="warning" size="small"  :routerLink="{
+                      name: 'idroomsta', params: {
+                        payroom:i.idroom
+                    
+                      }
+                    }">รายระเอียด</ion-button></ion-col>                
               </ion-item>
+            </div>
             </ion-grid>          
           </ion-card>
       </div>
@@ -81,80 +89,47 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios';
 import { defineComponent } from 'vue';
 import { RouteLocationRaw, useRoute } from 'vue-router';
-import { IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+import { IonBadge,IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
   IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FolderPage',
-  components: {IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
+  components: {IonBadge,IonButton,IonSearchbar,IonCard,IonItem,IonGrid,IonCol,IonSegment,IonSegmentButton,IonLabel,
     IonButtons,IonContent,IonHeader,IonMenuButton,IonPage,IonTitle,IonToolbar
   },
   data() {
       return {
-        datatest: [
-          {no: '102',
-          status: 'ยังไม่ชำระ',
-          state :1,
-          price :5000,
-          type :'ห้องทั่วไป',
-          category: 1,
-          },
-          {no: '103',
-          status: 'ยังไม่ชำระ',
-          state :1,
-          price :5500,
-          type :'ห้องแอร์',
-          category: 2,
-          },
-          {no: '105',
-          status: 'ยังไม่ชำระ',
-          state :1,
-          price :5500,
-          type :'ห้องแอร์',
-          category: 2,
-          },
-          {no: '106',
-          status: 'ยังไม่ชำระ',
-          state :1,
-          price :6200,
-          type :'ห้องทั่วไป',
-          category: 3,
-          },
-        ],
+        
+        roomtype: {},
         categorymenu: [
         {
-          name: 'ห้องทั่วไป',
+          name: 'ชำระแล้ว',
           category: 1,
-        },
-        {
-          name: 'ห้องแอร์',
-          category: 2,
-        },
-        {
-          name: 'ห้องVIP',
-          category: 3,
         }
+
+
       ],
       filteredroom: {}
     }
   },
   methods: {
-    toroute(rou: RouteLocationRaw) {
-      this.$router.push(rou)
+    async getDataFromDatabase() {
+      try {
+        const response = await axios.get(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room.json`);
+        this.roomtype = response.data;
+        console.log(JSON.stringify(this.roomtype))
+      } catch (error) {
+        console.error(error);
+      }
     },
-    allroom() {
-    this.filteredroom = this.datatest
-    },
-    filterRoom(iddata: number) {
-      console.log(iddata)
-      this.filteredroom = this.datatest.filter(item => item.category === iddata)
-    }
+   
   },
-  beforeMount(){
-    this.allroom()
-  },
+  created() {
+    this.getDataFromDatabase();
+  }
   
 });
 </script>

@@ -65,12 +65,14 @@
                 <ion-col size="3">หน่วยไฟ</ion-col> 
                 <ion-col size="3"></ion-col>    
               </ion-item>
-              <ion-item  v-for="i in roomtype" :key="i.id">
+              <div v-for="i in roomtype" :key="i.id">
+              <ion-item  v-if="i.status !==0 && i.status !==3">
                 <ion-col size="3">{{ i.room_id  }}</ion-col>               
                 <ion-col size="3">{{ i.avg }}</ion-col>  
                 <ion-col size="3">{{ i.avg2 }}</ion-col>
-                <ion-col size="3"><ion-button color="medium" size="small">แก้ไข</ion-button></ion-col>                 
+                <ion-col size="3"><ion-button color="medium" size="small" @click="filteroption(i.idroom)">ออกบิล</ion-button></ion-col>                 
               </ion-item>
+            </div>
             </ion-grid>          
           </ion-card>
       </div>
@@ -110,6 +112,15 @@ export default defineComponent({
       } catch (error) {
         console.error(error);
       }
+    },
+    filteroption(idroom: string){
+      console.log(idroom,"test")
+      axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${idroom}.json`,{status:5})
+      //wait this.getDataFromDatabase();
+      //this.avg = this.meter.map((item: {note_l: number,note_f: number})=> {
+        //item.note_l + item.note_f;
+      //})
+       
     },
    
   },

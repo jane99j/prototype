@@ -243,6 +243,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import ('../views/test1/testroomPage.vue'),
     name:'room'
   },
+  {
+    path: '/billdetails/:payroom',
+    component: () => import ('../views/Invoice/billdetails.vue'),
+    name:'idroomsta'
+  },
+  
 
 ]
 

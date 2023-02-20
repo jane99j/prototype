@@ -143,12 +143,7 @@ export default defineComponent({
       this.setmeter.fire_type = "";
       this.setmeter.fire = "";
       this.setmeter.water = "";
-
-        // this.re();
     }
-    // re() {
-    //   window.location.reload();
-    // },
   },
 
 });

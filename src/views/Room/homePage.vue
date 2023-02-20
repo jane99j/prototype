@@ -87,6 +87,7 @@
                     <ion-badge color="warning" v-if="i.status === 3">จองแล้ว </ion-badge>
                     <ion-badge color="tertiary" v-if="i.status === 4">รอย้ายออก </ion-badge>
                     <ion-badge v-if="i.status === 5">ยังไม่ชำระ </ion-badge>
+                    <ion-badge color="success" v-if="i.status === 6">ชำระแล้ว </ion-badge>
                   </ion-label>
                 </ion-card-content>
               </ion-card> 

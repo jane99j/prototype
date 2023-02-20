@@ -161,10 +161,10 @@
               </ion-item>
 
               <ion-item  color="light">
-                  <p><ion-text>รับเงินทั้งหมด 5,000</ion-text></p>
+                  <p><ion-text>รับเงินทั้งหมด 5,000 {{ $route.params.payroom }}</ion-text></p>
               </ion-item>
               
-              <ion-button color="success" expand="block" @click="presentAlert" routerLink="/successfulPayment">รับเงิน</ion-button>
+              <ion-button color="success" expand="block" @click="payroomid">รับเงิน</ion-button>
               <p>{{ handlerMessage }}</p>
               <p>{{ roleMessage }}</p>
               </ion-list>
@@ -180,6 +180,7 @@
   </template>
   
   <script lang="ts">
+  import axios from 'axios';
   import { defineComponent } from 'vue';
   import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard,IonCol, IonGrid, IonRow,IonButton} from '@ionic/vue';
   
@@ -194,7 +195,29 @@
       IonTitle,
       IonToolbar,
       IonCard,IonCol, IonGrid, IonRow,IonButton
+    },
+    data() {
+    return {
+      payroom: {},
+
     }
+  },
+
+    methods: {
+
+    payroomid() {
+      console.log("sendData active");
+      axios.patch(`https://demodate-549e4-default-rtdb.asia-southeast1.firebasedatabase.app/inst_room/${this.$route.params.payroom}.json`, { status: 6 })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  },
+  
+
   });
   </script>
 <style>
