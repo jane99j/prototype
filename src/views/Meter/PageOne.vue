@@ -71,7 +71,7 @@
     <ion-col>รายชื่อห้อง</ion-col>
     <ion-col>จดก่อนหน้า</ion-col>
     <ion-col>จดล่าสุด</ion-col>
-    <ion-col>หน่วยที่ใช้</ion-col>
+    <ion-col >หน่วยที่ใช้</ion-col>
   </ion-row>
 </ion-grid>
 
